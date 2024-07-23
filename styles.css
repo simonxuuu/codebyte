@@ -7,6 +7,23 @@ body {
     height: 100vh;
 }
 
+.landing-style {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.landing-container {
+    background-color: #1a1a1a;
+     margin: 0;
+     padding: 20px;
+     display: flex;
+     gap: 20px;
+ }
+
 #hero {
     background: linear-gradient(rgb(183, 183, 183, 0.3), rgb(0, 0, 0));
     color: #ffffff;
@@ -36,16 +53,6 @@ body {
     height: 230px;
     z-index: 3;
 }
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    gap: 20px;
-}
-
 
 .column {
     flex: 1;
