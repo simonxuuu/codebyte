@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <title>CourtIQ</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter';
             height: 100%;
             background-color: #000;
             color: white;
@@ -17,7 +18,7 @@
             height: 150%;
             display: flex;
             flex-direction: column;
-            background: radial-gradient(circle at top, #5e0000 0%, #2e0000 30%, #000 70%);
+            background: radial-gradient(circle at top, #8a1010d5 0%, #8a101079 30%, #000 70%);
             align-items: center;
         }
         .top-bar {
@@ -56,10 +57,11 @@
             font-size: 14px;
         }
         main {
+            margin-top:20rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: start;
             align-items: center;
             text-align: center;
             padding: 20px;
@@ -67,11 +69,14 @@
         h1 {
             font-size: 48px;
             margin-bottom: 10px;
-            font-weight: normal;
+            font-weight: bold;
+            filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
         }
         p {
             font-size: 24px;
             margin-top: 0;
+            font-weight: normal;
+            filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
         }
     </style>
 </head>
@@ -87,7 +92,7 @@
             <button class="login-btn">Log in</button>
         </div>
         <main>
-            <h1>The NBA is waiting on you.</h1>
+            <h1 >The NBA is waiting on you.</h1>
             <p>Our AI helps you get there.</p>
         </main>
     </div>
