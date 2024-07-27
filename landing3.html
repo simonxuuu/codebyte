@@ -14,7 +14,9 @@
             height: 100%;
             background-color: #000;
             color: white;
-            overflow: hidden; /* Prevents scrollbars */
+            display:flex;
+            flex-direction: column;
+            
         }
 
         #main-text {
@@ -35,6 +37,8 @@
 
         }
 
+
+
         .container {
             height: 100%;
             display: flex;
@@ -46,9 +50,49 @@
             position: relative; 
         }
         
+        .special-button {
+            box-sizing: border-box;
+            display: inline-block; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0.5rem 1.5rem; 
+            cursor: pointer;
+            background: radial-gradient(50% 50% at 50% 50%, rgba(240, 84, 79, 0) 50.5%, rgba(255, 8, 0, 0.2) 100%), linear-gradient(180deg, rgba(240, 84, 79, 0.3) 0%, rgba(138, 48, 45, 0.3) 100%);
+            border: 0.3px solid #F0544F;
+            box-shadow: 0px 4px 10px rgba(240, 84, 79, 0.25);
+            border-radius: 3rem;
+            position: relative;
+            transition: all ease-in-out .3s;
+        }
+
+        .special-button:hover {
+            background: radial-gradient(50% 50% at 50% 50%, rgba(240, 84, 79, 0) 50.5%, rgba(255, 8, 0, 0.2) 100%), linear-gradient(180deg, rgba(240, 84, 79, 0.3) 0%, rgba(138, 48, 45, 0.3) 100%);
+            box-shadow: 0px 6px 15px rgba(240, 84, 79, 0.4);
+            border: 0.3px solid #f3b2b0;
+        }
+
+        .special-button .login-button {
+          width: 3rem;
+          height: 0.75rem;
+          font-size: 1rem;
+        }
+
+        .button-text {
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+          ;
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+            white-space: nowrap; 
+        }
+
+        
         .svg-background {
             position: absolute;
-            top: 0;
+            top: -14rem;
             left: 0;
             width: 100%;
             background-size: 100% 100%;
@@ -56,9 +100,16 @@
             display:flex;
             max-width: 100%;
             z-index: 0;
-            resize: both;
+            pointer-events: none;
+           
             overflow: auto;
         }
+
+        svg {
+            pointer-events: none;
+        }
+
+
 
         
 
@@ -71,6 +122,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 2px solid rgba(209, 209, 209, 0.1); /* Set border to transparent */
             margin-top: 1rem;
             border-radius: 1rem;
             z-index: 999;
@@ -79,16 +131,112 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
+            font-weight: 400;
         }
         nav {
             display: flex;
-            gap: 20px;
+            gap: 3rem;
         }
         nav a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 1.15rem;
+            transition: all 0.3s;
         }
+
+        .card-holder {
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            margin-top: 25rem;
+        }
+
+        .card {
+            background: linear-gradient(45deg, #5e2323, #d31818);
+            backdrop-filter: blur(7px);
+            padding: 20px;
+            border-radius: 1rem;
+            align-items: center;
+            display: inline-block;
+            justify-content: center;
+            height: 20rem;
+            width: 20rem;
+            filter: drop-shadow(0px 0px 15px rgba(230, 230, 230, 0.2));
+            text-align: center;
+            margin-bottom: 4rem;
+            
+        }
+
+        .card-text {
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .card-holder .card:nth-child(2) {
+            width: 22rem;
+            height: 23rem;
+        }
+
+        footer {
+            width: 100%;
+            
+            padding: 20px 0;
+            position: relative;
+            margin-top: 10rem;
+        }
+
+        .footer-line {
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            position: relative;
+        }
+
+        
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .social-icons {
+      
+            display: flex;
+            gap: 4rem;
+            justify-content: center;
+            height: 10rem;
+            width: 10rem;
+            margin-bottom: 10px;
+        }
+
+        .icon-link img {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .copyright {
+            font-size: 1rem;
+            color: white;
+        }
+
+        .headstarter-logo {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            width: 15rem;
+            height: auto;
+        }
+
+        nav a:hover {
+          color: rgba(255, 255, 255, 1);
+        }
+
         .login-btn {
             background-color: rgba(170, 0, 0, 0.5);
             color: white;
@@ -98,6 +246,23 @@
             cursor: pointer;
             font-size: 14px;
         }
+        .icon-link img {
+  
+          filter: invert(1);
+        }
+
+        line-separator {
+          /* LineSeperator */
+
+          position: absolute;
+          width: 461px;
+          height: 20.94px;
+          left: 13px;
+          top: 64px;
+
+
+        }
+
         main {
             margin-top:20rem;
             flex-grow: 1;
@@ -109,13 +274,15 @@
             padding: 20px;
         }
         h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-size: 4rem;
+            margin-bottom: 1rem;
             font-weight: 1300;
             filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
         }
+
         p {
-            font-size: 24px;
+            margin-top: 0.6rem;
+            font-size: 2.5rem;
             margin-bottom: 100px;
             font-weight: normal;
             filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
@@ -238,12 +405,55 @@
                 <a href="hello.html">Coaches</a>
                 <a href="hello.html">Recruiters</a>
             </nav>
-            <button class="login-btn">Log in</button>
+            <button class="special-button login-button">
+              <span class="button-text login-button">Login</span>
+            </button>
         </div>
         <main>
             <h1>The NBA is waiting on you.</h1>
             <p>Our AI helps you get there.</p>
+            <button class="special-button">
+              <span class="button-text">Join Waitlist</span>
+            </button> 
+
+            <div class="card-holder">
+              <div class="card">
+                  <h2>Real-Time</h2>
+                  <p class="card-text">Our AI helps you get scouted by the best teams in the NBA.</p>
+              </div>
+              <div class="card">
+                  <h2>Analysis</h2>
+                  <p class="card-text">Our AI helps you improve your game and get better.</p>
+              </div>
+              <div class="card">
+                  <h2>Insights</h2>
+                  <p class="card-text">Our AI helps you get drafted by the best teams in the NBA.</p>
+              </div>
+        </div>
+
         </main>
-    </div>
+        
+    
+
+    <footer>
+      
+        
+      <div class="footer-content">
+        <svg width="1000" height="100" viewBox="0 0 460 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M236 10C235.448 10 235 10.4477 235 11C235 11.5523 235.448 12 236 12V10ZM236 12L461 12V10L236 10V12Z" fill="white"/>
+          <path d="M225 13C225.552 13 226 12.5523 226 12C226 11.4477 225.552 11 225 11V13ZM0 13H225V11H0V13Z" fill="white"/>
+          <path d="M225 12L242.492 21.9443" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M218.5 1L235.992 10.9443" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="social-icons">
+              <a href="#" class="icon-link"><img src="assets/instagram-icon.png" alt="Instagram"></a>
+              <a href="#" class="icon-link"><img src="assets/linkedin-icon.png" alt="LinkedIn"></a>
+              <a href="#" class="icon-link"><img src="assets/email-icon.png" alt="Email"></a>
+          </div>
+          <div class="copyright">© CourtIQ. All rights reserved.</div>
+      </div>
+      <img src="https://framerusercontent.com/images/fP9Evsnp42PXLTXr2lEJDVDs34Y.png" alt="Headstarter" class="headstarter-logo">
+    </footer>
 </body>
+
 </html>
