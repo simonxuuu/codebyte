@@ -6,7 +6,6 @@
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <title>CourtIQ - Coming Soon</title>
     <link href="appstyle.css" rel="stylesheet">
-    
 </head>
 <body>
     <div class="container radial-center">
@@ -28,7 +27,34 @@
                 <input type="email" placeholder="your.email@email.com" required class="special-button">
                 <button type="submit" class="special-button">Submit</button>
             </form>
+            <span class="api-response"></span>
         </main>
     </div>
 </body>
+
+
+<script>
+    function submit_email(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+        fetch("https://courtiq-801992a10bd9.herokuapp.com/submit-email", {
+            method: "POST",
+            body: JSON.stringify({
+                email: document.querySelector("input[type=email]").value
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            document.querySelector(".api-response").textContent = json.message || "Email submitted successfully!";
+        })
+        .catch((error) => {
+            document.querySelector(".api-response").textContent = "An error occurred. Please try again.";
+        });
+    }
+
+    document.querySelector(".email-form").addEventListener("submit", submit_email);
+</script>
+
 </html>

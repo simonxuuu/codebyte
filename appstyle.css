@@ -326,6 +326,13 @@ input[type="email"]:focus {
     background: radial-gradient(50% 50% at 50% 50%, rgba(240, 84, 79, 0.1) 50.5%, rgba(255, 8, 0, 0.3) 100%), linear-gradient(180deg, rgba(240, 84, 79, 0.4) 0%, rgba(138, 48, 45, 0.4) 100%); /* Slightly brighter background on focus */
   }
 
+.api-response {
+    font-size: 1rem;
+    color: white;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
 
 a {
     color: white;
