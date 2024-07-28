@@ -42,14 +42,30 @@
                 email: document.querySelector("input[type=email]").value
             }),
             headers: {
-                "Content-type": "application/json; charset=UTF-8"
+                "Content-type": "application/json"
             }
         })
-        .then((response) => response.json())
+        .then((response) => {
+            console.log("Response status:", response.status);
+            if (response.status === 204 || response.status === 201) {
+                document.querySelector(".api-response").textContent = "Thank you for joining the waitlist! We'll notify you when we launch.";
+                return;
+            } else if (response.status === 400) {
+                document.querySelector(".api-response").textContent = "Sorry, that doesn't look like a valid email address.";
+                return;
+            } else if (!response.ok) {
+                throw new Error("We're having an issue on our end, try again later.");
+            }
+            return response.json();
+        })
         .then((json) => {
-            document.querySelector(".api-response").textContent = json.message || "Email submitted successfully!";
+            if (json) {
+                console.log("Response JSON:", json);
+                document.querySelector(".api-response").textContent = json.message || "Email submitted successfully!";
+            }
         })
         .catch((error) => {
+            console.error("Fetch error:", error);
             document.querySelector(".api-response").textContent = "An error occurred. Please try again.";
         });
     }
