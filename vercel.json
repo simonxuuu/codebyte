@@ -1,7 +1,0 @@
-{
-    "rewrites": [
-      { "src": "/", "dest": "/landing3.html"}
-    ],
-
-    "cleanUrls": true
-  }
