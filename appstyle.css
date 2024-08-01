@@ -242,6 +242,35 @@ nav a:hover {
   color: rgba(255, 255, 255, 1);
 }
 
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.form-title {
+    width: 17.5rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.login-container input  {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+
+}
+
+.login-container .special-button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
 .login-btn {
     background-color: rgba(170, 0, 0, 0.5);
     color: white;
@@ -347,4 +376,114 @@ input[type="email"]:focus {
 
 button[type="submit"] {
     width: 12rem;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    height: 100%;
+    background-color: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    .top-bar {
+        width: 70%;
+    }
+
+    .card-holder {
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 15rem;
+    }
+
+    .card, .card-holder .card:nth-child(2) {
+        width: 80%;
+        max-width: 20rem;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .top-bar {
+        width: 30%;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+        margin-bottom: 50px;
+    }
+
+    .email-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input[type="email"], button[type="submit"] {
+        width: 90%;
+        max-width: 25rem;
+    }
+
+    .social-icons {
+        gap: 2rem;
+    }
+
+    .icon-link img {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .headstarter-logo {
+        width: 10rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 1.2rem;
+    }
+
+    .special-button {
+        padding: 0.4rem 1rem;
+    }
+
+    .button-text {
+        font-size: 16px;
+    }
 }
