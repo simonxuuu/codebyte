@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -6,9 +7,9 @@ export default function Home() {
     <main>
         <h1>The NBA is waiting on you.</h1>
         <p>Our AI helps you get there.</p>
-        <a href="/waitlist.html" className="special-button">
-          <span className="button-text">Join Waitlist</span>
-        </a> 
+       
+
+        <Link href="/waitlist" className = "special-button"><span className="button-text">Join Waitlist</span></Link>
 
         <div className="card-holder">
           <div className="card">

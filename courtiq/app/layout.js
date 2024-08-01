@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import '../styles/globals.css';
 import TopBar from './TopBar';
+import Footer from './Footer';
 
 export const metadata = {
   title: 'CourtIQ',
@@ -16,13 +17,17 @@ export default function Layout({ children }) {
         <meta name="description" content={metadata.description}/>
       </head>
     <body>
-    <div class="container">
+    <div className ="container">
       <TopBar />
      
           {children}
-      
+          <Footer />
     </div>
+    
     </body>
+
+   
+    
     </html>
   );
 }
