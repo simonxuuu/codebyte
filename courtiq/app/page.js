@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
+import SvgBackground from "./SvgBackground";
 
 export default function Home() {
   return (
+    
     <main>
+      <SvgBackground />
         <h1>The NBA is waiting on you.</h1>
         <p>Our AI helps you get there.</p>
        
