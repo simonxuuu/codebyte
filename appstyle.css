@@ -82,6 +82,11 @@ body, html {
   font-size: 1rem;
 }
 
+form .login-form {
+    display: flex;
+    flex-direction: column;
+}
+
 .button-text {
     font-family: 'Inter', sans-serif;
     font-style: normal;

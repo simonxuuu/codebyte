@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/globals.css';
 
 export default function Waitlist() {
@@ -35,9 +35,8 @@ export default function Waitlist() {
     }
   };
 
-
   return (
-    <div>
+    <div className="waitlist-container">
       <form className="email-form" onSubmit={submitEmail}>
         <input type="email" name="email" placeholder="your.email@email.com" required className="special-button" />
         <button type="submit" className="special-button">Submit</button>

@@ -82,6 +82,44 @@ height: 0.75rem;
 font-size: 1rem;
 }
 
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.form-title {
+  width: 17.5rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.login-container input  {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+
+}
+
+.login-container .special-button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.login-btn {
+  background-color: rgba(170, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
 .button-text {
   font-family: 'Inter', sans-serif;
   font-style: normal;
@@ -329,8 +367,7 @@ input[type="email"]:focus {
 .api-response {
   font-size: 1rem;
   color: white;
-  font-style: italic;
-  margin-top: 1rem;
+  margin-top: 5rem;
 }
 
 
@@ -348,3 +385,17 @@ input[type="email"]:focus {
 button[type="submit"] {
   width: 12rem;
 }
+
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
