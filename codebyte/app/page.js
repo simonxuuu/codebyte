@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Head from 'next/head';
 import Image from "next/image";
 import Link from "next/link";
 import SvgBackground from "./SvgBackground";
@@ -27,9 +28,10 @@ export default function Home() {
 
   return (
     <main>
-      <SvgBackground />
-      <h1>The NBA is waiting on you.</h1>
-      <p>Our AI helps you get there.</p>
+      
+       {/*<SvgBackground /> */}
+      <h1>It's Duolingo, but for coding.</h1>
+      <p>Learn to code in as fast as 3 weeks.</p>
 
       {!showWaitlist ? (
         <Link href="#" className="special-button" onClick={handleClick}>

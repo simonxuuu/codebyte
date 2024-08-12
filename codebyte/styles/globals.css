@@ -1,27 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=VT323&display=swap');
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Inter';
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   height: 100%;
-  background-color: #000;
+  
   color: white;
   display:flex;
   flex-direction: column;
-  
+  --topBarColor : rgba(255, 255, 255, 0.021);
+  --topBarGlow: rgba(9, 209, 99, 0.301);
+  --darker : rgb(255,255,255);
+  --dark : rgb(14, 13, 15);
+  --light : rgb(255,255,255);
+  --subTextColor : rgb(146, 146, 146);
+  --accent1 : rgb(9, 209, 116);
+  --accent1Btn : rgba(9, 119, 86, 0.521);
+  --accent2 : rgb(255,255,255);
+  background-color: var(--dark)
 }
-
+.vt323 {
+  font-family: "VT323", monospace;
+  font-size: larger;
+  color:var(--accent1);
+}
 #main-text {
 
   position: relative;
   top: 50%;
 
-  font-family: 'Inter';
+  
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-
+ 
   color: #FFFFFF;
 
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -59,21 +76,25 @@ body, html {
   justify-content: center;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(240, 84, 79, 0) 50.5%, rgba(255, 8, 0, 0.2) 100%), linear-gradient(180deg, rgba(240, 84, 79, 0.3) 0%, rgba(138, 48, 45, 0.3) 100%);
-  border: 0.3px solid #F0544F;
-  box-shadow: 0px 4px 10px rgba(240, 84, 79, 0.25);
+  background: radial-gradient(rgba(240, 84, 79, 0),var(--accent1Btn));
+  border: 0.3px solid var(--accent1);
+  box-shadow: 0px 4px 10px var(--accent1Btn);
   border-radius: 3rem;
-  transition: all ease-in-out .3s;
+ 
   transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s;
+  transition: all ease-in-out 0.3s;
   color: #FFFFFF;
   font-size: 1rem;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  
 }
 
 .special-button:hover {
-  background: radial-gradient(50% 50% at 50% 50%, rgba(240, 84, 79, 0) 50.5%, rgba(255, 8, 0, 0.2) 100%), linear-gradient(180deg, rgba(240, 84, 79, 0.3) 0%, rgba(138, 48, 45, 0.3) 100%);
-  box-shadow: 0px 6px 15px rgba(240, 84, 79, 0.4);
-  border: 0.3px solid #f3b2b0;
+  scale:1.1;
+  transition: all 0.25s;
+  
+  box-shadow: 0px 6px 15px var(--accent1Btn);
+  
 }
 
 .special-button .login-button {
@@ -121,7 +142,7 @@ font-size: 1rem;
 }
 
 .button-text {
-  font-family: 'Inter', sans-serif;
+  
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -159,22 +180,28 @@ svg {
 .top-bar {
   width: 50%;
   position:fixed;
-  background: rgba(255, 255, 255, 0.1);
+  
   backdrop-filter: blur(7px);
+  
+  border: 3px solid transparent;
+  background: var(--topBarColor);
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid rgba(209, 209, 209, 0.1); /* Set border to transparent */
+  /* border: 2px solid rgba(255, 255, 255, 0.322); */  
+  /* Set border to transparent */
   margin-top: 1rem;
   border-radius: 1rem;
   z-index: 999;
 }
 
+
 .logo {
   font-size: 24px;
   font-weight: bold;
-  font-weight: 400;
+  font-weight: 500;
+  
 }
 nav {
   display: flex;
@@ -315,8 +342,10 @@ main {
   align-items: center;
   text-align: center;
   padding: 20px;
+  
 }
 h1 {
+  color:var(--light);
   font-size: 4rem;
   margin-bottom: 1rem;
   font-weight: 1300;
@@ -336,6 +365,7 @@ p {
   margin-bottom: 100px;
   font-weight: normal;
   filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
+  color:var(--subTextColor);
 }
 
 h3 {

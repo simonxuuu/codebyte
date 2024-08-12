@@ -5,7 +5,7 @@ const TopBar = () => {
   return (
     <div className="top-bar">
       <Link href="/landing3.html" className="logo">
-        CourtIQ
+        Code<span className='vt323' style={{marginLeft:'0.1rem'}}>byte</span>
       </Link>
       <nav>
         <Link href="/hello.html">
