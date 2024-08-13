@@ -10,7 +10,7 @@ import Testimonials from './Testimonials';
 import Features from './Features';
 import FAQ from './FAQ';
 import CardHolder from './CardHolder';
-
+import styles from './page.module.css'
 
 export default function Home() {
   const [showWaitlist, setShowWaitlist] = useState(false);
@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main className={styles.main}>
       
        {/*<SvgBackground /> */}
       <h1>Why spend thousands on bootcamps?</h1>

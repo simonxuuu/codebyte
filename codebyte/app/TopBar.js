@@ -20,8 +20,8 @@ const TopBar = () => {
       </Link>
 
       <nav>
-        <Link href="/hello.html">
-          Players
+        <Link href="/dashboard">
+          DashboardTest
         </Link>
         <Link href="/hello.html">
           Coaches

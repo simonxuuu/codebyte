@@ -1,0 +1,35 @@
+.lessonComponent{
+    background-color: rgb(70, 70, 70);
+    filter:drop-shadow(0.3rem 0.5rem 0 rgba(255, 255, 255, 0.034));
+    border:0;
+    border-radius: 999px;
+    width: 80px;
+    height:80px;
+    margin:max(5px,0.3vw);
+    color : var(--light);
+    font-family: "VT323", monospace;
+    font-size: larger;
+}
+.lessonPageTitle{
+    filter:drop-shadow(1rem 2rem 0.4rem var(--darker));
+    
+    
+    letter-spacing: 0.5rem;
+}
+main {
+    margin-top:7rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    
+  }
+  #percentageComplete {
+    color:var(--accent1);
+    font-size: 25px;
+    filter:drop-shadow(0rem 0rem 0.3rem var(--accent1));
+    margin-bottom: 5rem;
+  }

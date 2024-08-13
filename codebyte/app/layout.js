@@ -1,7 +1,9 @@
 // courtiq/app/layout.js
 import Link from 'next/link';
+
 import '../styles/globals.css';
 import '../styles/hamburgers.css';
+import './dashboard/dashboard.css';
 import TopBar from './TopBar';
 import Footer from './Footer';
 import Head from 'next/head';

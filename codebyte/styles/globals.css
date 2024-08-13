@@ -14,13 +14,16 @@ body,html{
   font-style: normal;
   --topBarColor : rgba(255, 255, 255, 0.021);
   --topBarGlow: rgba(9, 209, 99, 0.301);
-  --darker : rgb(255,255,255);
-  --dark : rgb(14, 13, 15);
-  --light : rgb(255,255,255);
+  --darker : rgb(10, 10, 10);
+  --dark : rgb(20, 20, 20);
+  --light : rgb(224, 224, 224);
   --subTextColor : rgb(146, 146, 146);
   --accent1 : rgb(9, 209, 116);
   --accent1Btn : rgba(9, 119, 86, 0.521);
   --accent2 : rgb(255,255,255);
+  --lessonLocked : rgb(32, 32, 32);
+  --lessonComplete : rgb(1,1,1);
+  --lessonInComplete : rgb(24, 136, 84);
   background-color: var(--dark);
 }
 body{
@@ -95,7 +98,7 @@ header {
  
   transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s;
   transition: all ease-in-out 0.3s;
-  color: #FFFFFF;
+  color: #6d1a1a;
   font-size: 1rem;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   
@@ -288,17 +291,7 @@ top: 64px;
 
 
 }
-main {
-  margin-top:20rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  
-}
+
 h1 {
   color:var(--light);
   font-size: 4rem;
