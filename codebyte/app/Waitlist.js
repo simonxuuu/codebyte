@@ -38,8 +38,8 @@ export default function Waitlist() {
   return (
     <div className="waitlist-container">
       <form className="email-form" onSubmit={submitEmail}>
-        <input type="email" name="email" placeholder="your.email@email.com" required className="special-button" />
-        <button type="submit" className="special-button">Submit</button>
+        <input type="email" name="email" placeholder="your.email@email.com" required className="button" />
+        <button type="submit" className="button">Submit</button>
       </form>
       <span className="api-response">{apiResponse}</span>
     </div>

@@ -15,7 +15,7 @@ const TopBar = () => {
 
   return (
     <header>
-      <Link href="/landing3.html" className="logo">
+      <Link href="/" className="logo">
         Code<span className='pixelText' style={{marginLeft:'0.1rem'}}>byte</span>
       </Link>
 

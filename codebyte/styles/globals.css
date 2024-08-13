@@ -100,18 +100,14 @@ header {
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   
 }
-.special-button:hover {
+.button:hover {
   scale:1.1;
   transition: all 0.25s;
   
   box-shadow: 0px 6px 15px var(--accent1Btn);
   
 }
-.special-button .login-button {
-width: 3rem;
-height: 0.75rem;
-font-size: 1rem;
-}
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -131,7 +127,7 @@ font-size: 1rem;
   margin: 10px 0;
 
 }
-.login-container .special-button {
+.login-container .button  {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -181,7 +177,7 @@ font-size: 1rem;
 }
 nav {
   display: none;
-  gap: 0rem;
+  gap: 1rem;
 }
 nav a {
   color: rgba(255, 255, 255, 0.7);
@@ -412,6 +408,9 @@ button[type="submit"] {
 }
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
+  nav{
+    display: flex;
+  }
   header {
     width: 75%;
     border: 0.1vw solid rgba(255, 255, 255, 0.13);
@@ -426,6 +425,8 @@ button[type="submit"] {
 @media only screen and (min-width: 1280px) {
   header {
     width: 55%;
-    
+    padding: 13px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }

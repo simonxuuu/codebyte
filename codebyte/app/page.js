@@ -34,7 +34,7 @@ export default function Home() {
       <p>Learn to code in as fast as 3 weeks.</p>
 
       {!showWaitlist ? (
-        <Link href="#" className="special-button" onClick={handleClick}>
+        <Link href="#" className="button" onClick={handleClick}>
           <span className="button-text">Join Waitlist</span>
         </Link>
       ) : (

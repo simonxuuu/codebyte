@@ -23,7 +23,7 @@ const Footer = () => {
             <Image src="/assets/email-icon.png" alt="Email" width={24} height={24} />
           </Link>
         </div>
-        <div className="copyright">© CourtIQ. All rights reserved.</div>
+        <div className="copyright">© Codebyte. All rights reserved.</div>
       </div>
       <Image src="/assets/headstarter-icon.png" alt="Headstarter" width={100} height={50} className="headstarter-logo" />
     </footer>
