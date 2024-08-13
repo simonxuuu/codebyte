@@ -1,12 +1,24 @@
-// courtiq/app/TopBar.js
+'use client';
 import Link from 'next/link';
-
+import { useEffect, useState,useRef } from 'react';
 const TopBar = () => {
+
+
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const hamburger = useRef(null);
+  useEffect(()=>{
+    //add open mobile menu logic
+    console.log(isMobileMenuOpen);
+    if(hamburger.current){hamburger.current.classList.toggle("is-active");}
+  },[isMobileMenuOpen]);
+
+
   return (
-    <div className="top-bar">
+    <header>
       <Link href="/landing3.html" className="logo">
-        Code<span className='vt323' style={{marginLeft:'0.1rem'}}>byte</span>
+        Code<span className='pixelText' style={{marginLeft:'0.1rem'}}>byte</span>
       </Link>
+
       <nav>
         <Link href="/hello.html">
           Players
@@ -18,10 +30,13 @@ const TopBar = () => {
           Recruiters
         </Link>
       </nav>
-      <Link href="/login.html" className="special-button login-button">
-        <span className="button-text login-button">Login</span>
-      </Link>
-    </div>
+
+      <button ref={hamburger} className="hamburger hamburger--spin " type="button"  onClick={()=>{setMobileMenuOpen(isMobileMenuOpen => !isMobileMenuOpen);}}>
+        <span className="hamburger-box">
+          <span className="hamburger-inner"></span>
+        </span>
+      </button>
+    </header>
   );
 };
 

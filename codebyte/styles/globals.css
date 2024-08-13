@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=VT323&display=swap');
-body, html {
-  margin: 0;
+body,html{
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-x:hidden;
+  margin:0;
+  box-sizing: border-box;
   padding: 0;
+  border: 0;
+  margin: 0;
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  height: 100%;
-  
-  color: white;
-  display:flex;
-  flex-direction: column;
   --topBarColor : rgba(255, 255, 255, 0.021);
   --topBarGlow: rgba(9, 209, 99, 0.301);
   --darker : rgb(255,255,255);
@@ -20,13 +21,34 @@ body, html {
   --accent1 : rgb(9, 209, 116);
   --accent1Btn : rgba(9, 119, 86, 0.521);
   --accent2 : rgb(255,255,255);
-  background-color: var(--dark)
+  background-color: var(--dark);
 }
-.vt323 {
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pixelText{
   font-family: "VT323", monospace;
   font-size: larger;
   color:var(--accent1);
 }
+header {
+  width: 100%;
+  position:fixed;
+  
+  backdrop-filter: blur(7px);
+  box-sizing: border-box;
+  border-bottom: max(1.5px,0.5vw) solid rgba(255, 255, 255, 0.13);
+  background: var(--topBarColor);
+  padding: max(13px,1vw);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0;
+  z-index: 999;
+}
+
 #main-text {
 
   position: relative;
@@ -47,15 +69,6 @@ body, html {
 
 
 
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* 
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 65, 65, 0.198) 0%, rgba(0, 0, 0, 0.2) 100%), #000000;
-  *//* Background */
-}
 
 .container.radial-center {
   height: 100%;
@@ -68,8 +81,7 @@ body, html {
 
 }
 
-
-.special-button {
+.button {
   box-sizing: border-box;
   display: inline-block;
   align-items: center;
@@ -88,7 +100,6 @@ body, html {
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   
 }
-
 .special-button:hover {
   scale:1.1;
   transition: all 0.25s;
@@ -96,13 +107,11 @@ body, html {
   box-shadow: 0px 6px 15px var(--accent1Btn);
   
 }
-
 .special-button .login-button {
 width: 3rem;
 height: 0.75rem;
 font-size: 1rem;
 }
-
 .login-container {
   display: flex;
   flex-direction: column;
@@ -110,27 +119,23 @@ font-size: 1rem;
   justify-content: center;
   gap: 1rem;
 }
-
 .form-title {
   width: 17.5rem;
   font-size: 2rem;
   margin-top: 1rem;
   text-align: center;
 }
-
 .login-container input  {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
 
 }
-
 .login-container .special-button {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
 }
-
 .login-btn {
   background-color: rgba(170, 0, 0, 0.5);
   color: white;
@@ -140,7 +145,6 @@ font-size: 1rem;
   cursor: pointer;
   font-size: 14px;
 }
-
 .button-text {
   
   font-style: normal;
@@ -152,8 +156,6 @@ font-size: 1rem;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   white-space: nowrap; 
 }
-
-
 .svg-background {
   position: absolute;
   top: -14rem;
@@ -169,32 +171,6 @@ font-size: 1rem;
   overflow: auto;
 }
 
-svg {
-  pointer-events: none;
-}
-
-
-
-
-
-.top-bar {
-  width: 50%;
-  position:fixed;
-  
-  backdrop-filter: blur(7px);
-  
-  border: 3px solid transparent;
-  background: var(--topBarColor);
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* border: 2px solid rgba(255, 255, 255, 0.322); */  
-  /* Set border to transparent */
-  margin-top: 1rem;
-  border-radius: 1rem;
-  z-index: 999;
-}
 
 
 .logo {
@@ -204,8 +180,8 @@ svg {
   
 }
 nav {
-  display: flex;
-  gap: 3rem;
+  display: none;
+  gap: 0rem;
 }
 nav a {
   color: rgba(255, 255, 255, 0.7);
@@ -213,7 +189,6 @@ nav a {
   font-size: 1.15rem;
   transition: all 0.3s;
 }
-
 .card-holder {
   background-color: transparent;
   display: flex;
@@ -222,7 +197,6 @@ nav a {
   gap: 4rem;
   margin-top: 25rem;
 }
-
 .card {
   background: linear-gradient(225deg, #0e0e0e, #000000);
   backdrop-filter: blur(7px);
@@ -238,18 +212,15 @@ nav a {
   margin-bottom: 4rem;
   
 }
-
 .card-text {
   font-size: 1.5rem;
   font-weight: 400;
   text-align: center;
 }
-
 .card-holder .card:nth-child(2) {
   width: 22rem;
   height: 23rem;
 }
-
 footer {
   width: 100%;
   
@@ -257,16 +228,12 @@ footer {
   position: relative;
   margin-top: 10rem;
 }
-
 .footer-line {
   width: 100%;
   height: 2px;
   background-color: white;
   position: relative;
 }
-
-
-
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -274,7 +241,6 @@ footer {
   align-items: center;
   margin-top: 20px;
 }
-
 .social-icons {
 
   display: flex;
@@ -284,17 +250,14 @@ footer {
   width: 10rem;
   margin-bottom: 10px;
 }
-
 .icon-link img {
   width: 3rem;
   height: 3rem;
 }
-
 .copyright {
   font-size: 1rem;
   color: white;
 }
-
 .headstarter-logo {
   position: absolute;
   bottom: 1rem;
@@ -302,11 +265,9 @@ footer {
   width: 15rem;
   height: auto;
 }
-
 nav a:hover {
 color: rgba(255, 255, 255, 1);
 }
-
 .login-btn {
   background-color: rgba(170, 0, 0, 0.5);
   color: white;
@@ -320,7 +281,6 @@ color: rgba(255, 255, 255, 1);
 
 filter: invert(1);
 }
-
 line-separator {
 /* LineSeperator */
 
@@ -332,7 +292,6 @@ top: 64px;
 
 
 }
-
 main {
   margin-top:20rem;
   flex-grow: 1;
@@ -417,15 +376,56 @@ button[type="submit"] {
 }
 
 
+
+
+
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s forwards;
   transition: opacity 1s ease-in-out;
 }
-
 @keyframes fadeIn {
   to {
     opacity: 1;
   }
 }
 
+
+
+
+@media only screen and (min-width: 425px) {
+  header {
+    width: 100%;
+    border-bottom: max(1.5px,0.4vw) solid rgba(255, 255, 255, 0.13);
+    padding: max(13px,1vw);
+    border-radius: 0;
+  }
+}
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 768px) {
+  header {
+    width: 100%;
+    border-bottom: max(1.5px,0.25vw) solid rgba(255, 255, 255, 0.13);
+    padding: max(13px,1vw);
+    border-radius: 0;
+  }
+}
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 1024px) {
+  header {
+    width: 75%;
+    border: 0.1vw solid rgba(255, 255, 255, 0.13);
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 1rem;
+    margin-top:1rem;
+  }
+}
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 1280px) {
+  header {
+    width: 55%;
+    
+  }
+}

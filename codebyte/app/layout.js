@@ -1,28 +1,28 @@
 // courtiq/app/layout.js
 import Link from 'next/link';
 import '../styles/globals.css';
+import '../styles/hamburgers.css';
 import TopBar from './TopBar';
 import Footer from './Footer';
-
+import Head from 'next/head';
 export const metadata = {
-  title: 'CourtIQ',
+  title: 'Codebyte',
   description: 'CourtIQ is a platform for basketball players, coaches, and recruiters.',
 };
 
 export default function Layout({ children }) {
   return (
     <html>
-      <head>
+     <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description}/>
-      </head>
+      </Head>
     <body>
-    <div className ="container">
+   
       <TopBar />
-     
           {children}
-          <Footer />
-    </div>
+        <Footer />
+    
     
     </body>
 

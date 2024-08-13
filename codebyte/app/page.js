@@ -30,7 +30,7 @@ export default function Home() {
     <main>
       
        {/*<SvgBackground /> */}
-      <h1>It's Duolingo, but for coding.</h1>
+      <h1>Why spend thousands on bootcamps?</h1>
       <p>Learn to code in as fast as 3 weeks.</p>
 
       {!showWaitlist ? (
