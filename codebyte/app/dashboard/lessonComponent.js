@@ -18,7 +18,7 @@ const LessonComponent = ({data,updateLessonData,lessonSection,allLessons,updateC
         );
         updateLessonData(updatedLessons);
         updateCompleteLessons(data.lessonKey+1);
-        fetch("http://localhost:8080/update-progress", {
+        fetch("https://codebyte-1b9af19e473e.herokuapp.com/update-progress", {
             method: "POST",
             body: JSON.stringify({email:curEmail,sectionId:lessonSection,completedID:data['_id']}),
             headers: {

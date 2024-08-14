@@ -18,7 +18,7 @@ const Dashboard = () => {
       onAuthStateChanged(auth, (user) => {
         if (user) {
           setEmail(user.email);
-          fetch("http://localhost:8080/login-account", {
+          fetch("https://codebyte-1b9af19e473e.herokuapp.com/login-account", {
             method: "POST",
             body: JSON.stringify({email:user.email,uid:user.uid }),
             headers: {
