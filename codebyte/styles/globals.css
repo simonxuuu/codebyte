@@ -18,7 +18,7 @@ body,html{
   --dark : rgb(20, 20, 20);
   --light : rgb(224, 224, 224);
   --subTextColor : rgb(146, 146, 146);
-  --accent1 : rgb(9, 209, 116);
+  --accent1 : rgb(24, 204, 120);
   --accent1Btn : rgba(9, 119, 86, 0.521);
   --accent2 : rgb(255,255,255);
   --lessonLocked : rgb(32, 32, 32);
@@ -70,9 +70,28 @@ header {
 
 }
 
+.createAccHomepageForm{
+  
+  
+  width: 70%;
+  box-sizing: border-box;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap:15px;
+  align-items: center;
 
-
-
+}
+.createAccHomepageForm input{
+ max-width: 100%;
+ width:100%;
+ text-align: left;
+ 
+}
+::placeholder {
+  color: #333333;
+  opacity: 0.6; /* Firefox */
+}
 .container.radial-center {
   height: 100%;
   display: flex;
@@ -86,19 +105,26 @@ header {
 
 .button {
   box-sizing: border-box;
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  white-space: nowrap; 
   padding: 0.5rem 1.5rem;
   cursor: pointer;
-  background: radial-gradient(rgba(240, 84, 79, 0),var(--accent1Btn));
-  border: 0.3px solid var(--accent1);
-  box-shadow: 0px 4px 10px var(--accent1Btn);
+  background-color: var(--accent1);
+  border: 0;
+
+  filter: drop-shadow( 0px 0px 1.5rem var(--accent1Btn));
   border-radius: 3rem;
  
   transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s;
   transition: all ease-in-out 0.3s;
-  color: #6d1a1a;
+  
   font-size: 1rem;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   
@@ -107,7 +133,7 @@ header {
   scale:1.1;
   transition: all 0.25s;
   
-  box-shadow: 0px 6px 15px var(--accent1Btn);
+  
   
 }
 
@@ -136,7 +162,7 @@ header {
   margin: 10px 0;
 }
 .login-btn {
-  background-color: rgba(170, 0, 0, 0.5);
+ 
   color: white;
   border: none;
   padding: 8px 16px;
@@ -149,7 +175,7 @@ header {
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-;
+
   text-align: center;
   color: #FFFFFF;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -326,13 +352,13 @@ h3 {
 
 input[type="email"] {
   width: 25rem;
-  background-color: transparent;
+ 
 }
 
 input[type="email"]:focus {
   outline: none;
-  box-shadow: 0px 10px 25px rgba(240, 84, 79, 0.8); 
-  background: radial-gradient(50% 50% at 50% 50%, rgba(240, 84, 79, 0.1) 50.5%, rgba(255, 8, 0, 0.3) 100%), linear-gradient(180deg, rgba(240, 84, 79, 0.4) 0%, rgba(138, 48, 45, 0.4) 100%); /* Slightly brighter background on focus */
+ 
+  
 }
 
 .api-response {
@@ -348,10 +374,7 @@ a {
 }
 
 
-input[type="email"]:focus {
-  outline: none;
-  box-shadow: 0px 6px 18px rgba(240, 84, 79, 0.6); 
-}
+
 
 button[type="submit"] {
   width: 12rem;

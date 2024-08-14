@@ -11,7 +11,7 @@ export default function Waitlist() {
     const email = event.target.email.value;
 
     try {
-      const response = await fetch("https://courtiq-801992a10bd9.herokuapp.com/submit-email", {
+      const response = await fetch("https://codebyte-1b9af19e473e.herokuapp.com/submit-email", {
         method: "POST",
         body: JSON.stringify({ email }),
         headers: {
@@ -39,7 +39,7 @@ export default function Waitlist() {
     <div className="waitlist-container">
       <form className="email-form" onSubmit={submitEmail}>
         <input type="email" name="email" placeholder="your.email@email.com" required className="button" />
-        <button type="submit" className="button">Submit</button>
+        <button type="submit" className="button ">Submit</button>
       </form>
       <span className="api-response">{apiResponse}</span>
     </div>

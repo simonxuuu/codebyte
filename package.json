@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "firebase": "^10.12.5",
     "hamburger-react": "^2.5.1"
   }
 }

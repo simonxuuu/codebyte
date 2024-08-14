@@ -1,18 +1,52 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useState,useRef } from 'react';
+import { useEffect, useState,useRef } from 'react';import { auth,signOut } from './firebaseconfig';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
+
+
+
+
+
 const TopBar = () => {
 
+  const router = useRouter();
   const [loggedIn,setLoggedIn] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const hamburger = useRef(null);
+  
   useEffect(()=>{
     //add open mobile menu logic
     console.log(isMobileMenuOpen);
     if(hamburger.current){hamburger.current.classList.toggle("is-active");}
   },[isMobileMenuOpen]);
 
+  function signout(){
+    signOut(auth).then((result) => {
+      console.log("Signed out success.");
+      router.push('/');
+      setLoggedIn(false);
+    }).catch(err =>{
+      console.log(err);
+    })
+  }
 
+  useEffect(() => {
+    
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log('logged in with:'+user.email);
+       
+        setLoggedIn(true);
+
+      } else {
+        console.log('NOT logged in');
+      }
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, [router]);
   return (
     <header>
       <Link href="/" className="logo">
@@ -20,13 +54,16 @@ const TopBar = () => {
       </Link>
 
       <nav>
-      <Link href="/dashboard" class={loggedIn ? 'visible' : 'hidden'}>
+      <Link href="" onClick={()=>{signout(); }} className={loggedIn ? 'visible' : 'hidden'}>
+          Log out
+        </Link>
+      <Link href="/dashboard" className={loggedIn ? 'visible' : 'hidden'}>
           Feedback
         </Link>
-        <Link href="/dashboard" class={loggedIn ? 'visible' : 'hidden'}>
+        <Link href="/dashboard" className={loggedIn ? 'visible' : 'hidden'}>
           Dashboard
         </Link>
-        <Link href="/dashboard"onClick={()=>{setLoggedIn(true); }}class={loggedIn ? 'hidden' : 'visible'}>
+        <Link href="/login" className={loggedIn ? 'hidden' : 'visible'}>
           Login
         </Link>
       </nav>
