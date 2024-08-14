@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useEffect, useState,useRef } from 'react';
 const TopBar = () => {
 
-
+  const [loggedIn,setLoggedIn] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const hamburger = useRef(null);
   useEffect(()=>{
@@ -20,14 +20,14 @@ const TopBar = () => {
       </Link>
 
       <nav>
-        <Link href="/dashboard">
-          DashboardTest
+      <Link href="/dashboard" class={loggedIn ? 'visible' : 'hidden'}>
+          Feedback
         </Link>
-        <Link href="/hello.html">
-          Coaches
+        <Link href="/dashboard" class={loggedIn ? 'visible' : 'hidden'}>
+          Dashboard
         </Link>
-        <Link href="/hello.html">
-          Recruiters
+        <Link href="/dashboard"onClick={()=>{setLoggedIn(true); }}class={loggedIn ? 'hidden' : 'visible'}>
+          Login
         </Link>
       </nav>
 

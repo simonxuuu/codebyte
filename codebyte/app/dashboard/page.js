@@ -5,36 +5,33 @@ import {useState, useEffect} from 'react';
 import LessonComponent from './lessonComponent';
 const Dashboard = () => {
     const [userName, setUserName] = useState('');
-    
-    const lessons = [
-        {'key':0,'name':'hello lil bro','unlocked':true},
-        {'key':1,'name':'hello lil bro'},
-        {'key':2,'name':'get ready'},
-        {'key':3,'name':'get ready'},
-        {'key':4,'name':'get ready'},
-        {'key':5,'name':'get ready'},
-        {'key':6,'name':'get ready'},
-        {'key':7,'name':'get ready'}
-
-    ]
+    const [lessons,setLessons] = useState([
+        {'key':0,'name':'Hello World','isCompleted':false},
+        {'key':1,'name':'1+1','isCompleted':false},
+        {'key':2,'name':'Nice','isCompleted':false}
+    ]);
     const [completeLessons,setCompleteLessons] = useState(0);
     useEffect(() => {
         setUserName('John Doe');
+        
     }, []);
-    
+    useEffect(()=>{
+      console.log(lessons);
+    },[lessons]);
     return (
         <main>
-        <h1 className='lessonPageTitle'>A beginners journey</h1>
+        <h1 className='lessonPageTitle'>The Basics</h1>
         <h2 id='percentageComplete'>{completeLessons}/{lessons.length}</h2>
         {lessons.map((lesson) => (
           <LessonComponent
-          key={lesson.key}
-            id={lesson.key}
-            name={lesson.name}
-            isUnlockSet={lesson.unlocked}
+            key={lesson.key}
+            data={lesson}
+            allLessons={lessons}
+            updateLessonData={setLessons}
+            updateCompleteLessons={setCompleteLessons}
           />
         ))}
-            
+       <h2 id='wipText'>We are currently adding more lessons. Please let us know if there is anything you'd like to see.</h2>     
         </main>
     );
     };

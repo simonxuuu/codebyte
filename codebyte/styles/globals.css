@@ -22,7 +22,7 @@ body,html{
   --accent1Btn : rgba(9, 119, 86, 0.521);
   --accent2 : rgb(255,255,255);
   --lessonLocked : rgb(32, 32, 32);
-  --lessonComplete : rgb(1,1,1);
+  --lessonComplete : rgb(30, 165, 90);
   --lessonInComplete : rgb(24, 136, 84);
   background-color: var(--dark);
 }
@@ -245,23 +245,19 @@ footer {
   display: flex;
   gap: 4rem;
   justify-content: center;
-  height: 10rem;
+  height: 2rem;
   width: 10rem;
   margin-bottom: 10px;
 }
-.icon-link img {
-  width: 3rem;
-  height: 3rem;
-}
+
 .copyright {
   font-size: 1rem;
   color: white;
 }
 .headstarter-logo {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 15rem;
+  position: relative;
+  margin-top:max(15px,0.5vw);
+  width: min(200px,50%);
   height: auto;
 }
 nav a:hover {
@@ -276,10 +272,7 @@ color: rgba(255, 255, 255, 1);
   cursor: pointer;
   font-size: 14px;
 }
-.icon-link img {
 
-filter: invert(1);
-}
 line-separator {
 /* LineSeperator */
 
@@ -365,8 +358,12 @@ button[type="submit"] {
 }
 
 
-
-
+.visible{
+  display: block;
+}
+.hidden{
+ display: none;
+}
 
 .fade-in {
   opacity: 0;

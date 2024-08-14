@@ -9,6 +9,28 @@
     color : var(--light);
     font-family: "VT323", monospace;
     font-size: larger;
+    cursor: pointer;
+}
+#wipText{
+  color:var(--light);
+  width:90%;
+  opacity: 0.5;
+  font-size: max(19px,1vw);
+  margin-top: max(45px,10vw);
+}
+.lessonUnlocked{
+  background-color: var(--lessonInComplete);
+  border:3px solid var(--accent1);
+  filter: drop-shadow(0rem 0rem 1.5rem var(--lessonInComplete));
+}
+.lessonLocked{
+  background-color: var(--lessonLocked);
+  filter: drop-shadow(0.3rem 0.5rem 0 rgba(255, 255, 255, 0.034));
+  
+}
+.lessonCompleted{
+  background-color: var(--lessonComplete);
+  filter:none;
 }
 .lessonPageTitle{
     filter:drop-shadow(1rem 2rem 0.4rem var(--darker));
