@@ -57,7 +57,7 @@ const TopBar = () => {
       <Link href="" onClick={()=>{signout(); }} className={loggedIn ? 'visible' : 'hidden'}>
           Log out
         </Link>
-      <Link href="/dashboard" className={loggedIn ? 'visible' : 'hidden'}>
+      <Link href="/feedback" className={loggedIn ? 'visible' : 'hidden'}>
           Feedback
         </Link>
         <Link href="/dashboard" className={loggedIn ? 'visible' : 'hidden'}>
