@@ -13,7 +13,47 @@ const Dashboard = () => {
     const [lessons,setLessons] = useState([]);
     const [completeLessons,setCompleteLessons] = useState(0);
     
+    function fetchUpdatedLessons(email_=email,uid_=uid){
+     
+      if(uid_ != ''){
+      fetch("https://codebyte-1b9af19e473e.herokuapp.com/login-account", {
+        method: "POST",
+        body: JSON.stringify({email:email_,uid:uid_ }),
+        headers: {
+          "Content-type": "application/json"
+        }
+      }).then(response => {
+        if (response.headers.get('Content-Type').includes('text/plain')) {
+          // If the content type is plain text, parse as text
+          return response.text()}else{
+            return response.json();
+          }
+
+        }
+        
+      ).then((lessons) => {
+        if (lessons == "Server Error" || lessons == "UID not found"){
+          console.log('failed fetch lessons');
+        }else{
+          //boom we have our lessons
+
+          setLessons(lessons['_doc']['lessonSections'][0]['lessonSectionLessons']);
+          let getCompletedLessons = 0;
+          for(let i = 0; i < lessons['_doc']['lessonSections'][0]['lessonSectionLessons'].length; i++){
+            if(lessons['_doc']['lessonSections'][0]['lessonSectionLessons'][i]['isComplete']==true){
+              getCompletedLessons+=1;
+            }
+          }
+          setCompleteLessons(getCompletedLessons);
+          //console.log(lessons['_doc']['lessonSections'][0]['lessonSectionLessons']);
+          
+        }
+      } );
+    }
+    }
     function resetProgress(){
+      
+      if(uid != ''){
       fetch("https://codebyte-1b9af19e473e.herokuapp.com/purge-progress", {
         method: "POST",
         body: JSON.stringify({email:email,uid:uid }),
@@ -21,50 +61,27 @@ const Dashboard = () => {
           "Content-type": "application/json"
         }
       }).then(result => {return result.text()}).then((textResponse)=>{
-        console.log(textResponse);
+        
+        router.push(window.location.href);
+          router.refresh();
+        if(textResponse == 'success'){
+          fetchUpdatedLessons();
+        }
       })
+    }
     }
 
     useEffect(() => {
     
-      onAuthStateChanged(auth, (user) => {
+      onAuthStateChanged(auth, async(user) => {
         if (user) {
+         
+          //boom we have our lessons
           setUid(user.uid);
           setEmail(user.email);
-          fetch("https://codebyte-1b9af19e473e.herokuapp.com/login-account", {
-            method: "POST",
-            body: JSON.stringify({email:user.email,uid:user.uid }),
-            headers: {
-              "Content-type": "application/json"
-            }
-          }).then(response => {
-            if (response.headers.get('Content-Type').includes('text/plain')) {
-              // If the content type is plain text, parse as text
-              return response.text()}else{
-                return response.json();
-              }
-  
-            }
-            
-          ).then((lessons) => {
-            if (lessons == "Server Error" || lessons == "UID not found"){
-              console.log('failed fetch lessons');
-            }else{
-              //boom we have our lessons
-
-              setLessons(lessons['_doc']['lessonSections'][0]['lessonSectionLessons']);
-              let getCompletedLessons = 0;
-              for(let i = 0; i < lessons['_doc']['lessonSections'][0]['lessonSectionLessons'].length; i++){
-                if(lessons['_doc']['lessonSections'][0]['lessonSectionLessons'][i]['isComplete']==true){
-                  getCompletedLessons+=1;
-                }
-              }
-              setCompleteLessons(getCompletedLessons);
-              console.log(lessons['_doc']['lessonSections'][0]['lessonSectionLessons']);
-             
-            }
-          } );
           
+          fetchUpdatedLessons(user.email,user.uid);
+           
   
         } else {
           console.log('failed fetch lessons');
@@ -76,7 +93,7 @@ const Dashboard = () => {
     }, []);
 
     useEffect(()=>{
-      console.log(lessons);
+      console.log('updated lessons');
     },[lessons]);
     return (
         <main>
