@@ -21,9 +21,9 @@ body,html{
   --accent1 : rgb(24, 204, 120);
   --accent1Btn : rgba(9, 119, 86, 0.521);
   --accent2 : rgb(255,255,255);
-  --lessonLocked : rgb(32, 32, 32);
-  --lessonComplete : rgb(30, 165, 90);
-  --lessonInComplete : rgb(24, 136, 84);
+  --lessonLocked : rgb(41, 41, 41);
+  --lessonComplete : rgb(13, 156, 77);
+  --lessonInComplete : rgb(12, 175, 85);
   background-color: var(--dark);
   text-wrap: wrap;
 }
@@ -349,7 +349,7 @@ h1 {
   overflow-wrap: break-word;
   font-size: max(35px,1vw);
   margin-bottom: 1rem;
-  font-weight: 1300;
+  font-weight: normal;
   filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
 }
 

@@ -11,7 +11,8 @@ const Dashboard = () => {
     const [email, setEmail] = useState('');
     const [uid,setUid] = useState('');
     const [lessons,setLessons] = useState([]);
-    const [completeLessons,setCompleteLessons] = useState(0);
+    const [currentSection,setCurrentSection] = useState('');
+   
     
     function fetchUpdatedLessons(email_=email,uid_=uid){
      
@@ -35,6 +36,7 @@ const Dashboard = () => {
         if (lessonInfo == "Server Error" || lessonInfo == "UID not found"){
           console.log('failed fetch lessons');
         }else{
+          setCurrentSection(lessonInfo['_doc']['lessonSections'][0]['lessonSectionTitle']);
           //boom we have our lessons
           fetch("https://codebyte-1b9af19e473e.herokuapp.com/get-section-info", {
             method: "POST",
@@ -45,21 +47,19 @@ const Dashboard = () => {
           }).then(response => {return response.json()}).then(res => { 
             res = res.sort((a, b) => a.LessonKey - b.LessonKey);
            
-          let getCompletedLessons = 0;
+         
           for(let i = 0; i < lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons'].length; i++){
 
             //set name,lesson content, etc.
             if(lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons'][i]){
             if(i < res.length){lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons'][i].Name = res[i].Name;}
             
-            if(lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons'][i]['isComplete']==true){
-              getCompletedLessons+=1;
-            }
+           
           }
           }
 
           setLessons(lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons']);
-          setCompleteLessons(getCompletedLessons);
+          
           
           
 
@@ -119,8 +119,8 @@ const Dashboard = () => {
     },[lessons]);
     return (
         <main>
-        <h1 className='lessonPageTitle'>The Basics</h1>
-        <h2 id='percentageComplete'>{completeLessons}/{lessons.length}</h2>
+        <h1 className='lessonPageTitle'>{currentSection}</h1>
+        
         {lessons.map((lesson) => (
           <LessonComponent
             key={lesson.lessonKey}
@@ -128,7 +128,7 @@ const Dashboard = () => {
             data={lesson}
             allLessons={lessons}
             updateLessonData={setLessons}
-            updateCompleteLessons={setCompleteLessons}
+
             curEmail={email}
           />
         ))}

@@ -1,42 +1,121 @@
 .lessonComponent{
     background-color: rgb(70, 70, 70);
-    filter:drop-shadow(0.3rem 0.5rem 0 rgba(255, 255, 255, 0.034));
+    text-align: center;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.267), inset 0 -0.35em 0 rgba(0, 0, 0, 0.308), 0 0.35em 0.35em rgba(0, 0, 0, 0.219);
     border:0;
     border-radius: 999px;
     width: 80px;
-    height:80px;
-    margin:max(5px,0.3vw);
+    height:78px;
+    margin:max(5px,0.4vw);
     color : var(--light);
-    font-family: "VT323", monospace;
-    font-size: larger;
+    
+    font-family: "Quicksand", sans-serif;
     cursor: pointer;
+    transition: all ease-in 0.1s;
+    display: flex;
+    justify-content: center; /* Centers children horizontally */
+    align-items: center;
 }
+
+.lessonComponent:hover{
+  transition: all ease-in 0.1s;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.267), inset 0 -0.25em 0 rgba(0, 0, 0, 0.308), 0 0.25em 0.25em rgba(0, 0, 0, 0.219);
+  height:76px;
+  margin-top:max(7px,0.5vw);
+  margin-bottom:max(5px,0.395vw);
+}
+.lessonComponentFocused{
+  transition: all ease-in 0.1s;
+  opacity: 1;
+  scale: 1;
+}
+.lessonComponentUnFocused{
+  transition: all ease-in 0.1s;
+  opacity: 0;
+  scale: 0;
+}
+
+
 #wipText{
+  
   color:var(--light);
   width:90%;
   opacity: 0.5;
   font-size: max(19px,1vw);
   margin-top: max(45px,10vw);
 }
-.lessonUnlocked{
-  background-color: var(--lessonInComplete);
-  border:3px solid var(--accent1);
-  filter: drop-shadow(0rem 0rem 1.5rem var(--lessonInComplete));
+
+.lessonComponent svg{
+height: 40px;
+margin-bottom: 5px;
 }
-.lessonLocked{
-  background-color: var(--lessonLocked);
-  filter: drop-shadow(0.3rem 0.5rem 0 rgba(255, 255, 255, 0.034));
+.speech-bubble {
+  --bgColor : rgb(0,0,0);
+  transition: all ease-in 0.1s;
   
+  
+  margin: 0;
+  margin-top: 220px;
+  width:180px;
+  height:90px;
+  font-size: 20px;
+   /* Center itself horizontally */
+	position: absolute;
+	background:var(--bgColor) ;
+	border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  filter:drop-shadow(0 0px 10px rgba(0, 0, 0, 0.699));
+  align-items: center;
+  padding:13px;
+  justify-content:space-between;
+  z-index: 1;
 }
-.lessonCompleted{
-  background-color: var(--lessonComplete);
-  filter:none;
+
+.buttonBubbleSpeech{
+  box-sizing: border-box;
+  z-index: 2;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  pointer-events: auto;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  white-space: nowrap; 
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.144);
+  border: 0;
+
+  
+  border-radius: 3rem;
+ 
+  transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s;
+  transition: all ease-in-out 0.3s;
+  
+  font-size: 1rem;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 8px solid transparent;
+	border-bottom-color:var(--bgColor) ;
+	border-top: 0;
+	margin-left: -8px;
+	margin-top: -7px;
 }
 .lessonPageTitle{
-    filter:drop-shadow(1rem 2rem 0.4rem var(--darker));
-    
-    
-    letter-spacing: 0.5rem;
+    font-size: max(40px,6vw);
+    width: 100vw;
+    text-align: center;
+    margin-bottom: max(45px,5vw);
 }
 main {
     margin-top:7rem;
@@ -51,7 +130,22 @@ main {
   }
   #percentageComplete {
     color:var(--accent1);
-    font-size: 25px;
+    font-size: 35px;
     filter:drop-shadow(0rem 0rem 0.3rem var(--accent1));
     margin-bottom: 5rem;
   }
+
+  @media only screen and (min-width: 1024px) {
+   .lessonPageTitle{
+    width: 70vw;
+    text-align: left;
+    font-size: max(40px,3vw);
+   }
+  }
+  @media only screen and (min-width: 1280px) {
+    .lessonPageTitle{
+      width: 54vw;
+      text-align: left;
+     }
+  }
+  
