@@ -6,7 +6,7 @@ const LessonComponent = ({data,updateLessonData,lessonSection,allLessons,curEmai
     const sinPeriod = 0.5;
     const offset = sinAmplitude * Math.sin(((2*Math.PI)/sinPeriod)*(data.lessonKey/10));
     const bgColor = data.isComplete ? 'var(--lessonComplete)' : data.lessonKey > 0 && allLessons[data.lessonKey-1].isComplete || data.lessonKey == 0 ? 'var(--lessonInComplete)' : 'var(--lessonLocked)'
-    
+   
     const lessonRef = useRef(null);
     const [isFocused,setFocused] = useState(false);
     
@@ -30,7 +30,8 @@ const LessonComponent = ({data,updateLessonData,lessonSection,allLessons,curEmai
           }, []);
 
     function testUnlockLesson(){
-        console.log(data.lessonKey);
+      console.log(allLessons[data.lessonKey-1].isComplete);
+        if (allLessons[data.lessonKey-1].isComplete == false){return;}
         const updatedLessons = allLessons.map(lesson => 
             lesson.lessonKey === data.lessonKey 
             ? { ...lesson, isComplete: !lesson.isComplete } 
@@ -40,7 +41,7 @@ const LessonComponent = ({data,updateLessonData,lessonSection,allLessons,curEmai
        
         fetch("https://codebyte-1b9af19e473e.herokuapp.com/update-progress", {
             method: "POST",
-            body: JSON.stringify({email:curEmail,sectionId:lessonSection,completedID:data['_id']}),
+            body: JSON.stringify({email:curEmail,sectionId:lessonSection,completedID:data.lessonKey}),
             headers: {
               "Content-type": "application/json"
             }
