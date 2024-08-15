@@ -7,13 +7,8 @@ const LessonComponent = ({data,updateLessonData,lessonSection,allLessons,curEmai
     const offset = sinAmplitude * Math.sin(((2*Math.PI)/sinPeriod)*(data.lessonKey/10));
     const bgColor = data.isComplete ? 'var(--lessonComplete)' : data.lessonKey > 0 && allLessons[data.lessonKey-1].isComplete || data.lessonKey == 0 ? 'var(--lessonInComplete)' : 'var(--lessonLocked)'
     
-   
-    const [toggleState,setToggleState] = useState("false");
-    const toggleFocus = () => {
-      
-        setToggleState(!toggleState);
-      
-    }
+    const lessonRef = useRef(null);
+    const [isFocused,setFocused] = useState(false);
     
     /*
   {
@@ -23,7 +18,16 @@ const LessonComponent = ({data,updateLessonData,lessonSection,allLessons,curEmai
             </svg>
            }
   */
-   
+           useEffect(() => {
+            const handleClickOutside = (event) => {
+              if (lessonRef.current && !lessonRef.current.contains(event.target)) {
+                setFocused(false);
+              }
+            };
+        
+            document.addEventListener('mousedown', handleClickOutside);
+            return () => document.removeEventListener('mousedown', handleClickOutside);
+          }, []);
 
     function testUnlockLesson(){
         console.log(data.lessonKey);
@@ -47,7 +51,7 @@ const LessonComponent = ({data,updateLessonData,lessonSection,allLessons,curEmai
 
     return (
        <>
-        <button  onClick={toggleFocus} className={`lessonComponent ${data.isComplete ? 'lessonCompleted' : data.lessonKey > 0 && allLessons[data.lessonKey-1].isComplete || data.lessonKey == 0 ? 'lessonUnlocked' : 'lessonLocked'}`} style={{
+        <button ref={lessonRef} onFocus={()=>{setFocused(true);}}className={`lessonComponent ${isFocused ? 'focused' : ''} ${data.isComplete ? 'lessonCompleted' : data.lessonKey > 0 && allLessons[data.lessonKey-1].isComplete || data.lessonKey == 0 ? 'lessonUnlocked' : 'lessonLocked'}`} style={{
             marginLeft : `${offset*1000}px`,
             backgroundColor: `${bgColor}`
             
@@ -56,9 +60,9 @@ const LessonComponent = ({data,updateLessonData,lessonSection,allLessons,curEmai
           </svg>
          }
          
-        <div  style={{marginLeft : `${offset}px`,'--bgColor':`${bgColor}`}}className={`speech-bubble ${data.isComplete ? 'lessonCompleted' : data.lessonKey > 0 && allLessons[data.lessonKey-1].isComplete || data.lessonKey == 0 ? 'lessonUnlocked' : 'lessonLocked'} ${toggleState ? "lessonComponentUnFocused " : "lessonComponentFocused"}`}>{data.Name}
+        <div  style={{marginLeft : `${offset}px`,'--bgColor':`${bgColor}`}}className={`speech-bubble ${data.isComplete ? 'lessonCompleted' : data.lessonKey > 0 && allLessons[data.lessonKey-1].isComplete || data.lessonKey == 0 ? 'lessonUnlocked' : 'lessonLocked'}`}>{data.Name}
 
-         <button onClick={()=>{testUnlockLesson();toggleFocus();}}className="buttonBubbleSpeech">Start Lesson</button>
+         <button onClick={()=>{testUnlockLesson(); setFocused(false);}}className="buttonBubbleSpeech">Start Lesson</button>
  
         </div>
          </button>
