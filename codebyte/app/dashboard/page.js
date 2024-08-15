@@ -31,21 +31,43 @@ const Dashboard = () => {
 
         }
         
-      ).then((lessons) => {
-        if (lessons == "Server Error" || lessons == "UID not found"){
+      ).then((lessonInfo) => {
+        if (lessonInfo == "Server Error" || lessonInfo == "UID not found"){
           console.log('failed fetch lessons');
         }else{
           //boom we have our lessons
-
-          setLessons(lessons['_doc']['lessonSections'][0]['lessonSectionLessons']);
+          fetch("https://codebyte-1b9af19e473e.herokuapp.com/get-section-info", {
+            method: "POST",
+            body: JSON.stringify({email:email_,sectionTitle:lessonInfo['_doc']['lessonSections'][0]['lessonSectionTitle']}),
+            headers: {
+              "Content-type": "application/json"
+            }
+          }).then(response => {return response.json()}).then(res => { 
+            res = res.sort((a, b) => a.LessonKey - b.LessonKey);
+           
           let getCompletedLessons = 0;
-          for(let i = 0; i < lessons['_doc']['lessonSections'][0]['lessonSectionLessons'].length; i++){
-            if(lessons['_doc']['lessonSections'][0]['lessonSectionLessons'][i]['isComplete']==true){
+          for(let i = 0; i < lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons'].length; i++){
+
+            //set name,lesson content, etc.
+            if(lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons'][i]){
+            if(i < res.length){lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons'][i].Name = res[i].Name;}
+            
+            if(lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons'][i]['isComplete']==true){
               getCompletedLessons+=1;
             }
           }
+          }
+
+          setLessons(lessonInfo['_doc']['lessonSections'][0]['lessonSectionLessons']);
           setCompleteLessons(getCompletedLessons);
-          //console.log(lessons['_doc']['lessonSections'][0]['lessonSectionLessons']);
+          
+          
+
+          });
+
+
+          
+         
           
         }
       } );

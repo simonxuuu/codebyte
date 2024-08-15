@@ -7,7 +7,7 @@ import '../../dashboard/dashboard.css';
 
 const LessonsPage = () => {
   const router = useRouter();
-  const [lessons, setLessons] = useState([]);
+  const [lessons, setLessons] = useState([{id:0,name:'yo'}]);
 
   useEffect(() => {
     // Fetch the list of lessons
@@ -23,8 +23,8 @@ const LessonsPage = () => {
       <ul className="lessonList">
         {lessons.map((lesson) => (
           <li key={lesson.id} className="lessonItem">
-            <Link href={`/dashboard/lessons/${lesson.id}`}>
-              <a>{lesson.title}</a>
+            <Link href={`/dashboard/lessons/${lesson.name}`}>
+              {lesson.name}
             </Link>
           </li>
         ))}

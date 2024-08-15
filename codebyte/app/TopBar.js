@@ -63,6 +63,9 @@ const TopBar = () => {
         <Link href="/dashboard" className={loggedIn ? 'visible' : 'hidden'}>
           Dashboard
         </Link>
+        <Link href="/dashboard/lessons" className={'visible'}>
+          lessons
+        </Link>
         <Link href="/login" className={loggedIn ? 'hidden' : 'visible'}>
           Login
         </Link>
