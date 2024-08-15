@@ -9,14 +9,27 @@ import { useRouter } from 'next/navigation';
 const Dashboard = () => {
     const router = useRouter();
     const [email, setEmail] = useState('');
+    const [uid,setUid] = useState('');
     const [lessons,setLessons] = useState([]);
     const [completeLessons,setCompleteLessons] = useState(0);
     
+    function resetProgress(){
+      fetch("https://codebyte-1b9af19e473e.herokuapp.com/purge-progress", {
+        method: "POST",
+        body: JSON.stringify({email:email,uid:uid }),
+        headers: {
+          "Content-type": "application/json"
+        }
+      }).then(result => {return result.text()}).then((textResponse)=>{
+        console.log(textResponse);
+      })
+    }
 
     useEffect(() => {
     
       onAuthStateChanged(auth, (user) => {
         if (user) {
+          setUid(user.uid);
           setEmail(user.email);
           fetch("https://codebyte-1b9af19e473e.herokuapp.com/login-account", {
             method: "POST",
@@ -81,6 +94,7 @@ const Dashboard = () => {
           />
         ))}
        <h2 id='wipText'>We are currently adding more lessons. Please let us know if there is anything you'd like to see.</h2>     
+        <button onClick={resetProgress}>Reset Progress (testingonly)</button>
         </main>
     );
     };

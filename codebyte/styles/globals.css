@@ -52,7 +52,19 @@ header {
   border-radius: 0;
   z-index: 999;
 }
-
+textarea{
+  background-color: var(--accent1Btn);
+  outline: 0;
+  border: 0;
+  color:var(--light);
+  height: max(140px,1vw);
+  width: 100%;
+  border-radius: 0.1rem;
+}
+textarea::placeholder{
+  color:var(--light);
+ 
+}
 #main-text {
 
   position: relative;
@@ -83,7 +95,7 @@ header {
 }
 .feedbackForm input{
   max-width: 100%;
-  width:50%;
+  width:60%;
   text-align: left;
   
  }
@@ -453,6 +465,12 @@ button[type="submit"] {
   nav{
     display: flex;
   }
+  textarea{
+    width: 60%;
+  }
+  .feedbackForm{
+    max-width: 60%;
+  }
   header {
     width: 75%;
     border: 0.1vw solid rgba(255, 255, 255, 0.13);
@@ -465,6 +483,15 @@ button[type="submit"] {
 }
 /* Largest devices such as desktops (1280px and up) */
 @media only screen and (min-width: 1280px) {
+  .feedbackForm input{
+    max-width: 100%;
+    width:40%;
+    text-align: left;
+    
+   }
+   .feedbackForm{
+    width: 43%;
+   }
   header {
     width: 55%;
     padding: 13px;
