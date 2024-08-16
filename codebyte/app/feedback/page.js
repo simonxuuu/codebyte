@@ -1,15 +1,9 @@
 "use client";
 
-import React, { useState,useEffect } from 'react';
-
-
-
 export default function Home() {
   
   return (
     <main >
-      
-       {/*<SvgBackground /> */}
       <h1>Have an issue/suggestion?</h1>
       <p>Send us a message. We will resolve it promptly.</p>
 

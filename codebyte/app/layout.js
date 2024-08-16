@@ -1,3 +1,4 @@
+
 // courtiq/app/layout.js
 import Link from 'next/link';
 import '../styles/globals.css';
@@ -6,15 +7,16 @@ import './dashboard/dashboard.css';
 import TopBar from './TopBar';
 import Footer from './Footer';
 import Head from 'next/head';
-
+import { AppProvider } from './AppContext';
 export const metadata = {
   title: 'Codebyte',
   description: 'CourtIQ is a platform for basketball players, coaches, and recruiters.',
 };
 
+
 export default function Layout({ children }) {
   return (
-    
+    <AppProvider>
     <html>
      <Head>
         <title>{metadata.title}</title>
@@ -32,6 +34,6 @@ export default function Layout({ children }) {
    
     
     </html>
-    
+    </AppProvider>
   );
 }
