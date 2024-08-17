@@ -1,18 +1,12 @@
 import { useEffect, useState,useRef } from "react";
-<<<<<<< HEAD:codebyte/app/dashboard/lessonComponent.js
 
 const LessonComponent = ({data,updateLessonData,lessonSection,allLessons,curEmail}) => {
-=======
-import Link from "next/link";
-const LessonComponent = ({data,courseTitle,allLessons,curEmail,onclick}) => {
->>>>>>> 3695c40 (finished):codebyte/app/dashboard/[courseName]/lessonComponent.js
    
     const sinAmplitude = 0.1;
     const sinPeriod = 0.5;
     const offset = sinAmplitude * Math.sin(((2*Math.PI)/sinPeriod)*(data.lessonKey/10));
     const bgColor = data.isComplete ? 'var(--lessonComplete)' : data.lessonKey > 0 && allLessons[data.lessonKey-1].isComplete || data.lessonKey == 0 ? 'var(--lessonInComplete)' : 'var(--lessonLocked)'
     
-<<<<<<< HEAD:codebyte/app/dashboard/lessonComponent.js
    
     const [toggleState,setToggleState] = useState("false");
     const toggleFocus = () => {
@@ -30,20 +24,6 @@ const LessonComponent = ({data,courseTitle,allLessons,curEmail,onclick}) => {
            }
   */
    
-=======
-    //close popup if we click outside of the component
-    useEffect(() => {
-      //console.log(data);
-    const handleClickOutside = (event) => {
-      if (lessonRef.current && !lessonRef.current.contains(event.target)) {
-        setFocused(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
->>>>>>> 3695c40 (finished):codebyte/app/dashboard/[courseName]/lessonComponent.js
 
     function testUnlockLesson(){
         console.log(data.lessonKey);
@@ -78,11 +58,7 @@ const LessonComponent = ({data,courseTitle,allLessons,curEmail,onclick}) => {
          
         <div  style={{marginLeft : `${offset}px`,'--bgColor':`${bgColor}`}}className={`speech-bubble ${data.isComplete ? 'lessonCompleted' : data.lessonKey > 0 && allLessons[data.lessonKey-1].isComplete || data.lessonKey == 0 ? 'lessonUnlocked' : 'lessonLocked'} ${toggleState ? "lessonComponentUnFocused " : "lessonComponentFocused"}`}>{data.Name}
 
-<<<<<<< HEAD:codebyte/app/dashboard/lessonComponent.js
          <button onClick={()=>{testUnlockLesson();toggleFocus();}}className="buttonBubbleSpeech">Start Lesson</button>
-=======
-         <Link href={`/dashboard/${courseTitle}/${data.lessonIndex}`} onClick={()=>{setFocused(false);onclick(); }}className="buttonBubbleSpeech">Start Lesson</Link>
->>>>>>> 3695c40 (finished):codebyte/app/dashboard/[courseName]/lessonComponent.js
  
         </div>
          </button>
