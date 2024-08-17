@@ -1,6 +1,6 @@
 import { useEffect, useState,useRef } from "react";
 import Link from "next/link";
-const LessonComponent = ({data,courseTitle,allLessons,curEmail}) => {
+const LessonComponent = ({data,courseTitle,allLessons,curEmail,onclick}) => {
    
     const sinAmplitude = 0.1;
     const sinPeriod = 0.5;
@@ -11,7 +11,7 @@ const LessonComponent = ({data,courseTitle,allLessons,curEmail}) => {
     
     //close popup if we click outside of the component
     useEffect(() => {
-      console.log(data);
+      //console.log(data);
     const handleClickOutside = (event) => {
       if (lessonRef.current && !lessonRef.current.contains(event.target)) {
         setFocused(false);
@@ -56,7 +56,7 @@ const LessonComponent = ({data,courseTitle,allLessons,curEmail}) => {
          
         <div  style={{marginLeft : `${offset}px`,'--bgColor':`${bgColor}`}}className={`speech-bubble ${data.isComplete ? 'lessonCompleted' : data.lessonIndex > 0 && allLessons[data.lessonIndex-1].isComplete || data.lessonIndex == 0 ? 'lessonUnlocked' : 'lessonLocked'}`}>{data.Name}
 
-         <Link href={`/dashboard/${courseTitle}/${data.lessonIndex}`} onClick={()=>{setFocused(false);}}className="buttonBubbleSpeech">Start Lesson</Link>
+         <Link href={`/dashboard/${courseTitle}/${data.lessonIndex}`} onClick={()=>{setFocused(false);onclick(); }}className="buttonBubbleSpeech">Start Lesson</Link>
  
         </div>
          </button>

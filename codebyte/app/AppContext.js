@@ -8,14 +8,17 @@ const AppProvider = ({ children }) => {
   const [loggedIn,setLoggedIn]= useState(false);
   const [email,setEmail] = useState('');
   const [uid,setUid]=useState('');
-  const [apiRoute,setApiRoute]=useState('https://codebyte-1b9af19e473e.herokuapp.com');
+ //https://codebyte-1b9af19e473e.herokuapp.com
+  //http://localhost:8080
+  const apiRoute ='http://localhost:8080';
   const [currentCourseData,setCurrentCourseData] = useState({});
+  const [currentLessonName,setCurrentLessonName] = useState('');
+  const [currentCourseName,setCurrentCourseName] = useState('');
+  const [currentCourseDesc,setCurrentCourseDesc] = useState('');
 
   useEffect(() => {
-    console.log(window.location.hostname)
-    if ( ["localhost", "127.0.0.1", ""].includes(window.location.hostname) ) {
-        setApiRoute("http://localhost:8080");
-      }
+    
+    
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(`Logged In: ${user.email}`);
@@ -38,7 +41,46 @@ const AppProvider = ({ children }) => {
     }
     return null;
   }
- 
+  function getCourseProgressData(){
+    if(!uid) return 'error';
+    return fetch(`${apiRoute}/login-account`, {method: "POST",
+      body: JSON.stringify({email:email,uid:uid}),
+       headers: {"Content-type": "application/json"}} )
+    .then(response => {return response.json();}).then((jsonOutput)=>{//console.log(jsonOutput);
+         return jsonOutput['_doc'];});
+    }
+    function getLessonTeachings(){
+      if(!email) return 'error';
+      if(!currentCourseName) return 'error';
+      if(!currentLessonName) return 'error';
+      return fetch(`${apiRoute}/getLessonTeachings`, {method: "POST",
+        body: JSON.stringify({email:email,courseTitle:currentCourseName,lessonName:currentLessonName}),
+         headers: {"Content-type": "application/json"}} )
+      .then(response => {return response.text();}).then((jsonOutput)=>{//console.log(jsonOutput);
+           return jsonOutput;});
+      }
+    function getNextQuestion(answerIndex){
+      return fetch(`${apiRoute}/getNextQuestion`, {method: "POST",
+        body: JSON.stringify({email:email,answerIndex:answerIndex}),
+         headers: {"Content-type": "application/json"}} )
+      .then(response => {return response.json();}).then((jsonOutput)=>{//console.log(jsonOutput);
+           return jsonOutput;});
+      
+    }   
+   function getCoursesInfo(){
+    return fetch(`${apiRoute}/getAllCoursesInfo`, {method: "GET", headers: {"Content-type": "application/json"}} )
+    .then(response => {return response.json();}).then((jsonOutput)=>{//console.log(jsonOutput);
+         return jsonOutput;});
+    }
+  function getLessonNames(courseName){
+    if(!email) return;
+    return fetch(`${apiRoute}/getLessonNames`, {method: "POST",
+        body: JSON.stringify({email:email,courseTitle:courseName}),
+        headers: {"Content-type": "application/json"}} )
+    .then(response => {return response.json();}).then((jsonOutput)=>{return jsonOutput;});
+  }
+
+
   function fetchCourse(courseName){
     if (uid == '') {return;}
     //first, login into account to get progress data
@@ -86,7 +128,15 @@ const AppProvider = ({ children }) => {
          setUid,
          apiRoute,
          currentCourseData,
-         fetchCourse }}>
+         fetchCourse,
+         getCoursesInfo,
+         getLessonNames,
+         currentCourseName,setCurrentCourseName,
+         currentCourseDesc,setCurrentCourseDesc,
+         getCourseProgressData,returnCourseByName,
+         currentLessonName,setCurrentLessonName,
+         getLessonTeachings,
+         getNextQuestion }}>
       {children}
     </AppContext.Provider>
   );

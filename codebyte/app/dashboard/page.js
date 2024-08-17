@@ -1,56 +1,40 @@
 "use client"
 import './dashboard.css';
 import {useState, useEffect,useContext} from 'react';
-import LessonComponent from './lessonComponent';
+import CourseComponent from './courseComponent';
 import { useRouter } from 'next/navigation';
-import { AppContext } from '../AppContext';
+import { AppContext } from '../appContext';
 const Dashboard = () => {
 
     const router = useRouter();
     const appContext = useContext(AppContext);
+    const [courses,setCourses] = useState([]);
    
-  
-    function resetProgress(){
-      if(appContext.uid == ''){return;}
-
-      fetch(`${appContext.apiRoute}/purge-progress`, {
-        method: "POST",
-        body: JSON.stringify({email:appContext.email,uid:appContext.uid }),
-        headers: {
-          "Content-type": "application/json"
-        }
-      }).then(result => {return result.text()}).then((textResponse)=>{
-        
-        router.push(window.location.href);
-          router.refresh();
-        if(textResponse == 'success'){
-          appContext.fetchCourse("Python Basics");
-        }
-      })
-    
-    }
     
     useEffect(() => {
-      appContext.fetchCourse("Python Basics");
+      
+        appContext.getCoursesInfo().then(result => {
+            setCourses(result);
+        })
+      //appContext.fetchCourse("Python Basics");
     }, [appContext.uid]);
 
     return (
         <main>
-        <h1 className='lessonPageTitle'>{appContext.currentCourseData.courseTitle}</h1>
-        
-        {appContext.currentCourseData.courseLessons &&
-        appContext.currentCourseData.courseLessons.map((lesson) => (
-          <LessonComponent
-            key={lesson.lessonIndex}
-            courseTitle={appContext.currentCourseData.courseTitle}
-            data={lesson}
-            allLessons={appContext.currentCourseData.courseLessons}
-            curEmail={appContext.email}
+        <h1 style={{marginBottom:'max(65px,4vw)'}}className='lessonPageTitle'>Welcome back, {appContext.email.split('@')[0]}.</h1>
+        <div className="courseComponentHolder">
+        {courses &&
+        courses.map((course) => (
+          <CourseComponent
+            key={courses.indexOf(course)}
+            courseTitle = {Object.keys(course)[0]}
+            courseDescription = {Object.values(course)[0]}
+            onclick={()=>{appContext.setCurrentCourseName(Object.keys(course)[0]);appContext.setCurrentCourseDesc(Object.values(course)[0])}}
           />
         ))}
-        
-       <h2 id='wipText'>We are currently adding more lessons. Please let us know if there is anything you'd like to see.</h2>     
-        <button onClick={resetProgress}>Reset Progress (testingonly)</button>
+        </div>
+       <h2 id='wipText'>Course offerings are limited. </h2>     
+      
         </main>
     );
     };

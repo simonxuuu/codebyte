@@ -4,7 +4,7 @@ import { useEffect, useState,useRef,useContext } from 'react';import { auth,sign
 
 import { useRouter } from 'next/navigation';
 
-import { AppContext } from './AppContext';
+import { AppContext } from './appContext';
 
 
 
@@ -44,9 +44,7 @@ const TopBar = () => {
         <Link href="/dashboard" className={appContext.loggedIn ? 'visible' : 'hidden'}>
           Dashboard
         </Link>
-        <Link href="/dashboard/lessons" className={'visible'}>
-          lessons
-        </Link>
+        
         <Link href="/login" className={appContext.loggedIn ? 'hidden' : 'visible'}>
           Login
         </Link>

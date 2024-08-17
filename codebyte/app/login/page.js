@@ -1,16 +1,18 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState ,useContext} from 'react';
 import Link from 'next/link';
 import { createUserWithEmailAndPassword ,signInWithEmailAndPassword} from '../firebaseconfig';
 import { auth } from '../firebaseconfig';
 import { useRouter } from 'next/navigation';
+import { AppContext } from '../appContext';
 export default function Login() {
+  const appContext = useContext(AppContext);
   const [isRegister, setIsRegister] = useState(false);
   const [apiResponse, setApiResponse] = useState('');
   const router = useRouter();
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(isRegister);
+   
     const email = event.target.email.value;
     const password = event.target.password.value;
 
@@ -18,10 +20,11 @@ export default function Login() {
 
     }else{
       //login
+      console.log(appContext.apiRoute);
       signInWithEmailAndPassword(auth,email,password).then((result)=>{
-        fetch("https://codebyte-1b9af19e473e.herokuapp.com/login-account", {
+        fetch(`${appContext.apiRoute}/login-account`, {
           method: "POST",
-          body: JSON.stringify({ email,uid:  result.user.uid }),
+          body: JSON.stringify({ email:email,uid:result.user.uid}),
           headers: {
             "Content-type": "application/json"
           }
