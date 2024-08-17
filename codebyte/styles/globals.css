@@ -265,7 +265,103 @@ nav a {
   text-align: center;
   margin-bottom: 4rem;
   
+
 }
+
+button[type="submit-question"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.progress-bar {
+  width: 30%;
+  height: 2rem;
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.prompt-container {
+  display: flex;
+  
+  word-wrap: break-word;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid #a8a8a8;
+  width: 20rem;
+  border-radius: 2rem;
+  gap: 1rem;
+  height: 25rem;
+  background-color: rgb(34, 34, 34);
+ 
+}
+
+
+
+input[type="button"] {
+  display: none;
+}
+
+/* Style the label to look like a button */
+label {
+  display: inline-block;
+  padding: 10px 20px;
+  width: 8rem;
+  margin-top: 0.2rem;
+  border: 2px solid #4CAF50;
+  border-radius: 25px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Change the background color and text color when the button is hovered */
+label:hover {
+  background-color: #45a049;
+}
+
+/* Style the label when the radio button is checked */
+
+
+.prompt-topic {
+  color:#FFFFFF;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.question-details {
+  font-size: 1.5rem;
+  overflow-wrap: break-word; /* Use overflow-wrap to break long words */
+  white-space: normal; /* Allow text wrapping */
+  max-width: 100%; /* Ensure it doesn't exceed the parent width */
+}
+
+.lesson-details {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: center;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0;
+  background-color: #76c7c0;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 25px 0 0 25px;
+  transition: width 0.5s ease-in-out;
+}
+
 .card-text {
   font-size: 1.5rem;
   font-weight: 400;
