@@ -13,7 +13,13 @@ import FAQ from './FAQ';
 import CardHolder from './CardHolder';
 import styles from './page.module.css'
 import { useRouter } from 'next/navigation';
+<<<<<<< HEAD
 import { auth } from './firebaseconfig';
+=======
+
+
+import { AppContext } from './appContext';
+>>>>>>> 3695c40 (finished)
 
 export default function Home() {
   const router = useRouter();

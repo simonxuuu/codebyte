@@ -1,13 +1,21 @@
 "use client"
 import './dashboard.css';
+<<<<<<< HEAD
 import React from 'react';
 import {useState, useEffect} from 'react';
 import LessonComponent from './lessonComponent';
 import { auth,signOut } from '../firebaseconfig';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
+=======
+import {useState, useEffect,useContext} from 'react';
+import CourseComponent from './courseComponent';
+import { useRouter } from 'next/navigation';
+import { AppContext } from '../appContext';
+>>>>>>> 3695c40 (finished)
 const Dashboard = () => {
     const router = useRouter();
+<<<<<<< HEAD
     const [email, setEmail] = useState('');
     const [uid,setUid] = useState('');
     const [lessons,setLessons] = useState([]);
@@ -92,6 +100,19 @@ const Dashboard = () => {
       })
     }
     }
+=======
+    const appContext = useContext(AppContext);
+    const [courses,setCourses] = useState([]);
+   
+    
+    useEffect(() => {
+      
+        appContext.getCoursesInfo().then(result => {
+            setCourses(result);
+        })
+      //appContext.fetchCourse("Python Basics");
+    }, [appContext.uid]);
+>>>>>>> 3695c40 (finished)
 
     useEffect(() => {
     
@@ -119,6 +140,7 @@ const Dashboard = () => {
     },[lessons]);
     return (
         <main>
+<<<<<<< HEAD
         <h1 className='lessonPageTitle'>{currentSection}</h1>
         
         {lessons.map((lesson) => (
@@ -134,6 +156,22 @@ const Dashboard = () => {
         ))}
        <h2 id='wipText'>We are currently adding more lessons. Please let us know if there is anything you'd like to see.</h2>     
         <button onClick={resetProgress}>Reset Progress (testingonly)</button>
+=======
+        <h1 style={{marginBottom:'max(65px,4vw)'}}className='lessonPageTitle'>Welcome back, {appContext.email.split('@')[0]}.</h1>
+        <div className="courseComponentHolder">
+        {courses &&
+        courses.map((course) => (
+          <CourseComponent
+            key={courses.indexOf(course)}
+            courseTitle = {Object.keys(course)[0]}
+            courseDescription = {Object.values(course)[0]}
+            onclick={()=>{appContext.setCurrentCourseName(Object.keys(course)[0]);appContext.setCurrentCourseDesc(Object.values(course)[0])}}
+          />
+        ))}
+        </div>
+       <h2 id='wipText'>Course offerings are limited. </h2>     
+      
+>>>>>>> 3695c40 (finished)
         </main>
     );
     };

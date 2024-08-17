@@ -4,7 +4,11 @@ import { useEffect, useState,useRef } from 'react';import { auth,signOut } from 
 import { onAuthStateChanged } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
+<<<<<<< HEAD
 
+=======
+import { AppContext } from './appContext';
+>>>>>>> 3695c40 (finished)
 
 
 
@@ -63,10 +67,15 @@ const TopBar = () => {
         <Link href="/dashboard" className={loggedIn ? 'visible' : 'hidden'}>
           Dashboard
         </Link>
+<<<<<<< HEAD
         <Link href="/dashboard/lessons" className={'visible'}>
           lessons
         </Link>
         <Link href="/login" className={loggedIn ? 'hidden' : 'visible'}>
+=======
+        
+        <Link href="/login" className={appContext.loggedIn ? 'hidden' : 'visible'}>
+>>>>>>> 3695c40 (finished)
           Login
         </Link>
       </nav>
