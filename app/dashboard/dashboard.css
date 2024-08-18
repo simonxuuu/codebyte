@@ -6,6 +6,7 @@
 }
 
 .questionHolder{
+  max-width: 100%;
   display: flex;
   margin-top: 80px;
   margin-bottom: 100px;
@@ -319,6 +320,10 @@ main {
     font-size: max(40px,3vw);
     flex-direction:row;
    }
+   .questionHolder{
+    max-width: 70vw;
+    
+  }
    .outerProgressBar{
      width:300px;
     align-self: flex-start;
@@ -360,6 +365,10 @@ main {
       width: 54vw;
       text-align: left;
      }
+     .questionHolder{
+      max-width: 54vw;
+      
+    }
      .lessonTitle{
       width: 54vw;
       text-align: left;

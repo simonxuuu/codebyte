@@ -89,7 +89,7 @@ export default function Page({ params }) {
       if(questions.indexOf(question) == questions.length-1) return (
       <div className='questionHolder'key={questions.indexOf(question)}>
         <h3 className='question'>{question[0]}</h3>
-        <div style={{display:'flex',gap:'15px'}}>
+        <div style={{display:'flex',gap:'15px',justifyContent:'center'}}>
         {question[1].map(choice =>  (
           <button className={` ${(showRight && correctAnswerIndex == question[1].indexOf(choice)) ? 'gotRight' : showRight ? 'gotWrong' : ''} questionChoice `} onClick={()=>{ if(!isDone){sendAnswer(question[1].indexOf(choice))}}}  key={question[1].indexOf(choice)}>{choice}</button>
         ))
