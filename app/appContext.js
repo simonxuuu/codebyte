@@ -3,7 +3,7 @@ import React,  {useEffect, createContext, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebaseconfig';
 const AppContext = createContext();
-
+//w
 const AppProvider = ({ children }) => {
   const [loggedIn,setLoggedIn]= useState(false);
   const [email,setEmail] = useState('');
