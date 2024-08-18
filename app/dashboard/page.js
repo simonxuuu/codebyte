@@ -17,7 +17,7 @@ const Dashboard = () => {
             setCourses(result);
         })
       //appContext.fetchCourse("Python Basics");
-    }, [appContext.uid]);
+    }, []);
 
     return (
         <main>
