@@ -30,11 +30,21 @@ export default function Home() {
   }
   return (
     <main className={styles.main}>
+      <div className='h-screen flex flex-col items-center justify-center'>
+        <h1 className='font-somatic text-5xl relative'>Don&apos;t just learn to <span className='p-1 rounded-xl bg-gradient-to-b from-rose-400 to-rose-500'>
+            <span className='p-2 rounded-lg outline outline-2 outline-white/20 bg-white/5'>
+              hi
+            </span>
+          </span> code,<br />learn to problem solve</h1>
+      </div>
+
       
-       {/*<SvgBackground /> */}
+        {/* First thing user sees, call to action */}
       <h1>Why spend thousands on bootcamps?</h1>
       <p>Learn to code in as fast as 3 weeks.</p>
 
+
+      {/* Waitlist Button, user action */}
       {!showWaitlist ? (
         <Link href="#" className="button" onClick={appContext.loggedIn ? gotoDashboard : handleClickNotLoggedIn}>
           <span className="button-text">{appContext.loggedIn ? 'Go to dashboard':'Create an account'}</span>
@@ -44,8 +54,8 @@ export default function Home() {
           <CreateAccountHomepage/>
         </div>
       )}
-
-      
+      {/* Divide area here into sections <section> and have 1-2 column layout per section */}
+      <section></section>
      
       
     </main>

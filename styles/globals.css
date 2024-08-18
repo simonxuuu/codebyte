@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=VT323&display=swap');
+@import url('./fonts.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body,html{
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -519,4 +525,10 @@ button[type="submit"] {
     padding-left: 40px;
     padding-right: 40px;
   }
+}
+
+@font-face {
+  font-family: "Somatic";
+  src: url("../fonts/Somatic.otf") format("opentype");
+  font-display: swap;
 }

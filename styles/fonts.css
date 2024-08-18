@@ -1,0 +1,5 @@
+@font-face {
+  font-family: "Somatic";
+  src: url("../fonts/Somatic.otf") format("opentype");
+  font-display: swap;
+}
