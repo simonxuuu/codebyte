@@ -76,16 +76,12 @@
   margin-top:max(7px,0.5vw);
   margin-bottom:max(5px,0.395vw);
 }
-.lessonComponentFocused{
+.lessonComponent.focused .speech-bubble{
   transition: all ease-in 0.1s;
   opacity: 1;
   scale: 1;
 }
-.lessonComponentUnFocused{
-  transition: all ease-in 0.1s;
-  opacity: 0;
-  scale: 0;
-}
+
 
 
 #wipText{
@@ -105,7 +101,8 @@ margin-bottom: 5px;
   --bgColor : rgb(0,0,0);
   transition: all ease-in 0.1s;
   
-  
+  opacity: 0;
+  scale: 0;
   margin: 0;
   margin-top: 220px;
   width:180px;

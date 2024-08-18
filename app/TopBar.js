@@ -1,27 +1,20 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useState,useRef } from 'react';import { auth,signOut } from './firebaseconfig';
-import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useState,useRef,useContext } from 'react';import { auth,signOut } from './firebaseconfig';
+
 import { useRouter } from 'next/navigation';
 
-<<<<<<< HEAD
-
-=======
 import { AppContext } from './appContext';
->>>>>>> 3695c40 (finished)
 
 
 
 const TopBar = () => {
-
   const router = useRouter();
-  const [loggedIn,setLoggedIn] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const hamburger = useRef(null);
-  
+  const appContext = useContext(AppContext);
   useEffect(()=>{
-    //add open mobile menu logic
-    console.log(isMobileMenuOpen);
+    //add open mobile menu logi
     if(hamburger.current){hamburger.current.classList.toggle("is-active");}
   },[isMobileMenuOpen]);
 
@@ -29,28 +22,12 @@ const TopBar = () => {
     signOut(auth).then((result) => {
       console.log("Signed out success.");
       router.push('/');
-      setLoggedIn(false);
+      appContext.setLoggedIn(false);
     }).catch(err =>{
       console.log(err);
     })
   }
 
-  useEffect(() => {
-    
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log('logged in with:'+user.email);
-       
-        setLoggedIn(true);
-
-      } else {
-        console.log('NOT logged in');
-      }
-    });
-
-    // Cleanup subscription on unmount
-    return () => unsubscribe();
-  }, [router]);
   return (
     <header>
       <Link href="/" className="logo">
@@ -58,24 +35,17 @@ const TopBar = () => {
       </Link>
 
       <nav>
-      <Link href="" onClick={()=>{signout(); }} className={loggedIn ? 'visible' : 'hidden'}>
+      <Link href="" onClick={()=>{signout(); }} className={appContext.loggedIn ? 'visible' : 'hidden'}>
           Log out
         </Link>
-      <Link href="/feedback" className={loggedIn ? 'visible' : 'hidden'}>
+      <Link href="/feedback" className={appContext.loggedIn ? 'visible' : 'hidden'}>
           Feedback
         </Link>
-        <Link href="/dashboard" className={loggedIn ? 'visible' : 'hidden'}>
+        <Link href="/dashboard" className={appContext.loggedIn ? 'visible' : 'hidden'}>
           Dashboard
         </Link>
-<<<<<<< HEAD
-        <Link href="/dashboard/lessons" className={'visible'}>
-          lessons
-        </Link>
-        <Link href="/login" className={loggedIn ? 'hidden' : 'visible'}>
-=======
         
         <Link href="/login" className={appContext.loggedIn ? 'hidden' : 'visible'}>
->>>>>>> 3695c40 (finished)
           Login
         </Link>
       </nav>
