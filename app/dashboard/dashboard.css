@@ -6,10 +6,23 @@
 }
 
 .questionHolder{
-
+  display: flex;
+  margin-top: 80px;
+  margin-bottom: 220px;
+  flex-direction: column;
+}
+.question{
+  font-size: max(30px,5vw);
 }
 .questionChoice{
-
+  border-radius: 9px;
+  color:var(--light);
+  background-color: rgb(44, 44, 44);
+  border:0;
+  font-family: "Quicksand", sans-serif;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  font-size: 15px;
 }
 .courseComponent{
   max-width: 100%;
@@ -283,6 +296,12 @@ main {
     text-align: left;
     font-size: max(40px,3vw);
   }
+  .question{
+    font-size: max(40px,2vw);
+  }
+  .questionChoice{
+    font-size: max(2.5rem,0.2vw);
+  }
    .lessonPageClose{
     margin-right: 0;
   }
@@ -323,6 +342,7 @@ main {
       grid-template-columns: repeat(auto-fit,300px);
       gap:20px;
     }
+    
     .lessonPageDescription{
      
         font-size: max(22px,1.5vw);

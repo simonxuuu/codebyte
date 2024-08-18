@@ -20,6 +20,7 @@ export default function Page({ params }) {
     appContext.getNextQuestion(answerIndex).then(response =>{
       //console.log([...questions, response]);
       if(response[0] == "Done"){
+        updatecurScore(curScore+1);
         console.log(response[1]);
         setScore(response[1]);
         setIsDone(true);
@@ -67,16 +68,18 @@ export default function Page({ params }) {
     {appContext.currentLessonName&& !isInfoLesson && !readyForTest && <button onClick={()=>{setReadyForTest(true);}} className='finishlessonbtn'>start review</button>}
     {readyForTest && questions && questions.map(question => {
       if(questions.indexOf(question) == questions.length-1) return (
-      <div key={questions.indexOf(question)}>
-        <h3>{question[0]}</h3>
+      <div className='questionHolder'key={questions.indexOf(question)}>
+        <h3 className='question'>{question[0]}</h3>
+        <div style={{display:'flex',gap:'15px'}}>
         {question[1].map(choice =>  (
-          <button onClick={()=>{ if(!isDone){sendAnswer(question[1].indexOf(choice))}}}  key={question[1].indexOf(choice)}>{choice}</button>
+          <button className='questionChoice' onClick={()=>{ if(!isDone){sendAnswer(question[1].indexOf(choice))}}}  key={question[1].indexOf(choice)}>{choice}</button>
         ))
         }
+        </div>
       </div>
       
     )})}
-    {isDone && <h1>Your score:{score}%</h1>}
-    {isDone || isInfoLesson && <Link className='finishlessonbtn'href={`/dashboard/${appContext.currentCourseName}`}>continue</Link>}
+    {false && <h1>Your score:{score}%</h1>}
+    {(isDone || isInfoLesson) && <Link className='finishlessonbtn'href={`/dashboard/${appContext.currentCourseName}`}>continue</Link>}
     </main>;
 }
