@@ -1,0 +1,268 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./app/dashboard/dashboard.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+.courseComponentHolder{
+  display: grid;
+  grid-auto-rows: auto;
+  grid-gap:15px;
+  gap:15px;
+}
+.courseComponent{
+  max-width: 100%;
+  box-sizing: border-box;
+  border:0;
+  border-radius: 9px;
+  width:300px;
+  height:170px;
+  --backgroundIconColor : rgba(0, 0, 0, 0.404);
+  background-color: rgb(44, 44, 44);
+  border: max(2px,0.12vw) solid rgba(255, 255, 255, 0.13);
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  padding: 12px;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+  transition:all 0.2s ease-in-out;
+}
+.courseComponent:hover{
+  transition:all 0.2s;
+  scale:1.025;
+  background-color: rgb(48, 48, 48);
+}
+.courseComponentTitle{
+  color:rgb(180, 180, 180);
+  text-shadow: none;
+  margin: 0;
+  font-size: 30px;
+  text-align: left;
+  width: 100%;
+}
+.courseComponentDescription{
+  margin: 0;
+  color:rgb(124, 124, 124);
+  font-size: 20px;
+  text-align: left;
+  width:70%;
+  
+}
+.courseComponentBackgroundIcon{
+  width:150px;
+  height:150px;
+  position: absolute;
+  top:10%;
+  left:56%;
+  transform: rotateZ(15deg);
+}
+.lessonComponent{
+    background-color: rgb(70, 70, 70);
+    text-align: center;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.267), inset 0 -0.35em 0 rgba(0, 0, 0, 0.308), 0 0.35em 0.35em rgba(0, 0, 0, 0.219);
+    border:0;
+    border-radius: 999px;
+    width: 80px;
+    height:78px;
+    margin:max(5px,0.4vw);
+    color : var(--light);
+    
+    font-family: "Quicksand", sans-serif;
+    cursor: pointer;
+    transition: all ease-in 0.1s;
+    display: flex;
+    justify-content: center; /* Centers children horizontally */
+    align-items: center;
+}
+
+.lessonComponent:hover{
+  transition: all ease-in 0.1s;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.267), inset 0 -0.25em 0 rgba(0, 0, 0, 0.308), 0 0.25em 0.25em rgba(0, 0, 0, 0.219);
+  height:76px;
+  margin-top:max(7px,0.5vw);
+  margin-bottom:max(5px,0.395vw);
+}
+.lessonComponent.focused .speech-bubble{
+  transition: all ease-in 0.1s;
+  opacity: 1;
+  scale: 1;
+}
+
+
+
+#wipText{
+  
+  color:var(--light);
+  width:90%;
+  opacity: 0.5;
+  font-size: max(19px,1vw);
+  margin-top: max(45px,10vw);
+}
+
+.lessonComponent svg{
+height: 40px;
+margin-bottom: 5px;
+}
+.speech-bubble {
+  --bgColor : rgb(0,0,0);
+  transition: all ease-in 0.1s;
+  
+  opacity: 0;
+  scale: 0;
+  margin: 0;
+  margin-top: 220px;
+  width:180px;
+  height:90px;
+  font-size: 20px;
+   /* Center itself horizontally */
+	position: absolute;
+	background:var(--bgColor) ;
+	border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  filter:drop-shadow(0 0px 10px rgba(0, 0, 0, 0.699));
+  align-items: center;
+  padding:13px;
+  justify-content:space-between;
+  z-index: 1;
+}
+
+.buttonBubbleSpeech{
+  box-sizing: border-box;
+  z-index: 2;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  pointer-events: auto;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  white-space: nowrap; 
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.144);
+  border: 0;
+
+  
+  border-radius: 3rem;
+ 
+  transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s;
+  transition: all ease-in-out 0.3s;
+  
+  font-size: 1rem;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 8px solid transparent;
+	border-bottom-color:var(--bgColor) ;
+	border-top: 0;
+	margin-left: -8px;
+	margin-top: -7px;
+}
+.lessonPageTitle{
+  display: flex;
+  align-items: center;
+  
+  justify-content: space-between;
+  flex-direction:column-reverse;
+  gap:25px;
+    font-size: max(40px,6vw);
+    width: 100vw;
+    text-align: center;
+    margin-bottom: max(5px,0.2vw);
+}
+.lessonPageDescription{
+  color:rgb(102, 102, 102);
+    font-size: max(25px,3.3vw);
+    width: 90vw;
+    text-align: center;
+    margin-top:8px;
+    margin-bottom: max(35px,4vw);
+}
+.lessonPageClose{
+  cursor: pointer;
+  margin-right: max(230px,35vw);
+}
+.lessonPageClose:hover{
+  opacity: 0.8;
+}
+main {
+    margin-top:7rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    
+  }
+  #percentageComplete {
+    color:var(--accent1);
+    font-size: 35px;
+    filter:drop-shadow(0rem 0rem 0.3rem var(--accent1));
+    margin-bottom: 5rem;
+  }
+  
+  @media only screen and (min-width: 425px) {
+    
+  }
+  /* Medium devices such as tablets (768px and up) */
+  @media only screen and (min-width: 768px) {
+   
+  }
+  @media only screen and (min-width: 1024px) {
+   .lessonPageTitle{
+    width: 70vw;
+    text-align: left;
+    font-size: max(40px,3vw);
+    flex-direction:row;
+   }
+   .lessonPageClose{
+    margin-right: 0;
+  }
+   .courseComponentHolder{
+    width: 70vw;
+    grid-auto-rows: repeat(2,200px);
+    grid-template-columns: repeat(auto-fit,300px);
+    gap:20px;
+  }
+  .lessonPageDescription{
+   
+      font-size: max(22px,2vw);
+      width: 70vw;
+      text-align: left;
+     
+      margin-bottom: max(35px,4vw);
+  }
+  }
+  @media only screen and (min-width: 1280px) {
+    .lessonPageTitle{
+      width: 54vw;
+      text-align: left;
+     }
+     .lessonPageClose{
+     width:30px;
+     height:30px;
+    }
+     .courseComponentHolder{
+      width: 54vw;
+      grid-auto-rows: repeat(2,200px);
+      grid-template-columns: repeat(auto-fit,300px);
+      gap:20px;
+    }
+    .lessonPageDescription{
+     
+        font-size: max(22px,1.5vw);
+        width: 54vw;
+        text-align: left;
+        margin-top:8px;
+        margin-bottom: max(35px,4vw);
+    }
+  }
+  
