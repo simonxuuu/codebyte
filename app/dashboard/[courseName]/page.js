@@ -11,22 +11,23 @@ export default function Page({ params }) {
     const appContext = useContext(AppContext);
    
     const [lessons,setlessons] = useState([]);
-   
+    const [refresh,setRefresh] = useState(false);
     
     useEffect(() => {
+      setRefresh(false);
       if(appContext.currentCourseName == "") {
         appContext.getCoursesInfo().then(result => {
           for (let i = 0; i < result.length;i++){
-            if(Object.keys(result[i])[0] == decodeURI(params.courseName)){
-              appContext.setCurrentCourseName(Object.keys(result[i])[0]);
-              appContext.setCurrentCourseDesc(Object.values(result[i])[0]);
+            if(result[i][0] == decodeURI(params.courseName)){
+              appContext.setCurrentCourseName(result[i][0]);
+              appContext.setCurrentCourseDesc(result[i][1]);
               //console.log(Object.keys(result[i])[0]); 
             }
           }
          
         })
       }
-      else if(appContext.email){
+      else if(appContext.jwt){
         //console.log(appContext.currentCourseName);
          
       appContext.getLessonNames(appContext.currentCourseName).then(result => {
@@ -46,25 +47,16 @@ export default function Page({ params }) {
 
       } 
       //appContext.fetchCourse("Python Basics");
-    }, [appContext.email]);
+    }, [appContext.jwt,refresh]);
 
     function resetProgress(){
-      if(appContext.uid == ''){return;}
+      
+      appContext.purgeProgress().then(res => {
+        if(res == "success"){
+          setRefresh(true);
+        }
+      });
 
-      fetch(`${appContext.apiRoute}/purge-progress`, {
-        method: "POST",
-        body: JSON.stringify({email:appContext.email,uid:appContext.uid }),
-        headers: {
-          "Content-type": "application/json"
-        }
-      }).then(result => {return result.text()}).then((textResponse)=>{
-        
-        router.push(window.location.href);
-          router.refresh();
-        if(textResponse == 'success'){
-          appContext.fetchCourse("Python Basics");
-        }
-      })
     
     }
     

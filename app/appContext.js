@@ -10,7 +10,7 @@ const AppProvider = ({ children }) => {
   const [jwt,setJwt]=useState('');
  //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute ='https://codebyte-1b9af19e473e.herokuapp.com';
+  const apiRoute ='http://localhost:8080';
   const [currentCourseData,setCurrentCourseData] = useState({});
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
@@ -82,7 +82,14 @@ const AppProvider = ({ children }) => {
     .then(response => {return response.json();}).then((jsonOutput)=>{return jsonOutput;});
   }
 
-
+  function purgeProgress(){
+    if(!jwt) return 'error';
+    return fetch(`${apiRoute}/purge-progress`, {method: "POST",
+      body: JSON.stringify({jwt:jwt}),
+       headers: {"Content-type": "application/json"}} )
+    .then(response => {return response.text();}).then((jsonOutput)=>{//console.log(jsonOutput);
+         return jsonOutput;});
+    }
   
 
   return (
@@ -101,7 +108,8 @@ const AppProvider = ({ children }) => {
          getCourseProgressData,returnCourseByName,
          currentLessonName,setCurrentLessonName,
          getLessonTeachings,
-         getNextQuestion }}>
+         getNextQuestion ,
+         purgeProgress}}>
       {children}
     </AppContext.Provider>
   );

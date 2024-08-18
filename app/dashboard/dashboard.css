@@ -2,6 +2,14 @@
   display: grid;
   grid-auto-rows: auto;
   gap:15px;
+  margin-bottom: 220px;
+}
+
+.questionHolder{
+
+}
+.questionChoice{
+
 }
 .courseComponent{
   max-width: 100%;
@@ -20,6 +28,42 @@
   flex-direction: column;
   position: relative;
   transition:all 0.2s ease-in-out;
+}
+.outerProgressBar{
+  margin-top: 20px;
+  width:70vw;
+  height:20px;
+  background-color: rgb(46, 46, 46);
+  border-radius: 10px;
+}
+.innerProgressBar{
+  
+  
+  height: 100%;
+  background-color: var(--accent1);
+  border-radius: 10px;
+}
+.lessonTeachings{
+  color:rgb(172, 172, 172);
+  font-size: 20px;
+  line-height: 28px;
+  text-align: left;
+  width: 90vw;
+  text-wrap:wrap;
+}
+.finishlessonbtn{
+  color:var(--accent1);
+  font-size: 30px;
+  margin-top: 70px;
+  margin-bottom: 200px;
+}
+.courseLocked{
+  filter: brightness(1) blur(5px);
+}
+.courseLockedBG{
+  border: max(2px,0.12vw) solid rgba(255, 255, 255, 0.034);
+  background-color: rgb(32, 32, 32);
+  filter: brightness(0.8);
 }
 .courseComponent:hover{
   transition:all 0.2s;
@@ -172,6 +216,12 @@ margin-bottom: 5px;
     text-align: center;
     margin-bottom: max(5px,0.2vw);
 }
+.lessonTitle{
+  font-size: max(40px,6vw);
+  width: 100vw;
+  text-align: center;
+  margin-bottom: max(5px,0.2vw);
+}
 .lessonPageDescription{
   color:rgb(102, 102, 102);
     font-size: max(25px,3.3vw);
@@ -206,7 +256,12 @@ main {
   }
   
   @media only screen and (min-width: 425px) {
-    
+    .outerProgressBar{
+     
+      width:260px;
+      height:20px;
+      
+    }
   }
   /* Medium devices such as tablets (768px and up) */
   @media only screen and (min-width: 768px) {
@@ -219,6 +274,15 @@ main {
     font-size: max(40px,3vw);
     flex-direction:row;
    }
+   .outerProgressBar{
+     width:300px;
+    align-self: start;
+  }
+   .lessonTitle{
+    width: 70vw;
+    text-align: left;
+    font-size: max(40px,3vw);
+  }
    .lessonPageClose{
     margin-right: 0;
   }
@@ -236,12 +300,19 @@ main {
      
       margin-bottom: max(35px,4vw);
   }
+  .lessonTeachings{
+    width: 70vw;
+  }
   }
   @media only screen and (min-width: 1280px) {
     .lessonPageTitle{
       width: 54vw;
       text-align: left;
      }
+     .lessonTitle{
+      width: 54vw;
+      text-align: left;
+    }
      .lessonPageClose{
      width:30px;
      height:30px;
@@ -259,6 +330,9 @@ main {
         text-align: left;
         margin-top:8px;
         margin-bottom: max(35px,4vw);
+    }
+    .lessonTeachings{
+      width: 54vw;
     }
   }
   

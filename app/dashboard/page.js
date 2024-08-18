@@ -27,13 +27,19 @@ const Dashboard = () => {
         courses.map((course) => (
           <CourseComponent
             key={courses.indexOf(course)}
-            courseTitle = {Object.keys(course)[0]}
-            courseDescription = {Object.values(course)[0]}
-            onclick={()=>{appContext.setCurrentCourseName(Object.keys(course)[0]);appContext.setCurrentCourseDesc(Object.values(course)[0])}}
+            courseTitle = {course[0]}
+            courseDescription = {course[1]}
+            isLocked={(course[2] != "true")}
+            onclick={()=>{
+              if(course[2] == "true"){
+              appContext.setCurrentCourseName(course[0]);
+              appContext.setCurrentCourseDesc(course[1]);
+              router.push(`/dashboard/${course[0]}`); }
+            }}
           />
         ))}
         </div>
-       <h2 id='wipText'>Course offerings are limited. </h2>     
+       
       
         </main>
     );
