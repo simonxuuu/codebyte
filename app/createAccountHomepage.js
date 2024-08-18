@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import "../../styles/globals.css";
+import "../styles/globals.css";
 import { createUserWithEmailAndPassword } from "./firebaseconfig";
 import { auth } from "./firebaseconfig";
 import { useRouter } from "next/navigation";
