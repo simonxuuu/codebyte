@@ -27,6 +27,7 @@ const Dashboard = () => {
         courses.map((course) => (
           <CourseComponent
             key={courses.indexOf(course)}
+            index={courses.indexOf(course)}
             courseTitle = {course[0]}
             courseDescription = {course[1]}
             isLocked={(course[2] != "true")}

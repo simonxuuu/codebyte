@@ -25,6 +25,11 @@
   font-size: 15px;
 }
 .courseComponent{
+  
+  
+  
+  opacity:0;
+  scale:0;
   max-width: 100%;
   box-sizing: border-box;
   border:0;
@@ -42,6 +47,7 @@
   position: relative;
   transition:all 0.2s ease-in-out;
 }
+
 .outerProgressBar{
   margin-top: 20px;
   width:70vw;
@@ -65,10 +71,29 @@
   text-wrap:wrap;
 }
 .finishlessonbtn{
-  color:var(--accent1);
-  font-size: 30px;
-  margin-top: 70px;
-  margin-bottom: 200px;
+  box-sizing: border-box;
+  z-index: 2;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  pointer-events: auto;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  white-space: nowrap; 
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  background-color: rgb(16, 158, 75);
+  border: 0;
+
+  
+  border-radius: 3rem;
+ 
+  transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s;
+  transition: all ease-in-out 0.3s;
+  
+  font-size: 1rem;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 .courseLocked{
   filter: brightness(1) blur(5px);
@@ -117,13 +142,14 @@
     height:78px;
     margin:max(5px,0.4vw);
     color : var(--light);
-    
+    opacity:1;
     font-family: "Quicksand", sans-serif;
     cursor: pointer;
     transition: all ease-in 0.1s;
     display: flex;
     justify-content: center; /* Centers children horizontally */
     align-items: center;
+    animation: fadeInOpacityOnly  0.4s ease-in  1 ;
 }
 
 .lessonComponent:hover{
@@ -176,7 +202,7 @@ margin-bottom: 5px;
   align-items: center;
   padding:13px;
   justify-content:space-between;
-  z-index: 1;
+  z-index: 2;
 }
 
 .buttonBubbleSpeech{
@@ -300,7 +326,7 @@ main {
     font-size: max(40px,2vw);
   }
   .questionChoice{
-    font-size: max(2.5rem,0.2vw);
+    font-size: max(20px,0.2vw);
   }
    .lessonPageClose{
     margin-right: 0;
@@ -355,4 +381,12 @@ main {
       width: 54vw;
     }
   }
-  
+  @keyframes fadeIn {
+    0%{opacity: 0; scale: 0;}
+    10%{scale: 1;}
+    100%{opacity: 1;scale: 1; }
+    }
+    @keyframes fadeInOpacityOnly {
+      0%{opacity: 0; }
+      100%{opacity: 1; }
+      }

@@ -22,30 +22,9 @@ const LessonComponent = ({data,courseTitle,allLessons,curEmail,onclick}) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-    function testUnlockLesson(){
-      console.log(allLessons[data.lessonIndex-1].isComplete);
-        if (allLessons[data.lessonIndex-1].isComplete == false){return;}
-        const updatedLessons = allLessons.map(lesson => 
-            lesson.lessonIndex === data.lessonIndex 
-            ? { ...lesson, isComplete: !lesson.isComplete } 
-            : lesson
-        );
-        updateLessonData(updatedLessons);
-       
-        fetch("https://codebyte-1b9af19e473e.herokuapp.com/update-progress", {
-            method: "POST",
-            body: JSON.stringify({email:curEmail,sectionId:lessonSection,completedID:data.lessonIndex}),
-            headers: {
-              "Content-type": "application/json"
-            }
-          }).then((response)=>{
-            console.log(response);
-          })
-    }
-
     return (
        <>
-        <button ref={lessonRef} onFocus={()=>{setFocused(true);}}className={`lessonComponent ${isFocused ? 'focused' : ''} ${data.isComplete ? 'lessonCompleted' : data.lessonIndex > 0 && allLessons[data.lessonIndex-1].isComplete || data.lessonIndex == 0 ? 'lessonUnlocked' : 'lessonLocked'}`} style={{
+        <button  ref={lessonRef} onFocus={()=>{setFocused(true);}}className={`lessonComponent ${isFocused ? 'focused' : ''} ${data.isComplete ? 'lessonCompleted' : data.lessonIndex > 0 && allLessons[data.lessonIndex-1].isComplete || data.lessonIndex == 0 ? 'lessonUnlocked' : 'lessonLocked'}`} style={{
             marginLeft : `${offset*1000}px`,
             backgroundColor: `${bgColor}`
             

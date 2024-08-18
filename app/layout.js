@@ -21,14 +21,15 @@ export default function Layout({ children }) {
      <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description}/>
+       
       </Head>
     <body>
-   
+    
       <TopBar />
           {children}
         <Footer />
     
-    
+        
     </body>
 
    
