@@ -2,12 +2,12 @@ import { useEffect, useState,useRef } from "react";
 import Link from "next/link";
 
 const CourseComponent = ({courseTitle,courseDescription,onclick,isLocked,index}) => {
-
-    
+    const butn = useRef(null);
+   
  
     return (
        
-        <button style={{animation: `fadeIn 0.4s ease-in ${index/3}s 1 forwards`}} onClick={()=>{onclick();}} className={`courseComponent ${isLocked ? 'courseLockedBG' : '' }`}>
+        <button ref={butn} onClick={()=>{onclick();}} className={`courseComponent ${isLocked ? 'courseLockedBG' : '' }`}>
          {isLocked && <h1 className="courseComponentTitle" style={{position:'absolute',left:'17%',zIndex:'1',top:'35%'}}>Coming soon!</h1>}
          <span className={`${isLocked ? 'courseLocked' : '' }`}>
         <h1 className="courseComponentTitle">{courseTitle}</h1>

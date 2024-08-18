@@ -40,7 +40,7 @@ const Dashboard = () => {
           />
         ))}
         </div>
-       
+        <h2 id='wipText'>We are currently adding more courses. Please let us know if there is anything you'd like to see.</h2>  
       
         </main>
     );

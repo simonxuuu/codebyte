@@ -9,6 +9,14 @@ const LessonComponent = ({data,courseTitle,allLessons,curEmail,onclick}) => {
     const lessonRef = useRef(null);
     const [isFocused,setFocused] = useState(false);
     
+    function btnClick(){
+      if(data.isComplete){
+        setFocused(false);onclick(); 
+      }else if (data.lessonIndex > 0 && allLessons[data.lessonIndex-1].isComplete || data.lessonIndex == 0){
+        setFocused(false);onclick(); 
+      }
+      
+    }
     //close popup if we click outside of the component
     useEffect(() => {
       //console.log(data);
@@ -34,8 +42,8 @@ const LessonComponent = ({data,courseTitle,allLessons,curEmail,onclick}) => {
          }
          
         <div  style={{marginLeft : `${offset}px`,'--bgColor':`${bgColor}`}}className={`speech-bubble ${data.isComplete ? 'lessonCompleted' : data.lessonIndex > 0 && allLessons[data.lessonIndex-1].isComplete || data.lessonIndex == 0 ? 'lessonUnlocked' : 'lessonLocked'}`}>{data.Name}
-
-         <Link href={`/dashboard/${courseTitle}/${data.lessonIndex}`} onClick={()=>{setFocused(false);onclick(); }}className="buttonBubbleSpeech">{data.isComplete ? "Revisit Lesson" : "Start Lesson"}</Link>
+        
+         <button onClick={btnClick}className="buttonBubbleSpeech">{data.isComplete ? 'Revisit Lesson' : data.lessonIndex > 0 && allLessons[data.lessonIndex-1].isComplete || data.lessonIndex == 0 ? 'Start Lesson' : 'Lesson locked'}</button>
  
         </div>
          </button>

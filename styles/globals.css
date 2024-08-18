@@ -24,6 +24,10 @@ body,html{
   --lessonLocked : rgb(41, 41, 41);
   --lessonComplete : rgb(13, 156, 77);
   --lessonInComplete : rgb(12, 175, 85);
+
+  --correctAnswer: rgb(27, 143, 75);
+  --wrongAnswer : rgb(202, 52, 41);
+
   background-color: var(--dark);
   text-wrap: wrap;
 }
@@ -51,6 +55,20 @@ header {
   align-items: center;
   border-radius: 0;
   z-index: 999;
+}
+.mobileHeader{
+  left:50%;
+  transform: translateX(-50%);
+  position: fixed;
+  width:100%;
+  top:101%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5em;
+  padding-top: 0.4em;
+  border-bottom:max(1.5px,0.5vw) solid rgba(255, 255, 255, 0.13);
+  background: var(--accent1);
+  height:fit-content;
 }
 textarea{
   background-color: var(--accent1Btn);
@@ -479,6 +497,9 @@ button[type="submit"] {
     padding-right: 40px;
     border-radius: 1rem;
     margin-top:1rem;
+  }
+  .mobileHeader{
+    display: none;
   }
 }
 /* Largest devices such as desktops (1280px and up) */

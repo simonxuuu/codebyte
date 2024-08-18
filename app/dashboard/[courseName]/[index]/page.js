@@ -15,11 +15,23 @@ export default function Page({ params }) {
   const[totalQs,updatetotalQs] = useState(7);
   const[curScore,updatecurScore] = useState(0);
   const[readyForTest,setReadyForTest] = useState(false);
+  const[correctAnswerIndex,setcorrectAnswerIndex] = useState(0)
+  const[showRight,setShowRight]= useState(false);
+  const delay = ms => new Promise(res => setTimeout(res, ms));
 
+  window.onbeforeunload = function() {
+    return "Leaving this page will reset your lesson progress.";
+  };
+  
   function sendAnswer(answerIndex){
-    appContext.getNextQuestion(answerIndex).then(response =>{
+    
+    
+   
+    appContext.getNextQuestion(answerIndex).then(async response =>{
       //console.log([...questions, response]);
       if(response[0] == "Done"){
+        setcorrectAnswerIndex(answerIndex);
+        setShowRight(true);
         updatecurScore(curScore+1);
         console.log(response[1]);
         setScore(response[1]);
@@ -27,6 +39,7 @@ export default function Page({ params }) {
         return;
       }
       if(answerIndex==-1){
+        setShowRight(false);
         if(response[0] != "InfoLesson"){
         setQuestions([...questions, response]);
         }else{
@@ -34,16 +47,22 @@ export default function Page({ params }) {
         }
        }
       else{
-        if(response[0] == true){
+        setcorrectAnswerIndex(response[0]);
+        setShowRight(true);
+        if(response[0] == answerIndex){
+         
           updatecurScore(curScore+1);
         }else{
+         
           updatetotalQs(totalQs+1);
         }
-        
+        await delay(1300);
+        setShowRight(false);
         setQuestions([...questions,response.slice(1)]);
       }
      
     })
+    
   }
   
   useEffect(() => {
@@ -60,7 +79,7 @@ export default function Page({ params }) {
   }, []);
   
   return <main style={{color:"white",display:'flex',flexDirection:'column'}}>
-    {!appContext.currentLessonName ? <h2>Sorry, this session has expired. Head back to the dashboard to try again.</h2> : ''}
+    {!appContext.currentLessonName ? <h2 className='lessonTeachings'>Sorry, this session has expired. Head back to the dashboard to try again.</h2> : ''}
     <h2 className='lessonTitle'>{appContext.currentLessonName && appContext.currentLessonName}</h2>
     {readyForTest && <div className='outerProgressBar'> 
       <div style={{width:`calc(${Math.max(0.09,(curScore/totalQs))}*100%)`}}className="innerProgressBar"></div></div>}
@@ -72,7 +91,7 @@ export default function Page({ params }) {
         <h3 className='question'>{question[0]}</h3>
         <div style={{display:'flex',gap:'15px'}}>
         {question[1].map(choice =>  (
-          <button className='questionChoice' onClick={()=>{ if(!isDone){sendAnswer(question[1].indexOf(choice))}}}  key={question[1].indexOf(choice)}>{choice}</button>
+          <button className={` ${(showRight && correctAnswerIndex == question[1].indexOf(choice)) ? 'gotRight' : showRight ? 'gotWrong' : ''} questionChoice `} onClick={()=>{ if(!isDone){sendAnswer(question[1].indexOf(choice))}}}  key={question[1].indexOf(choice)}>{choice}</button>
         ))
         }
         </div>

@@ -15,9 +15,12 @@ const TopBar = () => {
   const appContext = useContext(AppContext);
   useEffect(()=>{
     //add open mobile menu logi
+   
     if(hamburger.current){hamburger.current.classList.toggle("is-active");}
   },[isMobileMenuOpen]);
+  
 
+  
   function signout(){
     signOut(auth).then((result) => {
       console.log("Signed out success.");
@@ -55,6 +58,23 @@ const TopBar = () => {
           <span className="hamburger-inner"></span>
         </span>
       </button>
+      {isMobileMenuOpen && <div className='mobileHeader '>
+        
+        <Link href="" onClick={()=>{signout(); }} className={appContext.loggedIn ? 'visible' : 'hidden'}>
+          Log out
+        </Link>
+      <Link href="/feedback" className={appContext.loggedIn ? 'visible' : 'hidden'}>
+          Feedback
+        </Link>
+        <Link href="/dashboard" className={appContext.loggedIn ? 'visible' : 'hidden'}>
+          Dashboard
+        </Link>
+        
+        <Link href="/login" className={appContext.loggedIn ? 'hidden' : 'visible'}>
+          Login
+        </Link>
+        
+        </div>}
     </header>
   );
 };

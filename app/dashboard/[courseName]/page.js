@@ -9,7 +9,7 @@ export default function Page({ params }) {
 
     const router = useRouter();
     const appContext = useContext(AppContext);
-   
+    const [courseComplete,setcourseComplete] = useState(false);
     const [lessons,setlessons] = useState([]);
     const [refresh,setRefresh] = useState(false);
     
@@ -38,6 +38,11 @@ export default function Page({ params }) {
           
           for(let i = 0; i < lessonprog.length; i++){
             tempLessonInfo.push(Object.assign({},{"Name":result[i]},lessonprog[i]));
+            if(i == lessonprog.length-1){
+              if(lessonprog[i].isComplete){
+                setcourseComplete(true);
+              }
+            }
           }      
           //console.log(tempLessonInfo);
           setlessons(tempLessonInfo);
@@ -53,6 +58,7 @@ export default function Page({ params }) {
       
       appContext.purgeProgress().then(res => {
         if(res == "success"){
+          setcourseComplete(false);
           setRefresh(true);
         }
       });
@@ -74,11 +80,11 @@ export default function Page({ params }) {
             data={lesson}
             allLessons={lessons}
             curEmail={appContext.email}
-            onclick ={()=>{appContext.setCurrentLessonName(lesson.Name)}}
+            onclick ={()=>{appContext.setCurrentLessonName(lesson.Name);router.push(`/dashboard/${appContext.currentCourseName}/${lesson.lessonIndex}`);}}
           />
         ))}
-        
-       <h2 id='wipText'>We are currently adding more lessons. Please let us know if there is anything you'd like to see.</h2>     
+        {courseComplete && <h2 id='wipText'>Congrats on completing this course! Let us know what we can improve by clicking the feedback button up top.</h2>}
+         
         <button onClick={resetProgress}>Reset Progress (testingonly)</button>
         </main>
     );

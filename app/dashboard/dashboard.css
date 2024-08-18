@@ -2,13 +2,13 @@
   display: grid;
   grid-auto-rows: auto;
   gap:15px;
-  margin-bottom: 220px;
+ 
 }
 
 .questionHolder{
   display: flex;
   margin-top: 80px;
-  margin-bottom: 220px;
+  margin-bottom: 100px;
   flex-direction: column;
 }
 .question{
@@ -23,13 +23,14 @@
   padding: 0.3rem 0.7rem;
   cursor: pointer;
   font-size: 15px;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 .courseComponent{
   
+  animation: fadeIn  0.4s ease-in  1 ;
   
-  
-  opacity:0;
-  scale:0;
+  opacity:1;
+  scale:1;
   max-width: 100%;
   box-sizing: border-box;
   border:0;
@@ -151,7 +152,12 @@
     align-items: center;
     animation: fadeInOpacityOnly  0.4s ease-in  1 ;
 }
-
+.gotRight{
+  background-color: var(--correctAnswer);
+}
+.gotWrong{
+  background-color: var(--wrongAnswer);
+}
 .lessonComponent:hover{
   transition: all ease-in 0.1s;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.267), inset 0 -0.25em 0 rgba(0, 0, 0, 0.308), 0 0.25em 0.25em rgba(0, 0, 0, 0.219);
@@ -281,11 +287,11 @@ main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
     padding: 20px;
-    
+    margin-bottom: 13em;
   }
   #percentageComplete {
     color:var(--accent1);
@@ -315,7 +321,7 @@ main {
    }
    .outerProgressBar{
      width:300px;
-    align-self: start;
+    align-self: flex-start;
   }
    .lessonTitle{
     width: 70vw;
