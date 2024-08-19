@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="390px" height="844px" viewBox="0 0 390 844" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M390 0L390 0L390 844L0 844L0 0L390 0Z" id="path_1" />
+    <path d="M149 512L83.2194 540.287C83.2194 540.287 51.3534 548.389 38.5 569C25.6466 589.611 31.7126 614.538 31.7126 614.538L27.7028 711.538" id="path_2" />
+    <path d="M231 509L296.619 537.287C296.619 537.287 328.407 545.389 341.229 566C354.051 586.611 348 611.538 348 611.538L352 708.538" id="path_3" />
+    <clipPath id="clip_1">
+      <use xlink:href="#path_1" clip-rule="evenodd" fill-rule="evenodd" />
+    </clipPath>
+    <clipPath id="clip_2">
+      <use xlink:href="#path_2" />
+    </clipPath>
+    <clipPath id="clip_3">
+      <use xlink:href="#path_3" />
+    </clipPath>
+  </defs>
+  <g id="iPhone 14 / 14 Pro">
+    <path d="M390 0L390 0L390 844L0 844L0 0L390 0Z" id="iPhone-14--14-Pro" fill="#141414" stroke="none" />
+    <path d="M291 619L294.36 709" id="Vector-35" fill="none" fill-rule="evenodd" stroke="#4ADE80" stroke-width="1" clip-path="url(#clip_1)" />
+    <path d="M82.9706 622.331L79 712" id="Vector-35" fill="none" fill-rule="evenodd" stroke="#4ADE80" stroke-width="1" clip-path="url(#clip_1)" />
+    <g id="Vector-40" clip-path="url(#clip_1)">
+      <g clip-path="url(#clip_2)">
+        <use xlink:href="#path_2" fill="none" stroke="#4ADE80" stroke-width="2" />
+      </g>
+    </g>
+    <g id="Vector-40" clip-path="url(#clip_1)">
+      <g clip-path="url(#clip_3)">
+        <use xlink:href="#path_3" fill="none" stroke="#4ADE80" stroke-width="2" />
+      </g>
+    </g>
+    <path d="M149 463L149 525.37" id="Vector-35" fill="none" fill-rule="evenodd" stroke="#4ADE80" stroke-width="1" clip-path="url(#clip_1)" />
+    <path d="M232 462.961L232 525.33" id="Vector-35" fill="none" fill-rule="evenodd" stroke="#4ADE80" stroke-width="1" clip-path="url(#clip_1)" />
+    <path d="M140.582 376.5C128.023 406.5 140.582 454.5 140.582 454.5L181.237 493.5L201.494 493.5L240.582 454.5C240.582 454.5 253.023 406.5 240.582 376.5C228.14 346.5 215.816 342 190.816 342C165.816 342 153.14 346.5 140.582 376.5Z" id="Vector-32" fill="none" fill-rule="evenodd" stroke="#4ADE80" stroke-width="1" clip-path="url(#clip_1)" />
+  </g>
+</svg>
