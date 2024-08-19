@@ -4,7 +4,8 @@ import React, { useState,useEffect,useContext } from 'react';
 import Head from 'next/head';
 import Image from "next/image";
 import Link from "next/link";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faDollarSign } from "@fortawesome/fontawesome-free-solid"
 
 import CreateAccountHomepage from "./createAccountHomepage";
 import styles from './page.module.css'
@@ -31,9 +32,9 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className='h-screen flex flex-col items-center justify-center'>
-        <h1 style={{fontWeight:'900'}}className=' text-5xl relative'>Don&apos;t just learn to <span className='p-1 rounded-xl bg-gradient-to-b from-rose-400 to-rose-500'>
-            <span className='p-2 rounded-lg outline outline-2 outline-white/20 bg-white/5'>
-              hi
+        <h1 style={{fontWeight:'900'}}className=' text-5xl relative'>Don&apos;t just learn to <span className="mx-2 bg-gradient-to-b from-rose-400 to-rose-600 w-[90px] h-[60px] p-1 rounded-xl flex -skew-y-6 -skew-x-2" style={{ boxShadow: '0px 0px 12px #f43f5e' }}>
+            <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-3xl text-white flex items-center justify-center">
+              <FontAwesomeIcon icon={faDollarSign} />
             </span>
           </span> code,<br />learn to problem solve</h1>
       </div>
