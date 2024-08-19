@@ -44,6 +44,10 @@ const TopBar = () => {
         <Link href="/dashboard" className={appContext.loggedIn ? 'visible' : 'hidden'}>
           Dashboard
         </Link>
+
+        <Link href="/dashboard/profile" className={appContext.loggedIn ? 'visible' : 'hidden'}>
+          Profile
+        </Link>
         
         <Link href="/login" className={appContext.loggedIn ? 'hidden' : 'visible'}>
           Login
