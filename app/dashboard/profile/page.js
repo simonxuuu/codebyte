@@ -4,7 +4,7 @@ import { AppContext } from '../../appContext';
 
 export default function Page() {
     const appContext = useContext(AppContext);
-    const [email, setEmail] = useState(appContext.email);
+    const [email, setEmail] = useState(appContext.email) || '';
     const [userStats, setUserStats] = useState({
         lessonsCompleted: 0,
         xp: 0,
@@ -13,39 +13,40 @@ export default function Page() {
         languagesCompleted: 0
     });
 
-    const getUserStats = async () => {
-        fetch("${appContext.apiRoute}/getStats", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: {email}
-            })
-            
-        })
-        .then(response => {
-            // Check if the response is successful
+    useEffect(() => {
+        if (appContext.email) {
+            setEmail(appContext.email);
+            getUserStats(appContext.email);
+        }
+    }, [appContext.email]);
+
+    const getUserStats = async (email) => {
+        try {
+            const response = await fetch(`${appContext.apiRoute}/getStats`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            });
+
             if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error('Network response was not ok ' + response.statusText);
             }
-            return response.json(); // Parse the response as JSON
-        })
-        .then(data => {
-            const updatedStats = {
-                    lessonsCompleted: data.lessonsCompleted || 0,
-                    xp: data.xp || 0,
-                    league: data.league || 0,
-                    friends: data.friends || 0,
-                    languagesCompleted: data.languagesCompleted || 0
-                };
-            setUserStats(updatedStats);
-        })
-        .catch(error => {
-            // Handle any errors that occurred
-            console.error('Error:', error);
-        });
-    }
+
+            const data = await response.json();
+            setUserStats({
+                lessonsCompleted: data.lessonsCompleted || 0,
+                xp: data.xp || 0,
+                league: data.league || "Bronze",
+                friends: data.friends || 0,
+                languagesCompleted: data.languagesCompleted || 0
+            });
+        } catch (error) {
+            console.error('There has been a problem with your fetch operation:', error);
+        }
+    };
+
 
     useEffect(() => {
         getUserStats();
