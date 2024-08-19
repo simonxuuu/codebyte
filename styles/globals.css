@@ -1,15 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=VT323&display=swap');
-@import url('./fonts.css');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import url("./fonts.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body,html{
+body,
+html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  overflow-x:hidden;
-  margin:0;
+  overflow-x: hidden;
+  margin: 0;
   box-sizing: border-box;
   padding: 0;
   border: 0;
@@ -18,128 +19,117 @@ body,html{
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  --topBarColor : rgba(255, 255, 255, 0.021);
+  --topBarColor: rgba(255, 255, 255, 0.021);
   --topBarGlow: rgba(9, 209, 99, 0.301);
-  --darker : rgb(10, 10, 10);
-  --dark : rgb(20, 20, 20);
-  --light : rgb(224, 224, 224);
-  --subTextColor : rgb(146, 146, 146);
-  --accent1 : rgb(24, 204, 120);
-  --accent1Btn : rgba(9, 119, 86, 0.521);
-  --accent2 : rgb(255,255,255);
-  --lessonLocked : rgb(41, 41, 41);
-  --lessonComplete : rgb(13, 156, 77);
-  --lessonInComplete : rgb(12, 175, 85);
+  --darker: rgb(10, 10, 10);
+  --dark: rgb(20, 20, 20);
+  --light: rgb(224, 224, 224);
+  --subTextColor: rgb(146, 146, 146);
+  --accent1: rgb(24, 204, 120);
+  --accent1Btn: rgba(9, 119, 86, 0.521);
+  --accent2: rgb(255, 255, 255);
+  --lessonLocked: rgb(41, 41, 41);
+  --lessonComplete: rgb(13, 156, 77);
+  --lessonInComplete: rgb(12, 175, 85);
 
   --correctAnswer: rgb(27, 143, 75);
-  --wrongAnswer : rgb(202, 52, 41);
+  --wrongAnswer: rgb(202, 52, 41);
 
   background-color: var(--dark);
   text-wrap: wrap;
 }
-body{
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.pixelText{
+.pixelText {
   font-family: "VT323", monospace;
   font-size: larger;
-  color:var(--accent1);
+  color: var(--accent1);
 }
 header {
   width: 100%;
-  position:fixed;
-  
+  position: fixed;
+
   backdrop-filter: blur(7px);
   box-sizing: border-box;
-  border-bottom: max(1.5px,0.5vw) solid rgba(255, 255, 255, 0.13);
+  border-bottom: max(1.5px, 0.5vw) solid rgba(255, 255, 255, 0.13);
   background: var(--topBarColor);
-  padding: max(13px,1vw);
+  padding: max(13px, 1vw);
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0;
   z-index: 999;
 }
-.mobileHeader{
-  left:50%;
+.mobileHeader {
+  left: 50%;
   transform: translateX(-50%);
   position: fixed;
-  width:100%;
-  top:101%;
+  width: 100%;
+  top: 101%;
   display: flex;
   flex-direction: column;
   padding-left: 5em;
   padding-top: 0.4em;
-  border-bottom:max(1.5px,0.5vw) solid rgba(255, 255, 255, 0.13);
+  border-bottom: max(1.5px, 0.5vw) solid rgba(255, 255, 255, 0.13);
   background: var(--accent1);
-  height:fit-content;
+  height: fit-content;
 }
-textarea{
+textarea {
   background-color: var(--accent1Btn);
   outline: 0;
   border: 0;
-  color:var(--light);
-  height: max(140px,1vw);
+  color: var(--light);
+  height: max(140px, 1vw);
   width: 100%;
   border-radius: 0.1rem;
 }
-textarea::placeholder{
-  color:var(--light);
- 
+textarea::placeholder {
+  color: var(--light);
 }
 #main-text {
-
   position: relative;
   top: 50%;
 
-  
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   text-align: center;
- 
-  color: #FFFFFF;
+
+  color: #ffffff;
 
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-
 }
-.feedbackForm{
+.feedbackForm {
   width: 70%;
   box-sizing: border-box;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap:15px;
+  gap: 15px;
   align-items: left;
-  
-  
 }
-.feedbackForm input{
+.feedbackForm input {
   max-width: 100%;
-  width:60%;
+  width: 60%;
   text-align: left;
-  
- }
-.createAccHomepageForm{
-  
-  
+}
+.createAccHomepageForm {
   width: 70%;
   box-sizing: border-box;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap:15px;
+  gap: 15px;
   align-items: center;
-
 }
-.createAccHomepageForm input{
- max-width: 100%;
- width:100%;
- text-align: left;
- 
+.createAccHomepageForm input {
+  max-width: 100%;
+  width: 100%;
+  text-align: left;
 }
 ::placeholder {
   color: #333333;
@@ -150,44 +140,43 @@ textarea::placeholder{
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 65, 65, 0.198) 0%, rgba(0, 0, 0, 0.2) 100%), #000000;
-  
 
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(255, 65, 65, 0.198) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    #000000;
 }
 
 .button {
   box-sizing: border-box;
-  
+
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
 
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  white-space: nowrap; 
+  white-space: nowrap;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
   background-color: var(--accent1);
   border: 0;
 
-  filter: drop-shadow( 0px 0px 1.5rem var(--accent1Btn));
+  filter: drop-shadow(0px 0px 1.5rem var(--accent1Btn));
   border-radius: 3rem;
- 
+
   transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s;
   transition: all ease-in-out 0.3s;
-  
+
   font-size: 1rem;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  
 }
 .button:hover {
-  scale:1.1;
+  scale: 1.1;
   transition: all 0.25s;
-  
-  
-  
 }
 
 .login-container {
@@ -203,19 +192,17 @@ textarea::placeholder{
   margin-top: 1rem;
   text-align: center;
 }
-.login-container input  {
+.login-container input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-
 }
-.login-container .button  {
+.login-container .button {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
 }
 .login-btn {
- 
   color: white;
   border: none;
   padding: 8px 16px;
@@ -224,15 +211,14 @@ textarea::placeholder{
   font-size: 14px;
 }
 .button-text {
-  
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
 
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 .svg-background {
   position: absolute;
@@ -241,21 +227,18 @@ textarea::placeholder{
   width: 100%;
   background-size: 100% 100%;
   height: 100%;
-  display:flex;
+  display: flex;
   max-width: 100%;
   z-index: 0;
   pointer-events: none;
- 
+
   overflow: auto;
 }
-
-
 
 .logo {
   font-size: 24px;
   font-weight: bold;
   font-weight: 500;
-  
 }
 nav {
   display: none;
@@ -288,7 +271,6 @@ nav a {
   filter: drop-shadow(0px 0px 15px rgba(230, 230, 230, 0.2));
   text-align: center;
   margin-bottom: 4rem;
-  
 }
 .card-text {
   font-size: 1.5rem;
@@ -301,7 +283,7 @@ nav a {
 }
 footer {
   width: 100%;
-  
+
   padding: 20px 0;
   position: relative;
   margin-top: 10rem;
@@ -315,12 +297,11 @@ footer {
 .footer-content {
   display: flex;
   flex-direction: column;
-  
+
   align-items: center;
   margin-top: 20px;
 }
 .social-icons {
-
   display: flex;
   gap: 4rem;
   justify-content: center;
@@ -335,12 +316,12 @@ footer {
 }
 .headstarter-logo {
   position: relative;
-  margin-top:max(15px,0.5vw);
-  width: min(200px,50%);
+  margin-top: max(15px, 0.5vw);
+  width: min(200px, 50%);
   height: auto;
 }
 nav a:hover {
-color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
 }
 .login-btn {
   background-color: rgba(170, 0, 0, 0.5);
@@ -353,45 +334,33 @@ color: rgba(255, 255, 255, 1);
 }
 
 line-separator {
-/* LineSeperator */
+  /* LineSeperator */
 
-position: absolute;
-width: 461px;
-height: 20.94px;
-left: 13px;
-top: 64px;
-
-
+  position: absolute;
+  width: 461px;
+  height: 20.94px;
+  left: 13px;
+  top: 64px;
 }
 
 h1 {
   margin: 0;
-  color:var(--light);
-  width:90vw;
+  color: var(--light);
+  width: 90vw;
   text-align: center;
   text-wrap: wrap;
   overflow-wrap: break-word;
-  font-size: max(35px,1vw);
+  font-size: max(35px, 1vw);
   margin-bottom: 1rem;
   font-weight: normal;
-  filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
+  filter: drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
 }
 
 h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
   font-weight: 400;
-  filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
-}
-
-p {
-  margin-top: 0.6rem;
-  font-size: max(25px,0.5vw);
-  margin-bottom: 50px;
-  width:95vw;
-  font-weight: normal;
-  filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
-  color:var(--subTextColor);
+  filter: drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
 }
 
 h3 {
@@ -399,8 +368,7 @@ h3 {
   font-size: 1rem;
   margin-bottom: 1rem;
   font-weight: normal;
-  filter:drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
-
+  filter: drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
 }
 
 .email-form {
@@ -411,13 +379,10 @@ h3 {
 
 input[type="email"] {
   width: 25rem;
- 
 }
 
 input[type="email"]:focus {
   outline: none;
- 
-  
 }
 
 .api-response {
@@ -426,25 +391,20 @@ input[type="email"]:focus {
   margin-top: 5rem;
 }
 
-
 a {
   color: white;
   text-decoration: none;
 }
 
-
-
-
 button[type="submit"] {
   width: 12rem;
 }
 
-
-.visible{
+.visible {
   display: block;
 }
-.hidden{
- display: none;
+.hidden {
+  display: none;
 }
 
 .fade-in {
@@ -458,14 +418,11 @@ button[type="submit"] {
   }
 }
 
-
-
-
 @media only screen and (min-width: 425px) {
   header {
     width: 100%;
-    border-bottom: max(1.5px,0.4vw) solid rgba(255, 255, 255, 0.13);
-    padding: max(13px,1vw);
+    border-bottom: max(1.5px, 0.4vw) solid rgba(255, 255, 255, 0.13);
+    padding: max(13px, 1vw);
     border-radius: 0;
   }
 }
@@ -473,26 +430,26 @@ button[type="submit"] {
 @media only screen and (min-width: 768px) {
   header {
     width: 100%;
-    border-bottom: max(1.5px,0.25vw) solid rgba(255, 255, 255, 0.13);
-    padding: max(13px,1vw);
+    border-bottom: max(1.5px, 0.25vw) solid rgba(255, 255, 255, 0.13);
+    padding: max(13px, 1vw);
     border-radius: 0;
   }
 }
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
-  h1{
+  h1 {
     font-size: 4rem;
   }
-  p{
+  p {
     font-size: 2.5rem;
   }
-  nav{
+  nav {
     display: flex;
   }
-  textarea{
+  textarea {
     width: 60%;
   }
-  .feedbackForm{
+  .feedbackForm {
     max-width: 60%;
   }
   header {
@@ -502,23 +459,22 @@ button[type="submit"] {
     padding-left: 40px;
     padding-right: 40px;
     border-radius: 1rem;
-    margin-top:1rem;
+    margin-top: 1rem;
   }
-  .mobileHeader{
+  .mobileHeader {
     display: none;
   }
 }
 /* Largest devices such as desktops (1280px and up) */
 @media only screen and (min-width: 1280px) {
-  .feedbackForm input{
+  .feedbackForm input {
     max-width: 100%;
-    width:40%;
+    width: 40%;
     text-align: left;
-    
-   }
-   .feedbackForm{
+  }
+  .feedbackForm {
     width: 43%;
-   }
+  }
   header {
     width: 55%;
     padding: 13px;
