@@ -53,15 +53,8 @@ header {
   width: 100%;
   position: fixed;
 
-  backdrop-filter: blur(7px);
-  box-sizing: border-box;
-  border-bottom: max(1.5px, 0.5vw) solid rgba(255, 255, 255, 0.13);
-  background: var(--topBarColor);
-  padding: max(13px, 1vw);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 0;
+  backdrop-filter: blur(4px);
+
   z-index: 999;
 }
 .mobileHeader {
@@ -243,7 +236,6 @@ textarea::placeholder {
 }
 nav {
   display: none;
-  gap: 1rem;
 }
 nav a {
   color: rgba(255, 255, 255, 0.7);
@@ -295,6 +287,7 @@ footer {
   background-color: white;
   position: relative;
 }
+
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -302,6 +295,7 @@ footer {
   align-items: center;
   margin-top: 20px;
 }
+
 .social-icons {
   display: flex;
   gap: 4rem;
@@ -410,7 +404,7 @@ button[type="submit"] {
 .statBubble {
   background-color: #181818;
   border-radius: 1rem;
-  color:#ffffff;
+  color: #ffffff;
   margin-top: 1rem;
   filter: drop-shadow(0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
   padding: 1rem;
@@ -452,7 +446,6 @@ button[type="submit"] {
 @media only screen and (min-width: 425px) {
   header {
     width: 100%;
-    border-bottom: max(1.5px, 0.4vw) solid rgba(255, 255, 255, 0.13);
     padding: max(13px, 1vw);
     border-radius: 0;
   }
@@ -461,7 +454,6 @@ button[type="submit"] {
 @media only screen and (min-width: 768px) {
   header {
     width: 100%;
-    border-bottom: max(1.5px, 0.25vw) solid rgba(255, 255, 255, 0.13);
     padding: max(13px, 1vw);
     border-radius: 0;
   }
@@ -485,11 +477,6 @@ button[type="submit"] {
   }
   header {
     width: 75%;
-    border: 0.1vw solid rgba(255, 255, 255, 0.13);
-    padding: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    border-radius: 1rem;
     margin-top: 1rem;
   }
   .mobileHeader {

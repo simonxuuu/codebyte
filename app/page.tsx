@@ -6,9 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faArrowRight,
   faCode,
   faDollarSign,
   faMicrophone,
+  faPenToSquare,
   faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -94,9 +96,8 @@ export default function Home() {
   const [showWaitlist, setShowWaitlist] = useState(false);
   const appContext = useContext(AppContext);
   const [highlightedSkill, setHighlightedSkill] = useState(0);
-  const [AIEncryption, setAIEncryption] = useState(0);
 
-  const activeHighlightedSkill = "text-sky-500";
+  const activeHighlightedSkill = "text-green-300";
   const inactiveHighlightedSkill = "text-zinc-500";
 
   useEffect(() => {
@@ -122,91 +123,99 @@ export default function Home() {
   };
   return (
     <main>
-      <div className="h-screen w-[70vw] relative flex flex-col items-center justify-center text-center">
-        <div className="absolute top-0 -left-1 w-[72vw] z-0 bg-gradient-to-b from-body to-transparent h-[100px]" />
+      <div className="h-screen xl:w-[70vw] lg:w-[80vw] md:w-[90vw] px-4 relative flex flex-col items-center justify-center text-center">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-0 bg-green-500/10 blur-3xl w-[40%] aspect-square rounded-full"></div>
+        <div className="absolute top-0 left-[70%] -translate-x-1/2 z-0 bg-sage-500/15 blur-3xl w-[30%] aspect-square rounded-full"></div>
+        <div className="absolute top-[30%] left-[30%] -translate-x-1/2 z-0 bg-sky-300/15 blur-3xl w-[20%] aspect-square rounded-full"></div>
+
+        <div className="flex items-center flex-wrap gap-5">
+          {[
+            {
+              icon: faCode,
+            },
+            {
+              icon: faQuestion,
+            },
+            {
+              icon: faMicrophone,
+            },
+            {
+              icon: faPenToSquare,
+            },
+          ].map((x, i) => {
+            return (
+              <span
+                className="outline outline-4 outline-white/30 bg-gradient-to-b from-green-300 to-sage-300 size-[40px] p-1 rounded-xl flex"
+                style={{
+                  boxShadow:
+                    "-3px -3px 24px #4ade80B3, -12px -12px 28px #c3c293B3",
+                }}
+                key={i}
+              >
+                <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-xl text-black flex items-center justify-center">
+                  <FontAwesomeIcon icon={x.icon} />
+                </span>
+              </span>
+            );
+          })}
+        </div>
+
         <h1
           style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
-          className="text-6xl flex items-center flex-wrap justify-center relative w-fit  text-white"
+          className="mt-8 lg:text-6xl text-5xl flex items-center flex-wrap justify-center relative w-fit text-zinc-400"
         >
-          Don&apos;t just learn to{" "}
-          <span
-            className=" mx-4 bg-gradient-to-b from-rose-300 to-rose-300 w-[70px] h-[60px] p-1 rounded-xl flex -skew-y-6 -skew-x-2"
-            style={{
-              boxShadow: "5px 5px 12px #f43f5eB3, 17px 17px 36px #e879f9B3",
-            }}
-          >
-            <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-3xl text-black flex items-center justify-center">
-              <FontAwesomeIcon icon={faCode} />
-            </span>
-          </span>{" "}
-          code,
+          Coding isn&apos;t just coding.
         </h1>
 
         <h1
           style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
-          className="mt-4 md:text-7xl text-6xl flex items-center justify-center flex-wrap relative w-fit  text-zinc-200"
+          className="pb-3 mt-2 lg:text-7xl md:text-6xl text-5xl flex items-center justify-center flex-wrap relative w-fit bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-sage-300"
         >
-          learn to <span className="text-green-300 ml-3">problem-solve</span>{" "}
-          <span
-            className=" mx-4 bg-gradient-to-b from-green-300 to-cyan-300 md:w-[85px] md:h-[75px] w-[70px] h-[60px] p-1 rounded-xl flex skew-y-6 skew-x-2"
-            style={{
-              boxShadow: "-5px -5px 12px #4ade80B3, -17px -17px 24px #22d3eeB3",
-            }}
-          >
-            <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-4xl text-black flex items-center justify-center">
-              <FontAwesomeIcon icon={faQuestion} />
-            </span>
-          </span>
+          We teach you what it is.
         </h1>
 
         <h2 className="mt-8 text-3xl text-zinc-400 font-extralight">
-          Tech is more than just programming.
+          What is tech, apart from programming?
           <br />
-          It&apos;s about{" "}
           <span
-            className={`transition-colors duration-500 ${
+            className={`transition duration-500 ${
               highlightedSkill === 0
                 ? activeHighlightedSkill
                 : inactiveHighlightedSkill
             }`}
           >
-            networking
-          </span>
-          ,{" "}
+            Networking.
+          </span>{" "}
           <span
-            className={`transition-colors duration-500 ${
+            className={`transition duration-500 ${
               highlightedSkill === 1
                 ? activeHighlightedSkill
                 : inactiveHighlightedSkill
             }`}
           >
-            people skills
-          </span>
-          ,{" "}
+            Collaborating.
+          </span>{" "}
           <span
-            className={`transition-colors duration-500 ${
+            className={`transition duration-500 ${
               highlightedSkill === 2
                 ? activeHighlightedSkill
                 : inactiveHighlightedSkill
             }`}
           >
-            teamwork
-          </span>
-          , and{" "}
+            Designing.
+          </span>{" "}
           <span
-            className={`transition-colors duration-500 ${
+            className={`transition duration-500 ${
               highlightedSkill === 3
                 ? activeHighlightedSkill
                 : inactiveHighlightedSkill
             }`}
           >
-            problem solving
+            Problem solving.
           </span>
-          .
-          <br />
         </h2>
-        <button className="shadow-xl shadow-green-500/10 mt-8 bg-gradient-to-b from-transparent via-green-500/20 via-60% to-green-500/40 to-[99%] border border-green-500/30 p-2 px-3 text-2xl text-green-500 rounded-xl flex">
-          Get started today
+        <button className="shadow-xl shadow-green-400/10 mt-8 bg-gradient-to-b from-transparent via-green-400/20 via-60% to-green-400/30 to-[99%] border border-green-400/30 p-2 px-3 text-2xl text-green-400 rounded-xl">
+          Learn it all today <FontAwesomeIcon icon={faArrowRight} />
         </button>
         <div className="mt-4 flex flex-wrap gap-2">
           {[
@@ -244,37 +253,172 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="flex flex-col gap-3 items-center justify-center relative">
+        <div className="relative z-[1] bg-gradient-to-b from-green-400/10 to-green-400/20 border border-green-400/30 size-20 rounded-2xl flex flex-col items-center justify-center">
+          <p className="font-semibold italic text-green-400">C</p>
+        </div>
+
+        <div className="relative z-[1] flex flex-row flex-nowrap gap-3">
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/leetcode-logo.png"}
+              width={40}
+              height={40}
+              alt="leetcode"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/hackerrank-logo.tiff"}
+              width={40}
+              height={40}
+              alt="hackerrank"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/coursera-logo.png"}
+              width={40}
+              height={40}
+              alt="coursera"
+              className="rounded-lg"
+            />
+          </div>
+        </div>
+
+        <div className="relative z-[1] flex flex-row flex-nowrap gap-3 blur-[1px]">
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/meta-logo.png"}
+              width={40}
+              height={40}
+              alt="leetcode"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/apple-logo.png"}
+              width={40}
+              height={40}
+              alt="hackerrank"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/amazon-logo.webp"}
+              width={40}
+              height={40}
+              alt="coursera"
+              className="rounded-lg"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/netflix-logo.webp"}
+              width={40}
+              height={40}
+              alt="coursera"
+              className="rounded-lg"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/google-logo.webp"}
+              width={40}
+              height={40}
+              alt="coursera"
+              className="rounded-lg"
+            />
+          </div>
+        </div>
+
+        <div className="relative z-[1] flex flex-row flex-nowrap gap-3 blur-[2px]">
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/microsoft.png"}
+              width={40}
+              height={40}
+              alt="leetcode"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/visa.svg"}
+              width={40}
+              height={40}
+              alt="hackerrank"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/samsung.png"}
+              width={40}
+              height={40}
+              alt="coursera"
+              className="rounded-lg"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/lg.png"}
+              width={40}
+              height={40}
+              alt="coursera"
+              className="rounded-lg"
+            />
+          </div>
+
+          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
+            <Image
+              src={"/logos/huawei.png"}
+              width={40}
+              height={40}
+              alt="coursera"
+              className="rounded-lg"
+            />
+          </div>
+        </div>
+
+        <div className="absolute z-[2] bg-gradient-to-b -bottom-2 -left-1 w-[110%] h-[140px] from-transparent to-body" />
+      </div>
+
+      <div className="px-4 xl:w-[40%] lg:w-[70%] md:w-[90%] flex flex-col items-center">
+        <h1 className="text-4xl font-medium">
+          We teach you what <span>other courses don&apos;t</span>,<br />
+          and what tech companies want.
+        </h1>
+        <p className="text-lg text-zinc-400">
+          In the real world, being a successful developer isn&apos;t just
+          technical expertise; it&apos;s collaboration, articulation, and
+          seamless work.
+          <br />
+          <br />
+          Like Codebyte, Leetcode and Hackerrank train you for programming. But
+          Codebyte teaches you what Leetcode and Hackerrank don&apos;t --{" "}
+          <span className="text-indigo-400">
+            collaboration & teamwork skills
+          </span>
+          . Making genuinely interesting{" "}
+          <span className="text-indigo-400">passion projects</span>. Learning to
+          stay <span className="text-indigo-400">agile & flexible</span>.
+        </p>
+      </div>
+
       <div className="relative w-screen lg:h-[80vh]">
         <div className="absolute z-0 bg-green-500/10 blur-3xl w-[30%] aspect-square rounded-full left-[10%] top-[10%]"></div>
         <div className="absolute z-0 bg-sage-500/15 blur-3xl w-[20%] aspect-square rounded-full left-[30%] bottom-[0%]"></div>
 
-        <div className="left-[40%] top-[6%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[43%] top-[10%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[44%] top-[23%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[38%] top-[16%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[32%] top-[2%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[52%] top-[2%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-
         <div
-          className="text-red-400 flex items-center justify-center text-5xl absolute z-10 top-[0%] right-[6%] size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-red-500/50 border border-red-400 size-20 backdrop-blur-[2px]"
+          className="text-red-400 md:flex hidden items-center justify-center text-5xl absolute z-10 top-[0%] right-[6%] size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-red-500/50 border border-red-400 size-20 backdrop-blur-[2px]"
           style={{ boxShadow: "0px 0px 25px #f87171BF" }}
         >
           <FontAwesomeIcon icon={faJava} />
@@ -309,7 +453,7 @@ export default function Home() {
               Guided programming lessons take you from zero to hero, with
               interactive walkthroughs.
             </h3>
-            <button className="hover:scale-[.97] transition items-center shadow-xl shadow-green-500/10 mt-8 bg-gradient-to-b from-transparent via-green-500/20 via-60% to-green-500/40 to-[99%] border border-green-500/30 p-2 px-3 text-xl text-green-500 rounded-xl flex">
+            <button className="hover:scale-[.97] transition items-center shadow-xl shadow-green-400/10 mt-8 bg-gradient-to-b from-transparent via-green-400/20 via-60% to-green-400/40 to-[99%] border border-green-400/30 p-2 px-3 text-xl text-green-400 rounded-xl flex">
               Start learning{" "}
               <FontAwesomeIcon icon={faPython} className="ml-2 text-white" />
             </button>
@@ -317,13 +461,13 @@ export default function Home() {
 
           <div className="relative lg:flex-1 w-full h-full flex items-center bg-[url('/bgs/grids/zinc800.svg')] bg-contain bg-center bg-repeat">
             <div
-              className="text-sky-400 flex items-center justify-center text-5xl absolute z-10 top-[15%] -left-6 size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-sky-500/50 border border-sky-500 size-20 backdrop-blur-[2px]"
+              className="text-sky-400 md:flex hidden items-center justify-center text-5xl absolute z-10 top-[15%] -left-6 size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-sky-500/50 border border-sky-500 size-20 backdrop-blur-[2px]"
               style={{ boxShadow: "0px 0px 25px #38bdf8BF" }}
             >
               <FontAwesomeIcon icon={faReact} />
             </div>
             <div
-              className="text-yellow-400 flex items-center justify-center text-5xl absolute z-0 bottom-[11%] right-[30%] size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-yellow-500/50 border border-yellow-500 size-20 backdrop-blur-[2px]"
+              className="text-yellow-400 md:flex hidden items-center justify-center text-5xl absolute z-0 bottom-[11%] right-[30%] size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-yellow-500/50 border border-yellow-500 size-20 backdrop-blur-[2px]"
               style={{ boxShadow: "0px 0px 25px #facc15BF" }}
             >
               <FontAwesomeIcon icon={faJs} />
@@ -332,68 +476,17 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="left-[0%] bottom-[6%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[23%] bottom-[10%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[14%] bottom-[23%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[28%] bottom-[16%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[32%] bottom-[2%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="left-[40%] bottom-[10%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-
-        <div className="absolute z-0 bg-white/10 blur-3xl h-[95%] aspect-square rounded-full -right-[25%] top-1/2 -translate-y-1/2"></div>
-        <div className="absolute z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
-        <div className="absolute z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
-        <div className="absolute z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
       </div>
 
       {/* INTERVIEW section  */}
-      <div className="relative w-screen lg:h-[80vh]">
+      <div className="md:mt-48 mt-20 relative w-screen lg:h-[80vh]">
         <div className="absolute z-0 bg-green-500/10 blur-3xl w-[30%] aspect-square rounded-full left-[30%] top-[10%]"></div>
         <div className="absolute z-0 bg-sage-500/15 blur-3xl w-[20%] aspect-square rounded-full left-[60%] bottom-[0%]"></div>
 
-        <div className="right-[25%] top-[6%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="right-[18%] top-[10%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/90 size-1" />
-        </div>
-        <div className="right-[34%] top-[23%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-        <div className="right-[28%] top-[16%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-        <div className="right-[12%] top-[2%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-        <div className="right-[32%] top-[2%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-
-        <div className="relative z-[1] flex lg:flex-row flex-col gap-6 items-center h-full">
+        <div className="relative z-[1] flex lg:flex-row flex-col-reverse gap-6 items-center h-full">
           <div className="relative lg:flex-1 w-full h-full flex items-center bg-[url('/bgs/grids/zinc800.svg')] bg-contain bg-center bg-repeat">
             <div className="relative z-0 backdrop-blur-[1.5px] w-full aspect-video bg-gradient-to-b from-white/5 from-40% to-white/20 border border-white/20 lg:rounded-r-xl shadow-2xl shadow-white/10"></div>
           </div>
@@ -431,7 +524,7 @@ export default function Home() {
               Communication is an ignored yet core value of interviews. Codebyte
               teaches you how to write code, then express it.
             </h3>
-            <button className="hover:scale-[.97] transition items-center shadow-xl shadow-green-500/10 mt-8 bg-gradient-to-b from-transparent via-green-500/20 via-60% to-green-500/40 to-[99%] border border-green-500/30 p-2 px-3 text-xl text-green-500 rounded-xl flex">
+            <button className="hover:scale-[.97] transition items-center shadow-xl shadow-green-400/10 mt-8 bg-gradient-to-b from-transparent via-green-400/20 via-60% to-green-400/40 to-[99%] border border-green-400/30 p-2 px-3 text-xl text-green-400 rounded-xl flex">
               Start learning{" "}
               <FontAwesomeIcon
                 icon={faMicrophone}
@@ -441,46 +534,22 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="left-[0%] bottom-[6%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-        <div className="left-[23%] bottom-[10%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-        <div className="left-[14%] bottom-[23%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-        <div className="left-[28%] bottom-[16%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-        <div className="left-[32%] bottom-[2%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-        <div className="left-[40%] bottom-[10%] absolute flex flex-col items-center justify-center">
-          <div className="absolute blur-2xl rounded-full bg-white/60 size-8" />
-          <div className="blur-[3px] rounded-full bg-white/50 size-1" />
-        </div>
-
-        <div className="absolute z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
-        <div className="absolute z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
-        <div className="absolute z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
       </div>
 
       {/* SPACED REPETITION section */}
-      <div className="mt-24 w-screen">
-        <p
-          className="text-6xl pb-2 bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-400 from-40% via-60% to-65%"
-          style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
-        >
-          Don&apos;t just memorize coding, learn it
-        </p>
-        <div className="mt-8 h-[40vh] relative">
-          <div className="absolute w-screen h-full flex items-center space-x-6 -translate-x-[20vh]">
+      <p
+        className="mt-24  xl:text-6xl lg:text-5xl md:text-4xl text-3xl pb-2 bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-400 from-40% via-60% to-65%"
+        style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
+      >
+        Don&apos;t just memorize coding, learn it
+      </p>
+
+      <div className="mt-8 w-screen md:block hidden">
+        <div className="h-[350px] relative">
+          <div className="absolute w-screen h-full flex items-center space-x-6 xl:-translate-x-[5vw] lg:-translate-x-[350px] md:-translate-x-[600px]">
             <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
               15
             </div>
@@ -494,28 +563,7 @@ export default function Home() {
             </div>
 
             <div className="h-full aspect-square text-left text-white">
-              <h2 className="text-2xl font-light text-zinc-500">
-                Your new{" "}
-                <span
-                  className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-300"
-                  style={{ textShadow: "0px 0px 5px rgb(255, 255, 255, 0.5)" }}
-                >
-                  spaced repetition
-                </span>{" "}
-                learning schedule
-              </h2>
-              <h3 className="font-extralight text-zinc-500">
-                Spaced repetition is how your brain actually retains the
-                information you&apos;ve learned. You review what you learned{" "}
-                <span className="text-zinc-200">1 day later</span>,{" "}
-                <span className="text-zinc-200">3 days later</span>,{" "}
-                <span className="text-zinc-200">7 days later</span>, and then{" "}
-                <span className="text-zinc-200">16 days later</span>.
-              </h3>
-              <h3 className="mt-2 font-extralight text-zinc-500">
-                This process of "spaced out" review ensures you strengthen the
-                neurons in your brain, to recall information better.
-              </h3>
+              <DescribeSpacedRepetitionDiv />
             </div>
 
             <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
@@ -529,8 +577,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mt-8 h-[40vh] relative">
-          <div className="absolute w-screen h-full flex items-center space-x-6 xl:-translate-x-[25vh] lg:-translate-x-[60vh]">
+
+        <div className="mt-8 h-[350px] relative">
+          <div className="absolute w-screen h-full flex items-center space-x-6 xl:-translate-x-[225px] lg:-translate-x-[500px] md:-translate-x-[750px]">
             <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
               21
             </div>
@@ -547,59 +596,7 @@ export default function Home() {
             </div>
 
             <div className="h-full aspect-square text-left text-white">
-              <h2 className="text-2xl font-light text-zinc-500">
-                <span
-                  className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-300"
-                  style={{ textShadow: "0px 0px 5px rgb(255, 255, 255, 0.5)" }}
-                >
-                  Codebyte does all the planning for you
-                </span>
-              </h2>
-              <h3 className="mt-2 font-extralight text-zinc-500">
-                We manage the scheduling details, so you can focus on learning.
-              </h3>
-              <div className="text-sm text-zinc-500 flex flex-col space-y-3">
-                {calendar[7].map((week: any) => {
-                  return (
-                    <div className="flex">
-                      {week.map((day: any) => {
-                        const daystr = day.toString();
-
-                        const final = day
-                          .toString()
-                          .replace("beforeMonth_", "")
-                          .replace("afterMonth_", "");
-
-                        const disabled =
-                          daystr.includes("beforeMonth_") ||
-                          daystr.includes("afterMonth_");
-
-                        const selected =
-                          daystr === "12" ||
-                          daystr === "13" ||
-                          daystr === "16" ||
-                          daystr === "23";
-
-                        const dateIsBetweenTwoLearningDates =
-                          (day > 13 && day < 16) || (day > 16 && day < 23);
-
-                        return (
-                          <button
-                            className={`text-sm flex-1 disabled:opacity-40 ${
-                              selected && "text-green-400"
-                            } ${
-                              dateIsBetweenTwoLearningDates && "text-zinc-300"
-                            }`}
-                            disabled={disabled}
-                          >
-                            {final}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  );
-                })}
-              </div>
+              <SpacedRepetitionCalendarDiv />
             </div>
 
             <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
@@ -610,6 +607,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="mt-8 md:hidden flex flex-col space-y-4">
+        <DescribeSpacedRepetitionDiv />
+        <SpacedRepetitionCalendarDiv />
       </div>
 
       <div className="mt-24 w-screen flex lg:flex-row flex-col">
@@ -658,8 +660,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex">
-            <div className="flex-1 pr-px bg-gradient-to-b from-zinc-800 from-20% via-green-400 to-zinc-800 to-80%">
+          <div className="flex lg:flex-row flex-col">
+            <div className="flex-1 lg:pr-px pb-px lg:bg-gradient-to-b bg-gradient-to-r from-zinc-800 from-20% via-green-400 to-zinc-800 to-80%">
               <div className="h-full border-zinc-800 bg-body text-white text-left">
                 <div className="xl:px-5 lg:px-2 px-1">
                   <div className="relative z-[3] bg-gradient-to-b from-zinc-800 to-zinc-900 p-2 rounded-b-lg border border-zinc-800">
@@ -700,7 +702,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex-1 pr-px bg-zinc-800">
+            <div className="flex-1 lg:pr-px pb-px bg-zinc-800">
               <div className="h-full bg-body text-white xl:px-12 lg:px-8 px-4 py-8 text-left">
                 <div className="w-full flex items-center justify-center space-x-6">
                   <Image
@@ -741,7 +743,7 @@ export default function Home() {
                 For <span className="text-sky-300">employers</span>
               </h4>
               <h2
-                className="mt-4 text-4xl pb-2 text-zinc-500 mb-0"
+                className="mt-4 lg:text-4xl md:text-3xl text-2xl pb-2 text-zinc-500 mb-0"
                 style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
               >
                 Foster{" "}
@@ -763,8 +765,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex text-white">
-            <div className="overflow-hidden relative text-left flex-1 border-r border-zinc-800 xl:px-12 lg:px-8 px-4 py-8 pb-12">
+          <div className="flex lg:flex-row flex-col text-white">
+            <div className="overflow-hidden relative text-left flex-1 lg:border-r border-zinc-800 xl:px-12 lg:px-8 px-4 py-8 pb-12">
               <div className="absolute z-0 w-1/3 aspect-square rounded-full blur-3xl bg-violet-300/40" />
 
               <svg
@@ -843,7 +845,7 @@ export default function Home() {
               <h2 className="text-xl">Assess technical skills</h2>
             </div>
 
-            <div className="relative overflow-hidden text-left flex-1 border-r border-zinc-800 xl:px-16 lg:px-12 md:px-8 px-4 py-8 pb-12">
+            <div className="relative overflow-hidden text-left flex-1 lg:border-r border-t border-zinc-800 xl:px-16 lg:px-12 md:px-8 px-4 py-8 pb-12">
               <div className="absolute right-0 z-0 w-1/3 aspect-square rounded-full blur-3xl bg-amber-300/40" />
 
               <svg
@@ -949,92 +951,63 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-10 h-[40vh] relative lg:px-[5vw] md:px-[2.5vw] px-4 flex items-center justify-center">
-        <div
-          className="absolute top-0 left-0 w-full h-full flex gap-4 opacity-35"
-          suppressHydrationWarning
-        >
-          <div className="absolute right-[15%] -translate-y-[100px] w-[100px] h-[400px] rounded-full rotate-[15deg] bg-radient-circle-c from-white via-hillary-300 to-purple-400 blur-3xl"></div>
+      {/* Waitlist Button, user action */}
+      <h1 className="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-medium bg-gradient-to-b from-white to-zinc-200 text-transparent bg-clip-text">
+        Ready for your first lesson?
+      </h1>
+      <h2 className="font-extralight xl:text-2xl lg:text-xl md:text-lg text-base text-zinc-500">
+        Let&apos;s try out a command below to get you signed up!
+      </h2>
+      <div className="px-4 w-full flex flex-col items-center">
+        <div className="relative rounded-xl xl:w-[70vw] lg:w-[80vw] md:w-[90vw] w-full aspect-video bg-[url('/bgs/sunset_mountains.jpg')] bg-cover">
+          <div className="absolute left-[50%] -translate-x-1/2 top-[20%] w-[65%] text-left rounded-xl bg-gradient-to-b from-slate-900/70 to-slate-900/90 backdrop-blur-[2px] border border-slate-600 shadow-lg shadow-slate-700/70 p-3 font-mono">
+            <div className="flex items-center space-x-1.5">
+              <div className="size-3 rounded-full bg-slate-500" />
+              <div className="size-3 rounded-full bg-slate-500" />
+              <div className="size-3 rounded-full bg-slate-500" />
+            </div>
 
-          {new Array(50).fill(0).map((x, rowId) => {
-            return (
-              <div
-                className={`flex flex-col space-y-2 ${
-                  rowId % 2 === 0 ? "translate-y-[15px]" : ""
-                }`}
-                suppressHydrationWarning={true}
-              >
-                {new Array(50).fill(0).map((x, i) => {
-                  const rand = makeId(5);
-                  const threshold = AIEncryption - rowId;
+            <p className="mt-2 m-0 my-0 mx-0 text-base text-slate-200">
+              <FontAwesomeIcon icon={faArrowRight} className="text-slate-500" />{" "}
+              <span className="text-blue-500">codebyte</span>@
+              <span className="text-emerald-500">new-account</span> $ sudo
+              signup codebyte
+            </p>
 
-                  const decideStyle = Math.random();
+            <p className="m-0 my-0 mx-0 text-base text-slate-200">
+              Welcome to the Codebyte CLI! Let&apos;s sign you up below.
+            </p>
 
-                  return (
-                    <p
-                      className={`${
-                        i <= threshold && threshold - i < 5
-                          ? `${
-                              decideStyle < 0.3
-                                ? "text-indigo-400"
-                                : "text-white"
-                            }`
-                          : "text-white/40"
-                      } uppercase font-mono transition`}
-                      key={i}
-                      suppressHydrationWarning
-                    >
-                      {rand}
-                    </p>
-                  );
-                })}
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="absolute top-1/2 left-1/2 -translate-x-[50%] h-[85%] -translate-y-[50%] aspect-square bg-radient-circle-c from-black rounded-full" />
-
-        <div className="z-10 p-3 flex flex-col items-center justify-center text-center">
-          <div className="border border-indigo-500 bg-radient-circle-c from-purple-500/20 from-75% to-indigo-500/50 text-white p-2 px-4 rounded-full shadow-lg shadow-indigo-500/10 font-normal">
-            <p></p>
+            <div className="mt-4 flex flex-wrap gap-1">
+              <p className="m-0 my-0 mx-0 text-base text-slate-200">Email:</p>
+              <input
+                className="p-0 m-0 text-base leading-none outline-white placeholder:text-opacity-50 bg-transparent"
+                placeholder="Enter email here"
+              />
+            </div>
+            <div className="mt-1 flex flex-wrap gap-1">
+              <p className="m-0 my-0 mx-0 text-base text-slate-200">
+                Password:
+              </p>
+              <input
+                className="p-0 m-0 text-base leading-none outline-white placeholder:text-opacity-50 bg-transparent"
+                placeholder="Enter email here"
+                type="password"
+              />
+            </div>
           </div>
 
-          <p className="mt-4 lg:text-5xl md:text-4xl text-3xl pb-4 font-medium bg-clip-text text-transparent bg-radient-circle-b from-slate-300 to-white">
-            We&apos;re keeping our AI smart,
-            <br />
-            and your data secure.
-          </p>
-
-          <p className="mt-2 lg:text-2xl md:text-xl text-lg text-white/85">
-            Gentle AI is built with industry-standard models, ensuring that its
-            knowledge base is constantly updated and accurate.
-            <br /> And your data is encrypted end-to-end, ensuring that nobody
-            else can see it.
-          </p>
+          <div
+            className="bottom-2 absolute left-1/2 -translate-x-[50%] p-1 rounded-xl bg-white/20 border border-white/30 backdrop-blur-sm"
+            style={{ boxShadow: "inset 0px 0px 3px rgb(255, 255, 255, 0.4)" }}
+          >
+            <div className="flex flex-col items-center justify-center font-semibold italic size-10 rounded-xl text-base border border-green-600 bg-gradient-to-b from-body to-green-950 text-green-400">
+              C
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* First thing user sees, call to action */}
-      <h1 className="mt-[300vh]">Why spend thousands on bootcamps?</h1>
-      <p>Learn to code in as fast as 3 weeks.</p>
-
-      {/* Waitlist Button, user action */}
-      {!showWaitlist ? (
-        <Link
-          href="#"
-          className="button"
-          onClick={appContext.loggedIn ? gotoDashboard : handleClickNotLoggedIn}
-        >
-          <span className="button-text">
-            {appContext.loggedIn ? "Go to dashboard" : "Create an account"}
-          </span>
-        </Link>
-      ) : (
-        <div className="fade-in">
-          <CreateAccountHomepage />
-        </div>
-      )}
       {/* Divide area here into sections <section> and have 1-2 column layout per section */}
       <section></section>
     </main>
@@ -1052,14 +1025,14 @@ const SecureThatDiv = () => {
         </h4>
         <div className="flex flex-wrap items-center justify-center gap-2">
           <h2
-            className="mt-4 text-4xl pb-2 text-zinc-500 mb-0 leading-none"
+            className="mt-4 lg:text-4xl md:text-3xl text-2xl pb-2 text-zinc-500 mb-0 leading-none"
             style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
           >
             Secure that
           </h2>
 
           <span
-            className="text-4xl py-0 px-2 bg-zinc-800 rounded-lg text-zinc-200 flex items-center w-fit"
+            className="leading-none lg:text-4xl md:text-3xl text-2xl md:py-0 py-1 px-2 bg-zinc-800 rounded-lg text-zinc-200 flex items-center w-fit"
             style={{
               boxShadow: "inset 0px 0px 5px rgb(255, 255, 255, 0.3)",
             }}
@@ -1074,15 +1047,16 @@ const SecureThatDiv = () => {
             {FAANG[faangTimer].name}
           </span>
 
-          <h2
-            className="mt-4 text-4xl pb-2 text-zinc-500 mb-0 leading-none"
+          <span
+            className="lg:text-4xl md:text-3xl text-2xl text-zinc-500 mb-0 leading-none"
             style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
           >
             job
-          </h2>
+          </span>
         </div>
+
         <h2
-          className="text-4xl pb-2 text-zinc-500 leading-none mb-0"
+          className="lg:text-4xl md:text-3xl text-2xl pb-2 text-zinc-500 leading-none mb-0"
           style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
         >
           <span
@@ -1102,6 +1076,7 @@ const MicrophoneInputDiv = () => {
     <div className="flex items-center space-x-0.5">
       {new Array(30).fill(0).map((x, index) => (
         <motion.div
+          key={index}
           className="rounded-full bg-green-400 w-0.5"
           initial={{ height: 3 }}
           animate={{ height: [3, Math.random() * 32, 3] }}
@@ -1109,5 +1084,93 @@ const MicrophoneInputDiv = () => {
         />
       ))}
     </div>
+  );
+};
+
+const DescribeSpacedRepetitionDiv = () => {
+  return (
+    <>
+      <h2 className="text-2xl font-light text-zinc-500">
+        Your new{" "}
+        <span
+          className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-300"
+          style={{ textShadow: "0px 0px 5px rgb(255, 255, 255, 0.5)" }}
+        >
+          spaced repetition
+        </span>{" "}
+        learning schedule
+      </h2>
+      <h3 className="font-extralight text-zinc-500">
+        Spaced repetition is how your brain actually retains the information
+        you&apos;ve learned. You review what you learned{" "}
+        <span className="text-zinc-200">1 day later</span>,{" "}
+        <span className="text-zinc-200">3 days later</span>,{" "}
+        <span className="text-zinc-200">7 days later</span>, and then{" "}
+        <span className="text-zinc-200">16 days later</span>.
+      </h3>
+      <h3 className="mt-2 font-extralight text-zinc-500">
+        This process of "spaced out" review ensures you strengthen the neurons
+        in your brain, to recall information better.
+      </h3>
+    </>
+  );
+};
+
+const SpacedRepetitionCalendarDiv = () => {
+  return (
+    <>
+      <h2 className="text-2xl font-light text-zinc-500">
+        <span
+          className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-300"
+          style={{ textShadow: "0px 0px 5px rgb(255, 255, 255, 0.5)" }}
+        >
+          Codebyte does all the planning for you
+        </span>
+      </h2>
+      <h3 className="mt-2 font-extralight text-zinc-500">
+        We manage the scheduling details, so you can focus on learning.
+      </h3>
+      <div className="text-sm text-zinc-500 flex flex-col space-y-3">
+        {calendar[7].map((week: any, i: number) => {
+          return (
+            <div className="flex" key={i}>
+              {week.map((day: any) => {
+                const daystr = day.toString();
+
+                const final = day
+                  .toString()
+                  .replace("beforeMonth_", "")
+                  .replace("afterMonth_", "");
+
+                const disabled =
+                  daystr.includes("beforeMonth_") ||
+                  daystr.includes("afterMonth_");
+
+                const selected =
+                  daystr === "12" ||
+                  daystr === "13" ||
+                  daystr === "16" ||
+                  daystr === "23";
+
+                const dateIsBetweenTwoLearningDates =
+                  (day > 13 && day < 16) || (day > 16 && day < 23);
+
+                return (
+                  <button
+                    key={i}
+                    className={`text-sm flex-1 disabled:opacity-40 ${
+                      selected && "text-green-400"
+                    } ${dateIsBetweenTwoLearningDates && "text-zinc-300"}`}
+                    disabled={disabled}
+                  >
+                    {final}
+                  </button>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
