@@ -58,7 +58,7 @@ const AppProvider = ({ children }) => {
       return fetch(`${apiRoute}/getLessonTeachings`, {method: "POST",
         body: JSON.stringify({jwt:jwt,courseTitle:currentCourseName,lessonName:currentLessonName}),
          headers: {"Content-type": "application/json"}} )
-      .then(response => {return response.text();}).then((jsonOutput)=>{//console.log(jsonOutput);
+      .then(response => {return response.text();}).then((jsonOutput)=>{console.log(jsonOutput);
            return jsonOutput;});
       }
     function getNextQuestion(answerIndex){
