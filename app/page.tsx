@@ -128,7 +128,7 @@ export default function Home() {
         <div className="absolute top-0 left-[70%] -translate-x-1/2 z-0 bg-sage-500/15 blur-3xl w-[30%] aspect-square rounded-full"></div>
         <div className="absolute top-[30%] left-[30%] -translate-x-1/2 z-0 bg-sky-300/15 blur-3xl w-[20%] aspect-square rounded-full"></div>
 
-        <div className="flex items-center flex-wrap gap-5">
+        <div className="flex items-center justify-center flex-wrap gap-5">
           {[
             {
               icon: faCode,
@@ -162,19 +162,19 @@ export default function Home() {
 
         <h1
           style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
-          className="mt-8 lg:text-6xl text-5xl flex items-center flex-wrap justify-center relative w-fit text-zinc-400"
+          className="mt-8 lg:text-6xl md:text-5xl text-4xl flex items-center flex-wrap justify-center relative w-fit text-zinc-400"
         >
           Coding isn&apos;t just coding.
         </h1>
 
         <h1
           style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
-          className="pb-3 mt-2 lg:text-7xl md:text-6xl text-5xl flex items-center justify-center flex-wrap relative w-fit bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-sage-300"
+          className="pb-3 md:mt-2 lg:text-7xl md:text-6xl text-4xl flex items-center justify-center flex-wrap relative w-fit bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-sage-300"
         >
           We teach you what it is.
         </h1>
 
-        <h2 className="mt-8 text-3xl text-zinc-400 font-extralight">
+        <h2 className="md:mt-8 mt-2 lg:text-3xl md:text-2xl text-xl text-zinc-400 font-extralight">
           What is tech, apart from programming?
           <br />
           <span
@@ -214,7 +214,7 @@ export default function Home() {
             Problem solving.
           </span>
         </h2>
-        <button className="shadow-xl shadow-green-400/10 mt-8 bg-gradient-to-b from-transparent via-green-400/20 via-60% to-green-400/30 to-[99%] border border-green-400/30 p-2 px-3 text-2xl text-green-400 rounded-xl">
+        <button className="shadow-xl shadow-green-400/10 mt-8 bg-gradient-to-b from-transparent via-green-400/20 via-60% to-green-400/30 to-[99%] border border-green-400/30 p-2 px-3 md:text-2xl text-xl text-green-400 rounded-xl">
           Learn it all today <FontAwesomeIcon icon={faArrowRight} />
         </button>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -424,7 +424,7 @@ export default function Home() {
           <FontAwesomeIcon icon={faJava} />
         </div>
 
-        <div className="relative z-[1] flex lg:flex-row flex-col gap-6 items-center h-full">
+        <div className="mt-24 relative z-[1] flex lg:flex-row flex-col gap-6 items-center h-full">
           <div className="text-left text-white xl:w-[50%] lg:w-[45%] xl:px-16 lg:px-12 md:px-8 px-4">
             <div className="bg-gradient-to-b from-transparent from-10% to-green-500/30 border border-green-500/20 size-12 text-xl rounded-full flex items-center justify-center text-green-600">
               <FontAwesomeIcon icon={faCode} />
@@ -541,7 +541,7 @@ export default function Home() {
 
       {/* SPACED REPETITION section */}
       <p
-        className="mt-24  xl:text-6xl lg:text-5xl md:text-4xl text-3xl pb-2 bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-400 from-40% via-60% to-65%"
+        className="mt-24  xl:text-6xl lg:text-5xl md:text-4xl text-3xl pb-2 bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-400 from-40% via-60% to-85%"
         style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
       >
         Don&apos;t just memorize coding, learn it
@@ -614,7 +614,7 @@ export default function Home() {
         <SpacedRepetitionCalendarDiv />
       </div>
 
-      <div className="mt-24 w-screen flex lg:flex-row flex-col">
+      <div className="md:mt-24 mt-12 w-screen flex lg:flex-row flex-col">
         <div className="flex-1">
           <SecureThatDiv key={`fasodifjas`} />
           <div className="pr-px bg-gradient-to-b from-zinc-800 from-15% via-sky-300 to-zinc-800 to-85%">
@@ -952,53 +952,56 @@ export default function Home() {
       </div>
 
       {/* Waitlist Button, user action */}
-      <h1 className="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-medium bg-gradient-to-b from-white to-zinc-200 text-transparent bg-clip-text">
+      <h1 className="md:mt-24 mt-12 xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-medium bg-gradient-to-b from-white to-zinc-200 text-transparent bg-clip-text">
         Ready for your first lesson?
       </h1>
       <h2 className="font-extralight xl:text-2xl lg:text-xl md:text-lg text-base text-zinc-500">
         Let&apos;s try out a command below to get you signed up!
       </h2>
-      <div className="px-4 w-full flex flex-col items-center">
-        <div className="relative rounded-xl xl:w-[70vw] lg:w-[80vw] md:w-[90vw] w-full aspect-video bg-[url('/bgs/sunset_mountains.jpg')] bg-cover">
-          <div className="absolute left-[50%] -translate-x-1/2 top-[20%] w-[65%] text-left rounded-xl bg-gradient-to-b from-slate-900/70 to-slate-900/90 backdrop-blur-[2px] border border-slate-600 shadow-lg shadow-slate-700/70 p-3 font-mono">
+
+      <div className="md:px-4 px-2 w-full flex flex-col items-center">
+        <div className="relative rounded-xl xl:w-[70vw] lg:w-[80vw] md:w-[90vw] w-full md:aspect-video bg-[url('/bgs/sunset_mountains.jpg')] bg-cover">
+          <div className="absolute left-[50%] -translate-x-1/2 top-[20%] md:w-[65%] text-left rounded-xl bg-gradient-to-b from-slate-900/70 to-slate-900/90 backdrop-blur-[2px] border border-slate-600 shadow-lg shadow-slate-700/70 p-3 font-mono md:text-base text-sm">
             <div className="flex items-center space-x-1.5">
               <div className="size-3 rounded-full bg-slate-500" />
               <div className="size-3 rounded-full bg-slate-500" />
               <div className="size-3 rounded-full bg-slate-500" />
             </div>
 
-            <p className="mt-2 m-0 my-0 mx-0 text-base text-slate-200">
+            <p className="mt-2 m-0 my-0 mx-0 text-slate-200">
               <FontAwesomeIcon icon={faArrowRight} className="text-slate-500" />{" "}
               <span className="text-blue-500">codebyte</span>@
               <span className="text-emerald-500">new-account</span> $ sudo
               signup codebyte
             </p>
 
-            <p className="m-0 my-0 mx-0 text-base text-slate-200">
+            <p className="m-0 my-0 mx-0 text-slate-200">
               Welcome to the Codebyte CLI! Let&apos;s sign you up below.
             </p>
 
             <div className="mt-4 flex flex-wrap gap-1">
-              <p className="m-0 my-0 mx-0 text-base text-slate-200">Email:</p>
+              <p className="m-0 my-0 mx-0 text-slate-200">Email:</p>
               <input
-                className="p-0 m-0 text-base leading-none outline-white placeholder:text-opacity-50 bg-transparent"
+                className="p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
                 placeholder="Enter email here"
               />
             </div>
             <div className="mt-1 flex flex-wrap gap-1">
-              <p className="m-0 my-0 mx-0 text-base text-slate-200">
-                Password:
-              </p>
+              <p className="m-0 my-0 mx-0 text-slate-200">Password:</p>
               <input
-                className="p-0 m-0 text-base leading-none outline-white placeholder:text-opacity-50 bg-transparent"
+                className="p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
                 placeholder="Enter email here"
                 type="password"
               />
             </div>
+
+            <button className="mt-2 bg-slate-100 px-1.5 py-1 rounded text-slate-800">
+              Create
+            </button>
           </div>
 
           <div
-            className="bottom-2 absolute left-1/2 -translate-x-[50%] p-1 rounded-xl bg-white/20 border border-white/30 backdrop-blur-sm"
+            className="md:flex hidden bottom-2 absolute left-1/2 -translate-x-[50%] p-1 rounded-xl bg-white/20 border border-white/30 backdrop-blur-sm"
             style={{ boxShadow: "inset 0px 0px 3px rgb(255, 255, 255, 0.4)" }}
           >
             <div className="flex flex-col items-center justify-center font-semibold italic size-10 rounded-xl text-base border border-green-600 bg-gradient-to-b from-body to-green-950 text-green-400">
@@ -1031,6 +1034,33 @@ const SecureThatDiv = () => {
             Secure that
           </h2>
 
+          <div className="md:flex hidden flex-wrap items-center justify-center gap-2">
+            <span
+              className="leading-none lg:text-4xl md:text-3xl text-2xl md:py-0 py-1 px-2 bg-zinc-800 rounded-lg text-zinc-200 flex items-center w-fit"
+              style={{
+                boxShadow: "inset 0px 0px 5px rgb(255, 255, 255, 0.3)",
+              }}
+            >
+              <Image
+                src={`/logos/${FAANG[faangTimer].img}`}
+                width={20}
+                height={20}
+                alt={FAANG[faangTimer].name}
+                className="mr-2"
+              />
+              {FAANG[faangTimer].name}
+            </span>
+
+            <span
+              className="lg:text-4xl md:text-3xl text-2xl text-zinc-500 mb-0 leading-none"
+              style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
+            >
+              job
+            </span>
+          </div>
+        </div>
+
+        <div className="-translate-y-[2px] md:hidden flex items-center justify-center flex-wrap gap-1.5">
           <span
             className="leading-none lg:text-4xl md:text-3xl text-2xl md:py-0 py-1 px-2 bg-zinc-800 rounded-lg text-zinc-200 flex items-center w-fit"
             style={{
@@ -1039,8 +1069,8 @@ const SecureThatDiv = () => {
           >
             <Image
               src={`/logos/${FAANG[faangTimer].img}`}
-              width={30}
-              height={30}
+              width={20}
+              height={20}
               alt={FAANG[faangTimer].name}
               className="mr-2"
             />

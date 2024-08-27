@@ -36,11 +36,6 @@ html {
   background-color: var(--dark);
   text-wrap: wrap;
 }
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .pixelText {
   font-family: "VT323", monospace;
   font-size: larger;
