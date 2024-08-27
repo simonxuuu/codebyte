@@ -11,11 +11,8 @@ html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  margin: 0;
   box-sizing: border-box;
-  padding: 0;
   border: 0;
-  margin: 0;
   font-family: "DM Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;

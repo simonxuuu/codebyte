@@ -392,11 +392,11 @@ export default function Home() {
       </div>
 
       <div className="px-4 xl:w-[40%] lg:w-[70%] md:w-[90%] flex flex-col items-center">
-        <h1 className="text-4xl font-medium">
+        <h1 className="lg:text-4xl text-3xl font-medium">
           We teach you what <span>other courses don&apos;t</span>,<br />
           and what tech companies want.
         </h1>
-        <p className="text-lg text-zinc-400">
+        <p className="lg:text-lg text-base text-zinc-400">
           In the real world, being a successful developer isn&apos;t just
           technical expertise; it&apos;s collaboration, articulation, and
           seamless work.
