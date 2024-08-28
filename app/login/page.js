@@ -60,7 +60,7 @@ export default function Login() {
 
           
             <button
-              type="submit"
+            type="button"
               onClick={() => {
                 router.push('/register');
               }}
