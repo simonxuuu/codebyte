@@ -961,41 +961,45 @@ export default function Home() {
 
       <div className="md:px-4 px-2 w-full flex flex-col items-center">
         <div className="relative rounded-xl xl:w-[70vw] lg:w-[80vw] md:w-[90vw] w-full md:aspect-video bg-[url('/bgs/sunset_mountains.jpg')] bg-cover">
-          <div className="absolute left-[50%] -translate-x-1/2 top-[20%] md:w-[65%] text-left rounded-xl bg-gradient-to-b from-slate-900/70 to-slate-900/90 backdrop-blur-[2px] border border-slate-600 shadow-lg shadow-slate-700/70 p-3 font-mono md:text-base text-sm">
+          <div className="absolute left-[50%] -translate-x-1/2 top-[20%] md:w-[65%] text-left rounded-xl bg-gradient-to-b from-slate-900/70 to-slate-900/90 backdrop-blur-[2px] border border-slate-600 shadow-lg shadow-slate-700/70 p-3 font-mono">
             <div className="flex items-center space-x-1.5">
               <div className="size-3 rounded-full bg-slate-500" />
               <div className="size-3 rounded-full bg-slate-500" />
               <div className="size-3 rounded-full bg-slate-500" />
             </div>
 
-            <p className="mt-2 m-0 my-0 mx-0 text-slate-200">
+            <p className="mt-2 m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
               <FontAwesomeIcon icon={faArrowRight} className="text-slate-500" />{" "}
               <span className="text-blue-500">codebyte</span>@
               <span className="text-emerald-500">new-account</span> $ sudo
               signup codebyte
             </p>
 
-            <p className="m-0 my-0 mx-0 text-slate-200">
+            <p className="m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
               Welcome to the Codebyte CLI! Let&apos;s sign you up below.
             </p>
 
             <div className="mt-4 flex flex-wrap gap-1">
-              <p className="m-0 my-0 mx-0 text-slate-200">Email:</p>
+              <p className="m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
+                Email:
+              </p>
               <input
-                className="p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
+                className="text-white rounded focus:outline-none md:text-base text-sm p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
                 placeholder="Enter email here"
               />
             </div>
             <div className="mt-1 flex flex-wrap gap-1">
-              <p className="m-0 my-0 mx-0 text-slate-200">Password:</p>
+              <p className="md:text-base text-sm m-0 my-0 mx-0 text-slate-200">
+                Password:
+              </p>
               <input
-                className="p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
+                className="text-white rounded focus:outline-none md:text-base text-sm p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
                 placeholder="Enter email here"
                 type="password"
               />
             </div>
 
-            <button className="mt-2 bg-slate-100 px-1.5 py-1 rounded text-slate-800">
+            <button className="md:text-base text-sm mt-2 bg-slate-100 px-1.5 py-1 rounded text-slate-800">
               Create
             </button>
           </div>

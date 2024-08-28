@@ -10,7 +10,7 @@ import { AppProvider } from "./appContext";
 export const metadata = {
   title: "Codebyte",
   description:
-    "CourtIQ is a platform for basketball players, coaches, and recruiters.",
+    "Codebyte teaches you more than coding. Learn everything that you need for the software industry.",
 };
 
 export default function Layout({ children }) {
