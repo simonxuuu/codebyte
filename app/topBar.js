@@ -3,15 +3,29 @@ import Link from "next/link";
 import { useEffect, useState, useRef, useContext } from "react";
 import { auth, signOut } from "./firebaseconfig";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { AppContext } from "./appContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
+const baseNavPages = [
+  {
+    name: "About",
+    link: "",
+  },
+  {
+    name: "Pricing",
+    link: "/pricing",
+  },
+];
+
 const TopBar = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [navPages, setNavPages] = useState([...baseNavPages]);
+  const pathname = usePathname();
+
   const hamburger = useRef(null);
   const appContext = useContext(AppContext);
   useEffect(() => {
@@ -20,6 +34,18 @@ const TopBar = () => {
       hamburger.current.classList.toggle("is-active");
     }
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    console.log(appContext);
+    if (appContext.loggedIn) {
+      setNavPages([
+        ...baseNavPages,
+        { name: "Dashboard", link: "/dashboard" },
+        { name: "Feedback", link: "/feedback" },
+        { name: "Profile", link: "/dashboard/profile" },
+      ]);
+    }
+  }, [appContext]);
 
   function signout() {
     signOut(auth)
@@ -32,17 +58,6 @@ const TopBar = () => {
         console.log(err);
       });
   }
-
-  const navPages = [
-    {
-      name: "About",
-      link: "",
-    },
-    {
-      name: "Pricing",
-      link: "",
-    },
-  ];
 
   return (
     <div className="flex flex-col items-center">
@@ -63,35 +78,6 @@ const TopBar = () => {
 
         <nav className="lg:flex hidden items-center gap-2">
           <Link
-            href=""
-            onClick={() => {
-              signout();
-            }}
-            className={appContext.loggedIn ? "visible" : "hidden"}
-          >
-            Log out
-          </Link>
-          <Link
-            href="/feedback"
-            className={appContext.loggedIn ? "visible" : "hidden"}
-          >
-            Feedback
-          </Link>
-          <Link
-            href="/dashboard"
-            className={appContext.loggedIn ? "visible" : "hidden"}
-          >
-            Dashboard
-          </Link>
-
-          <Link
-            href="/dashboard/profile"
-            className={appContext.loggedIn ? "visible" : "hidden"}
-          >
-            Profile
-          </Link>
-
-          <Link
             href="/login"
             className={`text-xl ${appContext.loggedIn ? "hidden" : "visible"}`}
           >
@@ -106,6 +92,19 @@ const TopBar = () => {
               Sign up
             </button>
           </Link>
+
+          <div
+            className={`text-xl ${appContext.loggedIn ? "visible" : "hidden"}`}
+          >
+            <button
+              onClick={() => {
+                signout();
+              }}
+              className="my-0 bg-red-500 border-t border-red-400 shadow-md shadow-red-500/30 px-2 py-1 rounded-lg text-red-900 text-base"
+            >
+              Log out
+            </button>
+          </div>
         </nav>
 
         <button
@@ -162,6 +161,14 @@ const TopBar = () => {
                 Sign up
               </button>
             </Link>
+
+            <button
+              className={`text-xl my-0 w-full border border-transparent bg-red-400 text-black p-2 rounded-lg ${
+                appContext.loggedIn ? "visible" : "hidden"
+              }`}
+            >
+              Log out
+            </button>
           </div>
         </div>
       )}
