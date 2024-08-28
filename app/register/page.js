@@ -8,18 +8,18 @@ import {
 import { auth } from "../firebaseconfig";
 import { useRouter } from "next/navigation";
 import { AppContext } from "../appContext";
-export default function Login() {
+export default function Register() {
   const appContext = useContext(AppContext);
   const router = useRouter();
   const [apiResponse,setApiResponse] = useState('');
   const handleSubmit = (event) => {
-    appContext.loginAccount(event).then((response) => {
+    appContext.registerAccount(event).then((response) => {
+     
       setApiResponse(response);
       if(response == 'Success!'){
         router.push('/dashboard');
       }
     });
-    
   };
   
 
@@ -28,7 +28,7 @@ export default function Login() {
       <div className="basis-full flex-none xl:w-[20%] lg:w-[50%] md:w-[90%] w-full text-center flex flex-col items-center justify-center">
         <div className="">
           <h2 className="text-2xl mb-0 font-medium">
-            {"Log in to Codebyte"}
+            {"Register for Codebyte"}
           </h2>
         </div>
         <form
@@ -55,19 +55,19 @@ export default function Login() {
             
             className="focus:outline-white placeholder:text-zinc-500 rounded-lg p-3 py-2 w-full bg-zinc-100 border border-transparent text-zinc-800"
           >
-            Login
+            Create account
           </button>
 
           
-            <button
+          <button
               type="submit"
               onClick={() => {
-                router.push('/register');
+                router.push('/login');
               }}
               className="text-sm mt-2 focus:outline-white placeholder:text-zinc-500 rounded-lg p-3 py-2 w-full border border-zinc-800 text-zinc-500"
             >
-              No account yet?{" "}
-              <span className="text-sky-700 underline">Register</span>
+              Already have an account?{" "}
+              <span className="text-sky-700 underline">Log in</span>
             </button>
           
 

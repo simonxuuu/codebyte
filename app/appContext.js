@@ -1,7 +1,8 @@
 "use client"
 import React,  {useEffect, createContext, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './firebaseconfig';
+import { auth,createUserWithEmailAndPassword, signInWithEmailAndPassword } from './firebaseconfig';
+
 const AppContext = createContext();
 //w
 const AppProvider = ({ children }) => {
@@ -10,7 +11,7 @@ const AppProvider = ({ children }) => {
   const [jwt,setJwt]=useState('');
  //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute ='https://codebyte-1b9af19e473e.herokuapp.com';
+  const apiRoute ='http://localhost:8080';
   const [currentCourseData,setCurrentCourseData] = useState({});
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
@@ -91,6 +92,89 @@ const AppProvider = ({ children }) => {
          return jsonOutput;});
     }
   
+  function registerAccount(form){
+    if(!form) return 'error';
+      form.preventDefault();
+      const email = form.target.email.value;
+      const password = form.target.password.value;
+      if(!email || !password) return 'error';
+      
+      return createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        if(!jwt) setJwt(result.user.getIdToken(true));
+       return fetch(`${apiRoute}/create-account`, {
+          method: "POST",
+          body: JSON.stringify({ email, jwt: jwt }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        })
+          .then((response) => {
+            return response.text();
+          })
+          .then((text) => {
+            if (text == "Success") {
+              return "Success!";
+            } else if (text == "Server Error" || text == "UID not found") {
+              return "Whoops! There has been an error.";
+            }
+            return "Success!";
+          });
+      })
+      .catch((error) => {
+        
+        if (
+          error.message ==
+          "Firebase: Password should be at least 6 characters (auth/weak-password)."
+        ) {
+          return "Weak password! Make your password longer than 6 characters.";
+        } else if (
+          error.message == "Firebase: Error (auth/email-already-in-use)."
+        ) {
+          return "Error! Account already exists!";
+        }
+        return "Whoops! There has been an error.";
+      });
+  }
+   function loginAccount(form){
+  
+      if(!form) return 'error';
+      form.preventDefault();
+      const email = form.target.email.value;
+      const password = form.target.password.value;
+      if(!email || !password) return 'error';
+      
+      return signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        if(!jwt) setJwt(result.user.getIdToken(true));
+        return fetch(`${apiRoute}/login-account`, { 
+        method: "POST",
+        body: JSON.stringify({ jwt: jwt}),
+        headers: {
+            "Content-type": "application/json",
+        },
+        }).then((response) => {
+            if (response.headers.get("Content-Type").includes("text/plain")) {
+              return response.text();
+            } else {
+              return response.json();
+            }
+          })
+          .then((text) => {
+            
+            if (text == "Server Error" || text == "UID not found") {
+              return "Whoops! There has been an error.";
+            } else {
+              
+              return "Success!";
+            }
+          });
+      })
+      .catch((error) => {
+        return "Whoops! There has been an error.";
+      });
+      
+  }
 
   return (
     <AppContext.Provider value={
@@ -109,7 +193,9 @@ const AppProvider = ({ children }) => {
          currentLessonName,setCurrentLessonName,
          getLessonTeachings,
          getNextQuestion ,
-         purgeProgress}}>
+         purgeProgress ,
+         registerAccount,
+         loginAccount}}>
       {children}
     </AppContext.Provider>
   );

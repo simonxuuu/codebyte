@@ -99,7 +99,7 @@ const TopBar = () => {
           </Link>
 
           <Link
-            href="/login"
+            href="/register"
             className={`text-xl ${appContext.loggedIn ? "hidden" : "visible"}`}
           >
             <button className="my-0 bg-white px-2 py-1 rounded-lg text-zinc-800 text-base">
