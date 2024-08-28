@@ -28,7 +28,7 @@ export default function Register() {
       <div className="basis-full flex-none xl:w-[20%] lg:w-[50%] md:w-[90%] w-full text-center flex flex-col items-center justify-center">
         <div className="">
           <h2 className="text-2xl mb-0 font-medium">
-            {"Register for Codebyte"}
+            {"Register for Codigo"}
           </h2>
         </div>
         <form

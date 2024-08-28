@@ -8,9 +8,9 @@ import Footer from "./footer";
 import Head from "next/head";
 import { AppProvider } from "./appContext";
 export const metadata = {
-  title: "Codebyte",
+  title: "Codigo",
   description:
-    "Codebyte teaches you more than coding. Learn everything that you need for the software industry.",
+    "Codigo teaches you more than coding. Learn everything that you need for the software industry.",
 };
 
 export default function Layout({ children }) {
@@ -20,6 +20,7 @@ export default function Layout({ children }) {
         <Head>
           <title>{metadata.title}</title>
           <meta name="description" content={metadata.description} />
+          
         </Head>
         <body>
           <TopBar />

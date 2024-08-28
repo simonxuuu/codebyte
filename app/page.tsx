@@ -402,8 +402,8 @@ export default function Home() {
           seamless work.
           <br />
           <br />
-          Like Codebyte, Leetcode and Hackerrank train you for programming. But
-          Codebyte teaches you what Leetcode and Hackerrank don&apos;t --{" "}
+          Like Codigo, Leetcode and Hackerrank train you for programming. But
+          Codigo teaches you what Leetcode and Hackerrank don&apos;t --{" "}
           <span className="text-indigo-400">
             collaboration & teamwork skills
           </span>
@@ -510,7 +510,7 @@ export default function Home() {
                 className="bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-sage-300"
                 style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
               >
-                Practice talking with Codebyte AI.
+                Practice talking with Codigo AI.
               </span>
             </h2>
             <div
@@ -521,7 +521,7 @@ export default function Home() {
               }}
             ></div>
             <h3 className="mt-4 xl:text-2xl lg:text-xl md:text-lg text-base font-light text-white/70">
-              Communication is an ignored yet core value of interviews. Codebyte
+              Communication is an ignored yet core value of interviews. Codigo
               teaches you how to write code, then express it.
             </h3>
             <button className="hover:scale-[.97] transition items-center shadow-xl shadow-green-400/10 mt-8 bg-gradient-to-b from-transparent via-green-400/20 via-60% to-green-400/40 to-[99%] border border-green-400/30 p-2 px-3 text-xl text-green-400 rounded-xl flex">
@@ -652,7 +652,7 @@ export default function Home() {
                   Guided feedback on every question
                 </h3>
                 <p className="text-base font-extralight text-zinc-400 mt-0">
-                  Codebyte provides professionally reviewed explanations for
+                  Codigo provides professionally reviewed explanations for
                   every answer, with AI at your side to answer any follow-up
                   questions.
                 </p>
@@ -970,13 +970,13 @@ export default function Home() {
 
             <p className="mt-2 m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
               <FontAwesomeIcon icon={faArrowRight} className="text-slate-500" />{" "}
-              <span className="text-blue-500">codebyte</span>@
+              <span className="text-blue-500">Codigo</span>@
               <span className="text-emerald-500">new-account</span> $ sudo
-              signup codebyte
+              signup Codigo
             </p>
 
             <p className="m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
-              Welcome to the Codebyte CLI! Let&apos;s sign you up below.
+              Welcome to the Codigo CLI! Let&apos;s sign you up below.
             </p>
 
             <div className="mt-4 flex flex-wrap gap-1">
@@ -1158,7 +1158,7 @@ const SpacedRepetitionCalendarDiv = () => {
           className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-300"
           style={{ textShadow: "0px 0px 5px rgb(255, 255, 255, 0.5)" }}
         >
-          Codebyte does all the planning for you
+          Codigo does all the planning for you
         </span>
       </h2>
       <h3 className="mt-2 font-extralight text-zinc-500">
