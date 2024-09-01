@@ -1,10 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef,useContext } from "react";
 import Link from "next/link";
 import { lightenHex } from "../../utils/lightenHex";
 import { darkenHex } from "../../utils/darkenHex";
 import Image from "next/image";
 
 const CourseComponent = ({
+  appContext,
   courseTitle,
   courseDescription,
   onclick,
@@ -12,7 +13,7 @@ const CourseComponent = ({
   index,
 }) => {
   const butn = useRef(null);
-
+  
   const courseHexCode = "#3b82f6";
   const courseHexCodeLightened = lightenHex(courseHexCode, 0.7);
 
@@ -64,13 +65,13 @@ const CourseComponent = ({
               </div>
             </div>
             <p className="mt-4 text-xl font-medium text-white z-20">
-              {courseTitle}
+              {appContext.CamelCaseToNormal(courseTitle)}
             </p>
             <p className="mt-1 text-sm font-light text-zinc-400">
               {courseDescription}
             </p>
 
-            <button
+            <div
               className="mt-4 px-2 py-1.5 rounded-lg bg-zinc-800 text-zinc-100 border-t border-t-zinc-700 shadow shadow-black/30 w-full"
               style={{
                 backgroundColor: lightenHex(courseHexCode, 0),
@@ -79,7 +80,7 @@ const CourseComponent = ({
               }}
             >
               Get started
-            </button>
+            </div>
             {courseTitle == "Python Basics" ? (
               <svg
                 className="courseComponentBackgroundIcon"
