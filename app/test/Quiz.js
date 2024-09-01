@@ -43,7 +43,9 @@ export default function QuizComponent() {
             {progressWarning ? <Alert changeAlert={setProgressWarning}/> : null}
             <div className="quiz-card">
                 <div className="quiz-header">
+                    <button onClick={() => setProgressWarning(true)}>
                     <X className="text-gray-500" />
+                    </button>
                     <div className="quiz-progress">
                         <div className="quiz-progress-bar" style={{ width: `${progress}%` }}></div>
                     </div>

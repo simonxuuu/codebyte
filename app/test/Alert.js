@@ -9,6 +9,7 @@ const Alert = ({ changeAlert }) => {
     const overlay = document.querySelector('.alert-overlay');
     
     overlay.classList.add('show');
+    console.log("Showing Alert...")
   }, []);
 
   const handleContinue = () => {
