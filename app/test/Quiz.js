@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { X, Heart } from 'lucide-react';
+import Alert from './Alert';
 import './QuizComponent.css';
 import Response from './Response';
 
@@ -9,6 +10,7 @@ export default function QuizComponent() {
     const [questionSelected, setQuestionSelected] = useState(false);
     const [questionAnswered, setQuestionAnswered] = useState(true);
     const [hintUsed, setHintUsed] = useState(false);
+    const [progressWarning, setProgressWarning] = useState(true);
     const [hintCount, setHintCount] = useState(3);
     const [correct, setCorrect] = useState(true);
     const [correctAnswerID, setCorrectAnswerID] = useState(3);
@@ -38,6 +40,7 @@ export default function QuizComponent() {
     return (
         
         <div className="quiz-container">
+            {progressWarning ? <Alert /> : null}
             <div className="quiz-card">
                 <div className="quiz-header">
                     <X className="text-gray-500" />

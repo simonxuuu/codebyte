@@ -1,18 +1,20 @@
 .feedback-container {
-  background-color: #1f1f1f;
+  background-color: #1d1d1d;
   color: rgb(204, 204, 204);
-  border-radius: 8px;
-  width: 100%; /* Adjust as needed */
-  padding: 2rem;
+  border-radius: 3rem;
+  width: 75%;
+  padding: 3rem;
   display: flex;
-  position: fixed; /* Fixed position to overlay on top */
-  top: 72.5%; /* Center vertically */
-  left: 0%; /* Center horizontally */ /* Center the element */
+  position: fixed; 
+  bottom: 1.8rem; /* Position at the bottom of the viewport */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center the element horizontally */
   align-items: center;
   justify-content: space-between;
-  height: auto;
+  height: 15rem;
+  border: 1px solid #2d2d2d;
   max-height: 100%;
-  z-index: 1000; /* Ensure it is above other elements */
+  z-index: 1000; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
   
