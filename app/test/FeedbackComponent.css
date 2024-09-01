@@ -1,22 +1,37 @@
 .feedback-container {
-    background-color: #1f1f1f;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  background-color: #1f1f1f;
+  color: rgb(204, 204, 204);
+  border-radius: 8px;
+  width: 100%; /* Adjust as needed */
+  padding: 2rem;
+  display: flex;
+  position: fixed; /* Fixed position to overlay on top */
+  top: 72.5%; /* Center vertically */
+  left: 0%; /* Center horizontally */ /* Center the element */
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  max-height: 100%;
+  z-index: 1000; /* Ensure it is above other elements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
   
   .feedback-left-section {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items:start;
+    text-align:left;
   }
   
   .feedback-text {
     font-weight: bold;
     margin-bottom: 4px;
+
+  }
+
+  .feedbackText {
+    text-align: left;
+    font-size: 1.5rem;
   }
   
   .feedback-text.correct {
@@ -28,16 +43,6 @@
   }
   
   .feedback-right-section {
-    display: flex;
-    align-items: center;
-  }
-  
-  .feedback-report-button {
-    color: #9CA3AF;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin-right: 16px;
     display: flex;
     align-items: center;
   }
@@ -58,4 +63,14 @@
   
   .feedback-continue-button.hint {
     background-color: #6B7280; /* Grey background for hint feedback */
+  }
+
+  @media screen and (max-width: 800px) {
+    .feedback-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      margin-left: 0;
+      height: 20rem;
+    }
+    
   }

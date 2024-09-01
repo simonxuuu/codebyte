@@ -7,8 +7,8 @@ export default function QuizComponent() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [progress, setProgress] = useState(5);
     const [questionSelected, setQuestionSelected] = useState(false);
-    const [questionAnswered, setQuestionAnswered] = useState(false);
-    const [hintUsed, setHintUsed] = useState(true);
+    const [questionAnswered, setQuestionAnswered] = useState(true);
+    const [hintUsed, setHintUsed] = useState(false);
     const [hintCount, setHintCount] = useState(3);
     const [correct, setCorrect] = useState(true);
     const [correctAnswerID, setCorrectAnswerID] = useState(3);
@@ -29,6 +29,11 @@ export default function QuizComponent() {
             setQuestionSelected(false);
         }
     };
+
+    const onContinue = () => {
+        setQuestionAnswered(false);
+        setHintUsed(false);
+    }
 
     return (
         
@@ -65,13 +70,14 @@ export default function QuizComponent() {
 
                 <div className="quiz-footer">
                     {hintUsed || questionAnswered ? (
-                        <Response isHint={hintUsed} isCorrect={correct} feedback={feedbackMessage} />
+                        <Response isHint={hintUsed} isCorrect={correct} feedback={feedbackMessage} onContinue={onContinue}/>
                     ) : (
                         <>
-                            <button className="quiz-button skip">Hint (3 left)</button>
-                            <button className={`quiz-button check ${questionSelected ? '' : 'unavailable'}`} disabled={!selectedAnswer}>Check</button>
+                            
                         </>
                     )}
+                    <button className="quiz-button skip">Hint (3 left)</button>
+                    <button className={`quiz-button check ${questionSelected ? '' : 'unavailable'}`} disabled={!selectedAnswer}>Check</button>
                 </div>
             </div>
         </div>
