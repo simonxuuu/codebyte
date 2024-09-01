@@ -1,6 +1,7 @@
 /* QuizComponent.css */
 
 
+
 .quiz-container {
     transform: translateY(2rem);
     display: flex;
@@ -174,13 +175,17 @@
     }
     
     .quiz-header {
-      margin-top: -10rem;
+      margin-top: -7.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem; 
       width: 85%;
   
+    }
+
+    .quiz-progress {
+      height : 2rem;
     }
     
     
@@ -219,13 +224,16 @@
     }
     
     .quiz-options {
-      display: grid;
-      grid-template-columns: repeat(1fr); /* grid-cols-3 */
-      gap: 1rem; /* gap-4 */
+      display: flex;
+      flex-direction: column; /* Arrange children in a column */
+      gap: 1rem; 
       font-size: 5rem;
-      align-items: center;
-      justify-content: center;
-    }
+      max-width: 100%;
+      width: 50%;
+      align-items: center; /* Center items horizontally */
+      justify-content: center; /* Center items vertically */
+      margin: 0 auto; /* Center the container itself */
+  }
     
     .quiz-option {
       transition: all 0.05s;
@@ -233,7 +241,7 @@
       border: 1px solid #272727;
       flex-direction: column;
       align-items: center;
-      width: 15rem;
+      width: 25rem;
       justify-content: center;
       padding: 1rem; /* p-4 */
       color:rgb(151, 151, 151);

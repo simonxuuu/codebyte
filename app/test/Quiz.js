@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { X, Heart } from 'lucide-react';
 import './QuizComponent.css';
+import Response from './Response';
 
 export default function QuizComponent() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [progress, setProgress] = useState(1);
+    const [progress, setProgress] = useState(5);
     const [questionSelected, setQuestionSelected] = useState(false);
+    const [questionAnswered, setQuestionAnswered] = useState(false);
+    const [hintUsed, setHintUsed] = useState(true);
+    const [hintCount, setHintCount] = useState(3);
+    const [correct, setCorrect] = useState(true);
+    const [correctAnswerID, setCorrectAnswerID] = useState(3);
+    const [feedbackMessage, setFeedbackMessage] = useState('Correct!');
+
     const options = [
         { id: 1, label: 'print()'},
         { id: 2, label: 'show()'},
@@ -56,8 +64,14 @@ export default function QuizComponent() {
                 </div>
 
                 <div className="quiz-footer">
-                    <button className={`quiz-button skip`}>Hint (3 left)</button>
-                    <button className={`quiz-button check ${questionSelected ? '' : 'unavailable'}`} disabled={!selectedAnswer}>Check</button>
+                    {hintUsed || questionAnswered ? (
+                        <Response isHint={hintUsed} isCorrect={correct} feedback={feedbackMessage} />
+                    ) : (
+                        <>
+                            <button className="quiz-button skip">Hint (3 left)</button>
+                            <button className={`quiz-button check ${questionSelected ? '' : 'unavailable'}`} disabled={!selectedAnswer}>Check</button>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
