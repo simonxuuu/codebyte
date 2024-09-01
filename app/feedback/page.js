@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>
       <h1>Have an issue/suggestion?</h1>
-      <p>Send us a message. We will resolve it promptly.</p>
+      <p>Send us a message!!! We will resolve it promptly.</p>
 
       <form className="feedbackForm" action="https://formsubmit.co/el/memipi">
         <input
