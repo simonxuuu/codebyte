@@ -1,0 +1,46 @@
+[
+    {
+        "type": "text",
+        "style": "heading",
+        "content": "Welcome to your first lesson! You will learn how inputs and outputs work in Python."
+    },
+    {
+        "type": "text",
+        "style": "subheading",
+        "content": "Welcome to your first lesson! You will learn how inputs and outputs work in Python."
+    },
+    {
+        "type": "text",
+        "style": "paragraph",
+        "content": "Welcome to your first lesson! You will learn how inputs and outputs work in Python."
+    },
+    {
+        "type": "codeExample",
+        "content": "/codeExamples/PythonBasics/HelloWorld/0"
+    },
+    {
+        "type": "question",
+        "questionType": "typedResponse",
+        "question": "How do you print to the console in Python?"
+    },
+    {
+        "type": "question",
+        "questionType": "multipleChoice",
+        "answerChoices": [
+            "def functionName():",
+            "function functionName():",
+            "def functionName(){}",
+            "func functionName(){}"
+        ],
+        "question": "What is the correct function declaration in Python"
+    },
+    {
+        "type": "image",
+        "content": "/images/PythonBasics/HelloWorld/0"
+    },
+    {
+        "type": "text",
+        "style": "paragraph",
+        "content": "You can save their name into a variable, which stores it for later use."
+    }
+]
