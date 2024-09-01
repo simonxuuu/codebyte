@@ -40,7 +40,7 @@ export default function QuizComponent() {
     return (
         
         <div className="quiz-container">
-            {progressWarning ? <Alert /> : null}
+            {progressWarning ? <Alert changeAlert={setProgressWarning}/> : null}
             <div className="quiz-card">
                 <div className="quiz-header">
                     <X className="text-gray-500" />
