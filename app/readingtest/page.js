@@ -6,11 +6,11 @@ import CodeSnippetVisualizer from "./CodeSnippet";
 const TextItem = ({ style, content }) => {
   switch (style) {
     case "heading":
-      return <h1 className="text-2xl font-bold mb-4">{content}</h1>;
+      return <h1 className="text-2xl text-left font-bold mb-4">{content}</h1>;
     case "subheading":
-      return <h2 className="text-xl font-semibold mb-3">{content}</h2>;
+      return <h2 className="text-xl text-left font-semibold mb-3">{content}</h2>;
     case "paragraph":
-      return <p className="mb-2">{content}</p>;
+      return <p className="mb-2 text-left ">{content}</p>;
     default:
       return null;
   }
@@ -72,7 +72,7 @@ export default function Review() {
   }
 
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className="container text-left mx-auto px-4 py-8">
       {data.map((item, index) => {
         switch (item.type) {
           case "text":

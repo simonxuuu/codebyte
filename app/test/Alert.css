@@ -63,3 +63,10 @@
   .alert-button.leave {
     background-color: transparent;
   }
+
+  @media screen and (max-width: 800px) {
+    .alert {
+      width: 20rem;
+    }
+    
+  }
