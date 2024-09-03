@@ -14,8 +14,23 @@ export default function QuizComponent() {
     const [hintCount, setHintCount] = useState(3);
     const [correct, setCorrect] = useState(true);
     const [correctAnswerID, setCorrectAnswerID] = useState(3);
+    const [loading, setLoading] = useState(false);
     const [feedbackMessage, setFeedbackMessage] = useState('Correct!');
 
+    const checkSubmit = () => {
+        setLoading(true);
+        setTimeout(() => {
+            if (selectedAnswer === correctAnswerID) {
+                setCorrect(true);
+                setFeedbackMessage('Correct!');
+            } else {
+                setCorrect(false);
+                setFeedbackMessage('Incorrect!');
+            }
+            setQuestionAnswered(true);
+            setLoading(false);
+        }, 1500);
+    }
     const options = [
         { id: 1, label: 'print()'},
         { id: 2, label: 'show()'},
@@ -82,7 +97,9 @@ export default function QuizComponent() {
                         </>
                     )}
                     <button className="quiz-button skip">Hint (3 left)</button>
-                    <button className={`quiz-button check ${questionSelected ? '' : 'unavailable'}`} disabled={!selectedAnswer}>Check</button>
+                    <button className={`quiz-button check ${questionSelected ? '' : 'unavailable'}`} disabled={!selectedAnswer} onClick={checkSubmit}> 
+                        {loading ? '...' : 'Check'}
+                    </button>
                 </div>
             </div>
         </div>
