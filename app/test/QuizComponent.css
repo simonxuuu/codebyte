@@ -175,12 +175,13 @@
     }
     
     .quiz-header {
-      margin-top: -7.5rem;
+      margin-top: 0rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem; 
       width: 85%;
+      margin-bottom: 0rem;
   
     }
 
@@ -208,7 +209,7 @@
     .quiz-title {
       font-size: 1.5rem; /* text-2xl */
       font-weight: 700; /* font-bold */
-      margin-top: 0.5rem; /* mt-2 */
+      margin-top: 0rem; /* mt-2 */
       margin-bottom: 5rem;
       word-break: break-word; /* Ensures words break at appropriate points */
       overflow-wrap: break-word; /* Ensures words wrap within the container */
