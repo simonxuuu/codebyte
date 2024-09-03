@@ -202,7 +202,7 @@
       padding-bottom: 5rem;
       height: 50vh;
       border: transparent;
-      margin-bottom: 5rem;
+      margin-bottom: 0rem;
     }
   
     
@@ -210,7 +210,7 @@
       font-size: 1.5rem; /* text-2xl */
       font-weight: 700; /* font-bold */
       margin-top: 0rem; /* mt-2 */
-      margin-bottom: 5rem;
+      margin-bottom: 0rem;
       word-break: break-word; /* Ensures words break at appropriate points */
       overflow-wrap: break-word; /* Ensures words wrap within the container */
       white-space: normal; /* Allows text to wrap within the container */
@@ -221,6 +221,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      margin-bottom: 3rem;
       gap: 1rem;
     }
     
