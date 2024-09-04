@@ -36,6 +36,9 @@ html {
 
   background-color: var(--dark);
   text-wrap: wrap;
+
+  scrollbar-color: rgb(255, 255, 255, 0.2) transparent;
+  scrollbar-width: thin;
 }
 .pixelText {
   font-family: "VT323", monospace;
@@ -489,4 +492,13 @@ a {
   font-family: "Somatic";
   src: url("../fonts/Somatic.otf") format("opentype");
   font-display: swap;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -20,7 +20,9 @@ const Dashboard = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
+    console.log("testing 123");
     appContext.getCoursesInfo().then((result) => {
+      console.log("the result", result);
       setCourses(result);
     });
     //appContext.fetchCourse("Python Basics");
@@ -178,8 +180,10 @@ const Dashboard = () => {
                 Daily Question
               </h3>
               <p className="mt-1 m-0 p-0 text-sm font-light opacity-50">
-                I am john. john is me. i am confused. you are also confused. who
-                is the real mastemrind here? let&apos;s find out.
+                Challenge yourself every day and climb up the leaderboard!
+              </p>
+              <p className="font-normal text-amber-500 m-0 p-0 text-sm">
+                +50 points
               </p>
               <button className="mt-2 text-sm px-2 py-1 rounded-lg bg-amber-600 text-white border-t border-t-amber-500 shadow shadow-amber-600/30 w-full">
                 Get started
