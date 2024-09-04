@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import {useState, useEffect,useContext} from 'react';
 
-import { AppContext } from '../../../appContext';
+import { AppContext } from '../../../../appContext';
 import Link from "next/link";
 export default function Page({ params }) {
   const router = useRouter();

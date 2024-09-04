@@ -74,14 +74,14 @@ const AppProvider = ({ children }) => {
     .then(response => {return response.json();}).then((jsonOutput)=>{//console.log(jsonOutput);
          return jsonOutput['_doc'];});
     }
-    function getLessonTeachings(){
+    function getInitialLessonInformation(){
       if(!jwt) return 'error';
       if(!currentCourseName) return 'error';
       if(!currentLessonName) return 'error';
-      return fetch(`${apiRoute}/getLessonTeachings`, {method: "POST",
+      return fetch(`${apiRoute}/getLessonInitialInfo`, {method: "POST",
         body: JSON.stringify({jwt:jwt,courseTitle:currentCourseName,lessonName:currentLessonName}),
          headers: {"Content-type": "application/json"}} )
-      .then(response => {return response.text();}).then((jsonOutput)=>{console.log(jsonOutput);
+      .then(response => {return response.json();}).then((jsonOutput)=>{
            return jsonOutput;});
       }
     function getNextQuestion(answerIndex){
@@ -213,7 +213,7 @@ const AppProvider = ({ children }) => {
          currentCourseDesc,setCurrentCourseDesc,
          getCourseProgressData,returnCourseByName,
          currentLessonName,setCurrentLessonName,
-         getLessonTeachings,
+         getInitialLessonInformation,
          getNextQuestion ,
          purgeProgress ,
          registerAccount,
