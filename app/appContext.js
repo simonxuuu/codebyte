@@ -10,12 +10,15 @@ import {
 const AppContext = createContext();
 //w
 const AppProvider = ({ children }) => {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState();
   const [email, setEmail] = useState("");
   const [jwt, setJwt] = useState("");
   //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute = "https://codebyte-1b9af19e473e.herokuapp.com";
+  const apiRoute =
+    process.env.NODE_ENV === "production"
+      ? "https://codebyte-1b9af19e473e.herokuapp.com"
+      : "http://localhost:8080";
   const [currentCourseData, setCurrentCourseData] = useState({});
   const [currentLessonName, setCurrentLessonName] = useState("");
   const [currentCourseName, setCurrentCourseName] = useState("");
@@ -98,6 +101,7 @@ const AppProvider = ({ children }) => {
       });
   }
   function getCoursesInfo() {
+    console.log("apiRoute", apiRoute);
     return fetch(`${apiRoute}/getAllCoursesInfo`, {
       method: "GET",
       headers: { "Content-type": "application/json" },

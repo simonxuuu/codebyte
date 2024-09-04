@@ -502,3 +502,7 @@ a {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+button:disabled {
+  opacity: 50%;
+}

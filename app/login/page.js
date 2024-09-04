@@ -11,25 +11,23 @@ import { AppContext } from "../appContext";
 export default function Login() {
   const appContext = useContext(AppContext);
   const router = useRouter();
-  const [apiResponse,setApiResponse] = useState('');
+  const [apiResponse, setApiResponse] = useState();
+
   const handleSubmit = (event) => {
     appContext.loginAccount(event).then((response) => {
+      console.log(response);
       setApiResponse(response);
-      if(response == 'Success!'){
-        router.push('/dashboard');
+      if (response == "Success!") {
+        router.push("/dashboard");
       }
     });
-    
   };
-  
-  
+
   return (
     <div className="flex flex-col items-center p-2 m-0 h-[100vh] pt-24">
       <div className="basis-full flex-none xl:w-[20%] lg:w-[50%] md:w-[90%] w-full text-center flex flex-col items-center justify-center">
         <div className="">
-          <h2 className="text-2xl mb-0 font-medium">
-            {"Log in to Codigo"}
-          </h2>
+          <h2 className="text-2xl mb-0 font-medium">{"Log in to Codigo"}</h2>
         </div>
         <form
           className="mt-8 flex flex-col gap-2 w-full"
@@ -52,29 +50,24 @@ export default function Login() {
 
           <button
             type="submit"
-            
             className="focus:outline-white placeholder:text-zinc-500 rounded-lg p-3 py-2 w-full bg-zinc-100 border border-transparent text-zinc-800"
           >
             Login
           </button>
 
-          
-            <button
+          <button
             type="button"
-              onClick={() => {
-                router.push('/register');
-              }}
-              className="text-sm mt-2 focus:outline-white placeholder:text-zinc-500 rounded-lg p-3 py-2 w-full border border-zinc-800 text-zinc-500"
-            >
-              No account yet?{" "}
-              <span className="text-sky-700 underline">Register</span>
-            </button>
-          
-
-          
+            onClick={() => {
+              router.push("/register");
+            }}
+            className="text-sm mt-2 focus:outline-white placeholder:text-zinc-500 rounded-lg p-3 py-2 w-full border border-zinc-800 text-zinc-500"
+          >
+            No account yet?{" "}
+            <span className="text-sky-700 underline">Register</span>
+          </button>
         </form>
 
-        {apiResponse && apiResponse != 'Success!' && (
+        {apiResponse && apiResponse != "Success!" && (
           <span className="text-sm mt-8 focus:outline-white placeholder:text-zinc-500 rounded-lg p-3 py-2 w-full border border-red-900 bg-red-900/10 text-red-600">
             {apiResponse}
           </span>

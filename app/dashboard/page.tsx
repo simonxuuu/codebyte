@@ -20,13 +20,18 @@ const Dashboard = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    console.log("testing 123");
-    appContext.getCoursesInfo().then((result) => {
-      console.log("the result", result);
-      setCourses(result);
-    });
-    //appContext.fetchCourse("Python Basics");
-  }, []);
+    console.log(appContext);
+    if (appContext.loggedIn) {
+      console.log("working");
+      appContext.getCoursesInfo().then((result) => {
+        console.log("the result", result);
+        setCourses(result);
+      });
+      //appContext.fetchCourse("Python Basics");
+    }
+  }, [appContext]);
+
+  if (appContext.loggedIn === false) return router.push("/login");
 
   const dashboardPages = [
     {
@@ -49,8 +54,8 @@ const Dashboard = () => {
         ]}
       />
 
-      <div className="flex sticky top-0">
-        <div className="p-8 pr-4 w-[75%]">
+      <div className="flex lg:flex-row flex-col">
+        <div className="md:p-8 p-4 xl:w-[75%] lg:w-[60%]">
           <div className="p-6 py-8 rounded-xl bg-zinc-900 relative overflow-hidden">
             <div className="absolute left-[17%] -top-[30%] blur-3xl bg-green-400/20 w-[150px] h-[225px] rotate-[20deg] rounded-full" />
             <div className="absolute -right-[3%] -bottom-[50%] blur-3xl bg-sage-400/30 w-[175px] h-[250px] rotate-[20deg] rounded-full" />
@@ -61,9 +66,9 @@ const Dashboard = () => {
 
             <div className="mt-4 flex flex-wrap gap-4">
               <div className="flex flex-col text-left space-y-2">
-                <p className="text-base m-0 p-0 text-zinc-500">Your points</p>
+                <p className="text-base m-0 p-0 text-zinc-500">Your bytes</p>
                 <button className="px-1.5 py-1 rounded-lg bg-gradient-to-b from-green-400 to-teal-400 border-t-2 border-t-green-300 text-green-950 font-medium uppercase w-fit">
-                  <FontAwesomeIcon icon={faStar} /> 370 pts
+                  <FontAwesomeIcon icon={faStar} /> 370 BYTES
                 </button>
               </div>
 
@@ -112,7 +117,7 @@ const Dashboard = () => {
             Your Calendar
           </h2>
 
-          <div className="text-zinc-500 flex flex-col space-y-3 w-[350px] p-2 border border-zinc-800 py-6 rounded-lg">
+          <div className="text-zinc-500 flex flex-col space-y-3 md:w-[350px] p-2 border border-zinc-800 py-6 rounded-lg">
             <div className="flex">
               {["S", "M", "T", "W", "T", "F", "S"].map(
                 (day: any, i: number) => {
@@ -160,7 +165,8 @@ const Dashboard = () => {
             })}
           </div>
         </div>
-        <div className="p-8 pl-4 flex-1">
+
+        <div className="md:p-8 md:pl-4 p-4 flex-1">
           <div className="flex items-center space-x-2">
             <div
               className="flex-1 h-[1px] bg-gradient-to-r from-sage-600 to-green-400"
@@ -176,29 +182,50 @@ const Dashboard = () => {
           </h2>
           <div className="flex flex-col space-y-4">
             <div className="bg-gradient-to-b from-amber-950/30 to-amber-950/70 p-3 rounded-xl border border-amber-900">
-              <h3 className="text-lg my-0 p-0 leading-none font-medium text-amber-500">
+              <div className="flex items-center">
+                <p className="w-fit px-1 rounded-md bg-white text-black font-normal m-0 p-0 text-sm">
+                  Coming soon
+                </p>
+                <div className="flex-1" />
+                <p className="w-fit px-1 rounded-md bg-amber-600 text-white font-normal m-0 p-0 text-sm">
+                  +50 bytes
+                </p>
+              </div>
+              <h3 className="mt-3 text-lg my-0 p-0 leading-none font-medium text-amber-500">
                 Daily Question
               </h3>
               <p className="mt-1 m-0 p-0 text-sm font-light opacity-50">
                 Challenge yourself every day and climb up the leaderboard!
               </p>
-              <p className="font-normal text-amber-500 m-0 p-0 text-sm">
-                +50 points
-              </p>
-              <button className="mt-2 text-sm px-2 py-1 rounded-lg bg-amber-600 text-white border-t border-t-amber-500 shadow shadow-amber-600/30 w-full">
-                Get started
+              <button
+                disabled
+                className="mt-2 text-sm px-2 py-1 rounded-lg bg-amber-600 text-white border-t border-t-amber-500 shadow shadow-amber-600/30 w-full"
+              >
+                Coming soon
               </button>
             </div>
             <div className="bg-gradient-to-b from-indigo-950/30 to-indigo-950/70 p-3 rounded-xl border border-indigo-900">
-              <h3 className="text-lg my-0 p-0 leading-none font-medium text-indigo-500">
+              <div className="flex items-center">
+                <p className="w-fit px-1 rounded-md bg-white text-black font-normal m-0 p-0 text-sm">
+                  Coming soon
+                </p>
+                <div className="flex-1" />
+                <p className="w-fit px-1 rounded-md bg-indigo-600 text-white font-normal m-0 p-0 text-sm">
+                  +50 bytes
+                </p>
+              </div>
+              <h3 className="mt-3 text-lg my-0 p-0 leading-none font-medium text-indigo-500">
                 Make a model!
               </h3>
               <p className="mt-1 m-0 p-0 text-sm font-light opacity-50">
                 Design a public interview situation using our AI chatbots, and
-                get +50 points!
+                get +50 bytes!
               </p>
-              <button className="mt-2 text-sm px-2 py-1 rounded-lg bg-indigo-600 text-white border-t border-t-indigo-500 shadow shadow-indigo-600/30 w-full">
-                Get started
+              <button
+                disabled={true}
+                className="mt-2 text-sm px-2 py-1 rounded-lg bg-indigo-600 text-white border-t border-t-indigo-500 shadow shadow-indigo-600/30 w-full"
+              >
+                Coming soon
               </button>
             </div>
           </div>
