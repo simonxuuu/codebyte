@@ -101,9 +101,9 @@ const Dashboard = () => {
                   index={courses.indexOf(course)}
                   courseTitle={course[0]}
                   courseDescription={course[1]}
-                  isLocked={course[2] != "true"}
+                  isLocked={course[2] != true}
                   onClickGetStarted={() => {
-                    if (course[2] == "true") {
+                    if (course[2] == true) {
                       appContext.setCurrentCourseName(course[0]);
                       appContext.setCurrentCourseDesc(course[1]);
                       router.push(`/dashboard/${course[0]}`);

@@ -31,7 +31,6 @@ const AppProvider = ({ children }) => {
         user.getIdToken(true).then((jwt) => {
           setJwt(jwt);
         });
-        console.log("my user", user);
         setEmail(user.email);
         setLoggedIn(true);
       } else {
@@ -50,9 +49,32 @@ const AppProvider = ({ children }) => {
     }
     return null;
   }
+
+  function IsLessonCompleted(lessonProgress) {
+    lessonProgress = lessonProgress.split("/");
+    if (lessonProgress[0] == lessonProgress[1]) return true;
+    return false;
+  }
+  function CamelCaseToNormal(camelCaseString) {
+    let newString = [];
+    for (let i = 0; i < camelCaseString.length; i++) {
+      if (
+        camelCaseString.charAt(i) == camelCaseString.charAt(i).toUpperCase()
+      ) {
+        //is capital, insert space.
+        newString.push(" ");
+      }
+      if (i == 0) {
+        newString.push(camelCaseString.charAt(i).toUpperCase());
+      } else {
+        newString.push(camelCaseString.charAt(i));
+      }
+    }
+    return newString.join("");
+  }
   function getCourseProgressData() {
     if (!jwt) return "error";
-    return fetch(`${apiRoute}/login-account`, {
+    return fetch(`${apiRoute}/get-account-data`, {
       method: "POST",
       body: JSON.stringify({ jwt: jwt }),
       headers: { "Content-type": "application/json" },
@@ -65,11 +87,11 @@ const AppProvider = ({ children }) => {
         return jsonOutput["_doc"];
       });
   }
-  function getLessonTeachings() {
+  function getInitialLessonInformation() {
     if (!jwt) return "error";
     if (!currentCourseName) return "error";
     if (!currentLessonName) return "error";
-    return fetch(`${apiRoute}/getLessonTeachings`, {
+    return fetch(`${apiRoute}/getLessonInitialInfo`, {
       method: "POST",
       body: JSON.stringify({
         jwt: jwt,
@@ -79,10 +101,9 @@ const AppProvider = ({ children }) => {
       headers: { "Content-type": "application/json" },
     })
       .then((response) => {
-        return response.text();
+        return response.json();
       })
       .then((jsonOutput) => {
-        console.log(jsonOutput);
         return jsonOutput;
       });
   }
@@ -101,7 +122,6 @@ const AppProvider = ({ children }) => {
       });
   }
   function getCoursesInfo() {
-    console.log("apiRoute", apiRoute);
     return fetch(`${apiRoute}/getAllCoursesInfo`, {
       method: "GET",
       headers: { "Content-type": "application/json" },
@@ -116,7 +136,7 @@ const AppProvider = ({ children }) => {
   }
   function getLessonNames(courseName) {
     if (!jwt) return;
-    return fetch(`${apiRoute}/getLessonNames`, {
+    return fetch(`${apiRoute}/getAllLessonNamesForCourse`, {
       method: "POST",
       body: JSON.stringify({ jwt: jwt, courseTitle: courseName }),
       headers: { "Content-type": "application/json" },
@@ -198,7 +218,7 @@ const AppProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         if (!jwt) setJwt(result.user.getIdToken(true));
-        return fetch(`${apiRoute}/login-account`, {
+        return fetch(`${apiRoute}/get-account-data`, {
           method: "POST",
           body: JSON.stringify({ jwt: jwt }),
           headers: {
@@ -245,11 +265,13 @@ const AppProvider = ({ children }) => {
         returnCourseByName,
         currentLessonName,
         setCurrentLessonName,
-        getLessonTeachings,
+        getInitialLessonInformation,
         getNextQuestion,
         purgeProgress,
         registerAccount,
         loginAccount,
+        CamelCaseToNormal,
+        IsLessonCompleted,
       }}
     >
       {children}
