@@ -1,157 +1,130 @@
-"use client";
-import React, { useEffect, createContext, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import {
-  auth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "./firebaseconfig";
+"use client"
+import React,  {useEffect, createContext, useState } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth,createUserWithEmailAndPassword, signInWithEmailAndPassword } from './firebaseconfig';
 
 const AppContext = createContext();
 //w
 const AppProvider = ({ children }) => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState("");
-  const [jwt, setJwt] = useState("");
-  //https://codebyte-1b9af19e473e.herokuapp.com
+  const [loggedIn,setLoggedIn]= useState(false);
+  const [email,setEmail] = useState('');
+  const [jwt,setJwt]=useState('');
+ //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute = "https://codebyte-1b9af19e473e.herokuapp.com";
-  const [currentCourseData, setCurrentCourseData] = useState({});
-  const [currentLessonName, setCurrentLessonName] = useState("");
-  const [currentCourseName, setCurrentCourseName] = useState("");
-  const [currentCourseDesc, setCurrentCourseDesc] = useState("");
+  const apiRoute ='http://localhost:8080';
+  const [currentCourseData,setCurrentCourseData] = useState({});
+  const [currentLessonName,setCurrentLessonName] = useState('');
+  const [currentCourseName,setCurrentCourseName] = useState('');
+  const [currentCourseDesc,setCurrentCourseDesc] = useState('');
 
   useEffect(() => {
+    
+    
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(`Logged In with: ${user.email}`);
-        user.getIdToken(true).then((jwt) => {
+        user.getIdToken(true).then(jwt => {
           setJwt(jwt);
         });
-        console.log("my user", user);
         setEmail(user.email);
         setLoggedIn(true);
       } else {
-        console.log("Not logged in.");
+        console.log("Not logged in.")
         setLoggedIn(false);
       }
     });
     return () => unsubscribe();
   }, []);
 
-  function returnCourseByName(desiredCourse, allCourses) {
-    for (let course of allCourses) {
-      if (course.courseTitle == desiredCourse) {
+  function returnCourseByName(desiredCourse,allCourses){
+    for (let course of allCourses){
+      if(course.courseTitle == desiredCourse){
         return course;
       }
     }
     return null;
   }
-  function getCourseProgressData() {
-    if (!jwt) return "error";
-    return fetch(`${apiRoute}/login-account`, {
-      method: "POST",
-      body: JSON.stringify({ jwt: jwt }),
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonOutput) => {
-        //console.log(jsonOutput);
-        return jsonOutput["_doc"];
-      });
+
+  function IsLessonCompleted(lessonProgress){
+    lessonProgress = lessonProgress.split('/');
+    if(lessonProgress[0] == lessonProgress[1]) return true;
+    return false;
   }
-  function getLessonTeachings() {
-    if (!jwt) return "error";
-    if (!currentCourseName) return "error";
-    if (!currentLessonName) return "error";
-    return fetch(`${apiRoute}/getLessonTeachings`, {
-      method: "POST",
-      body: JSON.stringify({
-        jwt: jwt,
-        courseTitle: currentCourseName,
-        lessonName: currentLessonName,
-      }),
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        return response.text();
-      })
-      .then((jsonOutput) => {
-        console.log(jsonOutput);
-        return jsonOutput;
-      });
+  function CamelCaseToNormal (camelCaseString){
+    let newString = [];
+    for (let i = 0; i < camelCaseString.length; i++){
+        if (camelCaseString.charAt(i) == camelCaseString.charAt(i).toUpperCase()){
+            //is capital, insert space.
+            newString.push(' ');
+        }
+        if(i == 0){
+            newString.push(camelCaseString.charAt(i).toUpperCase());
+        }else{
+            newString.push(camelCaseString.charAt(i));
+        }
+    }
+    return newString.join('');
+    
   }
-  function getNextQuestion(answerIndex) {
-    return fetch(`${apiRoute}/getNextQuestion`, {
-      method: "POST",
-      body: JSON.stringify({ jwt: jwt, answerIndex: answerIndex }),
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonOutput) => {
-        //console.log(jsonOutput);
-        return jsonOutput;
-      });
-  }
-  function getCoursesInfo() {
-    return fetch(`${apiRoute}/getAllCoursesInfo`, {
-      method: "GET",
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonOutput) => {
-        //console.log(jsonOutput);
-        return jsonOutput;
-      });
-  }
-  function getLessonNames(courseName) {
-    if (!jwt) return;
-    return fetch(`${apiRoute}/getLessonNames`, {
-      method: "POST",
-      body: JSON.stringify({ jwt: jwt, courseTitle: courseName }),
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonOutput) => {
-        return jsonOutput;
-      });
+  function getCourseProgressData(){
+    if(!jwt) return 'error';
+    return fetch(`${apiRoute}/get-account-data`, {method: "POST",
+      body: JSON.stringify({jwt:jwt}),
+       headers: {"Content-type": "application/json"}} )
+    .then(response => {return response.json();}).then((jsonOutput)=>{//console.log(jsonOutput);
+         return jsonOutput['_doc'];});
+    }
+    function getInitialLessonInformation(){
+      if(!jwt) return 'error';
+      if(!currentCourseName) return 'error';
+      if(!currentLessonName) return 'error';
+      return fetch(`${apiRoute}/getLessonInitialInfo`, {method: "POST",
+        body: JSON.stringify({jwt:jwt,courseTitle:currentCourseName,lessonName:currentLessonName}),
+         headers: {"Content-type": "application/json"}} )
+      .then(response => {return response.json();}).then((jsonOutput)=>{
+           return jsonOutput;});
+      }
+    function getNextQuestion(answerIndex){
+      return fetch(`${apiRoute}/getNextQuestion`, {method: "POST",
+        body: JSON.stringify({jwt:jwt,answerIndex:answerIndex}),
+         headers: {"Content-type": "application/json"}} )
+      .then(response => {return response.json();}).then((jsonOutput)=>{//console.log(jsonOutput);
+           return jsonOutput;});
+      
+    }   
+   function getCoursesInfo(){
+    return fetch(`${apiRoute}/getAllCoursesInfo`, {method: "GET", headers: {"Content-type": "application/json"}} )
+    .then(response => {return response.json();}).then((jsonOutput)=>{//console.log(jsonOutput);
+         return jsonOutput;});
+    }
+  function getLessonNames(courseName){
+    if(!jwt) return;
+    return fetch(`${apiRoute}/getAllLessonNamesForCourse`, {method: "POST",
+        body: JSON.stringify({jwt:jwt,courseTitle:courseName}),
+        headers: {"Content-type": "application/json"}} )
+    .then(response => {return response.json();}).then((jsonOutput)=>{return jsonOutput;});
   }
 
-  function purgeProgress() {
-    if (!jwt) return "error";
-    return fetch(`${apiRoute}/purge-progress`, {
-      method: "POST",
-      body: JSON.stringify({ jwt: jwt }),
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        return response.text();
-      })
-      .then((jsonOutput) => {
-        //console.log(jsonOutput);
-        return jsonOutput;
-      });
-  }
-
-  function registerAccount(form) {
-    if (!form) return "error";
-    form.preventDefault();
-    const email = form.target.email.value;
-    const password = form.target.password.value;
-    if (!email || !password) return "error";
-
-    return createUserWithEmailAndPassword(auth, email, password)
+  function purgeProgress(){
+    if(!jwt) return 'error';
+    return fetch(`${apiRoute}/purge-progress`, {method: "POST",
+      body: JSON.stringify({jwt:jwt}),
+       headers: {"Content-type": "application/json"}} )
+    .then(response => {return response.text();}).then((jsonOutput)=>{//console.log(jsonOutput);
+         return jsonOutput;});
+    }
+  
+  function registerAccount(form){
+    if(!form) return 'error';
+      form.preventDefault();
+      const email = form.target.email.value;
+      const password = form.target.password.value;
+      if(!email || !password) return 'error';
+      
+      return createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        if (!jwt) setJwt(result.user.getIdToken(true));
-        return fetch(`${apiRoute}/create-account`, {
+        if(!jwt) setJwt(result.user.getIdToken(true));
+       return fetch(`${apiRoute}/create-account`, {
           method: "POST",
           body: JSON.stringify({ email, jwt: jwt }),
           headers: {
@@ -171,6 +144,7 @@ const AppProvider = ({ children }) => {
           });
       })
       .catch((error) => {
+        
         if (
           error.message ==
           "Firebase: Password should be at least 6 characters (auth/weak-password)."
@@ -184,24 +158,24 @@ const AppProvider = ({ children }) => {
         return "Whoops! There has been an error.";
       });
   }
-  function loginAccount(form) {
-    if (!form) return "error";
-    form.preventDefault();
-    const email = form.target.email.value;
-    const password = form.target.password.value;
-    if (!email || !password) return "error";
-
-    return signInWithEmailAndPassword(auth, email, password)
+   function loginAccount(form){
+  
+      if(!form) return 'error';
+      form.preventDefault();
+      const email = form.target.email.value;
+      const password = form.target.password.value;
+      if(!email || !password) return 'error';
+      
+      return signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        if (!jwt) setJwt(result.user.getIdToken(true));
-        return fetch(`${apiRoute}/login-account`, {
-          method: "POST",
-          body: JSON.stringify({ jwt: jwt }),
-          headers: {
+        if(!jwt) setJwt(result.user.getIdToken(true));
+        return fetch(`${apiRoute}/get-account-data`, { 
+        method: "POST",
+        body: JSON.stringify({ jwt: jwt}),
+        headers: {
             "Content-type": "application/json",
-          },
-        })
-          .then((response) => {
+        },
+        }).then((response) => {
             if (response.headers.get("Content-Type").includes("text/plain")) {
               return response.text();
             } else {
@@ -209,9 +183,11 @@ const AppProvider = ({ children }) => {
             }
           })
           .then((text) => {
+            
             if (text == "Server Error" || text == "UID not found") {
               return "Whoops! There has been an error.";
             } else {
+              
               return "Success!";
             }
           });
@@ -219,35 +195,31 @@ const AppProvider = ({ children }) => {
       .catch((error) => {
         return "Whoops! There has been an error.";
       });
+      
   }
 
   return (
-    <AppContext.Provider
-      value={{
-        loggedIn,
-        setLoggedIn,
-        email,
-        setEmail,
-        jwt,
-        apiRoute,
-        currentCourseData,
-        getCoursesInfo,
-        getLessonNames,
-        currentCourseName,
-        setCurrentCourseName,
-        currentCourseDesc,
-        setCurrentCourseDesc,
-        getCourseProgressData,
-        returnCourseByName,
-        currentLessonName,
-        setCurrentLessonName,
-        getLessonTeachings,
-        getNextQuestion,
-        purgeProgress,
-        registerAccount,
-        loginAccount,
-      }}
-    >
+    <AppContext.Provider value={
+        { loggedIn,
+         setLoggedIn,
+         email,
+         setEmail,
+         jwt,
+         apiRoute,
+         currentCourseData,
+         getCoursesInfo,
+         getLessonNames,
+         currentCourseName,setCurrentCourseName,
+         currentCourseDesc,setCurrentCourseDesc,
+         getCourseProgressData,returnCourseByName,
+         currentLessonName,setCurrentLessonName,
+         getInitialLessonInformation,
+         getNextQuestion ,
+         purgeProgress ,
+         registerAccount,
+         loginAccount,
+         CamelCaseToNormal,
+        IsLessonCompleted}}>
       {children}
     </AppContext.Provider>
   );
