@@ -60,7 +60,11 @@ const TopBar = () => {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div
+      className={`flex flex-col items-center ${
+        pathname.includes("/dashboard") && "hidden"
+      }`}
+    >
       <header className="outline outline-[1px] outline-white/10 border-t border-white/15 bg-zinc-800/70 shadow-lg shadow-black/20 lg:py-4 py-2.5 px-6 lg:rounded-2xl flex items-center">
         <Link href="/" className="text-xl flex-1">
           codigo

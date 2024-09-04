@@ -7,7 +7,7 @@ import Image from "next/image";
 const CourseComponent = ({
   courseTitle,
   courseDescription,
-  onclick,
+  onClickGetStarted,
   isLocked,
   index,
 }) => {
@@ -17,11 +17,8 @@ const CourseComponent = ({
   const courseHexCodeLightened = lightenHex(courseHexCode, 0.7);
 
   return (
-    <button
+    <div
       ref={butn}
-      onClick={() => {
-        onclick();
-      }}
       className={`w-[350px] rounded-xl p-px ${
         isLocked ? "courseLockedBG" : ""
       } overflow-hidden`}
@@ -71,7 +68,8 @@ const CourseComponent = ({
             </p>
 
             <button
-              className="mt-4 px-2 py-1.5 rounded-lg bg-zinc-800 text-zinc-100 border-t border-t-zinc-700 shadow shadow-black/30 w-full"
+              className="hover:scale-[.97] transition mt-4 px-2 py-1.5 rounded-lg bg-zinc-800 text-zinc-100 border-t border-t-zinc-700 shadow shadow-black/30 w-full"
+              onClick={() => onClickGetStarted()}
               style={{
                 backgroundColor: lightenHex(courseHexCode, 0),
                 borderTopColor: lightenHex(courseHexCode, 0.4),
@@ -126,7 +124,7 @@ const CourseComponent = ({
           </span>
         </div>
       </div>
-    </button>
+    </div>
   );
 };
 

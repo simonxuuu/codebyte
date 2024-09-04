@@ -1,10 +1,15 @@
+"use client";
+
 // courtiq/app/Footer.js
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+
   return (
-    <footer className="">
+    <footer className={`${pathname.includes("/dashboard") && "hidden"}`}>
       <div className="footer-content">
         <div className="social-icons">
           <Link href="#" className="icon-link">
