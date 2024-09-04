@@ -166,6 +166,10 @@ textarea::placeholder {
   transition: all 0.25s;
 }
 
+.quizPage {
+  display: flex;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;

@@ -89,6 +89,7 @@ const Dashboard = () => {
             {courses &&
               courses.map((course) => (
                 <CourseComponent
+                  appContext={appContext}
                   key={courses.indexOf(course)}
                   index={courses.indexOf(course)}
                   courseTitle={course[0]}

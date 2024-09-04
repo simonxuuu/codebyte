@@ -1,10 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import Link from "next/link";
 import { lightenHex } from "../../utils/lightenHex";
 import { darkenHex } from "../../utils/darkenHex";
 import Image from "next/image";
 
 const CourseComponent = ({
+  appContext,
   courseTitle,
   courseDescription,
   onClickGetStarted,
@@ -61,7 +62,7 @@ const CourseComponent = ({
               </div>
             </div>
             <p className="mt-4 text-xl font-medium text-white z-20">
-              {courseTitle}
+              {appContext.CamelCaseToNormal(courseTitle)}
             </p>
             <p className="mt-1 text-sm font-light text-zinc-400">
               {courseDescription}

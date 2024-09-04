@@ -70,17 +70,19 @@ export default function Page({ params }) {
 
     return (
         <main>
-        <h1 className='lessonPageTitle'>{appContext.currentCourseName} <svg onClick={()=>{router.push('/dashboard')}} className='lessonPageClose'xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></h1>
+        <h1 className='lessonPageTitle'>{appContext.CamelCaseToNormal (appContext.currentCourseName)} <svg onClick={()=>{router.push('/dashboard')}} className='lessonPageClose'xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></h1>
         <h2 className='lessonPageDescription'>{appContext.currentCourseDesc}</h2>
         {lessons &&
         lessons.map((lesson) => (
           <LessonComponent
-            key={lesson.lessonIndex}
+            key={lessons.indexOf(lesson)}
+            lessonIndex={lessons.indexOf(lesson)}
+            appContext = {appContext}
             courseTitle={appContext.currentCourseName}
             data={lesson}
             allLessons={lessons}
             curEmail={appContext.email}
-            onclick ={()=>{appContext.setCurrentLessonName(lesson.Name);router.push(`/dashboard/${appContext.currentCourseName}/${lesson.lessonIndex}`);}}
+            onclick = {()=>{console.log('lesson clicked'); appContext.setCurrentLessonName(lesson.Name);router.push(`/dashboard/${appContext.currentCourseName}/${lesson.lessonIndex}`);}}
           />
         ))}
         {courseComplete && <h2 id='wipText'>Congrats on completing this course! Let us know what we can improve by clicking the feedback button up top.</h2>}
