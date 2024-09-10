@@ -21,9 +21,6 @@ export default function QuizComponent() {
     const getNextQuestions = () => {
     }
 
-    const nextQuestion = () => {
-
-    }
 
     const checkSubmit = () => {
         setLoading(true);
