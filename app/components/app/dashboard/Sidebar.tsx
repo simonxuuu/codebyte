@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const pages = [
   {
@@ -40,7 +41,7 @@ const bottomPages = [
 
 export default function Sidebar() {
   const appContext = useContext(AppContext);
-
+  const router = useRouter();
   return (
     <section className="sticky top-0 xl:w-[20%] lg:w-[30%] md:w-[40%] w-full bg-black border-r border-r-zinc-800">
       <div className="p-2 flex flex-col space-y-2 h-full">
@@ -63,6 +64,7 @@ export default function Sidebar() {
             <button
               key={`fasdffansdfuaosnfa=${i}`}
               className={`text-left flex items-center space-x-2 text-zinc-400 font-normal p-2 py-1 rounded-xl hover:bg-zinc-900 transition-colors`}
+              onClick={()=>{router.push('/dashboard');}}
             >
               <span className="w-5">
                 <FontAwesomeIcon icon={x.icon} className="text-zinc-600" />

@@ -2,7 +2,7 @@
 
 export default function Navbar({ dashboardPages }) {
   return (
-    <div className="w-full py-2.5 px-2.5 border-b border-b-zinc-800 flex items-center gap-1 overflow-scroll shadow shadow-zinc-950">
+    <div className="w-full py-2.5 px-2.5 border-b border-b-zinc-800 flex items-center gap-1  shadow shadow-zinc-950">
       <div className="w-8 py-0.5 rounded-md text-sm flex items-center justify-center bg-zinc-800 font-light text-zinc-500">
         &lt;/&gt;
       </div>

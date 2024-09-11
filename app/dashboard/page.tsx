@@ -128,7 +128,7 @@ const Dashboard = () => {
 
             <div className="h-2" />
 
-            {calendar[7].map((week: any, i: number) => {
+            {calendar[7].map((week: any, i : number) => {
               return (
                 <div className="flex" key={i}>
                   {week.map((day: any) => {

@@ -39,7 +39,7 @@ export default function Page({ params }) {
           for(let i = 0; i < lessonprog.length; i++){
             tempLessonInfo.push(Object.assign({},{"Name":result[i]},lessonprog[i]));
             if(i == lessonprog.length-1){
-              if(lessonprog[i].isComplete){
+              if(lessonprog[i].isDone){
                 setcourseComplete(true);
               }
             }

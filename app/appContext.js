@@ -38,18 +38,14 @@ const AppProvider = ({ children }) => {
 
   function returnCourseByName(desiredCourse,allCourses){
     for (let course of allCourses){
-      if(course.courseTitle == desiredCourse){
+      if(course.courseName == desiredCourse){
         return course;
       }
     }
     return null;
   }
 
-  function IsLessonCompleted(lessonProgress){
-    lessonProgress = lessonProgress.split('/');
-    if(lessonProgress[0] == lessonProgress[1]) return true;
-    return false;
-  }
+  
   function CamelCaseToNormal (camelCaseString){
     let newString = [];
     for (let i = 0; i < camelCaseString.length; i++){
@@ -79,7 +75,7 @@ const AppProvider = ({ children }) => {
       if(!currentCourseName) return 'error';
       if(!currentLessonName) return 'error';
       return fetch(`${apiRoute}/getLessonInitialInfo`, {method: "POST",
-        body: JSON.stringify({jwt:jwt,courseTitle:currentCourseName,lessonName:currentLessonName}),
+        body: JSON.stringify({jwt:jwt,courseName:currentCourseName,lessonName:currentLessonName}),
          headers: {"Content-type": "application/json"}} )
       .then(response => {return response.json();}).then((jsonOutput)=>{
            return jsonOutput;});
@@ -100,9 +96,9 @@ const AppProvider = ({ children }) => {
   function getLessonNames(courseName){
     if(!jwt) return;
     return fetch(`${apiRoute}/getAllLessonNamesForCourse`, {method: "POST",
-        body: JSON.stringify({jwt:jwt,courseTitle:courseName}),
+        body: JSON.stringify({jwt:jwt,courseName:courseName}),
         headers: {"Content-type": "application/json"}} )
-    .then(response => {return response.json();}).then((jsonOutput)=>{return jsonOutput;});
+    .then(response => {return response.json();}).then((jsonOutput)=>{console.log(jsonOutput);return jsonOutput;});
   }
 
   function purgeProgress(){
@@ -218,8 +214,8 @@ const AppProvider = ({ children }) => {
          purgeProgress ,
          registerAccount,
          loginAccount,
-         CamelCaseToNormal,
-        IsLessonCompleted}}>
+         CamelCaseToNormal
+        }}>
       {children}
     </AppContext.Provider>
   );
