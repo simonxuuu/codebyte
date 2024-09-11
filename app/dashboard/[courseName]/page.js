@@ -33,6 +33,7 @@ export default function Page({ params }) {
       appContext.getLessonNames(appContext.currentCourseName).then(result => {
         let tempLessonInfo = [];
         appContext.getCourseProgressData().then(progressData => {
+         
           if(appContext.returnCourseByName(appContext.currentCourseName,progressData["courses"]) == null) return; 
           let lessonprog = appContext.returnCourseByName(appContext.currentCourseName,progressData["courses"])['courseLessons'];  
           
@@ -82,7 +83,7 @@ export default function Page({ params }) {
             data={lesson}
             allLessons={lessons}
             curEmail={appContext.email}
-            onclick = {()=>{console.log('lesson clicked'); appContext.setCurrentLessonName(lesson.Name);router.push(`/dashboard/${appContext.currentCourseName}/${lesson.lessonIndex}`);}}
+            onclick = {()=>{console.log('lesson clicked'); appContext.setCurrentLessonName(lesson.Name);router.push(`/dashboard/${appContext.currentCourseName}/${lessons.indexOf(lesson)}`);}}
           />
         ))}
         {courseComplete && <h2 id='wipText'>Congrats on completing this course! Let us know what we can improve by clicking the feedback button up top.</h2>}

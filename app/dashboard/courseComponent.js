@@ -11,6 +11,7 @@ const CourseComponent = ({
   onClickGetStarted,
   isLocked,
   index,
+  noGems
 }) => {
   const butn = useRef(null);
 
@@ -37,7 +38,7 @@ const CourseComponent = ({
         }}
       >
         <div className="p-3">
-          {isLocked && (
+          {(isLocked && !noGems) && (
             <h1
               className="courseComponentTitle"
               style={{
@@ -48,6 +49,19 @@ const CourseComponent = ({
               }}
             >
               Coming soon!
+            </h1>
+          )}
+           {(noGems) && (
+            <h1
+              className="courseComponentTitle"
+              style={{
+                position: "absolute",
+                left: "17%",
+                zIndex: "1",
+                top: "35%",
+              }}
+            >
+              Out of gems!
             </h1>
           )}
           <span className={`text-left ${isLocked ? "courseLocked" : ""}`}>

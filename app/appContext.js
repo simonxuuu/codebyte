@@ -62,6 +62,17 @@ const AppProvider = ({ children }) => {
     return newString.join('');
     
   }
+
+  function getHint(){
+    
+    if(!jwt) return 'error';
+    return fetch(`${apiRoute}/requestHint`, {method: "POST",
+      body: JSON.stringify({jwt:jwt}),
+       headers: {"Content-type": "application/json"}} )
+    .then(response => {return response.text();}).then((jsonOutput)=>{//console.log(jsonOutput);
+         return jsonOutput;});
+  }
+
   function getCourseProgressData(){
     if(!jwt) return 'error';
     return fetch(`${apiRoute}/get-account-data`, {method: "POST",
@@ -199,6 +210,7 @@ const AppProvider = ({ children }) => {
         { loggedIn,
          setLoggedIn,
          email,
+         getHint,
          setEmail,
          jwt,
          apiRoute,
