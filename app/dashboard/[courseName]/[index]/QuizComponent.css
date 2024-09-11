@@ -14,7 +14,50 @@
     color: rgb(204, 204, 204);
 
   }
-  
+  .default-container{
+    box-sizing: border-box;
+    margin:0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width:100%;
+    height: 100%;
+  }
+  .lessonHeading{
+    color:rgb(230, 230, 230);
+    text-align: left;
+    font-size:max(40px,2vw);
+    max-width: 70%;
+    overflow-wrap: break-word;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    margin:0;
+    margin-top:35px;
+    margin-bottom:5px;
+  }
+  .lessonSubHeading{
+    font-size:max(30px,1vw);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-align: left;
+    max-width: 70%;
+    overflow-wrap: break-word;
+  }
+  .lessonParagraph{
+
+    margin:0;
+    margin-top:5px;
+    margin-bottom:55px;
+
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    color:rgb(199, 199, 199);
+    font-size:max(25px,1vw);
+    max-width: 70%;
+    text-align: left;
+    overflow-wrap: break-word;
+  }
   .quiz-card {
     width: 85%;
     height: 100%;

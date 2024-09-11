@@ -16,7 +16,7 @@ const AppProvider = ({ children }) => {
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
   const [currentCourseDesc,setCurrentCourseDesc] = useState('');
-
+  const [lessons,setlessons] = useState([]);
   useEffect(() => {
     
     
@@ -218,6 +218,7 @@ const AppProvider = ({ children }) => {
          getCoursesInfo,
          getLessonNames,
          currentCourseName,setCurrentCourseName,
+         lessons,setlessons,
          currentCourseDesc,setCurrentCourseDesc,
          getCourseProgressData,returnCourseByName,
          currentLessonName,setCurrentLessonName,

@@ -27,6 +27,7 @@ const Dashboard = () => {
            
           console.log(progressData.gems);
           setCourses(result);
+          
           setCurGems(parseInt(progressData.gems));
         });
       }

@@ -131,11 +131,11 @@ export default function Page({ params }) {
   const TextItem = ({ style, content }) => {
     switch (style) {
       case "heading":
-        return <h1 className="text-2xl text-left font-bold mb-4">{content}</h1>;
+        return <h1 className="lessonHeading">{content}</h1>;
       case "subheading":
-        return <h2 className="text-xl text-left font-semibold mb-3">{content}</h2>;
+        return <h2 className="lessonSubHeading">{content}</h2>;
       case "paragraph":
-        return <p className="mb-2 text-left ">{content}</p>;
+        return <p className="lessonParagraph">{content}</p>;
       default:
         return null;
     }
@@ -149,14 +149,14 @@ export default function Page({ params }) {
   
   const TypedResponse = ({ question }) => (
     <div className="my-4">
-      <p className="mb-2">{question}</p>
-      <input type="text" className="border p-2 w-full" />
+      <p style={{maxWidth:'100%'}}className="lessonSubHeading">{question}</p>
+      <input type="text" style={{color:'black'}} className="border p-2 w-full" />
     </div>
   );
   
   const MultipleChoice = ({ question, answerChoices }) => (
     <div className="my-4">
-      <p className="mb-2">{question}</p>
+      <p style={{maxWidth:'100%'}}className="lessonSubHeading">{question}</p>
       {answerChoices.map((choice, index) => (
         <div key={index} className="flex items-center mb-2">
           <input
@@ -173,9 +173,10 @@ export default function Page({ params }) {
   );
   
   const ImageItem = ({ content }) => (
-    
+   
     <div className="my-4">
-      <Image src={content} alt="Lesson image" width={500} height={300} />
+       {//<Image src={content} alt="Lesson image" width={500} height={300} />
+      }
     </div> 
   );
 
@@ -242,14 +243,14 @@ export default function Page({ params }) {
         })
       }
       setQuestionAnswered(false);
-      console.log(result);
+      //console.log(result);
       setData(result);
      })
    
    
   }, []);
   
-
+  
   
 
   
@@ -258,11 +259,11 @@ export default function Page({ params }) {
     return <div className="text-center mt-8">Loading...</div>;
   }
 
-  return <main className="quiz-container ">
+  return <main className={isQuiz ? "quiz-container":"default-container"}>
     
     {(!isQuiz) && <>
       <h2 className="lessonTitle">
-        {appContext.currentLessonName && appContext.currentLessonName}
+        {appContext.currentLessonName && appContext.CamelCaseToNormal(appContext.currentLessonName)}
       </h2>
       {data.map((item, index) => {
         switch (item.type) {
@@ -282,6 +283,9 @@ export default function Page({ params }) {
             return null;
         }
       })}
+     
+      <button onClick={()=>{
+        if(appContext.lessons.length-1 <= parseInt(params.index)+1){appContext.setCurrentLessonName(appContext.lessons[parseInt(params.index)+1].Name);router.push(`/dashboard/${appContext.currentCourseName}/${parseInt(params.index)+1}`);}else{router.push('/dashboard/');}}}>Next lesson</button>
       </>
 }
     {isQuiz &&  
