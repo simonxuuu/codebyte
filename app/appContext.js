@@ -12,6 +12,7 @@ const AppContext = createContext();
 const AppProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState();
   const [email, setEmail] = useState("");
+  const [pricingPlan, setPricingPlan] = useState("Free");
   const [jwt, setJwt] = useState("");
   //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
@@ -23,6 +24,11 @@ const AppProvider = ({ children }) => {
   const [currentLessonName, setCurrentLessonName] = useState("");
   const [currentCourseName, setCurrentCourseName] = useState("");
   const [currentCourseDesc, setCurrentCourseDesc] = useState("");
+
+  // _ user statistics
+  const [bytes, setBytes] = useState(0);
+  const [streak, setStreak] = useState(0);
+  const [completedCoursesCount, setCompletedCoursesCount] = useState(0);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -272,6 +278,11 @@ const AppProvider = ({ children }) => {
         loginAccount,
         CamelCaseToNormal,
         IsLessonCompleted,
+        pricingPlan,
+
+        bytes,
+        streak,
+        completedCoursesCount,
       }}
     >
       {children}

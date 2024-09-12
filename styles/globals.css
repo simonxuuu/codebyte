@@ -38,8 +38,26 @@ html {
   text-wrap: wrap;
 
   scrollbar-color: rgb(255, 255, 255, 0.2) transparent;
-  scrollbar-width: thin;
+  scrollbar-width: 7px;
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  visibility: hidden; /* doesn't seem to work */
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar:window-inactive {
+  visibility: hidden;
+}
+
 .pixelText {
   font-family: "VT323", monospace;
   font-size: larger;

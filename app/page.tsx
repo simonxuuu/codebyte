@@ -122,134 +122,81 @@ export default function Home() {
     router.push("/dashboard");
   };
   return (
-    <main>
-      <div className="h-screen xl:w-[70vw] lg:w-[80vw] md:w-[90vw] px-4 relative flex flex-col items-center justify-center text-center">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-0 bg-green-500/10 blur-3xl w-[40%] aspect-square rounded-full"></div>
-        <div className="absolute top-0 left-[70%] -translate-x-1/2 z-0 bg-sage-500/15 blur-3xl w-[30%] aspect-square rounded-full"></div>
-        <div className="absolute top-[30%] left-[30%] -translate-x-1/2 z-0 bg-sky-300/15 blur-3xl w-[20%] aspect-square rounded-full"></div>
-
-        <div className="flex items-center justify-center flex-wrap gap-5">
-          {[
-            {
-              icon: faCode,
-            },
-            {
-              icon: faQuestion,
-            },
-            {
-              icon: faMicrophone,
-            },
-            {
-              icon: faPenToSquare,
-            },
-          ].map((x, i) => {
-            return (
-              <span
-                className="outline outline-4 outline-white/30 bg-gradient-to-b from-green-300 to-sage-300 size-[40px] p-1 rounded-xl flex"
-                style={{
-                  boxShadow:
-                    "-3px -3px 24px #4ade80B3, -12px -12px 28px #c3c293B3",
-                }}
-                key={i}
-              >
-                <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-xl text-black flex items-center justify-center">
-                  <FontAwesomeIcon icon={x.icon} />
-                </span>
-              </span>
-            );
-          })}
-        </div>
-
-        <h1
-          style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
-          className="mt-8 lg:text-6xl md:text-5xl text-4xl flex items-center flex-wrap justify-center relative w-fit text-zinc-400"
-        >
-          Coding isn&apos;t just coding.
-        </h1>
-
-        <h1
-          style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
-          className="pb-3 md:mt-2 lg:text-7xl md:text-6xl text-4xl flex items-center justify-center flex-wrap relative w-fit bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-sage-300"
-        >
-          We teach you what it is.
-        </h1>
-
-        <h2 className="md:mt-8 mt-2 lg:text-3xl md:text-2xl text-xl text-zinc-400 font-extralight">
-          What is tech, apart from programming?
-          <br />
-          <span
-            className={`transition duration-500 ${
-              highlightedSkill === 0
-                ? activeHighlightedSkill
-                : inactiveHighlightedSkill
-            }`}
+    <section>
+      <div
+        className="pb-px bg-gradient-to-r h-[90vh]"
+        style={{
+          backgroundImage: `linear-gradient(90deg, #18181b 20%, #0ea5e9 35%, #4ade80 50%, #818cf8 65%, #18181b 80%)`,
+        }}
+      >
+        <div className="h-full relative bg-gradient-to-t from-body to-sky-950/70 backdrop-blur-xl lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
+          <div
+            className="absolute left-[15%] top-32 bg-gradient-to-b from-rose-400 to-rose-600 w-[70px] h-[60px] p-1 rounded-xl flex -skew-y-6 -skew-x-2"
+            style={{
+              boxShadow: "5px 5px 12px #f43f5e, 17px 17px 36px #e879f9",
+            }}
           >
-            Networking.
-          </span>{" "}
-          <span
-            className={`transition duration-500 ${
-              highlightedSkill === 1
-                ? activeHighlightedSkill
-                : inactiveHighlightedSkill
-            }`}
+            <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-3xl text-white flex items-center justify-center">
+              <FontAwesomeIcon icon={faCode} />
+            </span>
+          </div>
+
+          <h1
+            style={{ textShadow: "0px 0px 10px rgb(255, 255, 255, 0.5)" }}
+            className="xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-medium"
           >
-            Collaborating.
-          </span>{" "}
-          <span
-            className={`transition duration-500 ${
-              highlightedSkill === 2
-                ? activeHighlightedSkill
-                : inactiveHighlightedSkill
-            }`}
+            The fun way to learn
+            <br />
+            real-world coding!
+          </h1>
+          <button
+            className="text-2xl md:w-fit w-full mt-2 px-5 py-1.5 rounded-lg bg-gradient-to-b from-green-600 to-green-700 border-t border-t-green-500 shadow-md shadow-green-400/20"
+            style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
           >
-            Designing.
-          </span>{" "}
-          <span
-            className={`transition duration-500 ${
-              highlightedSkill === 3
-                ? activeHighlightedSkill
-                : inactiveHighlightedSkill
-            }`}
+            Get started
+          </button>
+
+          <div
+            className="-z-10 absolute bottom-12 right-[10%] mx-4 bg-gradient-to-b from-cyan-500 to-sky-600 w-[85px] h-[75px] p-1 rounded-xl flex skew-y-6 skew-x-2"
+            style={{
+              boxShadow: "-5px -5px 12px #22d3ee, -24px -24px 48px #34d3995F",
+            }}
           >
-            Problem solving.
-          </span>
-        </h2>
-        <button className="shadow-xl shadow-green-400/10 mt-8 bg-gradient-to-b from-transparent via-green-400/20 via-60% to-green-400/30 to-[99%] border border-green-400/30 p-2 px-3 md:text-2xl text-xl text-green-400 rounded-xl">
-          Learn it all today <FontAwesomeIcon icon={faArrowRight} />
-        </button>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {[
-            {
-              img: "cpp.png",
-            },
-            {
-              img: "java.webp",
-            },
-            {
-              img: "js.png",
-            },
-            {
-              img: "kotlin.png",
-            },
-            {
-              img: "python.png",
-            },
-          ].map((img, i) => {
-            return (
-              <div
-                className="size-[35px] rounded-lg flex flex-col items-center justify-center bg-zinc-800"
-                key={i}
-              >
-                <Image
-                  src={`/languages/${img.img}`}
-                  width={20}
-                  height={20}
-                  alt={img.img}
-                  key={i}
-                />
+            <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-4xl text-white flex items-center justify-center">
+              <FontAwesomeIcon icon={faQuestion} />
+            </span>
+          </div>
+
+          <div className="z-20 absolute left-0 bottom-0 h-[10px] w-full flex flex-col justify-end">
+            <div className="flex items-center space-x-8">
+              <h5 className="pl-4 italic font-mono">Go from 0</h5>
+              <div className="flex flex-1 items-center space-x-2 justify-between">
+                {new Array(20).fill(0).map((x, i) => {
+                  return (
+                    <h5
+                      className="italic font-mono text-xs text-zinc-500"
+                      key={`fioasdjfaf-${i}`}
+                    >
+                      {(i + 1) * 5 - 1}
+                    </h5>
+                  );
+                })}
               </div>
-            );
-          })}
+              <h5 className="pr-4 text-green-400 italic font-mono">to 100</h5>
+            </div>
+            <div className="flex items-end justify-between">
+              {new Array(30).fill(0).map((x, i) => {
+                return (
+                  <div
+                    key={i}
+                    className={`w-[2px] bg-zinc-500/30 ${
+                      i % 4 === 0 ? "h-10" : "h-4"
+                    }`}
+                  />
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -652,8 +599,8 @@ export default function Home() {
                   Guided feedback on every question
                 </h3>
                 <p className="text-base font-extralight text-zinc-400 mt-0">
-                  Codigo provides professionally reviewed explanations for
-                  every answer, with AI at your side to answer any follow-up
+                  Codigo provides professionally reviewed explanations for every
+                  answer, with AI at your side to answer any follow-up
                   questions.
                 </p>
               </div>
@@ -1017,7 +964,7 @@ export default function Home() {
 
       {/* Divide area here into sections <section> and have 1-2 column layout per section */}
       <section></section>
-    </main>
+    </section>
   );
 }
 
