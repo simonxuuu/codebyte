@@ -1,25 +1,25 @@
-/* QuizComponent.css */
-
-
 
 .quiz-container {
     margin:0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width:100%;
+    justify-content: start;
+    width:100vw;
     height: 100%;
     background-color: rgb(22, 22, 22);
     color: rgb(204, 204, 204);
-
+    overflow: hidden;
+    overflow-y: auto;
   }
   .default-container{
     box-sizing: border-box;
     margin:0;
-    
+    overflow: hidden;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
+    padding-left:26%;
     align-items: start;
     width:100%;
     height: 100%;
@@ -54,22 +54,11 @@
     letter-spacing: 0.03em;
     color:rgb(199, 199, 199);
     font-size:max(25px,1vw);
-    max-width: 70%;
+    max-width: 75%;
     text-align: left;
-    overflow-wrap: break-word;
-  }
-  .quiz-card {
-    width: 85%;
-    height: 100%;
-    background-color: transparent;
-    border-radius: 0.5rem;
     
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
   }
+  
   
   .quiz-header {
     margin-top: 0rem;
@@ -77,8 +66,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem; 
-    margin-bottom: 3rem;
-    width: 85%;
+    margin-bottom: 1rem;
+    width: 70%;
 
   }
   
@@ -92,6 +81,7 @@
   
   .quiz-progress-bar {
     height: 100%;
+    
     transition: width 0.3s ease;
     background-color: #7e7e7e; /* bg-gray-500 */
     border-radius: 9999px; /* rounded-full */
@@ -101,9 +91,9 @@
     padding: 1.5rem; /* p-6 */
     padding-bottom: 25rem;
     inline-size: 100%;
-    height: 50vh;
+    height: 500px;
     border-bottom:1px solid #212121;
-    margin-bottom: 10rem;
+    margin-bottom: 2rem;
   }
 
   

@@ -10,26 +10,18 @@ import {
 const AppContext = createContext();
 //w
 const AppProvider = ({ children }) => {
-  const [loggedIn, setLoggedIn] = useState();
-  const [email, setEmail] = useState("");
-  const [pricingPlan, setPricingPlan] = useState("Free");
-  const [jwt, setJwt] = useState("");
-  //https://codebyte-1b9af19e473e.herokuapp.com
+  const [loggedIn,setLoggedIn]= useState(false);
+  const [email,setEmail] = useState('');
+  const [lessonOpen,setLessonOpen] = useState(false);
+  const [jwt,setJwt]=useState('');
+ //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute =
-    process.env.NODE_ENV === "production"
-      ? "https://codebyte-1b9af19e473e.herokuapp.com"
-      : "http://localhost:8080";
-  const [currentCourseData, setCurrentCourseData] = useState({});
-  const [currentLessonName, setCurrentLessonName] = useState("");
-  const [currentCourseName, setCurrentCourseName] = useState("");
-  const [currentCourseDesc, setCurrentCourseDesc] = useState("");
-
-  // _ user statistics
-  const [bytes, setBytes] = useState(0);
-  const [streak, setStreak] = useState(0);
-  const [completedCoursesCount, setCompletedCoursesCount] = useState(0);
-  const [lessons, setlessons] = useState([]);
+  const apiRoute ='https://codebyte-1b9af19e473e.herokuapp.com';
+  const [currentCourseData,setCurrentCourseData] = useState({});
+  const [currentLessonName,setCurrentLessonName] = useState('');
+  const [currentCourseName,setCurrentCourseName] = useState('');
+  const [currentCourseDesc,setCurrentCourseDesc] = useState('');
+  const [lessons,setlessons] = useState([]);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -270,41 +262,30 @@ const AppProvider = ({ children }) => {
   }
 
   return (
-    <AppContext.Provider
-      value={{
-        loggedIn,
-        setLoggedIn,
-        email,
-        getHint,
-        setEmail,
-        jwt,
-        apiRoute,
-        currentCourseData,
-        getCoursesInfo,
-        getLessonNames,
-        currentCourseName,
-        setCurrentCourseName,
-        lessons,
-        setlessons,
-        currentCourseDesc,
-        setCurrentCourseDesc,
-        getCourseProgressData,
-        returnCourseByName,
-        currentLessonName,
-        setCurrentLessonName,
-        getInitialLessonInformation,
-        getNextQuestion,
-        purgeProgress,
-        registerAccount,
-        loginAccount,
-        CamelCaseToNormal,
-        pricingPlan,
-
-        bytes,
-        streak,
-        completedCoursesCount,
-      }}
-    >
+    <AppContext.Provider value={
+        { loggedIn,
+         setLoggedIn,
+         email,
+         getHint,
+         setEmail,
+         jwt,
+         apiRoute,
+         currentCourseData,
+         getCoursesInfo,
+         getLessonNames,
+         currentCourseName,setCurrentCourseName,
+         lessons,setlessons,
+         currentCourseDesc,setCurrentCourseDesc,
+         getCourseProgressData,returnCourseByName,
+         currentLessonName,setCurrentLessonName,
+         getInitialLessonInformation,
+         getNextQuestion ,
+         purgeProgress ,
+         registerAccount,
+         loginAccount,
+         CamelCaseToNormal,
+         lessonOpen,setLessonOpen
+        }}>
       {children}
     </AppContext.Provider>
   );

@@ -10,7 +10,7 @@ import CodeSnippetVisualizer from "./CodeSnippet.js";
 
 import { X, Heart } from 'lucide-react';
 import './QuizComponent.css';
-import Response from './Response';
+import Response from './Response'; import Alert from './Alert';
 
 
 export default function Page({ params }) {
@@ -30,7 +30,7 @@ export default function Page({ params }) {
     const [questionSelected, setQuestionSelected] = useState(false);
     const [questionAnswered, setQuestionAnswered] = useState(false);
     const [hintUsed, setHintUsed] = useState(false);
-    const [progressWarning, setProgressWarning] = useState(true);
+    const [progressWarning, setProgressWarning] = useState(false);
     const [hintCount, setHintCount] = useState(3);
     const [correct, setCorrect] = useState(true);
     const [canContinue, setCanContinue] = useState(false);
@@ -126,7 +126,7 @@ export default function Page({ params }) {
   const [data, setData] = useState([]);
   const delay = ms => new Promise(res => setTimeout(res, ms));
 
-  
+  //onClick={()=>{router.push('/dashboard');appContext.setLessonOpen(false);}}
 
   const TextItem = ({ style, content }) => {
     switch (style) {
@@ -264,6 +264,7 @@ export default function Page({ params }) {
     {(!isQuiz) && <>
       <h2 className="lessonTitle">
         {appContext.currentLessonName && appContext.CamelCaseToNormal(appContext.currentLessonName)}
+        <svg onClick={()=>{router.push('/dashboard');appContext.setLessonOpen(false);}} className='lessonPageClose'xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
       </h2>
       {data.map((item, index) => {
         switch (item.type) {
@@ -291,16 +292,17 @@ export default function Page({ params }) {
     {isQuiz &&  
     <>
            
-            <div className="quiz-card">
+           {progressWarning ? <Alert changeAlert={setProgressWarning}/> : ''}
                 <div className="quiz-header">
-                    <button onClick={() => setProgressWarning(true)}>
+                    <button onClick={()=>{setProgressWarning(true);}}>
                     <X className="text-gray-500" />
                     </button>
                     <div className="quiz-progress">
                         <div className="quiz-progress-bar" style={{ width: `${progress}%` }}></div>
                     </div>
+                    { false && <>
                     <Heart className="text-red-500" />
-                    <span className="text-gray-500 ml-1">{gems}</span>
+                    <span className="text-gray-500 ml-1">{gems}</span></>}
                 </div>
 
                 <div className="quiz-body">
@@ -336,7 +338,7 @@ export default function Page({ params }) {
                         {loading ? '...' : 'Check'}
                     </button>
                 </div>
-            </div>
+            
             </>
   }
   

@@ -43,7 +43,7 @@ export default function Sidebar() {
   const appContext = useContext(AppContext);
   const router = useRouter();
   return (
-    <section className="sticky top-0 xl:w-[20%] lg:w-[25%] md:w-[30%] w-fit bg-black border-r border-r-zinc-800">
+    <section className={`${appContext.lessonOpen ? 'hidden' : ''} sticky top-0 xl:w-[20%] lg:w-[30%] md:w-[40%] w-full bg-black border-r border-r-zinc-800`}>
       <div className="p-2 flex flex-col space-y-2 h-full">
         <Link href="/dashboard/profile">
           <div className="bg-zinc-900 border-t border-t-zinc-800 rounded-xl p-2 text-sm text-zinc-200">

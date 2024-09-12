@@ -17,6 +17,7 @@ const LessonComponent = ({appContext,data,courseTitle,allLessons,curEmail,onclic
 
 
     function btnClick(){
+      appContext.setLessonOpen(true);
       if( (allLessons[lessonIndex].isDone)){
         setFocused(false);onclick(); 
       }else if (lessonIndex > 0 &&  (allLessons[lessonIndex-1].isDone) || lessonIndex == 0){
