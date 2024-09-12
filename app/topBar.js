@@ -38,7 +38,7 @@ const TopBar = () => {
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
-    console.log(appContext);
+    //console.log(appContext);
     if (appContext.loggedIn) {
       setNavPages([
         ...baseNavPages,

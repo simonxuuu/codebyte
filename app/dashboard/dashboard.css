@@ -262,12 +262,15 @@ margin-bottom: 5px;
     text-align: center;
     margin-bottom: max(5px,0.2vw);
 }
+
 .lessonTitle{
+  letter-spacing: 0.05em;
   font-size: max(40px,6vw);
-  width: 100vw;
+  width: 100%;
   text-align: center;
-  margin-bottom: max(5px,0.2vw);
+  margin-bottom: 50px;
 }
+
 .lessonPageDescription{
   color:rgb(102, 102, 102);
     font-size: max(25px,3.3vw);

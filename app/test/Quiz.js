@@ -13,9 +13,14 @@ export default function QuizComponent() {
     const [progressWarning, setProgressWarning] = useState(true);
     const [hintCount, setHintCount] = useState(3);
     const [correct, setCorrect] = useState(true);
+    const [canContinue, setCanContinue] = useState(false);
     const [correctAnswerID, setCorrectAnswerID] = useState(3);
     const [loading, setLoading] = useState(false);
     const [feedbackMessage, setFeedbackMessage] = useState('Correct!');
+
+    const getNextQuestions = () => {
+    }
+
 
     const checkSubmit = () => {
         setLoading(true);

@@ -5,7 +5,7 @@ export default function Layout({ children }) {
     <>
       <div className="flex h-screen">
         <Sidebar />
-        <div className="h-full overflow-scroll flex-1">{children}</div>
+        <div className="h-full flex-1">{children}</div>
       </div>
     </>
   );

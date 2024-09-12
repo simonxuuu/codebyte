@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const pages = [
   {
@@ -40,7 +41,7 @@ const bottomPages = [
 
 export default function Sidebar() {
   const appContext = useContext(AppContext);
-
+  const router = useRouter();
   return (
     <section className="sticky top-0 xl:w-[20%] lg:w-[25%] md:w-[30%] w-fit bg-black border-r border-r-zinc-800">
       <div className="p-2 flex flex-col space-y-2 h-full">

@@ -18,20 +18,19 @@ const Dashboard = () => {
   const router = useRouter();
   const appContext = useContext(AppContext);
   const [courses, setCourses] = useState([]);
-
+  const [curGems, setCurGems] = useState(0);
   useEffect(() => {
-    console.log(appContext);
-    if (appContext.loggedIn) {
-      console.log("working");
-      appContext.getCoursesInfo().then((result) => {
-        console.log("the result", result);
-        setCourses(result);
-      });
-      //appContext.fetchCourse("Python Basics");
-    }
-  }, [appContext]);
+    appContext.getCoursesInfo().then((result) => {
+      if (appContext.jwt) {
+        appContext.getCourseProgressData().then((progressData) => {
+          console.log(progressData.gems);
+          setCourses(result);
 
-  if (appContext.loggedIn === false) return router.push("/login");
+          setCurGems(parseInt(progressData.gems));
+        });
+      }
+    });
+  }, [appContext.jwt]);
 
   const dashboardPages = [
     {
@@ -101,9 +100,10 @@ const Dashboard = () => {
                   index={courses.indexOf(course)}
                   courseTitle={course[0]}
                   courseDescription={course[1]}
-                  isLocked={course[2] != true}
+                  noGems={curGems <= 0}
+                  isLocked={course[2] != true || curGems <= 0}
                   onClickGetStarted={() => {
-                    if (course[2] == true) {
+                    if (course[2] == true && curGems > 0) {
                       appContext.setCurrentCourseName(course[0]);
                       appContext.setCurrentCourseDesc(course[1]);
                       router.push(`/dashboard/${course[0]}`);
@@ -139,26 +139,18 @@ const Dashboard = () => {
               return (
                 <div className="flex" key={i}>
                   {week.map((day: any) => {
-                    const daystr = day.toString();
-
-                    const final = day
-                      .toString()
-                      .replace("beforeMonth_", "")
-                      .replace("afterMonth_", "");
-
-                    const disabled =
-                      daystr.includes("beforeMonth_") ||
-                      daystr.includes("afterMonth_");
-
-                    return (
-                      <button
-                        key={i}
-                        className={`text-sm flex-1 disabled:opacity-40 text-white`}
-                        disabled={disabled}
-                      >
-                        {final}
-                      </button>
-                    );
+                    <button
+                      className={`text-sm flex-1 disabled:opacity-40 text-white`}
+                      disabled={
+                        day.toString().includes("beforeMonth_") ||
+                        day.toString().includes("afterMonth_")
+                      }
+                    >
+                      {day
+                        .toString()
+                        .replace("beforeMonth_", "")
+                        .replace("afterMonth_", "")}
+                    </button>;
                   })}
                 </div>
               );

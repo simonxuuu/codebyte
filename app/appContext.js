@@ -29,7 +29,7 @@ const AppProvider = ({ children }) => {
   const [bytes, setBytes] = useState(0);
   const [streak, setStreak] = useState(0);
   const [completedCoursesCount, setCompletedCoursesCount] = useState(0);
-
+  const [lessons, setlessons] = useState([]);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -49,7 +49,7 @@ const AppProvider = ({ children }) => {
 
   function returnCourseByName(desiredCourse, allCourses) {
     for (let course of allCourses) {
-      if (course.courseTitle == desiredCourse) {
+      if (course.courseName == desiredCourse) {
         return course;
       }
     }
@@ -78,6 +78,23 @@ const AppProvider = ({ children }) => {
     }
     return newString.join("");
   }
+
+  function getHint() {
+    if (!jwt) return "error";
+    return fetch(`${apiRoute}/requestHint`, {
+      method: "POST",
+      body: JSON.stringify({ jwt: jwt }),
+      headers: { "Content-type": "application/json" },
+    })
+      .then((response) => {
+        return response.text();
+      })
+      .then((jsonOutput) => {
+        //console.log(jsonOutput);
+        return jsonOutput;
+      });
+  }
+
   function getCourseProgressData() {
     if (!jwt) return "error";
     return fetch(`${apiRoute}/get-account-data`, {
@@ -101,7 +118,7 @@ const AppProvider = ({ children }) => {
       method: "POST",
       body: JSON.stringify({
         jwt: jwt,
-        courseTitle: currentCourseName,
+        courseName: currentCourseName,
         lessonName: currentLessonName,
       }),
       headers: { "Content-type": "application/json" },
@@ -144,13 +161,14 @@ const AppProvider = ({ children }) => {
     if (!jwt) return;
     return fetch(`${apiRoute}/getAllLessonNamesForCourse`, {
       method: "POST",
-      body: JSON.stringify({ jwt: jwt, courseTitle: courseName }),
+      body: JSON.stringify({ jwt: jwt, courseName: courseName }),
       headers: { "Content-type": "application/json" },
     })
       .then((response) => {
         return response.json();
       })
       .then((jsonOutput) => {
+        console.log(jsonOutput);
         return jsonOutput;
       });
   }
@@ -257,6 +275,7 @@ const AppProvider = ({ children }) => {
         loggedIn,
         setLoggedIn,
         email,
+        getHint,
         setEmail,
         jwt,
         apiRoute,
@@ -265,6 +284,8 @@ const AppProvider = ({ children }) => {
         getLessonNames,
         currentCourseName,
         setCurrentCourseName,
+        lessons,
+        setlessons,
         currentCourseDesc,
         setCurrentCourseDesc,
         getCourseProgressData,
@@ -277,7 +298,6 @@ const AppProvider = ({ children }) => {
         registerAccount,
         loginAccount,
         CamelCaseToNormal,
-        IsLessonCompleted,
         pricingPlan,
 
         bytes,
