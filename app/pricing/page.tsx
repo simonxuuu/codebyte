@@ -47,37 +47,6 @@ export default function PricingHome() {
               <FontAwesomeIcon icon={faQuestion} />
             </span>
           </div>
-
-          <div className="z-20 absolute left-0 bottom-0 h-[10px] w-full flex flex-col justify-end">
-            <div className="flex items-center space-x-8">
-              <h5 className="pl-4 italic font-mono">Go from 0</h5>
-              <div className="flex flex-1 items-center space-x-2 justify-between">
-                {new Array(20).fill(0).map((x, i) => {
-                  return (
-                    <h5
-                      className="italic font-mono text-xs text-zinc-500"
-                      key={`fioasdjfaf-${i}`}
-                    >
-                      {(i + 1) * 5 - 1}
-                    </h5>
-                  );
-                })}
-              </div>
-              <h5 className="pr-4 text-green-400 italic font-mono">to 100</h5>
-            </div>
-            <div className="flex items-end justify-between">
-              {new Array(30).fill(0).map((x, i) => {
-                return (
-                  <div
-                    key={i}
-                    className={`w-[2px] bg-zinc-500/30 ${
-                      i % 4 === 0 ? "h-10" : "h-4"
-                    }`}
-                  />
-                );
-              })}
-            </div>
-          </div>
         </div>
       </div>
 

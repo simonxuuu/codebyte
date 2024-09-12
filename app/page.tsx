@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
+  faBoltLightning,
   faCode,
   faDollarSign,
   faMicrophone,
@@ -141,20 +142,42 @@ export default function Home() {
             </span>
           </div>
 
+          <button
+            className="text-lg md:w-fit w-full px-3 py-1 rounded-lg bg-green-500/10 border border-green-500 shadow-md shadow-green-400/20"
+            style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
+          >
+            <FontAwesomeIcon
+              icon={faBoltLightning}
+              className="text-amber-200"
+            />{" "}
+            Use Codigo for FREE!
+          </button>
+
           <h1
             style={{ textShadow: "0px 0px 10px rgb(255, 255, 255, 0.5)" }}
-            className="xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-medium"
+            className="mt-4 xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-medium"
           >
             The fun way to learn
             <br />
             real-world coding!
           </h1>
-          <button
-            className="text-2xl md:w-fit w-full mt-2 px-5 py-1.5 rounded-lg bg-gradient-to-b from-green-600 to-green-700 border-t border-t-green-500 shadow-md shadow-green-400/20"
-            style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
-          >
-            Get started
-          </button>
+
+          <p className="my-4 xl:text-xl lg:text-lg md:text-base font-light text-zinc-400">
+            Codigo takes you from zero to hero with <i>waaaay</i> more than just
+            coding lessons.
+            <br />
+            Try out AI interviews, job environment simulations, and a global
+            community of Codigers!
+          </p>
+
+          <Link href="/signup">
+            <button
+              className="text-2xl md:w-fit w-full mt-2 px-5 py-1.5 rounded-xl bg-gradient-to-b from-green-600 to-green-700 border-t border-t-green-500 shadow-md shadow-green-400/20"
+              style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
+            >
+              Get started
+            </button>
+          </Link>
 
           <div
             className="-z-10 absolute bottom-12 right-[10%] mx-4 bg-gradient-to-b from-cyan-500 to-sky-600 w-[85px] h-[75px] p-1 rounded-xl flex skew-y-6 skew-x-2"
@@ -200,7 +223,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 items-center justify-center relative">
+      <div className="mt-12 flex flex-col gap-3 items-center justify-center relative">
         <div className="relative z-[1] bg-gradient-to-b from-green-400/10 to-green-400/20 border border-green-400/30 size-20 rounded-2xl flex flex-col items-center justify-center">
           <p className="font-semibold italic text-green-400">C</p>
         </div>
@@ -338,7 +361,7 @@ export default function Home() {
         <div className="absolute z-[2] bg-gradient-to-b -bottom-2 -left-1 w-[110%] h-[140px] from-transparent to-body" />
       </div>
 
-      <div className="px-4 xl:w-[40%] lg:w-[70%] md:w-[90%] flex flex-col items-center">
+      <div className="text-center px-4 xl:w-[40%] lg:w-[70%] md:w-[90%] mx-auto flex flex-col items-center">
         <h1 className="lg:text-4xl text-3xl font-medium">
           We teach you what <span>other courses don&apos;t</span>,<br />
           and what tech companies want.
@@ -362,7 +385,7 @@ export default function Home() {
 
       <div className="relative w-screen lg:h-[80vh]">
         <div className="absolute z-0 bg-green-500/10 blur-3xl w-[30%] aspect-square rounded-full left-[10%] top-[10%]"></div>
-        <div className="absolute z-0 bg-sage-500/15 blur-3xl w-[20%] aspect-square rounded-full left-[30%] bottom-[0%]"></div>
+        <div className="absolute z-0 bg-teal-500/15 blur-3xl w-[20%] aspect-square rounded-full left-[30%] bottom-[0%]"></div>
 
         <div
           className="text-red-400 md:flex hidden items-center justify-center text-5xl absolute z-10 top-[0%] right-[6%] size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-red-500/50 border border-red-400 size-20 backdrop-blur-[2px]"
@@ -400,10 +423,14 @@ export default function Home() {
               Guided programming lessons take you from zero to hero, with
               interactive walkthroughs.
             </h3>
-            <button className="hover:scale-[.97] transition items-center shadow-xl shadow-green-400/10 mt-8 bg-gradient-to-b from-transparent via-green-400/20 via-60% to-green-400/40 to-[99%] border border-green-400/30 p-2 px-3 text-xl text-green-400 rounded-xl flex">
-              Start learning{" "}
-              <FontAwesomeIcon icon={faPython} className="ml-2 text-white" />
-            </button>
+            <Link href="/signup">
+              <button
+                className="text-2xl md:w-fit w-full mt-2 px-5 py-1.5 rounded-xl bg-gradient-to-b from-green-600 to-green-700 border-t border-t-green-500 shadow-md shadow-green-400/20"
+                style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
+              >
+                Get started
+              </button>
+            </Link>
           </div>
 
           <div className="relative lg:flex-1 w-full h-full flex items-center bg-[url('/bgs/grids/zinc800.svg')] bg-contain bg-center bg-repeat">
@@ -423,15 +450,15 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
       </div>
 
       {/* INTERVIEW section  */}
       <div className="md:mt-48 mt-20 relative w-screen lg:h-[80vh]">
         <div className="absolute z-0 bg-green-500/10 blur-3xl w-[30%] aspect-square rounded-full left-[30%] top-[10%]"></div>
-        <div className="absolute z-0 bg-sage-500/15 blur-3xl w-[20%] aspect-square rounded-full left-[60%] bottom-[0%]"></div>
+        <div className="absolute z-0 bg-teal-500/15 blur-3xl w-[20%] aspect-square rounded-full left-[60%] bottom-[0%]"></div>
 
         <div className="relative z-[1] flex lg:flex-row flex-col-reverse gap-6 items-center h-full">
           <div className="relative lg:flex-1 w-full h-full flex items-center bg-[url('/bgs/grids/zinc800.svg')] bg-contain bg-center bg-repeat">
@@ -446,7 +473,7 @@ export default function Home() {
             <h2 className="mt-4 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
               Interviews are half coding,{" "}
               <span
-                className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-300"
+                className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-teal-300"
                 style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
               >
                 half talking
@@ -454,7 +481,7 @@ export default function Home() {
               .
               <br />
               <span
-                className="bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-sage-300"
+                className="bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-teal-300"
                 style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
               >
                 Practice talking with Codigo AI.
@@ -471,86 +498,90 @@ export default function Home() {
               Communication is an ignored yet core value of interviews. Codigo
               teaches you how to write code, then express it.
             </h3>
-            <button className="hover:scale-[.97] transition items-center shadow-xl shadow-green-400/10 mt-8 bg-gradient-to-b from-transparent via-green-400/20 via-60% to-green-400/40 to-[99%] border border-green-400/30 p-2 px-3 text-xl text-green-400 rounded-xl flex">
-              Start learning{" "}
-              <FontAwesomeIcon
-                icon={faMicrophone}
-                className="ml-2 text-white"
-              />
-            </button>
+
+            <Link href="/signup">
+              <button
+                className="text-2xl md:w-fit w-full mt-2 px-5 py-1.5 rounded-xl bg-gradient-to-b from-green-600 to-green-700 border-t border-t-green-500 shadow-md shadow-green-400/20"
+                style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
+              >
+                Get started
+              </button>
+            </Link>
           </div>
         </div>
 
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-sage-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
+        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
       </div>
 
       {/* SPACED REPETITION section */}
-      <p
-        className="mt-24  xl:text-6xl lg:text-5xl md:text-4xl text-3xl pb-2 bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-400 from-40% via-60% to-85%"
-        style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
-      >
-        Don&apos;t just memorize coding, learn it
-      </p>
+      <div className="flex flex-col items-center justify-center px-4">
+        <p
+          className="mt-24 xl:text-6xl lg:text-5xl md:text-4xl text-3xl pb-2 bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-teal-400 from-40% via-60% to-85%"
+          style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
+        >
+          Don&apos;t just memorize coding, learn it
+        </p>
 
-      <div className="mt-8 w-screen md:block hidden">
-        <div className="h-[350px] relative">
-          <div className="absolute w-screen h-full flex items-center space-x-6 xl:-translate-x-[5vw] lg:-translate-x-[350px] md:-translate-x-[600px]">
-            <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-              15
-            </div>
-            <div
-              className="border-t-4 border-t-white/30 border-b-2 border-b-sage-600 h-full aspect-square rounded-full bg-gradient-to-b from-green-600 to-sage-400 text-white flex items-center justify-center text-[20vh]"
-              style={{
-                boxShadow: "0px 0px 25px #4ade80BF, 0px 0px 70px #a8a868BF",
-              }}
-            >
-              16
-            </div>
+        <div className="mt-8 w-screen md:block hidden">
+          <div className="h-[350px] relative">
+            <div className="absolute w-screen h-full flex items-center space-x-6 xl:-translate-x-[5vw] lg:-translate-x-[350px] md:-translate-x-[600px]">
+              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
+                15
+              </div>
+              <div
+                className="border-b-2 border-b-teal-600 h-full aspect-square rounded-full bg-gradient-to-b from-green-600 to-teal-400 text-white flex items-center justify-center text-[20vh]"
+                style={{
+                  boxShadow: "0px 0px 25px #4ade80BF, 0px 0px 70px #a8a868BF",
+                }}
+              >
+                16
+              </div>
 
-            <div className="h-full aspect-square text-left text-white">
-              <DescribeSpacedRepetitionDiv />
-            </div>
+              <div className="h-full aspect-square text-left text-white">
+                <DescribeSpacedRepetitionDiv />
+              </div>
 
-            <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-              17
-            </div>
-            <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-              18
-            </div>
-            <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-              19
+              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
+                17
+              </div>
+              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
+                18
+              </div>
+              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
+                19
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="mt-8 h-[350px] relative">
-          <div className="absolute w-screen h-full flex items-center space-x-6 xl:-translate-x-[225px] lg:-translate-x-[500px] md:-translate-x-[750px]">
-            <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-              21
-            </div>
-            <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-              22
-            </div>
-            <div
-              className="border-t-4 border-t-white/30 border-b-2 border-b-sage-600 h-full aspect-square rounded-full bg-gradient-to-b from-green-600 to-sage-400 text-white flex items-center justify-center text-[20vh]"
-              style={{
-                boxShadow: "0px 0px 25px #4ade80BF, 0px 0px 70px #a8a868BF",
-              }}
-            >
-              23
-            </div>
+          <div className="mt-8 h-[350px] relative">
+            <div className="absolute w-screen h-full flex items-center space-x-6 xl:-translate-x-[225px] lg:-translate-x-[500px] md:-translate-x-[750px]">
+              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
+                21
+              </div>
+              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
+                22
+              </div>
+              <div
+                className=" border-b-2 border-b-teal-600 h-full aspect-square rounded-full bg-gradient-to-b from-green-600 to-teal-400 text-white flex items-center justify-center text-[20vh]"
+                style={{
+                  boxShadow: "0px 0px 25px #4ade80BF, 0px 0px 70px #a8a868BF",
+                }}
+              >
+                23
+              </div>
 
-            <div className="h-full aspect-square text-left text-white">
-              <SpacedRepetitionCalendarDiv />
-            </div>
+              <div className="h-full aspect-square text-left text-white">
+                <SpacedRepetitionCalendarDiv />
+              </div>
 
-            <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-              24
-            </div>
-            <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-              25
+              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
+                24
+              </div>
+              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
+                25
+              </div>
             </div>
           </div>
         </div>
@@ -568,20 +599,20 @@ export default function Home() {
             <div className="pt-px bg-gradient-to-r from-zinc-800 from-30% via-green-400 to-zinc-800 to-70% border-b border-zinc-800">
               <div className="bg-body w-full text-white xl:px-12 lg:px-8 px-4 py-8 text-left">
                 <div className="flex flex-col space-y-2 relative">
-                  <div className="flex items-center space-x-2 whitespace-nowrap overflow-hidden p-2 py-1.5 shadow-lg shadow-black/20 rounded-xl bg-gradient-to-b from-green-950 from-40% to-green-900 border border-green-600">
-                    <p className="text-zinc-500 text-lg">A</p>
+                  <div className="flex items-center space-x-2 whitespace-nowrap overflow-hidden p-2 py-1.5 shadow-lg shadow-black/20 rounded-xl bg-gradient-to-b from-green-700 to-green-800 border-t border-green-500">
+                    <p className="opacity-50 text-lg">A</p>
                     <p className="text-zinc-300 text-lg font-extralight font-mono">
                       print("Hello, world!")
                     </p>
                   </div>
-                  <div className="flex items-center space-x-2 whitespace-nowrap overflow-hidden p-2 py-1.5 shadow-lg shadow-black/20 rounded-xl bg-gradient-to-b from-zinc-800 from-40% to-zinc-900 border-t border-t-zinc-700">
+                  <div className="flex items-center space-x-2 whitespace-nowrap overflow-hidden p-2 py-1.5 shadow-lg shadow-black/20 rounded-xl bg-zinc-800 border-t border-t-zinc-700">
                     <p className="text-zinc-500 text-lg">B</p>
-                    <p className="text-zinc-300 text-lg font-extralight font-mono">
+                    <p className="text-zinc-100 text-lg font-extralight font-mono">
                       print(Hello, world!)
                     </p>
                   </div>
-                  <div className="flex items-center space-x-2 whitespace-nowrap overflow-hidden p-2 py-1.5 shadow-lg shadow-black/20 rounded-xl bg-gradient-to-b from-red-950 from-40% to-red-900 border border-red-600">
-                    <p className="text-zinc-500 text-lg">C</p>
+                  <div className="flex items-center space-x-2 whitespace-nowrap overflow-hidden p-2 py-1.5 shadow-lg shadow-black/20 rounded-xl bg-gradient-to-b from-red-700 to-red-800 border-t border-red-500">
+                    <p className="opacity-50 text-lg">C</p>
                     <p className="text-zinc-300 text-lg font-extralight font-mono">
                       print: "Hello, world!"
                     </p>
@@ -683,7 +714,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex-1 lg:border-t-0 border-t border-zinc-800">
+        <div className="flex-1 text-center lg:border-t-0 border-t border-zinc-800">
           <div className="pb-px bg-gradient-to-r from-zinc-800 from-30% via-sky-300 to-zinc-800 to-70%">
             <div className="xl:px-16 lg:px-12 md:px-8 px-4 py-4 bg-body">
               <h4 className="text-lg text-zinc-500">
@@ -899,64 +930,69 @@ export default function Home() {
       </div>
 
       {/* Waitlist Button, user action */}
-      <h1 className="md:mt-24 mt-12 xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-medium bg-gradient-to-b from-white to-zinc-200 text-transparent bg-clip-text">
-        Ready for your first lesson?
-      </h1>
-      <h2 className="font-extralight xl:text-2xl lg:text-xl md:text-lg text-base text-zinc-500">
-        Let&apos;s try out a command below to get you signed up!
-      </h2>
+      <div className="flex flex-col items-center justify-center px-4 text-center">
+        <h1 className="md:mt-24 mt-12 xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-medium bg-gradient-to-b from-white to-zinc-200 text-transparent bg-clip-text">
+          Ready for your first lesson?
+        </h1>
+        <h2 className="font-extralight xl:text-2xl lg:text-xl md:text-lg text-base text-zinc-500">
+          Let&apos;s try out a command below to get you signed up!
+        </h2>
 
-      <div className="md:px-4 px-2 w-full flex flex-col items-center">
-        <div className="relative rounded-xl xl:w-[70vw] lg:w-[80vw] md:w-[90vw] w-full md:aspect-video bg-[url('/bgs/sunset_mountains.jpg')] bg-cover">
-          <div className="absolute left-[50%] -translate-x-1/2 top-[20%] md:w-[65%] text-left rounded-xl bg-gradient-to-b from-slate-900/70 to-slate-900/90 backdrop-blur-[2px] border border-slate-600 shadow-lg shadow-slate-700/70 p-3 font-mono">
-            <div className="flex items-center space-x-1.5">
-              <div className="size-3 rounded-full bg-slate-500" />
-              <div className="size-3 rounded-full bg-slate-500" />
-              <div className="size-3 rounded-full bg-slate-500" />
-            </div>
+        <div className="md:px-4 px-2 w-full flex flex-col items-center">
+          <div className="relative rounded-xl xl:w-[70vw] lg:w-[80vw] md:w-[90vw] w-full md:aspect-video bg-[url('/bgs/sunset_mountains.jpg')] bg-cover">
+            <div className="absolute left-[50%] -translate-x-1/2 top-[20%] md:w-[65%] text-left rounded-xl bg-gradient-to-b from-slate-900/70 to-slate-900/90 backdrop-blur-[2px] border border-slate-600 shadow-lg shadow-slate-700/70 p-3 font-mono">
+              <div className="flex items-center space-x-1.5">
+                <div className="size-3 rounded-full bg-slate-500" />
+                <div className="size-3 rounded-full bg-slate-500" />
+                <div className="size-3 rounded-full bg-slate-500" />
+              </div>
 
-            <p className="mt-2 m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
-              <FontAwesomeIcon icon={faArrowRight} className="text-slate-500" />{" "}
-              <span className="text-blue-500">Codigo</span>@
-              <span className="text-emerald-500">new-account</span> $ sudo
-              signup Codigo
-            </p>
+              <p className="mt-2 m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="text-slate-500"
+                />{" "}
+                <span className="text-blue-500">Codigo</span>@
+                <span className="text-emerald-500">new-account</span> $ sudo
+                signup Codigo
+              </p>
 
-            <p className="m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
-              Welcome to the Codigo CLI! Let&apos;s sign you up below.
-            </p>
-
-            <div className="mt-4 flex flex-wrap gap-1">
               <p className="m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
-                Email:
+                Welcome to the Codigo CLI! Let&apos;s sign you up below.
               </p>
-              <input
-                className="text-white rounded focus:outline-none md:text-base text-sm p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
-                placeholder="Enter email here"
-              />
-            </div>
-            <div className="mt-1 flex flex-wrap gap-1">
-              <p className="md:text-base text-sm m-0 my-0 mx-0 text-slate-200">
-                Password:
-              </p>
-              <input
-                className="text-white rounded focus:outline-none md:text-base text-sm p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
-                placeholder="Enter email here"
-                type="password"
-              />
+
+              <div className="mt-4 flex flex-wrap gap-1">
+                <p className="m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
+                  Email:
+                </p>
+                <input
+                  className="text-white rounded focus:outline-none md:text-base text-sm p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
+                  placeholder="Enter email here"
+                />
+              </div>
+              <div className="mt-1 flex flex-wrap gap-1">
+                <p className="md:text-base text-sm m-0 my-0 mx-0 text-slate-200">
+                  Password:
+                </p>
+                <input
+                  className="text-white rounded focus:outline-none md:text-base text-sm p-0 m-0 leading-none outline-white placeholder:text-opacity-50 bg-transparent"
+                  placeholder="Enter email here"
+                  type="password"
+                />
+              </div>
+
+              <button className="md:text-base text-sm mt-2 bg-slate-100 border-t border-white px-1.5 py-1 rounded-lg text-slate-800">
+                Create
+              </button>
             </div>
 
-            <button className="md:text-base text-sm mt-2 bg-slate-100 px-1.5 py-1 rounded text-slate-800">
-              Create
-            </button>
-          </div>
-
-          <div
-            className="md:flex hidden bottom-2 absolute left-1/2 -translate-x-[50%] p-1 rounded-xl bg-white/20 border border-white/30 backdrop-blur-sm"
-            style={{ boxShadow: "inset 0px 0px 3px rgb(255, 255, 255, 0.4)" }}
-          >
-            <div className="flex flex-col items-center justify-center font-semibold italic size-10 rounded-xl text-base border border-green-600 bg-gradient-to-b from-body to-green-950 text-green-400">
-              C
+            <div
+              className="md:flex hidden bottom-2 absolute left-1/2 -translate-x-[50%] p-1 rounded-xl bg-white/20 border border-white/30 backdrop-blur-sm"
+              style={{ boxShadow: "inset 0px 0px 3px rgb(255, 255, 255, 0.4)" }}
+            >
+              <div className="flex flex-col items-center justify-center font-semibold italic size-10 rounded-xl text-base border border-green-600 bg-gradient-to-b from-body to-green-950 text-green-400">
+                C
+              </div>
             </div>
           </div>
         </div>
@@ -972,7 +1008,7 @@ const SecureThatDiv = () => {
   const faangTimer = useFAANGAnimationTimer();
 
   return (
-    <div className="pr-px bg-gradient-to-b from-body to-zinc-800">
+    <div className="pr-px text-center bg-gradient-to-b from-body to-zinc-800">
       <div className="xl:px-16 lg:px-12 md:px-8 px-4 bg-body py-4">
         <h4 className="text-lg text-zinc-500">
           For <span className="text-green-300">employees</span>
@@ -1041,7 +1077,7 @@ const SecureThatDiv = () => {
           style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
         >
           <span
-            className="bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-sage-300"
+            className="bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-teal-300"
             style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
           >
             you&apos;ve always dreamed of
@@ -1074,7 +1110,7 @@ const DescribeSpacedRepetitionDiv = () => {
       <h2 className="text-2xl font-light text-zinc-500">
         Your new{" "}
         <span
-          className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-300"
+          className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-teal-300"
           style={{ textShadow: "0px 0px 5px rgb(255, 255, 255, 0.5)" }}
         >
           spaced repetition
@@ -1102,7 +1138,7 @@ const SpacedRepetitionCalendarDiv = () => {
     <>
       <h2 className="text-2xl font-light text-zinc-500">
         <span
-          className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-sage-300"
+          className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-teal-300"
           style={{ textShadow: "0px 0px 5px rgb(255, 255, 255, 0.5)" }}
         >
           Codigo does all the planning for you

@@ -12,10 +12,6 @@ import ProfileModal from "./components/modals/ProfileModal";
 
 const baseNavPages = [
   {
-    name: "About",
-    link: "",
-  },
-  {
     name: "Pricing",
     link: "/pricing",
   },
@@ -40,12 +36,7 @@ const TopBar = () => {
   useEffect(() => {
     //console.log(appContext);
     if (appContext.loggedIn) {
-      setNavPages([
-        ...baseNavPages,
-        { name: "Dashboard", link: "/dashboard" },
-        { name: "Feedback", link: "/feedback" },
-        { name: "Profile", link: "/dashboard/profile" },
-      ]);
+      setNavPages([...baseNavPages, { name: "Dashboard", link: "/dashboard" }]);
     }
   }, [appContext]);
 
