@@ -1,9 +1,9 @@
-import Sidebar from "../components/app/dashboard/Sidebar";
+import Sidebar from "./dashboardNavBar";
 
 export default function Layout({ children }) {
   return (
     <>
-      <div className="flex h-screen">
+      <div className="dashboardLayout">
         <Sidebar />
         <div >{children}</div>
       </div>

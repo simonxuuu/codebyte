@@ -4,7 +4,96 @@
   gap:15px;
  
 }
+.sidebarText{
+font-size: min(5vw,20px);
+margin:0;
+width: fit-content;
+text-wrap: nowrap;
+padding: 0;
+}
+.xp-progress{
+  height: 10px; /* h-2 */
+  width:60%;
+ 
+  background-color: #0f3d26; /* bg-gray-700 */
+  border-radius: 9999px; /* rounded-full */
+}
 
+.xp-progress-bar {
+  height: 100%;
+   
+  transition: width 0.3s ease;
+  background-color: #0ea04b; /* bg-gray-500 */
+  border-radius: 9999px; /* rounded-full */
+}
+.sidebar{
+  display: none;
+  background-color: rgb(17, 17, 17);
+  
+  width: fit-content;
+  height:100vh;
+  flex-direction: column;
+  
+  
+  margin: 0;
+  
+  align-items: flex-start;
+  justify-content: start;
+  gap:20px;
+  padding:30px;
+  padding-right:55px;
+  padding-left:25px;
+  border-top:solid rgb(44, 44, 44) 2px;
+}
+.sidebarMobile{
+  background-color: rgb(17, 17, 17);
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  gap:20px;
+  padding:15px;
+  padding-bottom: 18px;
+  border-top:solid rgb(44, 44, 44) 2px;
+}
+.dashboardLayout{
+  display: flex;
+  flex-direction: column;
+}
+.sidebarTopMobile{
+  background-color: rgb(24, 24, 24);
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap:20px;
+  padding:15px;
+  padding-left:25px;
+  padding-right:25px;
+  margin-bottom: 30px;
+}
+.sidebarComponent{
+  color:white;
+  opacity:0.3;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  gap:10px;
+}
 .questionHolder{
   max-width: 100%;
   display: flex;
@@ -314,9 +403,13 @@ main {
   }
   /* Medium devices such as tablets (768px and up) */
   @media only screen and (min-width: 768px) {
-   
+    
   }
   @media only screen and (min-width: 1024px) {
+    .sidebarText{
+      font-size: 15px;
+      
+      }
    .lessonPageTitle{
     width: 70vw;
     text-align: left;
@@ -361,6 +454,18 @@ main {
   }
   .lessonTeachings{
     width: 70vw;
+  }
+  .sidebar{
+    display: flex;
+  }
+  .sidebarMobile{
+    display: none;
+  }
+  .sidebarTopMobile{
+    display: none;
+  }
+  .dashboardLayout{
+    flex-direction: row;
   }
   }
   @media only screen and (min-width: 1280px) {

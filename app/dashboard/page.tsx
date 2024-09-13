@@ -39,22 +39,11 @@ const Dashboard = () => {
   ];
 
   return (
-    <>
-      <Navbar
-        dashboardPages={[
-          {
-            name: "Continue Learning",
-            link: "",
-          },
-          {
-            name: "Your Calendar",
-            link: "",
-          },
-        ]}
-      />
+   
+      
 
       <div className="flex lg:flex-row flex-col">
-        <div className="md:p-8 p-4 xl:w-[75%] lg:w-[60%]">
+        <div className="md:p-8 p-4 ">
           <div className="p-6 py-8 rounded-xl bg-zinc-900 relative overflow-hidden">
             <div className="absolute left-[17%] -top-[30%] blur-3xl bg-green-400/20 w-[150px] h-[225px] rotate-[20deg] rounded-full" />
             <div className="absolute -right-[3%] -bottom-[50%] blur-3xl bg-sage-400/30 w-[175px] h-[250px] rotate-[20deg] rounded-full" />
@@ -113,117 +102,16 @@ const Dashboard = () => {
               ))}
           </div>
 
-          <h2 className="my-6 text-2xl font-medium text-zinc-200">
-            Your Calendar
-          </h2>
+          
 
-          <div className="text-zinc-500 flex flex-col space-y-3 md:w-[350px] p-2 border border-zinc-800 py-6 rounded-lg">
-            <div className="flex">
-              {["S", "M", "T", "W", "T", "F", "S"].map(
-                (day: any, i: number) => {
-                  return (
-                    <button
-                      key={`foidsajfasdf-${i}`}
-                      className={`text-sm flex-1 disabled:opacity-40 text-zinc-500 font-extralight`}
-                    >
-                      {day}
-                    </button>
-                  );
-                }
-              )}
-            </div>
+          
 
-            <div className="h-2" />
-
-            {calendar[7].map((week: any, i: number) => {
-              return (
-                <div className="flex" key={i}>
-                  {week.map((day: any) => {
-                    <button
-                      className={`text-sm flex-1 disabled:opacity-40 text-white`}
-                      disabled={
-                        day.toString().includes("beforeMonth_") ||
-                        day.toString().includes("afterMonth_")
-                      }
-                    >
-                      {day
-                        .toString()
-                        .replace("beforeMonth_", "")
-                        .replace("afterMonth_", "")}
-                    </button>;
-                  })}
-                </div>
-              );
-            })}
-          </div>
+           
         </div>
 
-        <div className="md:p-8 md:pl-4 p-4 flex-1">
-          <div className="flex items-center space-x-2">
-            <div
-              className="flex-1 h-[1px] bg-gradient-to-r from-sage-600 to-green-400"
-              style={{ boxShadow: "0px 0px 10px rgb(255, 255, 255)" }}
-            />
-            <FontAwesomeIcon
-              icon={faSpaceShuttle}
-              className="text-green-400 text-2xl"
-            />
-          </div>
-          <h2 className="my-6 text-2xl font-medium text-zinc-200">
-            Side quests
-          </h2>
-          <div className="flex flex-col space-y-4">
-            <div className="bg-gradient-to-b from-amber-950/30 to-amber-950/70 p-3 rounded-xl border border-amber-900">
-              <div className="flex items-center">
-                <p className="w-fit px-1 rounded-md bg-white text-black font-normal m-0 p-0 text-sm">
-                  Coming soon
-                </p>
-                <div className="flex-1" />
-                <p className="w-fit px-1 rounded-md bg-amber-600 text-white font-normal m-0 p-0 text-sm">
-                  +50 bytes
-                </p>
-              </div>
-              <h3 className="mt-3 text-lg my-0 p-0 leading-none font-medium text-amber-500">
-                Daily Question
-              </h3>
-              <p className="mt-1 m-0 p-0 text-sm font-light opacity-50">
-                Challenge yourself every day and climb up the leaderboard!
-              </p>
-              <button
-                disabled
-                className="mt-2 text-sm px-2 py-1 rounded-lg bg-amber-600 text-white border-t border-t-amber-500 shadow shadow-amber-600/30 w-full"
-              >
-                Coming soon
-              </button>
-            </div>
-            <div className="bg-gradient-to-b from-indigo-950/30 to-indigo-950/70 p-3 rounded-xl border border-indigo-900">
-              <div className="flex items-center">
-                <p className="w-fit px-1 rounded-md bg-white text-black font-normal m-0 p-0 text-sm">
-                  Coming soon
-                </p>
-                <div className="flex-1" />
-                <p className="w-fit px-1 rounded-md bg-indigo-600 text-white font-normal m-0 p-0 text-sm">
-                  +50 bytes
-                </p>
-              </div>
-              <h3 className="mt-3 text-lg my-0 p-0 leading-none font-medium text-indigo-500">
-                Make a model!
-              </h3>
-              <p className="mt-1 m-0 p-0 text-sm font-light opacity-50">
-                Design a public interview situation using our AI chatbots, and
-                get +50 bytes!
-              </p>
-              <button
-                disabled={true}
-                className="mt-2 text-sm px-2 py-1 rounded-lg bg-indigo-600 text-white border-t border-t-indigo-500 shadow shadow-indigo-600/30 w-full"
-              >
-                Coming soon
-              </button>
-            </div>
-          </div>
-        </div>
+        
       </div>
-    </>
+    
   );
 };
 
