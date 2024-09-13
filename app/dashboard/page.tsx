@@ -79,7 +79,7 @@ const Dashboard = () => {
           <h2 className="my-6 text-2xl font-medium text-zinc-200">
             Continue Learning
           </h2>
-          <div className="flex flex-wrap gap-3">
+          <div style={{marginBottom:'200px'}}className="flex flex-wrap gap-3">
             {courses &&
               courses.map((course) => (
                 <CourseComponent
