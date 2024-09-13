@@ -30,7 +30,7 @@ html {
   --lessonLocked: rgb(41, 41, 41);
   --lessonComplete: rgb(13, 156, 77);
   --lessonInComplete: rgb(12, 175, 85);
-
+  --transitionAnim : "none";
   --correctAnswer: rgb(27, 143, 75);
   --wrongAnswer: rgb(202, 52, 41);
 
@@ -434,7 +434,7 @@ a {
   display: block;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .fade-in {

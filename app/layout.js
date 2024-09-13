@@ -26,6 +26,7 @@ export default function Layout({ children }) {
           <meta name="description" content={metadata.description} />
         </Head>
         <body>
+        <div className="fadeTransition"></div>
           <TopBar />
           {children}
           <Footer />

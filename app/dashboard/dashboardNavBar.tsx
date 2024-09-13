@@ -39,7 +39,7 @@ export default function Sidebar() {
   const router = useRouter();
   return (
     <>
-     <section className={`${appContext.lessonOpen ? 'hidden' : ''} sidebar`}>
+     <section className={`sidebar ${appContext.lessonOpen ? 'hidden' : ''} `}>
       
      <Link href={'/dashboard'}  className="sidebarComponent">
         

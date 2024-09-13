@@ -21,7 +21,7 @@ const CourseComponent = ({
   return (
     <div
       ref={butn}
-      className={`w-[350px] rounded-xl p-px ${
+      className={`courseComponent w-[350px] rounded-xl p-px ${
         isLocked ? "courseLockedBG" : ""
       } overflow-hidden`}
       style={{

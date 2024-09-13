@@ -18,7 +18,16 @@ padding: 0;
   background-color: #0f3d26; /* bg-gray-700 */
   border-radius: 9999px; /* rounded-full */
 }
-
+.fadeTransition{
+  position: absolute;
+  width:100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0;
+  background-color: var(--dark);
+  z-index: 9999;
+  animation: var(--transitionAnim);
+}
 .xp-progress-bar {
   height: 100%;
    
@@ -92,7 +101,7 @@ padding: 0;
   padding: 0;
   margin: 0;
   width: fit-content;
-  gap:10px;
+  gap:15px;
 }
 .questionHolder{
   max-width: 100%;
@@ -117,26 +126,9 @@ padding: 0;
 }
 .courseComponent{
   
-  animation: fadeIn  0.4s ease-in  1 ;
-  
+  animation: fadeIn  0.5s ease-in   ;
   opacity:1;
-  scale:1;
-  max-width: 100%;
-  box-sizing: border-box;
-  border:0;
-  border-radius: 9px;
-  width:300px;
-  height:170px;
-  --backgroundIconColor : rgba(0, 0, 0, 0.404);
-  background-color: rgb(44, 44, 44);
-  border: max(2px,0.12vw) solid rgba(255, 255, 255, 0.13);
-  font-family: "Quicksand", sans-serif;
-  display: flex;
-  padding: 12px;
-  justify-content: space-between;
-  flex-direction: column;
-  position: relative;
-  transition:all 0.2s ease-in-out;
+  
 }
 
 .outerProgressBar{
@@ -194,11 +186,7 @@ padding: 0;
   background-color: rgb(32, 32, 32);
   filter: brightness(0.8);
 }
-.courseComponent:hover{
-  transition:all 0.2s;
-  scale:1.025;
-  background-color: rgb(48, 48, 48);
-}
+
 .courseComponentTitle{
   color:rgb(180, 180, 180);
   text-shadow: none;
@@ -509,6 +497,12 @@ main {
     10%{scale: 1;}
     100%{opacity: 1;scale: 1; }
     }
+    @keyframes fadeInOut {
+      0%{opacity: 0; }
+      35%{opacity: 1;}
+      65%{opacity: 1;}
+      100%{opacity: 0;}
+      }
     @keyframes fadeInOpacityOnly {
       0%{opacity: 0; }
       100%{opacity: 1; }

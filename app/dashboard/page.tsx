@@ -4,7 +4,6 @@ import { useState, useEffect, useContext } from "react";
 import CourseComponent from "./courseComponent";
 import { useRouter } from "next/navigation";
 import { AppContext } from "../appContext";
-import Navbar from "../components/app/dashboard/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChalkboard,
@@ -92,10 +91,22 @@ const Dashboard = () => {
                   noGems={curGems <= 0}
                   isLocked={course[2] != true || curGems <= 0}
                   onClickGetStarted={() => {
+                    
                     if (course[2] == true && curGems > 0) {
-                      appContext.setCurrentCourseName(course[0]);
-                      appContext.setCurrentCourseDesc(course[1]);
-                      router.push(`/dashboard/${course[0]}`);
+                      
+                      document.body.style.setProperty('--transitionAnim', 'fadeInOut 1.1s ease-in-out');
+
+                      setTimeout(()=>{
+                        appContext.setLessonOpen(true);
+                       
+                        
+                        appContext.setCurrentCourseName(course[0]);
+                        appContext.setCurrentCourseDesc(course[1]);
+                        router.push(`/dashboard/${course[0]}`);
+                        
+                        
+                      },455);
+                      setTimeout(()=>{document.body.style.setProperty('--transitionAnim', 'none');},1120)
                     }
                   }}
                 />
@@ -108,7 +119,7 @@ const Dashboard = () => {
 
            
         </div>
-
+       
         
       </div>
     

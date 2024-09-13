@@ -11,6 +11,8 @@
     color: rgb(204, 204, 204);
     overflow: hidden;
     overflow-y: auto;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in 0.5s forwards;
   }
   .default-container{
     box-sizing: border-box;
@@ -23,6 +25,8 @@
     align-items: start;
     width:100%;
     height: 100%;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in 0.5s forwards;
   }
   .lessonHeading{
     color:rgb(230, 230, 230);

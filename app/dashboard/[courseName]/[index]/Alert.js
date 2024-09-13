@@ -26,7 +26,14 @@ const Alert = ({ changeAlert }) => {
 
 
   const handleLeave = () => {
-    router.push('/dashboard');appContext.setLessonOpen(false);
+    document.body.style.setProperty('--transitionAnim', 'fadeInOut 1.4s ease-in-out');
+
+          setTimeout(()=>{
+            
+           
+            router.push(`/dashboard/${appContext.currentCourseName}`);
+          },570);
+          setTimeout(()=>{document.body.style.setProperty('--transitionAnim', 'none');},1420)
   };
 
   return (

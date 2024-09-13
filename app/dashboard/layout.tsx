@@ -4,8 +4,9 @@ export default function Layout({ children }) {
   return (
     <>
       <div className="dashboardLayout">
+        
         <Sidebar />
-        <div >{children}</div>
+        {children}
       </div>
     </>
   );

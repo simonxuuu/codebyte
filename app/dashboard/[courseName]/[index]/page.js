@@ -264,7 +264,19 @@ export default function Page({ params }) {
     {(!isQuiz) && <>
       <h2 className="lessonTitle">
         {appContext.currentLessonName && appContext.CamelCaseToNormal(appContext.currentLessonName)}
-        <svg onClick={()=>{router.push('/dashboard');appContext.setLessonOpen(false);}} className='lessonPageClose'xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+        <svg onClick={()=>{
+             
+          
+          document.body.style.setProperty('--transitionAnim', 'fadeInOut 1.4s ease-in-out');
+
+          setTimeout(()=>{
+            
+           
+            router.push(`/dashboard/${appContext.currentCourseName}`);
+          },570);
+          setTimeout(()=>{document.body.style.setProperty('--transitionAnim', 'none');},1420)
+          
+          }} className='lessonPageClose'xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
       </h2>
       {data.map((item, index) => {
         switch (item.type) {
