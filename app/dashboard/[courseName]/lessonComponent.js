@@ -40,7 +40,7 @@ const LessonComponent = ({appContext,data,courseTitle,allLessons,curEmail,onclic
 
     return (
        
-        <button  ref={lessonRef} onFocus={()=>{setFocused(true);}}className={`lessonComponent ${isFocused ? 'focused' : ''} ${ (allLessons[lessonIndex].isDone) ? 'lessonCompleted' : lessonIndex > 0 &&  (allLessons[lessonIndex-1].isDone) || lessonIndex == 0 ? 'lessonUnlocked' : 'lessonLocked'}`} style={{
+        <button  ref={lessonRef} onClick={()=>{setFocused(true);}}className={`lessonComponent ${isFocused ? 'focused' : ''} ${ (allLessons[lessonIndex].isDone) ? 'lessonCompleted' : lessonIndex > 0 &&  (allLessons[lessonIndex-1].isDone) || lessonIndex == 0 ? 'lessonUnlocked' : 'lessonLocked'}`} style={{
             marginLeft : `${offset*1000}px`,
             backgroundColor: `${bgColor}`
             
