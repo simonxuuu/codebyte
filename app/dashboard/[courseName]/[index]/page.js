@@ -108,7 +108,7 @@ export default function Page({ params }) {
         //quiz completed
         console.log('yay you passee thq uiz')
         
-        router.push('/dashboard');
+        router.push(`/dashboard/${appContext.currentCourseName}`);
         return;
       }
       if(loadedQ == "Failed"){
@@ -147,14 +147,29 @@ export default function Page({ params }) {
     </div>
   );
   
-  const TypedResponse = ({ question }) => (
+  const TypedResponse = ({ question,correctAnswer }) => {
+    const [isCorrect,setIsCorrect] = useState(null);
+    function checkAnswer(ans){
+      if(ans == correctAnswer){
+        setIsCorrect(true);
+      }else{
+        setIsCorrect(false);
+      }
+    }
+    return(
     <div className="my-4">
       <p style={{maxWidth:'100%'}}className="lessonSubHeading">{question}</p>
-      <input type="text" style={{color:'black'}} className="border p-2 w-full" />
+      <input onBlur={(e)=>{checkAnswer(e.target.value)}}type="text"  className="typedResponse border p-2 w-full " />
+      {isCorrect && <h2 className="lessonSubHeading" style={{color:'#0ea04b'}}>Correct</h2>}
+      {isCorrect!= null && !isCorrect && <h2 className="lessonSubHeading" style={{color:'red'}}>Wrong. Try again! Look through the lesson.</h2>}
     </div>
-  );
+  )};
   
-  const MultipleChoice = ({ question, answerChoices }) => (
+  const MultipleChoice = ({ question, answerChoices,correctAnswer }) => {
+    const [selectedAns,setSelectedAns] = useState();
+    const [checkedAns,setCheckedAns] = useState(false);
+    
+    return(
     <div className="my-4">
       <p style={{maxWidth:'100%'}}className="lessonSubHeading">{question}</p>
       {answerChoices.map((choice, index) => (
@@ -164,13 +179,21 @@ export default function Page({ params }) {
             id={`choice-${index}`}
             name="multipleChoice"
             value={choice}
+            onChange={()=>{setSelectedAns(choice)}}
             className="mr-2"
           />
           <label htmlFor={`choice-${index}`}>{choice}</label>
+          {(checkedAns && choice==correctAnswer) ? <div style={{color:
+            '#0ea04b'
+          }}>correct</div> : checkedAns ? <div style={{color:
+            'red'
+          }}>wrong </div> : ''}
         </div>
       ))}
+      <button onClick={()=>{if(!selectedAns)return;
+        setCheckedAns(true);}}>check</button>
     </div>
-  );
+  )};
   
   const ImageItem = ({ content }) => (
    
@@ -181,9 +204,7 @@ export default function Page({ params }) {
   );
 
 
-  window.onbeforeunload = function() {
-    return "Leaving this page will reset your lesson progress.";
-  };
+  
   
   function sendAnswer(answerIndex){
     
@@ -229,7 +250,11 @@ export default function Page({ params }) {
   
   useEffect(() => {
     
-    
+    if(window){
+      window.onbeforeunload = function() {
+        return "Leaving this page will reset your lesson progress.";
+      };
+    }
     
     if(appContext.currentLessonName == "") return;
     if(appContext.jwt == "") return;
@@ -244,6 +269,7 @@ export default function Page({ params }) {
       }
       setQuestionAnswered(false);
       //console.log(result);
+      console.log(result);
       setData(result);
      })
    
@@ -318,10 +344,10 @@ export default function Page({ params }) {
                 </div>
 
                 <div className="quiz-body">
-                    <div className="mb-6">
+                   
                     
                         <h2 className="quiz-title">{data.question}</h2>
-                    </div>
+                   
 
                     <div className="quiz-options">
                         {data && data.answerChoices.map((option,id) => (

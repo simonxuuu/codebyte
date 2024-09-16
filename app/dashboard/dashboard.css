@@ -113,6 +113,11 @@ padding: 0;
 .question{
   font-size: max(30px,5vw);
 }
+.typedResponse{
+  background-color: rgb(65, 65, 65);
+  border:0; border-radius: 10px;
+  outline:none
+}
 .questionChoice{
   border-radius: 9px;
   color:var(--light);
@@ -342,8 +347,11 @@ margin-bottom: 5px;
 
 .lessonTitle{
   letter-spacing: 0.05em;
+  display: flex;
+  flex-direction: column;
   font-size: max(40px,6vw);
   width: 100%;
+  align-items: start;
   text-align: center;
   margin-bottom: 50px;
 }
@@ -399,7 +407,7 @@ main {
       
       }
    .lessonPageTitle{
-    width: 70vw;
+    width: 54vw;
     text-align: left;
     font-size: max(40px,3vw);
     flex-direction:row;
@@ -413,9 +421,12 @@ main {
     align-self: flex-start;
   }
    .lessonTitle{
-    width: 70vw;
+    width: 54vw;
     text-align: left;
+    align-items: center;
+    justify-content: space-between;
     font-size: max(40px,3vw);
+    flex-direction: row;
   }
   .question{
     font-size: max(40px,2vw);

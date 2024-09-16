@@ -71,6 +71,12 @@ header {
 
   z-index: 999;
 }
+.userProfilePage{
+  margin:0;
+  height:100vh;
+  display: flex;
+  align-items: start;
+}
 .mobileHeader {
   left: 50%;
   transform: translateX(-50%);
@@ -401,9 +407,10 @@ a {
 }
 
 .userProfileName {
-  font-size: 4rem;
+  font-size: 2rem;
   color: white;
   margin-top: 1rem;
+  width: fit-content;
 }
 
 .statBubble {
@@ -416,11 +423,7 @@ a {
   width: 30rem;
 }
 
-.userProfileName {
-  font-size: 4rem;
-  color: white;
-  margin-top: 1rem;
-}
+
 
 .statBubble {
   background-color: #333333;

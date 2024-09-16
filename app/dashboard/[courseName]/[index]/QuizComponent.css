@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: start;
     width:100vw;
-    height: 100%;
+    height: 100vh;
     background-color: rgb(22, 22, 22);
     color: rgb(204, 204, 204);
     overflow: hidden;
@@ -24,7 +24,7 @@
     padding-left:26%;
     align-items: start;
     width:100%;
-    height: 100%;
+    height: 100vh;
     opacity: 0;
     animation: fadeIn 0.5s ease-in 0.5s forwards;
   }
@@ -155,6 +155,9 @@
   
   .quiz-footer {
     display: flex;
+    position: relative;
+    
+    margin-top: 5px;
     justify-content: space-between; 
     align-items: center;
     padding: 1rem; 
@@ -241,10 +244,11 @@
   
     
     .quiz-title {
+      width:100%;
       font-size: 1.5rem; /* text-2xl */
       font-weight: 700; /* font-bold */
       margin-top: 0rem; /* mt-2 */
-      margin-bottom: 0rem;
+      margin-bottom: 0.5rem;
       word-break: break-word; /* Ensures words break at appropriate points */
       overflow-wrap: break-word; /* Ensures words wrap within the container */
       white-space: normal; /* Allows text to wrap within the container */
@@ -253,10 +257,10 @@
 
     .quiz-footer {
       display: flex;
-     
+      position: relative;
       flex-direction: column;
       justify-content: space-between;
-      
+      margin-top: 120px;
       gap: 1rem;
     }
     
@@ -322,5 +326,45 @@
     
     .quiz-button.check {
       background-color: #292929; /* bg-green-500 */
+    }
+    .default-container{
+     
+      padding-left:4%;
+      align-items: start;
+      width:100%;
+      height: 100%;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in 0.5s forwards;
+    }
+    .lessonHeading{
+      
+      text-align: left;
+      font-size:max(25px,2vw);
+      max-width: 100%;
+      
+      font-weight: 500;
+      
+    }
+    .lessonSubHeading{
+      font-size:max(20px,1vw);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      text-align: left;
+      max-width: 70%;
+      overflow-wrap: break-word;
+    }
+    .lessonParagraph{
+  
+      margin:0;
+      margin-top:5px;
+      margin-bottom:55px;
+  
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      color:rgb(199, 199, 199);
+      font-size:max(20px,1vw);
+      max-width: 100%;
+      text-align: left;
+      
     }
   }

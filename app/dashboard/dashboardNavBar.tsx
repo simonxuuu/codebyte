@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../appContext";
 import {
   faAngleRight,
@@ -25,11 +25,7 @@ const pages = [
     name: "Courses",
     link: "/dashboard/courses",
   },
-  {
-    icon: faArrowTrendUp,
-    name: "Leaderboard",
-    link: "/dashboard/courses",
-  },
+  
 ];
 
 
@@ -37,23 +33,25 @@ const pages = [
 export default function Sidebar() {
   const appContext = useContext(AppContext);
   const router = useRouter();
+  
+  
   return (
     <>
      <section className={`sidebar ${appContext.lessonOpen ? 'hidden' : ''} `}>
       
-     <Link href={'/dashboard'}  className="sidebarComponent">
+     <Link href={'/dashboard/profile'}  className="sidebarComponent">
         
         <FontAwesomeIcon icon={faCircle} className="fa-xl"/>
-        <h1 className="sidebarText">John Doe</h1>
+        <h1 className="sidebarText">User</h1>
            
       </Link>
       <div style={{ height: '10px',width:'130%',display:'flex',alignItems:'center',gap:'5px',marginBottom:'30px'}}>
-        <h1 className="sidebarText" >Lvl 122</h1>
+        <h1 className="sidebarText" >Lvl {appContext.leveling[1]}</h1>
         <div className="xp-progress">
           
-          <div className="xp-progress-bar" style={{ width: `${25}%` }}></div>
+          <div className="xp-progress-bar" style={{ width: `${parseFloat(appContext.leveling[0])*100}%` }}></div>
         </div>
-        <h1 className="sidebarText" style={{color:'#0ea04b',fontWeight:'bold'}}>123</h1>
+        <h1 className="sidebarText" style={{color:'#0ea04b',fontWeight:'bold'}}>{appContext.leveling[2]}</h1>
       </div>
       {pages.map((x, i) => {
         return (
@@ -82,19 +80,19 @@ export default function Sidebar() {
     </section>
     <section className={`${appContext.lessonOpen ? 'hidden' : ''} sidebarTopMobile`}>
       
-    <Link href={'/dashboard'}  className="sidebarComponent">
+    <Link href={'/dashboard/profile'}  className="sidebarComponent">
         
         <FontAwesomeIcon icon={faCircle} className="fa-xl"/>
-        <h1 className="sidebarText">John Doe</h1>
+        <h1 className="sidebarText">User</h1>
            
       </Link>
       <div style={{ height: '10px',width:'50%',display:'flex',alignItems:'center',gap:'5px'}}>
-        <h1 className="sidebarText" >Lvl 122</h1>
+        <h1 className="sidebarText" >Lvl {appContext.leveling[1]}</h1>
         <div className="xp-progress" style={{width:'50%'}}>
           
-          <div className="xp-progress-bar" style={{ width: `${25}%` }}></div>
+          <div className="xp-progress-bar" style={{ width: `${parseFloat(appContext.leveling[0])*100}%` }}></div>
         </div>
-        <h1 className="sidebarText" style={{color:'#0ea04b',fontWeight:'bold'}}>123</h1>
+        <h1 className="sidebarText" style={{color:'#0ea04b',fontWeight:'bold'}}>{appContext.leveling[2]}</h1>
       </div>
       <Link
       

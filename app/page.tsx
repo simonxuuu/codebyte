@@ -122,16 +122,18 @@ export default function Home() {
     e.preventDefault();
     router.push("/dashboard");
   };
-  return (
-    <section>
-      <div
-        className="pb-px bg-gradient-to-r h-[90vh]"
-        style={{
-          backgroundImage: `linear-gradient(90deg, #18181b 20%, #0ea5e9 35%, #4ade80 50%, #818cf8 65%, #18181b 80%)`,
-        }}
-      >
-        <div className="h-full relative bg-gradient-to-t from-body to-sky-950/70 backdrop-blur-xl lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
-          <div
+  /*
+  <div
+            className="-z-10 absolute bottom-12 right-[10%] mx-4 bg-gradient-to-b from-cyan-500 to-sky-600 w-[85px] h-[75px] p-1 rounded-xl flex skew-y-6 skew-x-2"
+            style={{
+              boxShadow: "-5px -5px 12px #22d3ee, -24px -24px 48px #34d3995F",
+            }}
+          >
+            <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-4xl text-white flex items-center justify-center">
+              <FontAwesomeIcon icon={faQuestion} />
+            </span>
+          </div>
+  <div
             className="absolute left-[15%] top-32 bg-gradient-to-b from-rose-400 to-rose-600 w-[70px] h-[60px] p-1 rounded-xl flex -skew-y-6 -skew-x-2"
             style={{
               boxShadow: "5px 5px 12px #f43f5e, 17px 17px 36px #e879f9",
@@ -141,8 +143,7 @@ export default function Home() {
               <FontAwesomeIcon icon={faCode} />
             </span>
           </div>
-
-          <button
+<button
             className="text-lg md:w-fit w-full px-3 py-1 rounded-lg bg-green-500/10 border border-green-500 shadow-md shadow-green-400/20"
             style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
           >
@@ -153,8 +154,22 @@ export default function Home() {
             Use Codigo for FREE!
           </button>
 
+  */
+  return (
+    <section>
+      <div
+        className="pb-px bg-gradient-to-r h-[90vh]"
+        style={{
+          backgroundImage: `linear-gradient(90deg, #18181b 10%, #0ea5e9 35%, #4ade80 50%, #818cf8 65%, #18181b 80%)`,
+        }}
+      >
+        <div className="h-full relative bg-gradient-to-t from-body to-sky-950/70 backdrop-blur-xl lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
+          
+
+          
+
           <h1
-            style={{ textShadow: "0px 0px 10px rgb(255, 255, 255, 0.5)" }}
+            style={{letterSpacing:'0.05em'}}
             className="mt-4 xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-medium"
           >
             The fun way to learn
@@ -179,16 +194,7 @@ export default function Home() {
             </button>
           </Link>
 
-          <div
-            className="-z-10 absolute bottom-12 right-[10%] mx-4 bg-gradient-to-b from-cyan-500 to-sky-600 w-[85px] h-[75px] p-1 rounded-xl flex skew-y-6 skew-x-2"
-            style={{
-              boxShadow: "-5px -5px 12px #22d3ee, -24px -24px 48px #34d3995F",
-            }}
-          >
-            <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-4xl text-white flex items-center justify-center">
-              <FontAwesomeIcon icon={faQuestion} />
-            </span>
-          </div>
+          
 
           <div className="z-20 absolute left-0 bottom-0 h-[10px] w-full flex flex-col justify-end">
             <div className="flex items-center space-x-8">
@@ -423,14 +429,7 @@ export default function Home() {
               Guided programming lessons take you from zero to hero, with
               interactive walkthroughs.
             </h3>
-            <Link href="/signup">
-              <button
-                className="text-2xl md:w-fit w-full mt-2 px-5 py-1.5 rounded-xl bg-gradient-to-b from-green-600 to-green-700 border-t border-t-green-500 shadow-md shadow-green-400/20"
-                style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
-              >
-                Get started
-              </button>
-            </Link>
+            
           </div>
 
           <div className="relative lg:flex-1 w-full h-full flex items-center bg-[url('/bgs/grids/zinc800.svg')] bg-contain bg-center bg-repeat">
@@ -499,14 +498,7 @@ export default function Home() {
               teaches you how to write code, then express it.
             </h3>
 
-            <Link href="/signup">
-              <button
-                className="text-2xl md:w-fit w-full mt-2 px-5 py-1.5 rounded-xl bg-gradient-to-b from-green-600 to-green-700 border-t border-t-green-500 shadow-md shadow-green-400/20"
-                style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
-              >
-                Get started
-              </button>
-            </Link>
+            
           </div>
         </div>
 

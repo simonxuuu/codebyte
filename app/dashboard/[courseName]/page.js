@@ -99,7 +99,7 @@ export default function Page({ params }) {
             onclick = {()=>{console.log('lesson clicked'); appContext.setCurrentLessonName(lesson.Name);router.push(`/dashboard/${appContext.currentCourseName}/${appContext.lessons.indexOf(lesson)}`);}}
           />
         ))}
-        {courseComplete && <h2 id='wipText'>Congrats on completing this course! Let us know what we can improve by clicking the feedback button up top.</h2>}
+        {courseComplete && <h2 id='wipText'>Congrats on completing this course! Let us know what we can improve.</h2>}
          
         <button onClick={resetProgress}>Reset Progress (testingonly)</button>
         </main>

@@ -14,20 +14,22 @@ const AppProvider = ({ children }) => {
   const [email,setEmail] = useState('');
   const [lessonOpen,setLessonOpen] = useState(false);
   const [jwt,setJwt]=useState('');
- //https://codebyte-1b9af19e473e.herokuapp.com
+  //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute ='https://codebyte-1b9af19e473e.herokuapp.com';
+  const apiRoute ='http://localhost:8080';
   const [currentCourseData,setCurrentCourseData] = useState({});
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
   const [currentCourseDesc,setCurrentCourseDesc] = useState('');
   const [lessons,setlessons] = useState([]);
+  const [leveling,setleveling] = useState([]);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(`Logged In with: ${user.email}`);
         user.getIdToken(true).then((jwt) => {
-          setJwt(jwt);
+          setJwt(jwt);  
         });
         setEmail(user.email);
         setLoggedIn(true);
@@ -38,7 +40,14 @@ const AppProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
-
+  function returnLevelingFromXp(xp){
+     
+    let initialXPNeeded = 5;
+    let growthFactor = 10;
+    let curLevel = Math.floor((xp - initialXPNeeded) / growthFactor) + 1;
+    let nextLevelXP = initialXPNeeded + (curLevel) * growthFactor;
+    setleveling([(xp/nextLevelXP).toFixed(2),curLevel,curLevel+1]);
+  }
   function returnCourseByName(desiredCourse, allCourses) {
     for (let course of allCourses) {
       if (course.courseName == desiredCourse) {
@@ -98,7 +107,7 @@ const AppProvider = ({ children }) => {
         return response.json();
       })
       .then((jsonOutput) => {
-        //console.log(jsonOutput);
+        returnLevelingFromXp(jsonOutput["_doc"].xp);
         return jsonOutput["_doc"];
       });
   }
@@ -232,11 +241,12 @@ const AppProvider = ({ children }) => {
     if (!email || !password) return "error";
 
     return signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        if (!jwt) setJwt(result.user.getIdToken(true));
+      .then(async (result) => {
+        let tempJWT = await result.user.getIdToken(true);
+        if (!jwt) setJwt(tempJWT);
         return fetch(`${apiRoute}/get-account-data`, {
           method: "POST",
-          body: JSON.stringify({ jwt: jwt }),
+          body: JSON.stringify({ jwt: tempJWT }),
           headers: {
             "Content-type": "application/json",
           },
@@ -284,7 +294,8 @@ const AppProvider = ({ children }) => {
          registerAccount,
          loginAccount,
          CamelCaseToNormal,
-         lessonOpen,setLessonOpen
+         lessonOpen,setLessonOpen,
+         leveling
         }}>
       {children}
     </AppContext.Provider>

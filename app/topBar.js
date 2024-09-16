@@ -11,10 +11,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ProfileModal from "./components/modals/ProfileModal";
 
 const baseNavPages = [
-  {
-    name: "Pricing",
-    link: "/pricing",
-  },
+  
 ];
 
 const TopBar = () => {
@@ -34,7 +31,7 @@ const TopBar = () => {
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
-    //console.log(appContext);
+    console.log(appContext.loggedIn);
     if (appContext.loggedIn) {
       setNavPages([...baseNavPages, { name: "Dashboard", link: "/dashboard" }]);
     }
@@ -67,7 +64,7 @@ const TopBar = () => {
             codigo
           </Link>
 
-          <div className="absolute lg:flex hidden items-center space-x-3 left-1/2 -translate-x-1/2">
+          <div className="absolute lg:flex  items-center space-x-3 left-1/2 -translate-x-1/2">
             {navPages.map((link, i) => {
               return (
                 <Link href={link.link} key={i}>
@@ -77,11 +74,11 @@ const TopBar = () => {
             })}
           </div>
 
-          <nav className="lg:flex hidden items-center gap-2">
+          <nav className="lg:flex  items-center gap-2">
             <Link
               href="/login"
               className={`text-xl ${
-                appContext.loggedIn ? "hidden" : "visible"
+                appContext.loggedIn ? "hidden" : " "
               }`}
             >
               <p className="my-0 text-base">Log in</p>
@@ -90,7 +87,7 @@ const TopBar = () => {
             <Link
               href="/register"
               className={`text-xl ${
-                appContext.loggedIn ? "hidden" : "visible"
+                appContext.loggedIn ? "hidden" : " "
               }`}
             >
               <button className="my-0 bg-gradient-to-b from-zinc-100 to-zinc-200 border-t border-t-white px-2 py-1 rounded-lg text-zinc-800 text-base">
@@ -99,12 +96,9 @@ const TopBar = () => {
             </Link>
 
             {appContext.loggedIn && (
-              <button
-                onClick={() => setShowProfileModal(true)}
-                className="uppercase size-8 border border-white/20 bg-gradient-to-br from-white/25 to-transparent rounded-full flex items-center justify-center italic font-medium"
-              >
-                {appContext.email[0]}
-              </button>
+             <button onClick={signout} className="my-0 bg-gradient-to-b from-zinc-100 to-zinc-200 border-t border-t-white px-2 py-1 rounded-lg text-zinc-800 text-base">
+             Log out
+           </button>
             )}
           </nav>
 

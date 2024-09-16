@@ -15,8 +15,8 @@ const CourseComponent = ({
 }) => {
   const butn = useRef(null);
 
-  const courseHexCode = "#3b82f6";
-  const courseHexCodeLightened = lightenHex(courseHexCode, 0.7);
+  const courseHexCode = "#0d9c4d";
+  const courseHexCodeLightened = courseHexCode;
 
   return (
     <div
@@ -25,16 +25,16 @@ const CourseComponent = ({
         isLocked ? "courseLockedBG" : ""
       } overflow-hidden`}
       style={{
-        backgroundImage: `radial-gradient(circle at top, ${courseHexCodeLightened}, ${courseHexCode}, #18181b 50%)`,
+        backgroundImage: `radial-gradient(circle at top right, ${courseHexCodeLightened}, ${courseHexCode}, #18181b 0%)`,
       }}
     >
       <div
         className="rounded-xl"
         style={{
-          backgroundImage: `radial-gradient(circle at top, ${darkenHex(
+          backgroundImage: `radial-gradient(circle at top right, ${darkenHex(
             courseHexCode,
             0.4
-          )}, ${darkenHex(courseHexCode, 0.65)}, #18181b 65%)`,
+          )}, ${darkenHex(courseHexCode, 0.65)}, #18181b 0%)`,
         }}
       >
         <div className="p-3">

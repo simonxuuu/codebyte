@@ -13,10 +13,11 @@ const FeedbackComponent = ({ isHint, isCorrect, feedback, onContinue}) => {
       return 'https://assets.ccbp.in/frontend/react-js/error-icon-img.png'; // X image
     }
   };
+  //<img src={getImageSrc()} alt="feedback" className="feedback-image" />
   return (
     <div className="feedback-container">
       <div className="feedback-left-section">
-      <img src={getImageSrc()} alt="feedback" className="feedback-image" />
+      
         <div>
           <p className={feedbackTextClass}>{isHint ? 'Hint' : isCorrect ? 'Correct' : 'Incorrect'}</p>
           <p className="feedbackText">
