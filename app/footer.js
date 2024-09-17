@@ -46,7 +46,7 @@ const Footer = () => {
             </svg>
           </Link>
         </div>
-        <div className="copyright">© Codigo. All rights reserved.</div>
+        <div className="copyright">© edCode. All rights reserved.</div>
       </div>
     </footer>
   );

@@ -45,8 +45,8 @@ export default function Sidebar() {
         <h1 className="sidebarText">User</h1>
            
       </Link>
-      <div style={{ height: '10px',width:'130%',display:'flex',alignItems:'center',gap:'5px',marginBottom:'30px'}}>
-        <h1 className="sidebarText" >Lvl {appContext.leveling[1]}</h1>
+      <div style={{ height: '10px',width:'140%',display:'flex',alignItems:'center',gap:'5px',marginBottom:'30px'}}>
+        <h1 className="sidebarText" >Level {appContext.leveling[1]}</h1>
         <div className="xp-progress">
           
           <div className="xp-progress-bar" style={{ width: `${parseFloat(appContext.leveling[0])*100}%` }}></div>
@@ -87,7 +87,7 @@ export default function Sidebar() {
            
       </Link>
       <div style={{ height: '10px',width:'50%',display:'flex',alignItems:'center',gap:'5px'}}>
-        <h1 className="sidebarText" >Lvl {appContext.leveling[1]}</h1>
+        <h1 className="sidebarText" >Level {appContext.leveling[1]}</h1>
         <div className="xp-progress" style={{width:'50%'}}>
           
           <div className="xp-progress-bar" style={{ width: `${parseFloat(appContext.leveling[0])*100}%` }}></div>

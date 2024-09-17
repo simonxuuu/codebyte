@@ -61,7 +61,7 @@ const TopBar = () => {
       >
         <header className="outline outline-[1px] outline-white/10 border-t border-white/15 bg-zinc-800/70 shadow-lg shadow-black/20 lg:py-4 py-2.5 px-6 lg:rounded-2xl flex items-center">
           <Link href="/" className="text-xl flex-1">
-            codigo
+            edCode
           </Link>
 
           <div className="absolute lg:flex  items-center space-x-3 left-1/2 -translate-x-1/2">

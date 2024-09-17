@@ -8,9 +8,9 @@ import Footer from "./footer";
 import Head from "next/head";
 import { AppProvider } from "./appContext";
 export const metadata = {
-  title: "Codigo",
+  title: "edCode",
   description:
-    "Codigo teaches you more than coding. Learn everything that you need for the software industry.",
+    "edCode teaches you more than coding. Learn everything that you need for the software industry.",
 };
 
 import "@fortawesome/fontawesome-svg-core/styles.css";

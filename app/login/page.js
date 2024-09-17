@@ -27,7 +27,7 @@ export default function Login() {
     <div className="flex flex-col items-center p-2 m-0 h-[100vh] pt-24">
       <div className="basis-full flex-none xl:w-[20%] lg:w-[50%] md:w-[90%] w-full text-center flex flex-col items-center justify-center">
         <div className="">
-          <h2 className="text-2xl mb-0 font-medium">{"Log in to Codigo"}</h2>
+          <h2 className="text-2xl mb-0 font-medium">{"Log in to edCode"}</h2>
         </div>
         <form
           className="mt-8 flex flex-col gap-2 w-full"

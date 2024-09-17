@@ -178,11 +178,11 @@ export default function Home() {
           </h1>
 
           <p className="my-4 xl:text-xl lg:text-lg md:text-base font-light text-zinc-400">
-            Codigo takes you from zero to hero with <i>waaaay</i> more than just
+           edCode takes you from zero to hero with <i>waaaay</i> more than just
             coding lessons.
             <br />
             Try out AI interviews, job environment simulations, and a global
-            community of Codigers!
+            community of edCoders!
           </p>
 
           <Link href="/signup">
@@ -378,8 +378,8 @@ export default function Home() {
           seamless work.
           <br />
           <br />
-          Like Codigo, Leetcode and Hackerrank train you for programming. But
-          Codigo teaches you what Leetcode and Hackerrank don&apos;t --{" "}
+          Like edCode, Leetcode and Hackerrank train you for programming. But
+          edCode teaches you what Leetcode and Hackerrank don&apos;t --{" "}
           <span className="text-indigo-400">
             collaboration & teamwork skills
           </span>
@@ -483,7 +483,7 @@ export default function Home() {
                 className="bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-teal-300"
                 style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
               >
-                Practice talking with Codigo AI.
+                Practice talking with edCode AI.
               </span>
             </h2>
             <div
@@ -494,7 +494,7 @@ export default function Home() {
               }}
             ></div>
             <h3 className="mt-4 xl:text-2xl lg:text-xl md:text-lg text-base font-light text-white/70">
-              Communication is an ignored yet core value of interviews. Codigo
+              Communication is an ignored yet core value of interviews. edCode
               teaches you how to write code, then express it.
             </h3>
 
@@ -622,7 +622,7 @@ export default function Home() {
                   Guided feedback on every question
                 </h3>
                 <p className="text-base font-extralight text-zinc-400 mt-0">
-                  Codigo provides professionally reviewed explanations for every
+                edCode provides professionally reviewed explanations for every
                   answer, with AI at your side to answer any follow-up
                   questions.
                 </p>
@@ -944,13 +944,13 @@ export default function Home() {
                   icon={faArrowRight}
                   className="text-slate-500"
                 />{" "}
-                <span className="text-blue-500">Codigo</span>@
+                <span className="text-blue-500">edCode</span>@
                 <span className="text-emerald-500">new-account</span> $ sudo
-                signup Codigo
+                signup edCode
               </p>
 
               <p className="m-0 my-0 mx-0 text-slate-200 md:text-base text-sm">
-                Welcome to the Codigo CLI! Let&apos;s sign you up below.
+                Welcome to the edCode CLI! Let&apos;s sign you up below.
               </p>
 
               <div className="mt-4 flex flex-wrap gap-1">
@@ -1133,7 +1133,7 @@ const SpacedRepetitionCalendarDiv = () => {
           className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-teal-300"
           style={{ textShadow: "0px 0px 5px rgb(255, 255, 255, 0.5)" }}
         >
-          Codigo does all the planning for you
+          edCode does all the planning for you
         </span>
       </h2>
       <h3 className="mt-2 font-extralight text-zinc-500">
