@@ -9,6 +9,7 @@ import { AppContext } from "./appContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ProfileModal from "./components/modals/ProfileModal";
+import Dashboard from "./dashboard/page";
 
 const baseNavPages = [
   
@@ -32,9 +33,7 @@ const TopBar = () => {
 
   useEffect(() => {
     console.log(appContext.loggedIn);
-    if (appContext.loggedIn) {
-      setNavPages([...baseNavPages, { name: "Dashboard", link: "/dashboard" }]);
-    }
+   
   }, [appContext]);
 
   function signout() {
@@ -65,13 +64,12 @@ const TopBar = () => {
           </Link>
 
           <div className="absolute lg:flex  items-center space-x-3 left-1/2 -translate-x-1/2">
-            {navPages.map((link, i) => {
-              return (
-                <Link href={link.link} key={i}>
-                  <p className="my-0 text-base text-zinc-400">{link.name}</p>
+              {appContext.loggedIn && (
+                <Link href='/dashboard'>
+                  <p className="my-0 text-base text-zinc-400">Dashboard</p>
                 </Link>
-              );
-            })}
+              )}
+            
           </div>
 
           <nav className="lg:flex  items-center gap-2">

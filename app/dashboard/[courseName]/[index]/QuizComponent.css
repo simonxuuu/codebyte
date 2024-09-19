@@ -21,6 +21,7 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    gap:30px;
     padding-left:26%;
     align-items: start;
     width:100%;
@@ -51,7 +52,7 @@
   .lessonParagraph{
 
     margin:0;
-    margin-top:5px;
+    margin-top:15px;
     margin-bottom:55px;
 
     font-weight: 300;

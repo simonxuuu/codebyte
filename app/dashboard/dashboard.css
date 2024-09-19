@@ -28,12 +28,21 @@ padding: 0;
   z-index: 9999;
   animation: var(--transitionAnim);
 }
+.checkMultiQButton{
+  background-color: rgb(58, 58, 58);
+  padding:8px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 12px;
+  align-self: start;
+  justify-self: start;
+}
 .xp-progress-bar {
   height: 100%;
   
 
   transition: width 0.3s ease;
-  background-color: rgb(14, 160, 75); /* bg-gray-500 */
+  background-color: #0ea04b; /* bg-gray-500 */
   border-radius: 9999px; /* rounded-full */
 }
 .sidebar{

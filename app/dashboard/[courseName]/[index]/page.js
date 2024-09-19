@@ -170,7 +170,7 @@ export default function Page({ params }) {
     const [checkedAns,setCheckedAns] = useState(false);
     
     return(
-    <div className="my-4">
+    <div className="my-4 flex flex-col">
       <p style={{maxWidth:'100%'}}className="lessonSubHeading">{question}</p>
       {answerChoices.map((choice, index) => (
         <div key={index} className="flex items-center mb-2">
@@ -183,14 +183,11 @@ export default function Page({ params }) {
             className="mr-2"
           />
           <label htmlFor={`choice-${index}`}>{choice}</label>
-          {(checkedAns && choice==correctAnswer) ? <div style={{color:
-            '#0ea04b'
-          }}>correct</div> : checkedAns ? <div style={{color:
-            'red'
-          }}>wrong </div> : ''}
+          {(checkedAns && choice==correctAnswer) ? <svg style={{marginLeft:'25px'}}xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#0ea04b"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg> : checkedAns ?
+           <svg style={{marginLeft:'25px'}} xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#f53d3d"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg> : ''}
         </div>
       ))}
-      <button onClick={()=>{if(!selectedAns)return;
+      <button className="checkMultiQButton" onClick={()=>{if(!selectedAns)return;
         setCheckedAns(true);}}>check</button>
     </div>
   )};
@@ -323,7 +320,7 @@ export default function Page({ params }) {
         }
       })}
      
-      <button onClick={()=>{
+      <button className='checkMultiQButton'onClick={()=>{
         if(appContext.lessons.length-1 <= parseInt(params.index)+1){appContext.setCurrentLessonName(appContext.lessons[parseInt(params.index)+1].Name);router.push(`/dashboard/${appContext.currentCourseName}/${parseInt(params.index)+1}`);}else{router.push('/dashboard/');}}}>Next lesson</button>
       </>
 }
