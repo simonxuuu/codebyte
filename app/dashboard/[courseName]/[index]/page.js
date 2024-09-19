@@ -159,7 +159,9 @@ export default function Page({ params }) {
     return(
     <div className="my-4">
       <p style={{maxWidth:'100%'}}className="lessonSubHeading">{question}</p>
-      <input onBlur={(e)=>{checkAnswer(e.target.value)}}type="text"  className="typedResponse border p-2 w-full " />
+      <input onKeyUp={(e)=>{if(e.key == "Enter"){
+        checkAnswer(e.target.value);
+      }}} onBlur={(e)=>{checkAnswer(e.target.value)}}type="text"  className="typedResponse border p-2 w-full " />
       {isCorrect && <h2 className="lessonSubHeading" style={{color:'#0ea04b'}}>Correct</h2>}
       {isCorrect!= null && !isCorrect && <h2 className="lessonSubHeading" style={{color:'red'}}>Wrong. Try again! Look through the lesson.</h2>}
     </div>
