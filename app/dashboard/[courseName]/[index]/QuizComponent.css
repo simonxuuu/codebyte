@@ -62,7 +62,7 @@
     font-size:max(25px,1vw);
     max-width: 75%;
     text-align: left;
-    
+    white-space: pre-line;
   }
   
   

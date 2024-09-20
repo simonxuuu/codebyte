@@ -127,7 +127,7 @@ padding: 0;
 .typedResponse{
   background-color: rgb(65, 65, 65);
   border:0; border-radius: 10px;
-  outline:none; margin-bottom: 50px;
+  outline:none; margin-bottom: 20px;
 }
 .questionChoice{
   border-radius: 9px;

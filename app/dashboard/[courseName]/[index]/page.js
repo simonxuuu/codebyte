@@ -163,7 +163,7 @@ export default function Page({ params }) {
         checkAnswer(e.target.value);
       }}} onBlur={(e)=>{checkAnswer(e.target.value)}}type="text"  className="typedResponse border p-2 w-full " />
       {isCorrect && <h2 className="lessonSubHeading" style={{color:'#0ea04b'}}>Correct</h2>}
-      {isCorrect!= null && !isCorrect && <h2 className="lessonSubHeading" style={{color:'red'}}>Wrong. Try again! Look through the lesson.</h2>}
+      {isCorrect!= null && !isCorrect && <h2 className="lessonSubHeading" style={{color:'#f53d3d'}}>Wrong. Try again! Look through the lesson.</h2>}
     </div>
   )};
   
