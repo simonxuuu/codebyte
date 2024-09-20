@@ -75,11 +75,11 @@ const Dashboard = () => {
             </div>
           </div>
           <h2 className="my-6 text-2xl font-medium text-zinc-200">
-            Continue Learning
+            {lastCourse != 'null' ? 'Continue Learning' : 'Recommended Course'}
           </h2>
           <div style={{marginBottom:'200px'}}className="flex flex-wrap gap-3">
             {courses &&
-              courses.map((course,index) => { if(course[0] == lastCourse){ return (
+              courses.map((course,index) => { if(course[0] == lastCourse || (course[0] == 'pythonBasics') && lastCourse=='null'){ return (
                 <CourseComponent
                   appContext={appContext}
                   key={index}
@@ -109,6 +109,7 @@ const Dashboard = () => {
                   }}
                 />
               )} })}
+              
           </div>
 
           
