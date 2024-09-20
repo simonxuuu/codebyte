@@ -49,9 +49,9 @@ padding: 0;
 .sidebar{
   display: none;
   background-color: rgb(17, 17, 17);
-  
-  width: fit-content;
-  height:100vh;
+  flex:1;
+  max-width: fit-content;
+  min-height: 100vh;
   flex-direction: column;
   
   
@@ -288,8 +288,8 @@ margin-bottom: 5px;
   scale: 0;
   margin: 0;
   margin-top: 220px;
-  width:180px;
-  height:90px;
+  width:fit-content;
+  height:fit-content;
   font-size: 20px;
    /* Center itself horizontally */
 	position: absolute;
@@ -298,9 +298,12 @@ margin-bottom: 5px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  filter:drop-shadow(0 0px 10px rgba(0, 0, 0, 0.699));
+  filter:drop-shadow(0px 0px 15px rgb(0, 0, 0));
   align-items: center;
   padding:13px;
+  padding-left: 16px;
+  padding-right: 16px;
+  gap:5px;
   justify-content:space-between;
   z-index: 2;
 }

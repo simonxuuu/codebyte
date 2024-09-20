@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../appContext";
 import {
   faAngleRight,
@@ -33,11 +33,13 @@ const pages = [
 export default function Sidebar() {
   const appContext = useContext(AppContext);
   const router = useRouter();
+  const sidebar = useRef(null);
+
   
   
   return (
     <>
-     <section className={`sidebar ${appContext.lessonOpen ? 'hidden' : ''} `}>
+     <section ref={sidebar}className={`sidebar ${appContext.lessonOpen ? 'hidden' : ''} `}>
       
      <Link href={'/dashboard/profile'}  className="sidebarComponent">
         
@@ -66,7 +68,7 @@ export default function Sidebar() {
 
       
       <Link
-      style={{bottom:0,position:'absolute',marginBottom:'25px'}}
+      style={{bottom:0,position:'fixed',marginBottom:'25px'}}
         href={'/feedback'}
         className="sidebarComponent">
         

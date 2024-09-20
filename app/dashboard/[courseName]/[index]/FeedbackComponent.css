@@ -2,18 +2,20 @@
   background-color: #1d1d1d;
   color: rgb(204, 204, 204);
   border-radius: 3rem;
-  width: 100%;
-  padding: 3rem;
+  width: 90%;
+  padding: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   display: flex;
   position: fixed; 
-  bottom: 1.8rem; /* Position at the bottom of the viewport */
+  bottom: 0.8rem; /* Position at the bottom of the viewport */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center the element horizontally */
   align-items: center;
   justify-content: space-between;
-  height: 15rem;
+  
   border: 1px solid #2d2d2d;
-  max-height: 100%;
+  height: fit-content;
   z-index: 1000; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -36,9 +38,7 @@
     font-size: 1.5rem;
   }
   
-  .feedback-text.correct {
-    color: #608b70; /* Green color for correct feedback */
-  }
+  
   
   .feedback-text.hint {
     color: #6B7280; /* Grey color for hint feedback */
@@ -60,7 +60,7 @@
   }
   
   .feedback-continue-button.correct {
-    background-color: #10B981; /* Green background for correct feedback */
+    background-color: #0ea04b; /* Green background for correct feedback */
   }
   
   .feedback-continue-button.hint {
@@ -68,14 +68,18 @@
   }
 
   @media screen and (max-width: 800px) {
+    .feedback-text {
+      font-size: 30px;
+    }
     .feedback-container {
       padding-left: 2rem;
       padding-right: 2rem;
       margin-left: 0;
       height: auto;
       max-height: 100%;
-      width: 20rem;
+      width: 100%;
       flex-direction: column;
+      bottom: 0;
     }
     .feedback-image {
       display: none;

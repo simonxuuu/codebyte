@@ -92,6 +92,7 @@ export default function Page({ params }) {
     }
 
     const handleOptionClick = (id) => {
+        console.log(id);
         setSelectedAnswer((prevSelected) => (prevSelected === id ? null : id));
         if (selectedAnswer !== id) {
             setQuestionSelected(true);
@@ -391,9 +392,9 @@ export default function Page({ params }) {
                   <button
                     key={id}
                     className={`quiz-option ${
-                      selectedAnswer === id ? "selected" : ""
+                      selectedAnswer == id ? "selected" : ""
                     }`}
-                    onClick={() => handleOptionClick(id)}
+                    onClick={() => {if(!questionAnswered){handleOptionClick(id)}}}
                   >
                     <span className="quiz-option-image">{option.image}</span>
                     <span className="quiz-option-label">{option}</span>
@@ -404,6 +405,7 @@ export default function Page({ params }) {
 
           <div className="quiz-footer">
             {hintUsed || questionAnswered ? (
+              
               <Response
                 isHint={hintUsed}
                 isCorrect={correct}
@@ -420,12 +422,14 @@ export default function Page({ params }) {
               className={`quiz-button check ${
                 questionSelected ? "" : "unavailable"
               }`}
-              disabled={!selectedAnswer}
+              disabled={selectedAnswer==null}
               onClick={checkSubmit}
             >
               {loading ? "..." : "Check"}
             </button>
+           
           </div>
+         
         </>
       )}
     </main>

@@ -13,6 +13,33 @@ const FeedbackComponent = ({ isHint, isCorrect, feedback, onContinue}) => {
       return 'https://assets.ccbp.in/frontend/react-js/error-icon-img.png'; // X image
     }
   };
+  const correctFeedback = [
+    "Good job!",
+    "Awesome work.",
+    "Nice work.",
+    "That's right!",
+    "That's the right answer!",
+    "Good work!",
+    "Awesome!",
+    "",
+    "",
+    "Great job!"
+  ]
+  const wrongFeedback = [
+    "Nice try!",
+    "Good try!",
+    "",
+    "",
+    "The correct answer is: ",
+    "",
+    "Keep at it!"
+  ]
+  const GetRandomIntegerInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
   //<img src={getImageSrc()} alt="feedback" className="feedback-image" />
   return (
     <div className="feedback-container">
@@ -21,7 +48,7 @@ const FeedbackComponent = ({ isHint, isCorrect, feedback, onContinue}) => {
         <div>
           <p className={feedbackTextClass}>{isHint ? 'Hint' : isCorrect ? 'Correct' : 'Incorrect'}</p>
           <p className="feedbackText">
-            {feedback}
+            {isCorrect ? correctFeedback[GetRandomIntegerInclusive(0,correctFeedback.length-1)] : wrongFeedback[GetRandomIntegerInclusive(0,wrongFeedback.length-1)]} {feedback}
         </p>
         </div>
       </div>
