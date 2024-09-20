@@ -36,6 +36,7 @@ padding: 0;
   border-radius: 12px;
   align-self: start;
   justify-self: start;
+  margin-bottom: 40px;
 }
 .xp-progress-bar {
   height: 100%;
@@ -126,7 +127,7 @@ padding: 0;
 .typedResponse{
   background-color: rgb(65, 65, 65);
   border:0; border-radius: 10px;
-  outline:none
+  outline:none; margin-bottom: 50px;
 }
 .questionChoice{
   border-radius: 9px;
