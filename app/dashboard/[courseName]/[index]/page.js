@@ -284,102 +284,152 @@ export default function Page({ params }) {
     return <div className="text-center mt-8">Loading...</div>;
   }
 
-  return <main className={isQuiz ? "quiz-container":"default-container"}>
-    
-    {(!isQuiz) && <>
-      <h2 className="lessonTitle">
-        {appContext.currentLessonName && appContext.CamelCaseToNormal(appContext.currentLessonName)}
-        <svg onClick={()=>{
-             
-          
-          document.body.style.setProperty('--transitionAnim', 'fadeInOut 1.4s ease-in-out');
+  return (
+    <main className={isQuiz ? "quiz-container" : "default-container"}>
+      {!isQuiz && (
+        <>
+          <h2 className="lessonTitle">
+            {appContext.currentLessonName &&
+              appContext.CamelCaseToNormal(appContext.currentLessonName)}
+            <svg
+              onClick={() => {
+                document.body.style.setProperty(
+                  "--transitionAnim",
+                  "fadeInOut 1.4s ease-in-out"
+                );
 
-          setTimeout(()=>{
-            
-           
-            router.push(`/dashboard/${appContext.currentCourseName}`);
-          },570);
-          setTimeout(()=>{document.body.style.setProperty('--transitionAnim', 'none');},1420)
-          
-          }} className='lessonPageClose'xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-      </h2>
-      {data.map((item, index) => {
-        switch (item.type) {
-          case "text":
-            return <TextItem key={index} {...item} />;
-          case "codeExample":
-            return <CodeSnippet key={index} {...item} />;
-          case "question":
-            return item.questionType === "typedResponse" ? (
-              <TypedResponse key={index} {...item} />
+                setTimeout(() => {
+                  router.push(`/dashboard/${appContext.currentCourseName}`);
+                }, 570);
+                setTimeout(() => {
+                  document.body.style.setProperty("--transitionAnim", "none");
+                }, 1420);
+              }}
+              className="lessonPageClose"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+          </h2>
+          {data.map((item, index) => {
+            switch (item.type) {
+              case "text":
+                return <TextItem key={index} {...item} />;
+              case "codeExample":
+                return <CodeSnippet key={index} {...item} />;
+              case "question":
+                return item.questionType === "typedResponse" ? (
+                  <TypedResponse key={index} {...item} />
+                ) : (
+                  <MultipleChoice key={index} {...item} />
+                );
+              case "image":
+                return <ImageItem key={index} {...item} />;
+              default:
+                return null;
+            }
+          })}
+
+          <button
+            className="checkMultiQButton"
+            onClick={() => {
+              
+              if (parseInt(params.index)+1 <= appContext.lessons.length - 1) {
+                appContext.setCurrentLessonName(
+                  appContext.lessons[parseInt(params.index) + 1].Name
+                );
+                router.push(
+                  `/dashboard/${appContext.currentCourseName}/${
+                    parseInt(params.index) + 1
+                  }`
+                );
+              } else {
+                router.push("/dashboard/");
+                appContext.setLessonOpen(false);
+              }
+            }}
+          >
+            Next lesson
+          </button>
+        </>
+      )}
+      {isQuiz && (
+        <>
+          {progressWarning ? <Alert changeAlert={setProgressWarning} /> : ""}
+          <div className="quiz-header">
+            <button
+              onClick={() => {
+                setProgressWarning(true);
+              }}
+            >
+              <X className="text-gray-500" />
+            </button>
+            <div className="quiz-progress">
+              <div
+                className="quiz-progress-bar"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+            {false && (
+              <>
+                <Heart className="text-red-500" />
+                <span className="text-gray-500 ml-1">{gems}</span>
+              </>
+            )}
+          </div>
+
+          <div className="quiz-body">
+            <h2 className="quiz-title">{data.question}</h2>
+
+            <div className="quiz-options">
+              {data &&
+                data.answerChoices.map((option, id) => (
+                  <button
+                    key={id}
+                    className={`quiz-option ${
+                      selectedAnswer === id ? "selected" : ""
+                    }`}
+                    onClick={() => handleOptionClick(id)}
+                  >
+                    <span className="quiz-option-image">{option.image}</span>
+                    <span className="quiz-option-label">{option}</span>
+                  </button>
+                ))}
+            </div>
+          </div>
+
+          <div className="quiz-footer">
+            {hintUsed || questionAnswered ? (
+              <Response
+                isHint={hintUsed}
+                isCorrect={correct}
+                feedback={feedback}
+                onContinue={onContinue}
+              />
             ) : (
-              <MultipleChoice key={index} {...item} />
-            );
-          case "image":
-            return <ImageItem key={index} {...item} />;
-          default:
-            return null;
-        }
-      })}
-     
-      <button className='checkMultiQButton'onClick={()=>{
-        if(appContext.lessons.length-1 <= parseInt(params.index)+1){appContext.setCurrentLessonName(appContext.lessons[parseInt(params.index)+1].Name);router.push(`/dashboard/${appContext.currentCourseName}/${parseInt(params.index)+1}`);}else{router.push('/dashboard/');}}}>Next lesson</button>
-      </>
-}
-    {isQuiz &&  
-    <>
-           
-           {progressWarning ? <Alert changeAlert={setProgressWarning}/> : ''}
-                <div className="quiz-header">
-                    <button onClick={()=>{setProgressWarning(true);}}>
-                    <X className="text-gray-500" />
-                    </button>
-                    <div className="quiz-progress">
-                        <div className="quiz-progress-bar" style={{ width: `${progress}%` }}></div>
-                    </div>
-                    { false && <>
-                    <Heart className="text-red-500" />
-                    <span className="text-gray-500 ml-1">{gems}</span></>}
-                </div>
-
-                <div className="quiz-body">
-                   
-                    
-                        <h2 className="quiz-title">{data.question}</h2>
-                   
-
-                    <div className="quiz-options">
-                        {data && data.answerChoices.map((option,id) => (
-                            <button
-                                key={id}
-                                className={`quiz-option ${selectedAnswer === id ? 'selected' : ''}`}
-                                onClick={() => handleOptionClick(id)}
-                            >
-                                <span className="quiz-option-image">{option.image}</span>
-                                <span className="quiz-option-label">{option}</span>
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="quiz-footer">
-                    {hintUsed || questionAnswered ? (
-                        <Response isHint={hintUsed} isCorrect={correct} feedback={feedback} onContinue={onContinue}/>
-                    ) : (
-                        <>
-                            
-                        </>
-                    )}
-                    <button className="quiz-button skip" onClick={getHint}>Hint ({hintCount} left)</button>
-                    <button className={`quiz-button check ${questionSelected ? '' : 'unavailable'}`} disabled={!selectedAnswer} onClick={checkSubmit}> 
-                        {loading ? '...' : 'Check'}
-                    </button>
-                </div>
-            
-            </>
-  }
-  
-  </main>;
+              <></>
+            )}
+            <button className="quiz-button skip" onClick={getHint}>
+              Hint ({hintCount} left)
+            </button>
+            <button
+              className={`quiz-button check ${
+                questionSelected ? "" : "unavailable"
+              }`}
+              disabled={!selectedAnswer}
+              onClick={checkSubmit}
+            >
+              {loading ? "..." : "Check"}
+            </button>
+          </div>
+        </>
+      )}
+    </main>
+  );
 
 
 }

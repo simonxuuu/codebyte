@@ -185,7 +185,7 @@ export default function Home() {
             community of edCoders!
           </p>
 
-          <Link href="/signup">
+          <Link href="/register">
             <button
               className="text-2xl md:w-fit w-full mt-2 px-5 py-1.5 rounded-xl bg-gradient-to-b from-green-600 to-green-700 border-t border-t-green-500 shadow-md shadow-green-400/20"
               style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
@@ -204,7 +204,7 @@ export default function Home() {
                   return (
                     <h5
                       className="italic font-mono text-xs text-zinc-500"
-                      key={`fioasdjfaf-${i}`}
+                      key={i}
                     >
                       {(i + 1) * 5 - 1}
                     </h5>
@@ -586,7 +586,7 @@ export default function Home() {
 
       <div className="md:mt-24 mt-12 w-screen flex lg:flex-row flex-col">
         <div className="flex-1">
-          <SecureThatDiv key={`fasodifjas`} />
+          <SecureThatDiv />
           <div className="pr-px bg-gradient-to-b from-zinc-800 from-15% via-sky-300 to-zinc-800 to-85%">
             <div className="pt-px bg-gradient-to-r from-zinc-800 from-30% via-green-400 to-zinc-800 to-70% border-b border-zinc-800">
               <div className="bg-body w-full text-white xl:px-12 lg:px-8 px-4 py-8 text-left">
@@ -788,7 +788,7 @@ export default function Home() {
                   points="723,314 543,625.769145 183,625.769145 3,314 183,2.230855 543,2.230855 723,314"
                   fill="url(#fillGradient)"
                   stroke="url(#strokeGradient)"
-                  stroke-width="3"
+                  strokeWidth="3"
                   className="absolute"
                   style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
                 />
@@ -797,7 +797,7 @@ export default function Home() {
                   points="80,314 210,100 260,100 130,314 260,528 210,528"
                   fill="url(#fillGradient)"
                   stroke="url(#strokeGradient)"
-                  stroke-width="3"
+                  strokeWidth="3"
                   className="absolute"
                   style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
                 />
@@ -806,7 +806,7 @@ export default function Home() {
                   points="300,528 350,528 430,100 380,100"
                   fill="url(#fillGradient)"
                   stroke="url(#strokeGradient)"
-                  stroke-width="3"
+                  strokeWidth="3"
                   className="absolute"
                   style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
                 />
@@ -867,7 +867,7 @@ export default function Home() {
                   points="723,314 543,625.769145 183,625.769145 3,314 183,2.230855 543,2.230855 723,314"
                   fill="url(#fillGradient)"
                   stroke="url(#strokeGradient)"
-                  stroke-width="3"
+                  strokeWidth="3"
                   className="absolute"
                   style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
                 />
@@ -876,7 +876,7 @@ export default function Home() {
                   points="80,314 210,100 260,100 130,314 260,528 210,528"
                   fill="url(#fillGradient)"
                   stroke="url(#strokeGradient)"
-                  stroke-width="3"
+                  strokeWidth="3"
                   className="absolute"
                   style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
                 />
@@ -885,7 +885,7 @@ export default function Home() {
                   points="300,528 350,528 430,100 380,100"
                   fill="url(#fillGradient)"
                   stroke="url(#strokeGradient)"
-                  stroke-width="3"
+                  strokeWidth="3"
                   className="absolute"
                   style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
                 />
@@ -973,7 +973,7 @@ export default function Home() {
                 />
               </div>
 
-              <button className="md:text-base text-sm mt-2 bg-slate-100 border-t border-white px-1.5 py-1 rounded-lg text-slate-800">
+              <button onClick={()=>{router.push('/register')}} className="md:text-base text-sm mt-2 bg-slate-100 border-t border-white px-1.5 py-1 rounded-lg text-slate-800">
                 Create
               </button>
             </div>
@@ -1143,9 +1143,9 @@ const SpacedRepetitionCalendarDiv = () => {
         {calendar[7].map((week: any, i: number) => {
           return (
             <div className="flex" key={i}>
-              {week.map((day: any) => {
+              {week.map((day: any,i : number) => {
                 const daystr = day.toString();
-
+                
                 const final = day
                   .toString()
                   .replace("beforeMonth_", "")
