@@ -26,7 +26,7 @@ export default function Page({ params }) {
   
     //index of the selected answer
     const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [progress, setProgress] = useState(5);
+    const [progress, setProgress] = useState(2);
     const [questionSelected, setQuestionSelected] = useState(false);
     const [questionAnswered, setQuestionAnswered] = useState(false);
     const [hintUsed, setHintUsed] = useState(false);

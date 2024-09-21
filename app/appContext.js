@@ -16,7 +16,7 @@ const AppProvider = ({ children }) => {
   const [jwt,setJwt]=useState('');
   //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute ='http://localhost:8080';
+  const apiRoute ='https://codebyte-1b9af19e473e.herokuapp.com';
   const [currentCourseData,setCurrentCourseData] = useState({});
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
@@ -95,7 +95,30 @@ const AppProvider = ({ children }) => {
         return jsonOutput;
       });
   }
-
+  function getCertificate() {
+    if (!jwt) return "error";
+    return fetch(`${apiRoute}/getCertificate`, {
+      method: "POST",
+      body: JSON.stringify({ jwt: jwt }),
+      headers: { "Content-type": "application/json" },
+    })
+      .then((response) => {
+        return response.arrayBuffer();
+      })
+      .then((arrayBuffer) => {
+            const blob = new Blob([arrayBuffer], { type: 'application/pdf' }); // Create a Blob from the ArrayBuffer
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a'); // Create an anchor element
+            a.style.display = 'none';
+            a.href = url; // Set the href to the Blob URL
+            a.download = 'edCode_Certificate.pdf'; // Set the desired file name
+            document.body.appendChild(a);
+            a.click(); // Programmatically click the anchor to trigger the download
+            window.URL.revokeObjectURL(url); // Clean up the URL
+            document.body.removeChild(a); 
+        
+      });
+  }
   function getCourseProgressData() {
     if (!jwt) return "error";
     return fetch(`${apiRoute}/get-account-data`, {
@@ -295,7 +318,8 @@ const AppProvider = ({ children }) => {
          loginAccount,
          CamelCaseToNormal,
          lessonOpen,setLessonOpen,
-         leveling
+         leveling,
+         getCertificate
         }}>
       {children}
     </AppContext.Provider>
