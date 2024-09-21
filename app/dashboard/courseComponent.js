@@ -75,10 +75,10 @@ const CourseComponent = ({
                 />
               </div>
             </div>
-            <p className="mt-4 text-xl font-medium text-white z-20">
+            <p style={{fontWeight:'500',letterSpacing: '0.04em'}} className="mt-4 text-xl  text-white z-20">
               {appContext.CamelCaseToNormal(courseTitle)}
             </p>
-            <p className="mt-1 text-sm font-light text-zinc-400">
+            <p style={{fontWeight:'400'}}className="mt-1 text-sm text-zinc-400">
               {courseDescription}
             </p>
 

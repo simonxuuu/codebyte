@@ -355,11 +355,14 @@ margin-bottom: 5px;
   gap:25px;
     font-size: max(40px,6vw);
     width: 100vw;
+    font-weight: 600;
     text-align: center;
     margin-bottom: max(5px,0.2vw);
 }
 
 .lessonTitle{
+  color:rgb(235, 235, 235);
+  font-weight: 600;
   letter-spacing: 0.05em;
   display: flex;
   flex-direction: column;
@@ -371,9 +374,10 @@ margin-bottom: 5px;
 }
 
 .lessonPageDescription{
-  color:rgb(102, 102, 102);
+  color:rgb(153, 153, 153);
     font-size: max(25px,3.3vw);
     width: 90vw;
+    font-weight: 400;
     text-align: center;
     margin-top:8px;
     margin-bottom: max(35px,4vw);

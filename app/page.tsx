@@ -169,7 +169,7 @@ export default function Home() {
           
 
           <h1
-            style={{letterSpacing:'0.05em'}}
+            style={{letterSpacing:'0.02em',color:'rgb(255,255,255)'}}
             className="mt-4 xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-medium"
           >
             The fun way to learn
