@@ -40,7 +40,7 @@ export default function Login() {
             required
             className="focus:outline-white placeholder:text-zinc-500 rounded-lg p-3 py-2 w-full bg-zinc-900 border border-zinc-700"
           />
-          <input
+          <inputThi
             type="password"
             name="password"
             placeholder="Password"
