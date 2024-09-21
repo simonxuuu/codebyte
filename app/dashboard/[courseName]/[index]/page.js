@@ -422,7 +422,7 @@ export default function Page({ params }) {
               className={`quiz-button check ${
                 questionSelected ? "" : "unavailable"
               }`}
-              disabled={selectedAnswer==null}
+              disabled={selectedAnswer==null || questionAnswered}
               onClick={checkSubmit}
             >
               {loading ? "..." : "Check"}
