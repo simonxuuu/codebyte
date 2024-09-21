@@ -221,11 +221,12 @@ const AppProvider = ({ children }) => {
     if (!email || !password) return "error";
 
     return createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        if (!jwt) setJwt(result.user.getIdToken(true));
+      .then(async (result) => {
+        let tempJWT = await result.user.getIdToken(true);
+        if (!jwt) setJwt(tempJWT);
         return fetch(`${apiRoute}/create-account`, {
           method: "POST",
-          body: JSON.stringify({ email, jwt: jwt }),
+          body: JSON.stringify({ email, jwt: tempJWT }),
           headers: {
             "Content-type": "application/json",
           },
