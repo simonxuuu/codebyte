@@ -25,7 +25,11 @@ const pages = [
     name: "Courses",
     link: "/dashboard/courses",
   },
-  
+  {
+    icon: faArrowTrendUp,
+    name: "Leaderboard",
+    link: "/dashboard/leaderboard",
+  },
 ];
 
 

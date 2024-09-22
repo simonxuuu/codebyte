@@ -16,7 +16,7 @@ const AppProvider = ({ children }) => {
   const [jwt,setJwt]=useState('');
   //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute ='https://codebyte-1b9af19e473e.herokuapp.com';
+  const apiRoute ='http://localhost:8080';
   const [currentCourseData,setCurrentCourseData] = useState({});
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
@@ -134,7 +134,7 @@ const AppProvider = ({ children }) => {
         return jsonOutput["_doc"];
       });
   }
-  function getInitialLessonInformation() {
+  function getInitialLessonInformation(signal) {
     if (!jwt) return "error";
     if (!currentCourseName) return "error";
     if (!currentLessonName) return "error";
@@ -145,6 +145,7 @@ const AppProvider = ({ children }) => {
         courseName: currentCourseName,
         lessonName: currentLessonName,
       }),
+      signal:signal,
       headers: { "Content-type": "application/json" },
     })
       .then((response) => {
@@ -170,6 +171,19 @@ const AppProvider = ({ children }) => {
   }
   function getCoursesInfo() {
     return fetch(`${apiRoute}/getAllCoursesInfo`, {
+      method: "GET",
+      headers: { "Content-type": "application/json" },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((jsonOutput) => {
+        //console.log(jsonOutput);
+        return jsonOutput;
+      });
+  }
+  function getLeaderboard() {
+    return fetch(`${apiRoute}/getLeaderboard`, {
       method: "GET",
       headers: { "Content-type": "application/json" },
     })
@@ -320,7 +334,8 @@ const AppProvider = ({ children }) => {
          CamelCaseToNormal,
          lessonOpen,setLessonOpen,
          leveling,
-         getCertificate
+         getCertificate,
+         getLeaderboard
         }}>
       {children}
     </AppContext.Provider>

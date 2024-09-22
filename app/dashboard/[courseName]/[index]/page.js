@@ -249,7 +249,7 @@ export default function Page({ params }) {
   }
   
   useEffect(() => {
-    
+    const controller = new AbortController();
     if(window){
       window.onbeforeunload = function() {
         return "Leaving this page will reset your lesson progress.";
@@ -258,7 +258,7 @@ export default function Page({ params }) {
     
     if(appContext.currentLessonName == "") return;
     if(appContext.jwt == "") return;
-     appContext.getInitialLessonInformation().then(result => {
+    appContext.getInitialLessonInformation(controller.signal).then(result => {
       if(result.question != null){
         console.log('this is a quiz');
         setIsQuiz(true);
@@ -272,7 +272,10 @@ export default function Page({ params }) {
       console.log(result);
       setData(result);
      })
-   
+     return () => {
+      // cancel the request before component unmounts
+      controller.abort();
+  };
    
   }, []);
   

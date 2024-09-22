@@ -1,15 +1,81 @@
+
 .courseComponentHolder{
   display: grid;
   grid-auto-rows: auto;
   gap:15px;
  
 }
+.leaderboardTableComponentText{
+  font-size: 17px;
+  color:rgb(230, 230, 230);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: fit-content;
+  max-width: 50%;
+  text-align: left;
+}
+.first + h1{
+  
+  font-weight: 550;
+  
+  color:rgb(255, 217, 0);
+  
+}
+
+.second + h1{
+  font-weight: 550;
+  color:rgb(245, 245, 245);
+}
+.third + h1{
+  font-weight: 550;
+  color:#db8834;
+}
+.other + h1{
+  font-weight: 500;
+  color:rgb(128, 128, 128);
+}
+.empty{
+  font-weight: 900;
+  
+  color:rgb(70, 70, 70);
+}
+
+.leaderboardTableComponent{
+  background-color: rgb(43, 43, 43);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding:15px;
+ 
+}
+.emptyTableComponent{
+  background-color: rgb(31, 31, 31);
+}
+.leaderboardTableComponent h1:nth-of-type(3) {
+  color: rgb(19, 177, 90);
+  font-weight: 600;
+}
+.leaderboardTable{
+  gap:10px;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  height:500px;
+  overflow-y: scroll;
+  animation: fadeIn  0.5s ease-in   ;
+  opacity:1;
+}
+
 .sidebarText{
 font-size: min(5vw,20px);
 margin:0;
 width: fit-content;
 text-wrap: nowrap;
-padding: 0;
+padding: 0; color:rgb(104, 104, 104); font-weight: 550;
 }
 .xp-progress{
   height: 10px; /* h-2 */
@@ -105,8 +171,8 @@ padding: 0;
   margin-bottom: 30px;
 }
 .sidebarComponent{
-  color:white;
-  opacity:0.3;
+  color:rgb(104, 104, 104);
+  
   display: flex;
   align-items: center;
   padding: 0;
@@ -424,6 +490,10 @@ main {
       font-size: 15px;
       
       }
+      .leaderboardTable{
+        width:500px;
+        height:650px;
+      }
    .lessonPageTitle{
     width: 54vw;
     text-align: left;
@@ -486,6 +556,10 @@ main {
   }
   }
   @media only screen and (min-width: 1280px) {
+    .leaderboardTable{
+      width:600px;
+      height:650px;
+    }
     .lessonPageTitle{
       width: 54vw;
       text-align: left;
