@@ -16,21 +16,33 @@
   max-width: 50%;
   text-align: left;
 }
-.first + h1{
-  
-  font-weight: 550;
-  
+.first{ 
+  font-weight: 700;
   color:rgb(255, 217, 0);
-  
 }
-
-.second + h1{
-  font-weight: 550;
+.first + h1{
+  font-weight: 400;
+  color:rgb(255, 217, 0);
+}
+.second{
+  font-weight: 700;
   color:rgb(245, 245, 245);
+}
+.second + h1{
+  font-weight: 400;
+  color:rgb(245, 245, 245);
+}
+.third{
+  font-weight: 700;
+  color:#db8834;
 }
 .third + h1{
   font-weight: 550;
   color:#db8834;
+}
+.other {
+  font-weight: 600;
+  color:rgb(128, 128, 128);
 }
 .other + h1{
   font-weight: 500;
