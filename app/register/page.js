@@ -27,7 +27,7 @@ export default function Register() {
     <div className="flex flex-col items-center p-2 m-0 h-[100vh] pt-24">
       <div className="basis-full flex-none xl:w-[20%] lg:w-[50%] md:w-[90%] w-full text-center flex flex-col items-center justify-center">
         <div className="">
-          <h2 className="text-2xl mb-0 font-medium">
+          <h2 style={{maxWidth:'100%'}} className="text-2xl mb-0 font-medium">
             {"Register for edCode"}
           </h2>
         </div>
