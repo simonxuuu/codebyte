@@ -18,13 +18,15 @@ html {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  --topBarColor: rgba(26, 26, 26, 0.808);
-  --topBarBorderColor: rgba(53, 53, 53, 0.514);
+  --topBarColor: rgba(26, 26, 26, 0.377);
+  --topBarBorderColor: rgba(255, 255, 255, 0.048);
   --darker: rgb(10, 10, 10);
   --dark: rgb(20, 20, 20);
-  --light: rgb(224, 224, 224);
-  --subTextColor: rgb(146, 146, 146);
+  --lessdark: rgb(36, 36, 36);
+  --light: rgb(235, 235, 235);
+  --subTextColor: rgb(54, 54, 54);
   --accent1: rgb(24, 204, 120);
+  --accent1Darker:rgb(32, 177, 87);
   --accent1Btn: rgba(9, 119, 86, 0.521);
   --accent2: rgb(255, 255, 255);
   --lessonLocked: rgb(41, 41, 41);
@@ -40,7 +42,14 @@ html {
   scrollbar-color: rgb(255, 255, 255, 0.2) transparent;
   scrollbar-width: 7px;
 }
-
+#gradient-canvas{
+  --gradient-color-1: #20d15b;
+  --gradient-color-2: #31e99c;
+  --gradient-color-3: #5add1d;
+  --gradient-color-4: #ceec4a;
+  filter:brightness(0.7);
+  margin:0;padding: 0; 
+}
 ::-webkit-scrollbar {
   width: 7px;
 }
@@ -492,7 +501,7 @@ a {
     max-width: 60%;
   }
   header {
-    width: 75%;
+    width: 65%;
     margin-top: 1rem;
   }
   .mobileHeader {
@@ -510,7 +519,7 @@ a {
     width: 43%;
   }
   header {
-    width: 55%;
+    width: 50%;
     padding: 13px;
     padding-left: 40px;
     padding-right: 40px;

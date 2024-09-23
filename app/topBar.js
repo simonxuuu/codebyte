@@ -51,23 +51,32 @@ const TopBar = () => {
             edCode
           </Link>
 
-          <div className="absolute lg:flex  items-center space-x-3 left-1/2 -translate-x-1/2">
-              {appContext.loggedIn && (
-                <Link href='/dashboard'>
-                  <p className=" my-0 text-base text-zinc-400 menuItem">Dashboard</p>
-                </Link>
-              )}
+          <div style={{fontWeight:'500'}}className="absolute lg:flex  items-center space-x-3 left-1/2 -translate-x-1/2">
+                <button>
+                  <p className=" my-0 text-base text-white menuItem">About</p>
+                </button>
+                <button>
+                  <p className=" my-0 text-base text-white menuItem">Leaderboard</p>
+                </button>
+                <button>
+                  <p className=" my-0 text-base text-white menuItem">Interviews</p>
+                </button>
+                <button>
+                  <p className=" my-0 text-base text-white menuItem">Educators</p>
+                </button>
+             
             
           </div>
 
           <nav className="lg:flex  items-center gap-2">
             <Link
               href="/login"
-              className={`text-xl ${
+              style={{background:'var(--lessdark)',borderRadius:'0.4rem',padding:0,paddingLeft:'0.25rem',paddingRight:'0.25rem',fontWeight:'500'}}
+              className={`${
                 appContext.loggedIn ? "hidden" : " "
               }`}
             >
-              <p className="my-0 text-base">Log in</p>
+              <p className=" my-0 text-base px-3.5 py-1.5 rounded-xl text-white menuItem">Log in</p>
             </Link>
 
             <Link
@@ -76,13 +85,17 @@ const TopBar = () => {
                 appContext.loggedIn ? "hidden" : " "
               }`}
             >
-              <button className="my-0 bg-gradient-to-b from-zinc-100 to-zinc-200 border-t border-t-white px-2 py-1 rounded-lg text-zinc-800 text-base">
+              <button style={{borderRadius:'0.4rem',fontWeight:'500'}}  className="my-0 bg-gradient-to-b from-zinc-100 to-zinc-200 border-t border-t-white px-3 py-1 rounded-lg text-zinc-800 text-base">
                 Sign up
               </button>
             </Link>
-
             {appContext.loggedIn && (
-             <button onClick={signout} className="my-0 bg-gradient-to-b from-zinc-100 to-zinc-200 border-t border-t-white px-2 py-1 rounded-lg text-zinc-800 text-base">
+                <Link href='/dashboard' style={{background:'var(--lessdark)',borderRadius:'0.4rem',padding:0,paddingLeft:'0.25rem',paddingRight:'0.25rem',fontWeight:'500'}}>
+                  <p className=" my-0 text-base px-3.5 py-1.5 rounded-xl text-white menuItem">Dashboard</p>
+                </Link>
+              )}  
+            {appContext.loggedIn && (
+             <button onClick={signout} className="my-0  px-3.5 py-1.5 rounded-xl  text-base">
              Log out
            </button>
             )}

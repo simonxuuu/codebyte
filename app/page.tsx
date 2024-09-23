@@ -1,5 +1,5 @@
 "use client";
-
+import { Gradient } from "whatamesh";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -58,7 +58,7 @@ const useFAANGAnimationTimer = () => {
   const requestRef = useRef<number>();
   const previousTimeRef = useRef<number>();
   const accumulatedTimeRef = useRef<number>(0);
-
+ 
   const animate = (time: number) => {
     if (previousTimeRef.current !== undefined) {
       const deltaTime = time - previousTimeRef.current;
@@ -82,6 +82,10 @@ const useFAANGAnimationTimer = () => {
 
   useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
+    
+    
+   
+    
     return () => {
       if (requestRef.current) {
         cancelAnimationFrame(requestRef.current);
@@ -113,63 +117,25 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, [highlightedSkill]);
-
-  const handleClickNotLoggedIn = (e) => {
-    e.preventDefault();
-    setShowWaitlist(true);
-  };
-  const gotoDashboard = (e) => {
-    e.preventDefault();
-    router.push("/dashboard");
-  };
-  /*
-  <div
-            className="-z-10 absolute bottom-12 right-[10%] mx-4 bg-gradient-to-b from-cyan-500 to-sky-600 w-[85px] h-[75px] p-1 rounded-xl flex skew-y-6 skew-x-2"
-            style={{
-              boxShadow: "-5px -5px 12px #22d3ee, -24px -24px 48px #34d3995F",
-            }}
-          >
-            <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-4xl text-white flex items-center justify-center">
-              <FontAwesomeIcon icon={faQuestion} />
-            </span>
-          </div>
-  <div
-            className="absolute left-[15%] top-32 bg-gradient-to-b from-rose-400 to-rose-600 w-[70px] h-[60px] p-1 rounded-xl flex -skew-y-6 -skew-x-2"
-            style={{
-              boxShadow: "5px 5px 12px #f43f5e, 17px 17px 36px #e879f9",
-            }}
-          >
-            <span className="outline outline-2 outline-white/50 bg-white/20 w-full h-full rounded-lg text-3xl text-white flex items-center justify-center">
-              <FontAwesomeIcon icon={faCode} />
-            </span>
-          </div>
-<button
-            className="text-lg md:w-fit w-full px-3 py-1 rounded-lg bg-green-500/10 border border-green-500 shadow-md shadow-green-400/20"
-            style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
-          >
-            <FontAwesomeIcon
-              icon={faBoltLightning}
-              className="text-amber-200"
-            />{" "}
-            Use Codigo for FREE!
-          </button>
-
-  */
+  useEffect(()=>{const gradient = new Gradient();gradient.initGradient("#gradient-canvas");},[])
+  
+  
   return (
     <section>
       <div
-        className="pb-px bg-gradient-to-r h-[90vh]"
-        style={{
-          backgroundImage: `linear-gradient(90deg, #18181b 10%, #0ea5e9 35%, #4ade80 50%, #818cf8 65%, #18181b 80%)`,
-        }}
+        className="pb-px  h-[90vh]"
+        
       >
-        <div className="h-full relative bg-gradient-to-t from-body to-sky-950/70 backdrop-blur-xl lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
+        <canvas id='gradient-canvas'className="h-full absolute   lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
+        
+        </canvas>
+        <div className="h-full relative   lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
           
 
           
 
           <h1
-            style={{letterSpacing:'0.02em',color:'rgb(255,255,255)'}}
+            style={{letterSpacing:'0.02em',color:'var(--light)'}}
             className="mt-4 xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-medium"
           >
             The fun way to learn
@@ -177,18 +143,15 @@ export default function Home() {
             real-world coding!
           </h1>
 
-          <p className="my-4 xl:text-xl lg:text-lg md:text-base font-light text-zinc-400">
-           edCode takes you from zero to hero with <i>waaaay</i> more than just
-            coding lessons.
-            <br />
-            Try out AI interviews, job environment simulations, and a global
-            community of edCoders!
+          <p style={{fontWeight:400,color:'var(--light)'}}className="my-4 xl:text-xl lg:text-lg md:text-base  ">
+            edCode takes you from zero to hero, no matter your starting point.
           </p>
 
           <Link href="/register">
             <button
-              className="text-2xl md:w-fit w-full mt-2 px-5 py-1.5 rounded-xl bg-gradient-to-b from-green-600 to-green-700 border-t border-t-green-500 shadow-md shadow-green-400/20"
-              style={{ textShadow: "0px 0px 2px #fef3c7BF" }}
+            style={{fontWeight:650,backgroundColor:'var(--light)',color:'var(--lessdark)', textShadow: "0px 2px 2px rgba(0,0,0,0.1)" }}
+              className="text-xl md:w-fit w-full mt-8 px-7 py-2 rounded-xl border-t-green-500 shadow-md"
+              
             >
               Get started
             </button>
@@ -196,40 +159,11 @@ export default function Home() {
 
           
 
-          <div className="z-20 absolute left-0 bottom-0 h-[10px] w-full flex flex-col justify-end">
-            <div className="flex items-center space-x-8">
-              <h5 className="pl-4 italic font-mono">Go from 0</h5>
-              <div className="flex flex-1 items-center space-x-2 justify-between">
-                {new Array(20).fill(0).map((x, i) => {
-                  return (
-                    <h5
-                      className="italic font-mono text-xs text-zinc-500"
-                      key={i}
-                    >
-                      {(i + 1) * 5 - 1}
-                    </h5>
-                  );
-                })}
-              </div>
-              <h5 className="pr-4 text-green-400 italic font-mono">to 100</h5>
-            </div>
-            <div className="flex items-end justify-between">
-              {new Array(30).fill(0).map((x, i) => {
-                return (
-                  <div
-                    key={i}
-                    className={`w-[2px] bg-zinc-500/30 ${
-                      i % 4 === 0 ? "h-10" : "h-4"
-                    }`}
-                  />
-                );
-              })}
-            </div>
-          </div>
+          
         </div>
       </div>
 
-      <div className="mt-12 flex flex-col gap-3 items-center justify-center relative">
+      <div style={{marginTop:'8rem'}}className="mt-10 flex flex-col gap-3 items-center justify-center relative">
         <div className="relative z-[1] bg-gradient-to-b from-green-400/10 to-green-400/20 border border-green-400/30 size-20 rounded-2xl flex flex-col items-center justify-center">
           <p className="font-semibold italic text-green-400">C</p>
         </div>
