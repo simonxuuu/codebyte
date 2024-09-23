@@ -119,21 +119,9 @@ const TopBar = () => {
         </header>
 
         {isMobileMenuOpen && (
-          <div className="border-b border-zinc-800 shadow-2xl shadow-zinc-950/70 fixed top-[60px] w-screen bg-zinc-900/80 backdrop-blur-lg z-[500] text-white flex flex-col gap-2">
-            <div className="p-6 flex-1 flex-col">
-            {appContext.loggedIn && (
-                  <Link href={`/dashboard`}>
-                    <div className="w-full text-left text-lg py-1 flex items-center gap-2">
-                      <span className="flex-1">Dashboard</span>
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="text-zinc-400"
-                      />
-                    </div>
-                  </Link>
-                  
-                )
-            }
+          <div className="border-none border-b border-zinc-800 shadow-2xl shadow-zinc-950/70 fixed top-[65px] w-screen bg-zinc-900/20 backdrop-blur-lg z-[500] text-white flex flex-col gap-2">
+            <div className="p-10 flex-1 flex flex-col">
+            
                 <button >
                   <div className="w-full text-left text-lg py-1 flex items-center gap-2">
                     <span className="flex-1">About</span>
@@ -172,7 +160,7 @@ const TopBar = () => {
                 </button>
             </div>
 
-            <div className="p-6 flex flex-col gap-2 text-lg">
+            <div style={{alignItems:'center'}}className="p-6 flex flex-col gap-1 text-lg ">
               <Link
                 href="/login"
                 className={`text-xl ${
@@ -195,13 +183,16 @@ const TopBar = () => {
                 </button>
               </Link>
 
-              <button
-                className={`text-xl my-0 w-full border border-transparent bg-red-400 text-black p-2 rounded-lg ${
-                  appContext.loggedIn ? "visible" : "hidden"
-                }`}
-              >
-                Log out
-              </button>
+              {appContext.loggedIn && (
+                <Link href='/dashboard' style={{width:'60%',background:'var(--lessdark)',borderRadius:'0.4rem',padding:'0.1rem',paddingLeft:'0.15rem',paddingRight:'0.25rem',fontWeight:'500',textAlign:'center'}}>
+                  <p className=" my-0 text-base px-3.5 py-1.5 rounded-xl text-white ">Dashboard</p>
+                </Link>
+              )}  
+            {appContext.loggedIn && (
+             <button onClick={signout} className="my-0  px-3.5 py-1.5 rounded-xl  text-base">
+             Log out
+           </button>
+            )}
             </div>
           </div>
         )}
