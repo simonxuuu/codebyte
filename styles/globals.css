@@ -48,7 +48,7 @@ html {
   --gradient-color-3: #5add1d;
   --gradient-color-4: #ceec4a;
   filter:brightness(0.75);
-  margin:0;padding: 0; 
+  margin:0;padding: 0;  width: 100vw;
 }
 ::-webkit-scrollbar {
   width: 7px;

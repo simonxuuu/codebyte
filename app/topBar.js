@@ -120,7 +120,7 @@ const TopBar = () => {
 
         {isMobileMenuOpen && (
           <div className="border-b border-zinc-800 shadow-2xl shadow-zinc-950/70 fixed top-[60px] w-screen bg-zinc-900/80 backdrop-blur-lg z-[500] text-white flex flex-col gap-2">
-            <div className="p-6 flex-1">
+            <div className="p-6 flex-1 flex-col">
             {appContext.loggedIn && (
                   <Link href={`/dashboard`}>
                     <div className="w-full text-left text-lg py-1 flex items-center gap-2">
@@ -131,8 +131,45 @@ const TopBar = () => {
                       />
                     </div>
                   </Link>
+                  
                 )
             }
+                <button >
+                  <div className="w-full text-left text-lg py-1 flex items-center gap-2">
+                    <span className="flex-1">About</span>
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="text-zinc-400"
+                    />
+                  </div>
+                </button>
+                <button >
+                  <div className="w-full text-left text-lg py-1 flex items-center gap-2">
+                    <span className="flex-1">Leaderboard</span>
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="text-zinc-400"
+                    />
+                  </div>
+                </button>
+                <button >
+                  <div className="w-full text-left text-lg py-1 flex items-center gap-2">
+                    <span className="flex-1">Interviews</span>
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="text-zinc-400"
+                    />
+                  </div>
+                </button>
+                <button >
+                  <div className="w-full text-left text-lg py-1 flex items-center gap-2">
+                    <span className="flex-1">Educators</span>
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="text-zinc-400"
+                    />
+                  </div>
+                </button>
             </div>
 
             <div className="p-6 flex flex-col gap-2 text-lg">
