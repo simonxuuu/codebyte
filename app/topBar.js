@@ -52,16 +52,16 @@ const TopBar = () => {
           </Link>
 
           <div style={{fontWeight:'500'}}className="absolute lg:flex  items-center space-x-3 left-1/2 -translate-x-1/2">
-                <button>
+                <button onClick={()=>{document.getElementById("landing0").scrollIntoView({block: "center"}); }}>
                   <p className=" my-0 text-base text-white menuItem">About</p>
                 </button>
-                <button>
+                <button onClick={()=>{document.getElementById("landing1").scrollIntoView({block: "center"}); }}>
                   <p className=" my-0 text-base text-white menuItem">Leaderboard</p>
                 </button>
-                <button>
+                <button onClick={()=>{document.getElementById("landing2").scrollIntoView({block: "center"}); }}>
                   <p className=" my-0 text-base text-white menuItem">Interviews</p>
                 </button>
-                <button>
+                <button onClick={()=>{document.getElementById("landing3").scrollIntoView({block: "center"}); }}>
                   <p className=" my-0 text-base text-white menuItem">Educators</p>
                 </button>
              
@@ -122,7 +122,10 @@ const TopBar = () => {
           <div className="border-none border-b border-zinc-800 shadow-2xl shadow-zinc-950/70 fixed top-[65px] w-screen bg-zinc-900/20 backdrop-blur-lg z-[500] text-white flex flex-col gap-2">
             <div className="p-10 flex-1 flex flex-col">
             
-                <button >
+                <button onClick={()=>{document.getElementById("landing0").scrollIntoView({block: "center"}); setMobileMenuOpen(!isMobileMenuOpen);
+              if (hamburger.current) {
+                hamburger.current.classList.toggle("is-active");
+              }}}>
                   <div className="w-full text-left text-lg py-1 flex items-center gap-2">
                     <span className="flex-1">About</span>
                     <FontAwesomeIcon
@@ -131,7 +134,10 @@ const TopBar = () => {
                     />
                   </div>
                 </button>
-                <button >
+                <button onClick={()=>{document.getElementById("landing1").scrollIntoView({block: "center"}); setMobileMenuOpen(!isMobileMenuOpen);
+              if (hamburger.current) {
+                hamburger.current.classList.toggle("is-active");
+              }}}>
                   <div className="w-full text-left text-lg py-1 flex items-center gap-2">
                     <span className="flex-1">Leaderboard</span>
                     <FontAwesomeIcon
@@ -140,7 +146,10 @@ const TopBar = () => {
                     />
                   </div>
                 </button>
-                <button >
+                <button onClick={()=>{document.getElementById("landing2").scrollIntoView({block: "center"}); setMobileMenuOpen(!isMobileMenuOpen);
+              if (hamburger.current) {
+                hamburger.current.classList.toggle("is-active");
+              }}}>
                   <div className="w-full text-left text-lg py-1 flex items-center gap-2">
                     <span className="flex-1">Interviews</span>
                     <FontAwesomeIcon
@@ -149,7 +158,10 @@ const TopBar = () => {
                     />
                   </div>
                 </button>
-                <button >
+                <button onClick={()=>{document.getElementById("landing3").scrollIntoView({block: "center"}); setMobileMenuOpen(!isMobileMenuOpen);
+              if (hamburger.current) {
+                hamburger.current.classList.toggle("is-active");
+              }}}>
                   <div className="w-full text-left text-lg py-1 flex items-center gap-2">
                     <span className="flex-1">Educators</span>
                     <FontAwesomeIcon

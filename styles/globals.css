@@ -44,9 +44,34 @@ html {
   scrollbar-width: 7px;
 }
 html{
-  scroll-snap-type: y mandatory;
+  
   scroll-behavior: smooth;
+ 
   overflow-y: scroll;
+}
+.micDemo{
+  scale:1.5;
+}
+.verticalSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center; text-align: center;margin:0;
+  margin-top:10rem;margin-bottom: 10rem;
+}
+.showcaseImage{
+  width:90%;
+  height:400px;
+  background-size:cover;
+  border:3px solid rgb(32, 32, 32); border-radius: 1rem;
+}
+.horizontalSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center; text-align: center; margin:0;
+  margin-top:5rem;margin-bottom: 5rem;
+}
+.horizontalSection .showcaseImage{
+  order: 1;
 }
 #gradient-canvas{
   --gradient-color-1: #20d15b;
@@ -54,7 +79,7 @@ html{
   --gradient-color-3: #5add1d;
   --gradient-color-4: #ceec4a;
   filter:brightness(0.75);
-  margin:0;padding: 0;  width: 100vw; overflow-y: visible;
+  margin:0;padding: 0;  width: 100vw; overflow-y: visible;  height: calc(100% + 35px);
 }
 ::-webkit-scrollbar {
   width: 7px;
@@ -395,9 +420,10 @@ h1 {
 }
 
 h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: 400;
+  font-size: 1.4rem;
+  margin-top:1rem;
+  margin-bottom: 2rem;
+  font-weight: 400; max-width: 90%;
   filter: drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
 }
 
@@ -485,12 +511,40 @@ a {
     padding: max(13px, 1vw);
     border-radius: 0;
   }
+  .micDemo{
+    scale:2;
+  }
 }
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
+  .micDemo{
+    scale:2.5;
+    height:50px;
+  }
+  .showcaseImage{
+    width:150%;
+    height:350px;
+    
+  }.horizontalSection .showcaseImage{
+    order: 0;
+  }
+  h2 {
+    font-size: 2rem;
+    max-width: 70%;
+    
+  }
   .menuItem{
     display: block;
     
+  }
+  .verticalSection{
+    
+    margin-top:15rem;margin-bottom: 15rem;
+  }
+  .horizontalSection{
+    width: 100vw; margin-top:8rem;margin-bottom: 8rem;
+    flex-direction: row; gap:10rem;
+     justify-content: space-between; text-align: left; padding:0; padding-left: 100px; padding-right: 100px;
   }
   h1 {
     font-size: 4rem;
@@ -508,7 +562,7 @@ a {
     max-width: 60%;
   }
   header {
-    width: 65%;
+    width: 85%;
     margin-top: 1rem;
   }
   .mobileHeader {
@@ -521,12 +575,16 @@ a {
     max-width: 100%;
     width: 40%;
     text-align: left;
+  }.showcaseImage{
+    width:800px;
+    height:500px;
+    
   }
   .feedbackForm {
     width: 43%;
   }
   header {
-    width: 50%;
+    width: min(70%,940px);
     padding: 13px;
     padding-left: 40px;
     padding-right: 40px;

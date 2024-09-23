@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className={`${pathname.includes("/dashboard") && "hidden"}`}>
       <div className="footer-content">
-        <div className="social-icons">
+        <div style={{display:'none'}}className="social-icons">
           <Link href="#" className="icon-link">
             <svg
               xmlns="http://www.w3.org/2000/svg"

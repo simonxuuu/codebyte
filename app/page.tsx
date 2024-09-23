@@ -123,6 +123,7 @@ export default function Home() {
   return (
     <section>
       <div
+      style={{marginBottom:'240px'}}
         className="pb-px  h-[90vh]"
         
       >
@@ -162,711 +163,104 @@ export default function Home() {
           
         </div>
       </div>
-
-      <div style={{marginTop:'8rem'}}className="mt-10 flex flex-col gap-3 items-center justify-center relative">
-        <div className="relative z-[1] bg-gradient-to-b from-green-400/10 to-green-400/20 border border-green-400/30 size-20 rounded-2xl flex flex-col items-center justify-center">
-          <p className="font-semibold italic text-green-400">C</p>
-        </div>
-
-        <div className="relative z-[1] flex flex-row flex-nowrap gap-3">
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/leetcode-logo.png"}
-              width={40}
-              height={40}
-              alt="leetcode"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/hackerrank-logo.tiff"}
-              width={40}
-              height={40}
-              alt="hackerrank"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/coursera-logo.png"}
-              width={40}
-              height={40}
-              alt="coursera"
-              className="rounded-lg"
-            />
-          </div>
-        </div>
-
-        <div className="relative z-[1] flex flex-row flex-nowrap gap-3 blur-[1px]">
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/meta-logo.png"}
-              width={40}
-              height={40}
-              alt="leetcode"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/apple-logo.png"}
-              width={40}
-              height={40}
-              alt="hackerrank"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/amazon-logo.webp"}
-              width={40}
-              height={40}
-              alt="coursera"
-              className="rounded-lg"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/netflix-logo.webp"}
-              width={40}
-              height={40}
-              alt="coursera"
-              className="rounded-lg"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/google-logo.webp"}
-              width={40}
-              height={40}
-              alt="coursera"
-              className="rounded-lg"
-            />
-          </div>
-        </div>
-
-        <div className="relative z-[1] flex flex-row flex-nowrap gap-3 blur-[2px]">
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/microsoft.png"}
-              width={40}
-              height={40}
-              alt="leetcode"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/visa.svg"}
-              width={40}
-              height={40}
-              alt="hackerrank"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/samsung.png"}
-              width={40}
-              height={40}
-              alt="coursera"
-              className="rounded-lg"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/lg.png"}
-              width={40}
-              height={40}
-              alt="coursera"
-              className="rounded-lg"
-            />
-          </div>
-
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 outline outline-[1px] outline-zinc-800 border-t border-t-zinc-700 size-20 rounded-2xl flex flex-col items-center justify-center shadow-md shadow-black/20">
-            <Image
-              src={"/logos/huawei.png"}
-              width={40}
-              height={40}
-              alt="coursera"
-              className="rounded-lg"
-            />
-          </div>
-        </div>
-
-        <div className="absolute z-[2] bg-gradient-to-b -bottom-2 -left-1 w-[110%] h-[140px] from-transparent to-body" />
+      <div className="verticalSection">
+        <h1>Free, fun, and easy.</h1>
+        <h2>This is the way learning to code should be. Learn on any device, anytime, anywhere.</h2>
       </div>
-
-      <div className="text-center px-4 xl:w-[40%] lg:w-[70%] md:w-[90%] mx-auto flex flex-col items-center">
-        <h1 className="lg:text-4xl text-3xl font-medium">
-          We teach you what <span>other courses don&apos;t</span>,<br />
-          and what tech companies want.
-        </h1>
-        <p className="lg:text-lg text-base text-zinc-400">
-          In the real world, being a successful developer isn&apos;t just
-          technical expertise; it&apos;s collaboration, articulation, and
-          seamless work.
-          <br />
-          <br />
-          Like edCode, Leetcode and Hackerrank train you for programming. But
-          edCode teaches you what Leetcode and Hackerrank don&apos;t --{" "}
-          <span className="text-indigo-400">
-            collaboration & teamwork skills
-          </span>
-          . Making genuinely interesting{" "}
-          <span className="text-indigo-400">passion projects</span>. Learning to
-          stay <span className="text-indigo-400">agile & flexible</span>.
-        </p>
-      </div>
-
-      <div className="relative w-screen lg:h-[80vh]">
-        <div className="absolute z-0 bg-green-500/10 blur-3xl w-[30%] aspect-square rounded-full left-[10%] top-[10%]"></div>
-        <div className="absolute z-0 bg-teal-500/15 blur-3xl w-[20%] aspect-square rounded-full left-[30%] bottom-[0%]"></div>
-
-        <div
-          className="text-red-400 md:flex hidden items-center justify-center text-5xl absolute z-10 top-[0%] right-[6%] size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-red-500/50 border border-red-400 size-20 backdrop-blur-[2px]"
-          style={{ boxShadow: "0px 0px 25px #f87171BF" }}
-        >
-          <FontAwesomeIcon icon={faJava} />
-        </div>
-
-        <div className="mt-24 relative z-[1] flex lg:flex-row flex-col gap-6 items-center h-full">
-          <div className="text-left text-white xl:w-[50%] lg:w-[45%] xl:px-16 lg:px-12 md:px-8 px-4">
-            <div className="bg-gradient-to-b from-transparent from-10% to-green-500/30 border border-green-500/20 size-12 text-xl rounded-full flex items-center justify-center text-green-600">
-              <FontAwesomeIcon icon={faCode} />
-            </div>
-
-            <h2 className="mt-4 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
+      <div id='landing0'className="horizontalSection">
+        <div >
+            <h2 style={{maxWidth: '100%'}} className="mt-4 mb-0 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
               Go from
               <br />
               <span
-                style={{ textShadow: "0px 0px 10px #22d3ee80" }}
-                className="font-mono bg-gradient-to-b bg-clip-text text-transparent from-green-300 to-lime-500"
+                style={{ textShadow: "0px 0px 15px var(--accent1)",color:'var(--accent1)' }}
+                className="font-mono "
               >
                 print("Hello, world!")
               </span>
               <br />
               to building for the world
             </h2>
-            <div
-              className="w-full"
-              style={{
-                backdropFilter: "blur(20px)",
-                WebkitMask: "linear-gradient(90deg, transparent, black 50%)",
-              }}
-            ></div>
             <h3 className="mt-4 xl:text-2xl lg:text-xl md:text-lg text-base font-light text-white/70">
-              Guided programming lessons take you from zero to hero, with
-              interactive walkthroughs.
+              Handcrafted programming lessons take you from zero to hero, each step of the way.
             </h3>
+            </div>
+            <div style={{backgroundImage:'url(/coursePicture.png)'}}className="showcaseImage"></div>
             
-          </div>
-
-          <div className="relative lg:flex-1 w-full h-full flex items-center bg-[url('/bgs/grids/zinc800.svg')] bg-contain bg-center bg-repeat">
-            <div
-              className="text-sky-400 md:flex hidden items-center justify-center text-5xl absolute z-10 top-[15%] -left-6 size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-sky-500/50 border border-sky-500 size-20 backdrop-blur-[2px]"
-              style={{ boxShadow: "0px 0px 25px #38bdf8BF" }}
-            >
-              <FontAwesomeIcon icon={faReact} />
-            </div>
-            <div
-              className="text-yellow-400 md:flex hidden items-center justify-center text-5xl absolute z-0 bottom-[11%] right-[30%] size-18 rounded-xl bg-gradient-to-b from-transparent from-10% to-yellow-500/50 border border-yellow-500 size-20 backdrop-blur-[2px]"
-              style={{ boxShadow: "0px 0px 25px #facc15BF" }}
-            >
-              <FontAwesomeIcon icon={faJs} />
-            </div>
-            <div className="relative z-0 backdrop-blur-[1.5px] w-full aspect-video bg-gradient-to-b from-white/5 from-40% to-white/20 border border-white/20 lg:rounded-l-xl shadow-2xl shadow-white/10"></div>
-          </div>
-        </div>
-
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
       </div>
 
-      {/* INTERVIEW section  */}
-      <div className="md:mt-48 mt-20 relative w-screen lg:h-[80vh]">
-        <div className="absolute z-0 bg-green-500/10 blur-3xl w-[30%] aspect-square rounded-full left-[30%] top-[10%]"></div>
-        <div className="absolute z-0 bg-teal-500/15 blur-3xl w-[20%] aspect-square rounded-full left-[60%] bottom-[0%]"></div>
+     
 
-        <div className="relative z-[1] flex lg:flex-row flex-col-reverse gap-6 items-center h-full">
-          <div className="relative lg:flex-1 w-full h-full flex items-center bg-[url('/bgs/grids/zinc800.svg')] bg-contain bg-center bg-repeat">
-            <div className="relative z-0 backdrop-blur-[1.5px] w-full aspect-video bg-gradient-to-b from-white/5 from-40% to-white/20 border border-white/20 lg:rounded-r-xl shadow-2xl shadow-white/10"></div>
-          </div>
+      <div className="verticalSection">
+        <h1>Self-paced courses</h1>
+        <h2>Learn at your own pace. Courses are designed to have natural progression, so you won't feel overwhelmed.</h2>
+      </div>
 
-          <div className="text-left text-white xl:w-[50%] lg:w-[45%] xl:px-16 lg:px-12 md:px-8 px-4">
-            <div className="bg-gradient-to-b from-transparent from-10% to-green-500/30 border border-green-500/20 size-12 text-xl rounded-full flex items-center justify-center text-green-600">
-              <FontAwesomeIcon icon={faMicrophone} />
-            </div>
-
-            <h2 className="mt-4 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
-              Interviews are half coding,{" "}
-              <span
-                className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-teal-300"
-                style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
-              >
-                half talking
-              </span>
-              .
-              <br />
-              <span
-                className="bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-teal-300"
-                style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
-              >
-                Practice talking with edCode AI.
-              </span>
+      <div id='landing1' className="horizontalSection">
+        <div style={{maxWidth:'600px'}}>
+        <h2 style={{maxWidth: '100%'}} className="mt-4 mb-0 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
+              Stay motivated with a dynamic leaderboard, friends, and more.
             </h2>
-            <div
-              className="w-full"
-              style={{
-                backdropFilter: "blur(20px)",
-                WebkitMask: "linear-gradient(90deg, transparent, black 50%)",
-              }}
-            ></div>
+           
             <h3 className="mt-4 xl:text-2xl lg:text-xl md:text-lg text-base font-light text-white/70">
-              Communication is an ignored yet core value of interviews. edCode
-              teaches you how to write code, then express it.
+              We think learning should not be a chore, it should be fun. Compete with friends, climb the leaderboard rankings, and gain certificates for every course you complete. <span  style={{fontSize:'0.9rem',opacity:0.7}}>*friends coming soon</span>
             </h3>
-
-            
-          </div>
         </div>
-
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[10deg] right-0 top-[30%] -translate-y-[50%]" />
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[0deg] right-0 top-[50%] -translate-y-[50%]" />
-        <div className="absolute md:flex hidden z-0 h-[20px] bg-gradient-to-r from-teal-300/30 via-green-100/30 to-white/20 blur-2xl w-screen rotate-[-10deg] right-0 top-[70%] -translate-y-[50%]" />
+        <div style={{backgroundImage:'url(/coursePicture.png)'}}className="showcaseImage"></div>
       </div>
 
-      {/* SPACED REPETITION section */}
-      <div className="flex flex-col items-center justify-center px-4">
-        <p
-          className="mt-24 xl:text-6xl lg:text-5xl md:text-4xl text-3xl pb-2 bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-teal-400 from-40% via-60% to-85%"
-          style={{ textShadow: "0px 0px 20px rgb(255, 255, 255, 0.4)" }}
-        >
-          Don&apos;t just memorize coding, learn it
-        </p>
-
-        <div className="mt-8 w-screen md:block hidden">
-          <div className="h-[350px] relative">
-            <div className="absolute w-screen h-full flex items-center space-x-6 xl:-translate-x-[5vw] lg:-translate-x-[350px] md:-translate-x-[600px]">
-              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-                15
-              </div>
-              <div
-                className="border-b-2 border-b-teal-600 h-full aspect-square rounded-full bg-gradient-to-b from-green-600 to-teal-400 text-white flex items-center justify-center text-[20vh]"
-                style={{
-                  boxShadow: "0px 0px 25px #4ade80BF, 0px 0px 70px #a8a868BF",
-                }}
-              >
-                16
-              </div>
-
-              <div className="h-full aspect-square text-left text-white">
-                <DescribeSpacedRepetitionDiv />
-              </div>
-
-              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-                17
-              </div>
-              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-                18
-              </div>
-              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-                19
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 h-[350px] relative">
-            <div className="absolute w-screen h-full flex items-center space-x-6 xl:-translate-x-[225px] lg:-translate-x-[500px] md:-translate-x-[750px]">
-              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-                21
-              </div>
-              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-                22
-              </div>
-              <div
-                className=" border-b-2 border-b-teal-600 h-full aspect-square rounded-full bg-gradient-to-b from-green-600 to-teal-400 text-white flex items-center justify-center text-[20vh]"
-                style={{
-                  boxShadow: "0px 0px 25px #4ade80BF, 0px 0px 70px #a8a868BF",
-                }}
-              >
-                23
-              </div>
-
-              <div className="h-full aspect-square text-left text-white">
-                <SpacedRepetitionCalendarDiv />
-              </div>
-
-              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-                24
-              </div>
-              <div className="h-full aspect-square rounded-full bg-gradient-to-b from-zinc-800 to-zinc-900 flex items-center justify-center text-[20vh] text-zinc-950">
-                25
-              </div>
-            </div>
-          </div>
+      <div id='landing2' className="horizontalSection">
+      <div className="w-full h-20 flex items-center justify-center space-x-6">
+                 
+                        <MicrophoneInputDiv/>
+                        
+                </div>
+        <div style={{maxWidth:'600px'}}>
+        <h2 style={{maxWidth: '100%'}} className="mt-4 mb-0 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
+              Interview Preperation
+            </h2>
+           
+            <h3 className="mt-4 xl:text-2xl lg:text-xl md:text-lg text-base font-light text-white/70">
+              Chat with our AI, Codey, for practice interviews, or even feedback on your code. <span  style={{fontSize:'0.9rem',opacity:0.7}}> *coming soon</span>
+            </h3>
         </div>
+       
+      </div>
+    
+      <div className="verticalSection">
+        <h1>For Educators</h1>
+        
+      </div>
+      <div id='landing3' className="horizontalSection">
+      <div style={{backgroundImage:'url(/coursePicture.png)'}}className="showcaseImage"></div>
+        <div style={{maxWidth:'600px'}}>
+        <h2 style={{maxWidth: '100%'}} className="mt-4 mb-0 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
+              Create custom, interactive courses
+            </h2>
+           
+            <h3 className="mt-4 xl:text-2xl lg:text-xl md:text-lg text-base font-light text-white/70">
+              Our course creator allows you to create custom courses for your students, owned by you. 
+             <span  style={{fontSize:'0.9rem',opacity:0.7}}> *coming soon</span>
+            </h3>
+        </div>
+        
       </div>
 
-      <div className="mt-8 md:hidden flex flex-col space-y-4">
-        <DescribeSpacedRepetitionDiv />
-        <SpacedRepetitionCalendarDiv />
-      </div>
+      
 
-      <div className="md:mt-24 mt-12 w-screen flex lg:flex-row flex-col">
-        <div className="flex-1">
-          <SecureThatDiv />
-          <div className="pr-px bg-gradient-to-b from-zinc-800 from-15% via-sky-300 to-zinc-800 to-85%">
-            <div className="pt-px bg-gradient-to-r from-zinc-800 from-30% via-green-400 to-zinc-800 to-70% border-b border-zinc-800">
-              <div className="bg-body w-full text-white xl:px-12 lg:px-8 px-4 py-8 text-left">
-                <div className="flex flex-col space-y-2 relative">
-                  <div className="flex items-center space-x-2 whitespace-nowrap overflow-hidden p-2 py-1.5 shadow-lg shadow-black/20 rounded-xl bg-gradient-to-b from-green-700 to-green-800 border-t border-green-500">
-                    <p className="opacity-50 text-lg">A</p>
-                    <p className="text-zinc-300 text-lg font-extralight font-mono">
-                      print("Hello, world!")
-                    </p>
-                  </div>
-                  <div className="flex items-center space-x-2 whitespace-nowrap overflow-hidden p-2 py-1.5 shadow-lg shadow-black/20 rounded-xl bg-zinc-800 border-t border-t-zinc-700">
-                    <p className="text-zinc-500 text-lg">B</p>
-                    <p className="text-zinc-100 text-lg font-extralight font-mono">
-                      print(Hello, world!)
-                    </p>
-                  </div>
-                  <div className="flex items-center space-x-2 whitespace-nowrap overflow-hidden p-2 py-1.5 shadow-lg shadow-black/20 rounded-xl bg-gradient-to-b from-red-700 to-red-800 border-t border-red-500">
-                    <p className="opacity-50 text-lg">C</p>
-                    <p className="text-zinc-300 text-lg font-extralight font-mono">
-                      print: "Hello, world!"
-                    </p>
-                  </div>
-
-                  <div className="absolute bottom-3 right-3 bg-body/75 backdrop-blur-[2px] border border-zinc-800 p-3 rounded-xl">
-                    <p className="text-base">
-                      No worries, Ekya!
-                      <br />
-                      Let&apos;s review this question.
-                    </p>
-                  </div>
-                </div>
-                <h3 className="mt-4 text-xl mb-0">
-                  Guided feedback on every question
-                </h3>
-                <p className="text-base font-extralight text-zinc-400 mt-0">
-                edCode provides professionally reviewed explanations for every
-                  answer, with AI at your side to answer any follow-up
-                  questions.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex lg:flex-row flex-col">
-            <div className="flex-1 lg:pr-px pb-px lg:bg-gradient-to-b bg-gradient-to-r from-zinc-800 from-20% via-green-400 to-zinc-800 to-80%">
-              <div className="h-full border-zinc-800 bg-body text-white text-left">
-                <div className="xl:px-5 lg:px-2 px-1">
-                  <div className="relative z-[3] bg-gradient-to-b from-zinc-800 to-zinc-900 p-2 rounded-b-lg border border-zinc-800">
-                    <div className="flex space-x-2 items-center">
-                      <Image
-                        src={"/people/ekya.png"}
-                        width={32}
-                        height={32}
-                        className="rounded-full"
-                        alt="ivan"
-                      />
-                      <div className="flex-1">
-                        <p className="text-white font-normal text-base">
-                          Passion project idea
-                        </p>
-                        <p className="text-sm font-extralight text-zinc-500">
-                          I&apos;m Ekya, and I have an idea!
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="backdrop-blur-sm relative z-[2] -translate-y-2 pt-3 bg-gradient-to-b from-green-950/50 from-40% to-green-900/50 px-2 py-1 rounded-b-lg border border-green-800">
-                    <p className="text-xs text-green-600">
-                      I&apos;ve completed my project!
-                    </p>
-                  </div>
-                  <div className="backdrop-blur-sm relative z-[1] -translate-y-4 pt-3 bg-gradient-to-b from-cyan-950/50 from-40% to-cyan-900/50 px-2 py-1 rounded-b-lg border border-cyan-800">
-                    <p className="text-xs text-cyan-600">
-                      3 others gave feedback
-                    </p>
-                  </div>
-                </div>
-
-                <div className="xl:px-12 lg:px-8 px-4 pb-8 pt-0">
-                  <h3 className="text-xl mb-0">
-                    Get ideas & feedback for passion projects
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="flex-1 lg:pr-px pb-px bg-zinc-800">
-              <div className="h-full bg-body text-white xl:px-12 lg:px-8 px-4 py-8 text-left">
-                <div className="w-full flex items-center justify-center space-x-6">
-                  <Image
-                    src={"/people/ekya.png"}
-                    width={32}
-                    height={32}
-                    className="rounded-full"
-                    alt="ekya"
-                  />
-
-                  <div className="h-24 flex items-center justify-center bg-gradient-to-b from-white/5 to-white/10 border border-white/10 rounded-full aspect-square">
-                    <div className="h-16 flex items-center justify-center bg-gradient-to-b from-white/5 to-white/10 border border-white/10 rounded-full aspect-square">
-                      <div className="h-8 flex items-center justify-center bg-gradient-to-b from-white/5 to-white/10 border border-white/10 rounded-full aspect-square">
-                        <div className="absolute h-[32px] flex items-center">
-                          <MicrophoneInputDiv />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="size-[32px] border border-green-600 bg-gradient-to-b from-green-950/50 to-green-900/50 from-40% rounded-full flex items-center justify-center font-extralight text-green-600">
-                    AI
-                  </div>
-                </div>
-
-                <h3 className="text-xl mb-0">
-                  Communicate effectively with interview training
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex-1 text-center lg:border-t-0 border-t border-zinc-800">
-          <div className="pb-px bg-gradient-to-r from-zinc-800 from-30% via-sky-300 to-zinc-800 to-70%">
-            <div className="xl:px-16 lg:px-12 md:px-8 px-4 py-4 bg-body">
-              <h4 className="text-lg text-zinc-500">
-                For <span className="text-sky-300">employers</span>
-              </h4>
-              <h2
-                className="mt-4 lg:text-4xl md:text-3xl text-2xl pb-2 text-zinc-500 mb-0"
-                style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
-              >
-                Foster{" "}
-                <span
-                  className="bg-gradient-to-r bg-clip-text text-transparent from-white via-sky-300 to-violet-300"
-                  style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
-                >
-                  positive work environments
-                </span>{" "}
-                by
-                <br />
-                <span
-                  className="bg-gradient-to-l bg-clip-text text-transparent from-white via-sky-300 to-violet-300"
-                  style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
-                >
-                  assessing real-world scenarios
-                </span>
-              </h2>
-            </div>
-          </div>
-
-          <div className="flex lg:flex-row flex-col text-white">
-            <div className="overflow-hidden relative text-left flex-1 lg:border-r border-zinc-800 xl:px-12 lg:px-8 px-4 py-8 pb-12">
-              <div className="absolute z-0 w-1/3 aspect-square rounded-full blur-3xl bg-violet-300/40" />
-
-              <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                height="100%"
-                viewBox="0 0 726 628"
-                className="relative z-[1]"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <defs>
-                  <linearGradient
-                    id="fillGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="80%"
-                    y2="80%"
-                  >
-                    <stop
-                      offset="0%"
-                      style={{ stopColor: "#38bdf840", stopOpacity: "1" }}
-                    />
-                    <stop
-                      offset="100%"
-                      style={{ stopColor: "#00000000", stopOpacity: "1" }}
-                    />
-                  </linearGradient>
-
-                  <linearGradient
-                    id="strokeGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="80%"
-                    y2="80%"
-                  >
-                    <stop
-                      offset="0%"
-                      style={{ stopColor: "#38bdf899", stopOpacity: "1" }}
-                    />
-                    <stop
-                      offset="100%"
-                      style={{ stopColor: "#00000000", stopOpacity: "1" }}
-                    />
-                  </linearGradient>
-                </defs>
-
-                <polygon
-                  points="723,314 543,625.769145 183,625.769145 3,314 183,2.230855 543,2.230855 723,314"
-                  fill="url(#fillGradient)"
-                  stroke="url(#strokeGradient)"
-                  strokeWidth="3"
-                  className="absolute"
-                  style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
-                />
-
-                <polygon
-                  points="80,314 210,100 260,100 130,314 260,528 210,528"
-                  fill="url(#fillGradient)"
-                  stroke="url(#strokeGradient)"
-                  strokeWidth="3"
-                  className="absolute"
-                  style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
-                />
-
-                <polygon
-                  points="300,528 350,528 430,100 380,100"
-                  fill="url(#fillGradient)"
-                  stroke="url(#strokeGradient)"
-                  strokeWidth="3"
-                  className="absolute"
-                  style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
-                />
-              </svg>
-
-              <h2 className="text-xl">Assess technical skills</h2>
-            </div>
-
-            <div className="relative overflow-hidden text-left flex-1 lg:border-r border-t border-zinc-800 xl:px-16 lg:px-12 md:px-8 px-4 py-8 pb-12">
-              <div className="absolute right-0 z-0 w-1/3 aspect-square rounded-full blur-3xl bg-amber-300/40" />
-
-              <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                height="100%"
-                viewBox="0 0 726 628"
-                className="relative z-[1]"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <defs>
-                  <linearGradient
-                    id="fillGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="80%"
-                    y2="80%"
-                  >
-                    <stop
-                      offset="0%"
-                      style={{ stopColor: "#fb923c40", stopOpacity: "1" }}
-                    />
-                    <stop
-                      offset="100%"
-                      style={{ stopColor: "#00000000", stopOpacity: "1" }}
-                    />
-                  </linearGradient>
-
-                  <linearGradient
-                    id="strokeGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="80%"
-                    y2="80%"
-                  >
-                    <stop
-                      offset="0%"
-                      style={{ stopColor: "#fb923c99", stopOpacity: "1" }}
-                    />
-                    <stop
-                      offset="100%"
-                      style={{ stopColor: "#00000000", stopOpacity: "1" }}
-                    />
-                  </linearGradient>
-                </defs>
-
-                <polygon
-                  points="723,314 543,625.769145 183,625.769145 3,314 183,2.230855 543,2.230855 723,314"
-                  fill="url(#fillGradient)"
-                  stroke="url(#strokeGradient)"
-                  strokeWidth="3"
-                  className="absolute"
-                  style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
-                />
-
-                <polygon
-                  points="80,314 210,100 260,100 130,314 260,528 210,528"
-                  fill="url(#fillGradient)"
-                  stroke="url(#strokeGradient)"
-                  strokeWidth="3"
-                  className="absolute"
-                  style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
-                />
-
-                <polygon
-                  points="300,528 350,528 430,100 380,100"
-                  fill="url(#fillGradient)"
-                  stroke="url(#strokeGradient)"
-                  strokeWidth="3"
-                  className="absolute"
-                  style={{ boxShadow: "-10px -10px 24px rgb(255, 255, 255)" }}
-                />
-              </svg>
-
-              <h2 className="text-xl">Assess personality</h2>
-            </div>
-          </div>
-
-          <div className="border-t border-zinc-800 text-white xl:px-12 lg:px-8 px-4 flex xl:flex-row flex-col gap-4 py-8">
-            <div className="w-[300px] text-left bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-800 rounded-xl p-2">
-              <p className="text-base text-zinc-400 mb-0 font-extralight">
-                Situation #1
-              </p>
-              <h3 className="mt-0 font-normal text-white text-lg mb-0">
-                Arrogant teammate
-              </h3>
-              <p className="mt-2 text-sm text-zinc-500">
-                Ekya will be in a mock meeting with{" "}
-                <span className="text-red-500">Jacob</span>, our AI chatbot
-                trained for arrogancy.{" "}
-              </p>
-            </div>
-            <div className="flex-1 text-left">
-              <h3 className="text-xl mb-0">Get to know your applicants</h3>
-              <p className="text-base font-extralight text-zinc-400 mt-0">
-                Successful programmers aren&apos;t just programmers --
-                they&apos;re thinkers, creators, able to work well with others &
-                work with the team.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+     
       {/* Waitlist Button, user action */}
       <div className="flex flex-col items-center justify-center px-4 text-center">
         <h1 className="md:mt-24 mt-12 xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-medium bg-gradient-to-b from-white to-zinc-200 text-transparent bg-clip-text">
-          Ready for your first lesson?
+          Ready for your first course?
         </h1>
-        <h2 className="font-extralight xl:text-2xl lg:text-xl md:text-lg text-base text-zinc-500">
-          Let&apos;s try out a command below to get you signed up!
+        <h2 className="font-base xl:text-2xl lg:text-xl md:text-lg text-base text-zinc-300">
+          Join our growing community of learners.
         </h2>
 
         <div className="md:px-4 px-2 w-full flex flex-col items-center">
-          <div className="relative rounded-xl xl:w-[70vw] lg:w-[80vw] md:w-[90vw] w-full md:aspect-video bg-[url('/bgs/sunset_mountains.jpg')] bg-cover">
-            <div className="absolute left-[50%] -translate-x-1/2 top-[20%] md:w-[65%] text-left rounded-xl bg-gradient-to-b from-slate-900/70 to-slate-900/90 backdrop-blur-[2px] border border-slate-600 shadow-lg shadow-slate-700/70 p-3 font-mono">
+          <div className="relative rounded-xl xl:w-[60vw] lg:w-[80vw] md:w-[90vw] w-full h-[500px]  bg-[url('/bgs/sunset_mountains.jpg')] bg-cover">
+            <div className="absolute left-[50%] -translate-x-1/2 top-[20%] md:w-[65%] w-[90%] text-left rounded-xl bg-gradient-to-b from-slate-900/70 to-slate-900/90 backdrop-blur-[2px] border border-slate-600 shadow-lg shadow-slate-700/70 p-3 font-mono">
               <div className="flex items-center space-x-1.5">
                 <div className="size-3 rounded-full bg-slate-500" />
                 <div className="size-3 rounded-full bg-slate-500" />
@@ -1016,7 +410,7 @@ const SecureThatDiv = () => {
 
 const MicrophoneInputDiv = () => {
   return (
-    <div className="flex items-center space-x-0.5">
+    <div className="flex items-center space-x-0.5 micDemo">
       {new Array(30).fill(0).map((x, index) => (
         <motion.div
           key={index}

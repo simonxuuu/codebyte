@@ -73,7 +73,7 @@ export default function Page({ params }) {
 
     return (
         <main>
-        <h1 className='lessonPageTitle'>{appContext.CamelCaseToNormal (appContext.currentCourseName)} <svg onClick={()=>{
+        <h1 style={{pointerEvents:'auto'}}className='lessonPageTitle'>{appContext.CamelCaseToNormal (appContext.currentCourseName)} <svg onClick={()=>{
           
 
           document.body.style.setProperty('--transitionAnim', 'fadeInOut 1.1s ease-in-out');
