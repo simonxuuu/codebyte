@@ -10,31 +10,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ProfileModal from "./components/modals/ProfileModal";
 import Dashboard from "./dashboard/page";
+import  "../styles/globals.css";
 
-const baseNavPages = [
-  
-];
 
 const TopBar = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [navPages, setNavPages] = useState([...baseNavPages]);
+ 
   const pathname = usePathname();
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   const hamburger = useRef(null);
   const appContext = useContext(AppContext);
-  useEffect(() => {
-    //add open mobile menu logi
-    if (hamburger.current) {
-      hamburger.current.classList.toggle("is-active");
-    }
-  }, [isMobileMenuOpen]);
-
-  useEffect(() => {
-    console.log(appContext.loggedIn);
-   
-  }, [appContext]);
+ 
 
   function signout() {
     signOut(auth)
@@ -58,15 +46,15 @@ const TopBar = () => {
           pathname.includes("/dashboard") && "hidden"
         }`}
       >
-        <header className="outline outline-[1px] outline-white/10 border-t border-white/15 bg-zinc-800/70 shadow-lg shadow-black/20 lg:py-4 py-2.5 px-6 lg:rounded-2xl flex items-center">
-          <Link href="/" className="text-xl flex-1">
+        <header style={{backgroundColor:'var(--topBarColor)',borderColor:'var(--topBarBorderColor)',borderWidth:'0.15em'}}className=" bg-zinc-800/70 shadow-lg shadow-black/20 lg:py-4 py-2.5 px-6 lg:rounded-2xl flex items-center">
+          <Link href="/" className="text-xl flex-1" style={{fontWeight:500}}>
             edCode
           </Link>
 
           <div className="absolute lg:flex  items-center space-x-3 left-1/2 -translate-x-1/2">
               {appContext.loggedIn && (
                 <Link href='/dashboard'>
-                  <p className="my-0 text-base text-zinc-400">Dashboard</p>
+                  <p className=" my-0 text-base text-zinc-400 menuItem">Dashboard</p>
                 </Link>
               )}
             
@@ -102,10 +90,13 @@ const TopBar = () => {
 
           <button
             ref={hamburger}
-            className="hamburger hamburger--spin "
+            className="hamburger hamburger--spin"
             type="button"
             onClick={() => {
-              setMobileMenuOpen((isMobileMenuOpen) => !isMobileMenuOpen);
+              setMobileMenuOpen(!isMobileMenuOpen);
+              if (hamburger.current) {
+                hamburger.current.classList.toggle("is-active");
+              }
             }}
           >
             <span className="hamburger-box">
@@ -117,19 +108,18 @@ const TopBar = () => {
         {isMobileMenuOpen && (
           <div className="border-b border-zinc-800 shadow-2xl shadow-zinc-950/70 fixed top-[60px] w-screen bg-zinc-900/80 backdrop-blur-lg z-[500] text-white flex flex-col gap-2">
             <div className="p-6 flex-1">
-              {navPages.map((page, i) => {
-                return (
-                  <Link href={`${page.link}`} key={`fsadffaosdufjasdf=${i}`}>
+            {appContext.loggedIn && (
+                  <Link href={`/dashboard`}>
                     <div className="w-full text-left text-lg py-1 flex items-center gap-2">
-                      <span className="flex-1">{page.name}</span>
+                      <span className="flex-1">Dashboard</span>
                       <FontAwesomeIcon
                         icon={faArrowRight}
                         className="text-zinc-400"
                       />
                     </div>
                   </Link>
-                );
-              })}
+                )
+            }
             </div>
 
             <div className="p-6 flex flex-col gap-2 text-lg">
