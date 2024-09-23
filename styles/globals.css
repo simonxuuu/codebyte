@@ -11,8 +11,7 @@
 body,
 html {
   color: white;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  overflow-y: hidden;
   overflow-x: hidden;
   box-sizing: border-box;
   border: 0;
@@ -43,6 +42,11 @@ html {
 
   scrollbar-color: rgb(255, 255, 255, 0.2) transparent;
   scrollbar-width: 7px;
+}
+html{
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 #gradient-canvas{
   --gradient-color-1: #20d15b;
