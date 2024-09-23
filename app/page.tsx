@@ -129,7 +129,7 @@ export default function Home() {
         <canvas id='gradient-canvas'className="h-full absolute   lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
         
         </canvas>
-        <div className="h-full relative   lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
+        <div style={{overflowY: 'visible'}}className="h-full relative   lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
           
 
           

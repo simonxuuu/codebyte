@@ -28,7 +28,7 @@
   .hamburger.is-active .hamburger-inner,
   .hamburger.is-active .hamburger-inner::before,
   .hamburger.is-active .hamburger-inner::after {
-    background-color: var(--accent1); }
+    background-color: var(--light); }
     @media only screen and (min-width: 1024px) {
       .hamburger{
         display: none;

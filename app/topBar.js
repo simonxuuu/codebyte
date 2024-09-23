@@ -127,7 +127,7 @@ const TopBar = () => {
                     <span className="flex-1">About</span>
                     <FontAwesomeIcon
                       icon={faArrowRight}
-                      className="text-zinc-400"
+                      className="text-white"
                     />
                   </div>
                 </button>
@@ -136,7 +136,7 @@ const TopBar = () => {
                     <span className="flex-1">Leaderboard</span>
                     <FontAwesomeIcon
                       icon={faArrowRight}
-                      className="text-zinc-400"
+                      className="text-white"
                     />
                   </div>
                 </button>
@@ -145,7 +145,7 @@ const TopBar = () => {
                     <span className="flex-1">Interviews</span>
                     <FontAwesomeIcon
                       icon={faArrowRight}
-                      className="text-zinc-400"
+                      className="text-white"
                     />
                   </div>
                 </button>
@@ -154,20 +154,20 @@ const TopBar = () => {
                     <span className="flex-1">Educators</span>
                     <FontAwesomeIcon
                       icon={faArrowRight}
-                      className="text-zinc-400"
+                      className="text-white"
                     />
                   </div>
                 </button>
             </div>
 
-            <div style={{alignItems:'center'}}className="p-6 flex flex-col gap-1 text-lg ">
+            <div style={{alignItems:'center'}}className="p-6 w-full flex flex-col gap-4 text-lg ">
               <Link
                 href="/login"
                 className={`text-xl ${
                   appContext.loggedIn ? "hidden" : "visible"
                 }`}
               >
-                <button className="my-0 text-base w-full border border-zinc-800 p-2 rounded-lg">
+                <button style={{width:'80vw'}} className="my-0 text-base w-full border border-zinc-800 bg-zinc-800 p-2 rounded-lg">
                   Log in
                 </button>
               </Link>
@@ -178,7 +178,7 @@ const TopBar = () => {
                   appContext.loggedIn ? "hidden" : "visible"
                 }`}
               >
-                <button className="my-0 text-base w-full border border-transparent bg-white text-zinc-800 p-2 rounded-lg">
+                <button style={{width:'80vw'}} className="my-0 text-base w-full border border-transparent bg-white text-zinc-800 p-2 rounded-lg">
                   Sign up
                 </button>
               </Link>

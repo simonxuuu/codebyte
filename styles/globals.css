@@ -6,6 +6,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 body,
 html {
   color: white;
@@ -48,7 +50,7 @@ html {
   --gradient-color-3: #5add1d;
   --gradient-color-4: #ceec4a;
   filter:brightness(0.75);
-  margin:0;padding: 0;  width: 100vw;
+  margin:0;padding: 0;  width: 100vw; overflow-y: visible;
 }
 ::-webkit-scrollbar {
   width: 7px;
@@ -384,6 +386,7 @@ h1 {
   font-size: max(35px, 1vw);
   margin-bottom: 1rem;
   font-weight: normal;
+  pointer-events: none;
   filter: drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
 }
 
