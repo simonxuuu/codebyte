@@ -174,6 +174,10 @@ const TopBar = () => {
 
             <div style={{alignItems:'center'}}className="p-6 w-full flex flex-col gap-4 text-lg ">
               <Link
+              onClick={()=>{setMobileMenuOpen(!isMobileMenuOpen);
+                if (hamburger.current) {
+                  hamburger.current.classList.toggle("is-active");
+                }}}
                 href="/login"
                 className={`text-xl ${
                   appContext.loggedIn ? "hidden" : "visible"
@@ -185,7 +189,11 @@ const TopBar = () => {
               </Link>
 
               <Link
-                href="/login"
+                href="/register"
+                onClick={()=>{setMobileMenuOpen(!isMobileMenuOpen);
+                  if (hamburger.current) {
+                    hamburger.current.classList.toggle("is-active");
+                  }}}
                 className={`text-xl ${
                   appContext.loggedIn ? "hidden" : "visible"
                 }`}

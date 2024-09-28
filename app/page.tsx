@@ -206,7 +206,7 @@ export default function Home() {
               We think learning should not be a chore, it should be fun. Compete with friends, climb the leaderboard rankings, and gain certificates for every course you complete. <span  style={{fontSize:'0.9rem',opacity:0.7}}>*friends coming soon</span>
             </h3>
         </div>
-        <div style={{backgroundImage:'url(/coursePicture.png)'}}className="showcaseImage"></div>
+        <div style={{backgroundImage:'url(/ss4.png)'}}className="showcaseImage"></div>
       </div>
 
       <div id='landing2' className="horizontalSection">
