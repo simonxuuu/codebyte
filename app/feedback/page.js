@@ -8,11 +8,30 @@ export default function Feedback() {
   const router = useRouter();
   const [apiResponse, setApiResponse] = useState("");
 
+  const sendFeedback = async (event) => {
+    const formData = new FormData(event.target);
+    const response = await fetch("/api/feedback", {
+      method: "POST",
+      body: formData,
+    });
+  
+    const responseText = await response.text(); // Get the raw response text
+    console.log('Raw response:', responseText);
+  
+    try {
+      const data = JSON.parse(responseText); // Parse the response text as JSON
+      console.log(data);
+      setApiResponse(data.res);
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+      setApiResponse('Error parsing server response.');
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    setApiResponse("Thank you for your feedback!");
-    appContext.sendFeedback(event);
+    sendFeedback(event);
+    // setApiResponse("Thank you for your feedback!");
     event.target.reset();
   };
 
