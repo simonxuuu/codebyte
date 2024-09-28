@@ -40,10 +40,7 @@
   font-weight: 550;
   color:#db8834;
 }
-.other {
-  font-weight: 600;
-  color:rgb(128, 128, 128);
-}
+.other { font-weight: 600; color:rgb(128, 128, 128); }
 .other + h1{
   font-weight: 500;
   color:rgb(128, 128, 128);
@@ -455,6 +452,7 @@ margin-bottom: 5px;
   color:var(--darkGrey);
     font-size: max(25px,3.3vw);
     width: 90vw;
+    max-width: 90vw;
     font-weight: 400;
     text-align: center;
     margin-top:8px;
@@ -546,7 +544,8 @@ main {
   .lessonPageDescription{
    
       font-size: max(22px,2vw);
-      width: 70vw;
+      width: 54vw;
+      max-width: 54vw;
       text-align: left;
      
       margin-bottom: max(35px,4vw);
@@ -599,6 +598,7 @@ main {
      
         font-size: max(22px,1.5vw);
         width: 54vw;
+        max-width: 54vw;
         text-align: left;
         margin-top:8px;
         margin-bottom: max(35px,4vw);

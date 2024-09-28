@@ -58,17 +58,7 @@ export default function Page({ params }) {
       //appContext.fetchCourse("Python Basics");
     }, [appContext.jwt,refresh]);
 
-    function resetProgress(){
-      
-      appContext.purgeProgress().then(res => {
-        if(res == "success"){
-          setcourseComplete(false);
-          setRefresh(true);
-        }
-      });
-
-    
-    }
+    function resetProgress(){ appContext.purgeProgress().then(res => { if(res == "success"){ setcourseComplete(false); setRefresh(true); } }); }
     
    
 
@@ -86,20 +76,16 @@ export default function Page({ params }) {
                       },455);
                       setTimeout(()=>{document.body.style.setProperty('--transitionAnim', 'none');},1120)
           }} className='lessonPageClose'xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></h1>
-        <h2 className='lessonPageDescription'>{appContext.currentCourseDesc}</h2>
+        <h2  className='lessonPageDescription'>{appContext.currentCourseDesc}</h2>
         {appContext.lessons &&
-        appContext.lessons.map((lesson) => (
-          <LessonComponent
-            key={appContext.lessons.indexOf(lesson)}
-            lessonIndex={appContext.lessons.indexOf(lesson)}
-            appContext = {appContext}
+        appContext.lessons.map((lesson) => ( <LessonComponent key={appContext.lessons.indexOf(lesson)} lessonIndex={appContext.lessons.indexOf(lesson)} appContext = {appContext}
             courseTitle={appContext.currentCourseName}
             data={lesson}
             allLessons={appContext.lessons}
             curEmail={appContext.email}
             onclick = {()=>{console.log('lesson clicked'); appContext.setCurrentLessonName(lesson.Name);router.push(`/dashboard/${appContext.currentCourseName}/${appContext.lessons.indexOf(lesson)}`);}}
           />
-        ))}
+        ))} 
         {courseComplete && <h2 id='wipText'>Congrats on completing this course! Let us know what we can improve.</h2>}
         {courseComplete && <h2 style={{marginTop:'10px',opacity:1,color:'rgb(39, 196, 99)',cursor:'pointer'}}onClick={()=>{appContext.getCertificate();}}id='wipText'>Click here to claim your certificate</h2>}
         <button style={{display:'none'}}onClick={resetProgress}>Reset Progress (testingonly)</button>

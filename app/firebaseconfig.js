@@ -1,4 +1,5 @@
 import {initializeApp} from 'firebase/app';
+import { getAnalytics } from "firebase/analytics";
 import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 // Your Firebase configuration
@@ -15,5 +16,5 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
+const analytics = getAnalytics(app);
 export { auth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut };
