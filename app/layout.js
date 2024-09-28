@@ -28,7 +28,9 @@ export default function Layout({ children }) {
   return (
     <AppProvider>
       <html>
-        
+        <Head>
+        <meta name="google-site-verification" content="v_gCot5YTnbaxbbvkpn8HXg6Du52rsakKuf0LLaC8DM" />
+        </Head>
         <body>
         <div className="fadeTransition"></div>
           <TopBar />
