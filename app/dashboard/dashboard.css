@@ -83,11 +83,11 @@
 }
 
 .sidebarText{
-font-size: min(5vw,20px);
+font-size: min(3.8vw,17px);
 margin:0;
 width: fit-content;
 text-wrap: nowrap;
-padding: 0; color:rgb(104, 104, 104); font-weight: 550;
+padding: 0; color:var(--darkGrey); font-weight: 550;
 }
 .xp-progress{
   height: 10px; /* h-2 */
@@ -126,7 +126,7 @@ padding: 0; color:rgb(104, 104, 104); font-weight: 550;
 }
 .sidebar{
   display: none;
-  background-color: rgb(17, 17, 17);
+  background-color: var(--charcoal);
   flex:1;
   max-width: fit-content;
   min-height: 100vh;
@@ -144,7 +144,7 @@ padding: 0; color:rgb(104, 104, 104); font-weight: 550;
   border-top:solid rgb(44, 44, 44) 2px;
 }
 .sidebarMobile{
-  background-color: rgb(17, 17, 17);
+  background-color: var(--charcoal);
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -165,7 +165,7 @@ padding: 0; color:rgb(104, 104, 104); font-weight: 550;
   flex-direction: column;
 }
 .sidebarTopMobile{
-  background-color: rgb(24, 24, 24);
+  background-color: var(--charcoal);
   position: relative;
   width: 100%;
   z-index: 1;
@@ -183,7 +183,7 @@ padding: 0; color:rgb(104, 104, 104); font-weight: 550;
   margin-bottom: 30px;
 }
 .sidebarComponent{
-  color:rgb(104, 104, 104);
+  color:var(--darkGrey);
   
   display: flex;
   align-items: center;
@@ -222,7 +222,7 @@ padding: 0; color:rgb(104, 104, 104); font-weight: 550;
   
   animation: fadeIn  0.5s ease-in   ;
   opacity:1;
-  
+  border: 0.16em solid var(--lightestCharcoal);
 }
 
 .outerProgressBar{
@@ -282,7 +282,7 @@ padding: 0; color:rgb(104, 104, 104); font-weight: 550;
 }
 
 .courseComponentTitle{
-  color:rgb(180, 180, 180);
+  color:var(--white);
   text-shadow: none;
   margin: 0;
   font-size: 30px;
@@ -291,7 +291,7 @@ padding: 0; color:rgb(104, 104, 104); font-weight: 550;
 }
 .courseComponentDescription{
   margin: 0;
-  color:rgb(124, 124, 124);
+  color:var(--darkGrey);
   font-size: 20px;
   text-align: left;
   width:70%;
@@ -371,12 +371,12 @@ margin-bottom: 5px;
   font-size: 20px;
    /* Center itself horizontally */
 	position: absolute;
-	background:var(--bgColor) ;
+	background:var(--green) ;
 	border-radius: 12px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  filter:drop-shadow(0px 0px 15px rgb(0, 0, 0));
+  filter:drop-shadow(0px 0px 15px rgba(0, 0, 0,0.5));
   align-items: center;
   padding:13px;
   padding-left: 16px;
@@ -390,11 +390,11 @@ margin-bottom: 5px;
   box-sizing: border-box;
   z-index: 2;
   font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: 500;
+  
   pointer-events: auto;
   text-align: center;
-  color: #FFFFFF;
+  color: var(--white);
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   white-space: nowrap; 
   padding: 0.5rem 1.5rem;
@@ -419,7 +419,7 @@ margin-bottom: 5px;
 	width: 0;
 	height: 0;
 	border: 8px solid transparent;
-	border-bottom-color:var(--bgColor) ;
+	border-bottom-color:var(--green);
 	border-top: 0;
 	margin-left: -8px;
 	margin-top: -7px;
@@ -427,7 +427,7 @@ margin-bottom: 5px;
 .lessonPageTitle{
   display: flex;
   align-items: center;
-  
+  letter-spacing: 0.05em;
   justify-content: space-between;
   flex-direction:column-reverse;
   gap:25px;
@@ -452,7 +452,7 @@ margin-bottom: 5px;
 }
 
 .lessonPageDescription{
-  color:rgb(153, 153, 153);
+  color:var(--darkGrey);
     font-size: max(25px,3.3vw);
     width: 90vw;
     font-weight: 400;

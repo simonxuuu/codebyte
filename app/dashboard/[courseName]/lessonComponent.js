@@ -4,12 +4,12 @@ const LessonComponent = ({appContext,data,courseTitle,allLessons,curEmail,onclic
    
     
 
-    const sinAmplitude = 0.1;
+    const sinAmplitude = 0.12;
     const sinPeriod = 0.5;
     const offset = sinAmplitude * Math.sin(((2*Math.PI)/sinPeriod)*(lessonIndex/10));
 
 
-    const bgColor =  (allLessons[lessonIndex].isDone) ? 'var(--lessonComplete)' : lessonIndex > 0 &&  (allLessons[lessonIndex-1].isDone) || lessonIndex == 0 ? 'var(--lessonInComplete)' : 'var(--lessonLocked)'
+    const bgColor =  (allLessons[lessonIndex].isDone) ? 'var(--darkGreen)' : lessonIndex > 0 &&  (allLessons[lessonIndex-1].isDone) || lessonIndex == 0 ? 'var(--green)' : 'var(--lightestCharcoal)'
     const lessonRef = useRef(null);
     const [isFocused,setFocused] = useState(false);
     

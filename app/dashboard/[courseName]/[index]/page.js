@@ -387,7 +387,7 @@ export default function Page({ params }) {
           </div>
 
           <div className="quiz-body">
-            <h2 className="quiz-title">{data.question}</h2>
+            <h2 style={{maxWidth:'100%'}} className="quiz-title">{data.question}</h2>
 
             <div className="quiz-options">
               {data &&

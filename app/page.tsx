@@ -123,7 +123,7 @@ export default function Home() {
   return (
     <section>
       <div
-      style={{marginBottom:'240px'}}
+      style={{marginBottom:'315px'}}
         className="pb-px  h-[90vh]"
         
       >
@@ -136,7 +136,7 @@ export default function Home() {
           
 
           <h1
-            style={{letterSpacing:'0.02em',color:'var(--light)'}}
+            style={{letterSpacing:'0.02em',color:'var(--white)'}}
             className="mt-4 xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-medium"
           >
             The fun way to learn
@@ -144,14 +144,14 @@ export default function Home() {
             real-world coding!
           </h1>
 
-          <p style={{fontWeight:400,color:'var(--light)'}}className="my-4 xl:text-xl lg:text-lg md:text-base  ">
+          <p style={{fontWeight:400,color:'var(--white)'}}className="my-4 xl:text-xl lg:text-lg md:text-base  ">
             edCode takes you from zero to hero, no matter your starting point.
           </p>
 
           <Link href="/register">
             <button
-            style={{fontWeight:650,backgroundColor:'var(--light)',color:'var(--lessdark)', textShadow: "0px 2px 2px rgba(0,0,0,0.1)" }}
-              className="text-xl md:w-fit w-full mt-8 px-7 py-2 rounded-xl border-t-green-500 shadow-md"
+            style={{fontWeight:600,backgroundColor:'var(--light)',color:'var(--darkCharcoal)'}}
+              className="text-xl md:w-fit w-full mt-8 px-7 py-2 rounded-xl "
               
             >
               Get started
@@ -164,16 +164,16 @@ export default function Home() {
         </div>
       </div>
       <div className="verticalSection">
-        <h1>Free, fun, and easy.</h1>
-        <h2>This is the way learning to code should be. Learn on any device, anytime, anywhere.</h2>
+        <h1>Free, fun, and <span className='customUnderlineGreen' style={{color:'var(--tealGreen)'}}>easy.</span></h1>
+        <h2 style={{color:'var(--grey)'}}>This is the way learning to code should be. Learn on any device, anytime, anywhere.</h2>
       </div>
       <div id='landing0'className="horizontalSection">
         <div >
-            <h2 style={{maxWidth: '100%'}} className="mt-4 mb-0 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
+            <h2 style={{maxWidth: '100%',fontWeight:500}} className="mt-4 mb-0 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
               Go from
               <br />
               <span
-                style={{ textShadow: "0px 0px 15px var(--accent1)",color:'var(--accent1)' }}
+                style={{color:'var(--green)' }}
                 className="font-mono "
               >
                 print("Hello, world!")
@@ -193,7 +193,7 @@ export default function Home() {
 
       <div className="verticalSection">
         <h1>Self-paced courses</h1>
-        <h2>Learn at your own pace. Courses are designed to have natural progression, so you won't feel overwhelmed.</h2>
+        <h2 style={{color:'var(--grey)'}}>Learn at your own pace. Courses are designed to have <span style={{color:'var(--teal)'}}>natural progression</span>, so you won't feel overwhelmed.</h2>
       </div>
 
       <div id='landing1' className="horizontalSection">
@@ -232,7 +232,7 @@ export default function Home() {
         
       </div>
       <div id='landing3' className="horizontalSection">
-      <div style={{backgroundImage:'url(/coursePicture.png)'}}className="showcaseImage"></div>
+      <div style={{backgroundImage:'url(/courses0.png)'}}className="showcaseImage"></div>
         <div style={{maxWidth:'600px'}}>
         <h2 style={{maxWidth: '100%'}} className="mt-4 mb-0 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
               Create custom, interactive courses

@@ -30,7 +30,7 @@
     animation: fadeIn 0.5s ease-in 0.5s forwards;
   }
   .lessonHeading{
-    color:rgb(238, 238, 238);
+    color:var(--white);
     text-align: left;
     font-size:27px;
     max-width: 70%;
@@ -45,7 +45,7 @@
   .lessonSubHeading{
     font-size:25px;
     font-weight: 500;
-    color:rgb(219, 219, 219);
+    color:var(--white);
     letter-spacing: 0.03em;
     text-align: left;
     max-width: 70%;
@@ -61,7 +61,7 @@
     line-height: 32px;
     font-weight: 400;
     letter-spacing: 0.03em;
-    color:rgb(189, 189, 189);
+    color:var(--grey);
     font-size:22px;
     max-width: 75%;
     text-align: left;

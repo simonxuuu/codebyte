@@ -19,22 +19,12 @@ const CourseComponent = ({
   const courseHexCodeLightened = courseHexCode;
 
   return (
-    <div
-      ref={butn}
-      className={`courseComponent w-[350px] rounded-xl p-px ${
-        isLocked ? "courseLockedBG" : ""
-      } overflow-hidden`}
-      style={{
-        backgroundImage: `radial-gradient(circle at top right, ${courseHexCodeLightened}, ${courseHexCode}, #18181b 0%)`,
-      }}
-    >
+    
       <div
-        className="rounded-xl"
+        className="rounded-xl courseComponent"
         style={{
-          backgroundImage: `radial-gradient(circle at top right, ${darkenHex(
-            courseHexCode,
-            0.4
-          )}, ${darkenHex(courseHexCode, 0.65)}, #18181b 0%)`,
+         background:'var(--charcoal)',
+         position:'relative'
         }}
       >
         <div className="p-3">
@@ -75,20 +65,19 @@ const CourseComponent = ({
                 />
               </div>
             </div>
-            <p style={{fontWeight:'500',letterSpacing: '0.04em'}} className="mt-4 text-xl  text-white z-20">
+            <p style={{fontWeight:'500',letterSpacing: '0.04em',color:'var(--white)'}} className="mt-4 text-xl">
               {appContext.CamelCaseToNormal(courseTitle)}
             </p>
-            <p style={{fontWeight:'400'}}className="mt-1 text-sm text-zinc-400">
+            <p style={{fontWeight:'450',color:'var(--darkGrey)',maxWidth:'90%'}}className="mt-1 text-sm text-zinc-400">
               {courseDescription}
             </p>
 
             <button
-              className="hover:scale-[.97] transition mt-4 px-2 py-1.5 rounded-lg bg-zinc-800 text-zinc-100 border-t border-t-zinc-700 shadow shadow-black/30 w-full"
+              className="hover:scale-[.97] transition mt-4 px-2 py-1.5 rounded-lg w-full"
               onClick={() => onClickGetStarted()}
               style={{
-                backgroundColor: lightenHex(courseHexCode, 0),
-                borderTopColor: lightenHex(courseHexCode, 0.4),
-                boxShadow: `0px 2px 5px ${lightenHex(courseHexCode, 0.5)}4D`,
+                backgroundColor: 'var(--darkGreen)'
+                ,fontWeight:'500',textShadow:'0px 2px 3px rgba(0,0,0,0.2)'
               }}
             >
               Get started
@@ -139,7 +128,7 @@ const CourseComponent = ({
           </span>
         </div>
       </div>
-    </div>
+    
   );
 };
 

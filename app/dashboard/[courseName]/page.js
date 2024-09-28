@@ -1,5 +1,6 @@
 "use client"
 import '../dashboard.css';
+import "../../../styles/globals.css";
 import {useState, useEffect,useContext} from 'react';
 import LessonComponent from './lessonComponent';
 import { useRouter } from 'next/navigation';
@@ -101,7 +102,7 @@ export default function Page({ params }) {
         ))}
         {courseComplete && <h2 id='wipText'>Congrats on completing this course! Let us know what we can improve.</h2>}
         {courseComplete && <h2 style={{marginTop:'10px',opacity:1,color:'rgb(39, 196, 99)',cursor:'pointer'}}onClick={()=>{appContext.getCertificate();}}id='wipText'>Click here to claim your certificate</h2>}
-        <button onClick={resetProgress}>Reset Progress (testingonly)</button>
+        <button style={{display:'none'}}onClick={resetProgress}>Reset Progress (testingonly)</button>
         </main>
     );
 }

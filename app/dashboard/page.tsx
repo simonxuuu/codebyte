@@ -1,5 +1,6 @@
 "use client";
 import "./dashboard.css";
+import "../../styles/globals.css";
 import { useState, useEffect, useContext } from "react";
 import CourseComponent from "./courseComponent";
 import { useRouter } from "next/navigation";
@@ -46,14 +47,14 @@ const Dashboard = () => {
           <canvas id='gradient-canvas-dashboard'></canvas>
            
 
-            <h1 style={{textShadow:'0px 4px 7px rgba(0,0,0,0.5)'}}className="text-4xl m-0 p-0 w-fit font-semibold">
+            <h1 style={{textShadow:'0px 4px 7px rgba(0,0,0,0.5)'}} className="text-4xl m-0 p-0 w-fit font-semibold">
               Welcome back!
             </h1>
 
             
             
           </div>
-          <h2 className="my-6 text-2xl font-medium text-zinc-200">
+          <h2 style={{maxWidth:'100%'}}className="my-6 text-2xl font-medium ">
             {lastCourse != 'null' ? 'Continue Learning' : 'Recommended Course'}
           </h2>
           <div style={{marginBottom:'200px'}}className="flex flex-wrap gap-3">

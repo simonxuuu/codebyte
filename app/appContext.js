@@ -16,14 +16,14 @@ const AppProvider = ({ children }) => {
   const [jwt,setJwt]=useState('');
   //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute ='https://codebyte-1b9af19e473e.herokuapp.com';
+  const apiRoute ='http://localhost:8080';
   const [currentCourseData,setCurrentCourseData] = useState({});
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
   const [currentCourseDesc,setCurrentCourseDesc] = useState('');
   const [lessons,setlessons] = useState([]);
   const [leveling,setleveling] = useState([]);
-
+  const [username,setUsername] = useState('');
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -131,6 +131,7 @@ const AppProvider = ({ children }) => {
       })
       .then((jsonOutput) => {
         returnLevelingFromXp(jsonOutput["_doc"].xp);
+        setUsername(jsonOutput['_doc'].username);
         return jsonOutput["_doc"];
       });
   }
@@ -335,7 +336,7 @@ const AppProvider = ({ children }) => {
          lessonOpen,setLessonOpen,
          leveling,
          getCertificate,
-         getLeaderboard
+         getLeaderboard,username
         }}>
       {children}
     </AppContext.Provider>

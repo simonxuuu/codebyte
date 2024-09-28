@@ -48,7 +48,7 @@ export default function Sidebar() {
      <Link href={'/dashboard/profile'}  className="sidebarComponent">
         
         <FontAwesomeIcon icon={faCircle} className="fa-xl"/>
-        <h1 className="sidebarText">User</h1>
+        <h1 className="sidebarText">{appContext.username}</h1>
            
       </Link>
       <div style={{ height: '10px',width:'140%',display:'flex',alignItems:'center',gap:'5px',marginBottom:'30px'}}>
@@ -57,7 +57,7 @@ export default function Sidebar() {
           
           <div className="xp-progress-bar" style={{ width: `${parseFloat(appContext.leveling[0])*100}%` }}></div>
         </div>
-        <h1 className="sidebarText" style={{color:'#0ea04b',fontWeight:'bold'}}>{appContext.leveling[2]}</h1>
+        <h1 className="sidebarText" style={{color:'#0ea04b',fontWeight:'700'}}>{appContext.leveling[2]}</h1>
       </div>
       {pages.map((x, i) => {
         return (
@@ -89,7 +89,7 @@ export default function Sidebar() {
     <Link href={'/dashboard/profile'}  className="sidebarComponent">
         
         <FontAwesomeIcon icon={faCircle} className="fa-xl"/>
-        <h1 className="sidebarText">User</h1>
+        <h1 className="sidebarText">{appContext.username}</h1>
            
       </Link>
       <div style={{ height: '10px',width:'50%',display:'flex',alignItems:'center',gap:'5px'}}>
@@ -98,7 +98,7 @@ export default function Sidebar() {
           
           <div className="xp-progress-bar" style={{ width: `${parseFloat(appContext.leveling[0])*100}%` }}></div>
         </div>
-        <h1 className="sidebarText" style={{color:'#0ea04b',fontWeight:'bold'}}>{appContext.leveling[2]}</h1>
+        <h1 className="sidebarText" style={{color:'#0ea04b',fontWeight:'700'}}>{appContext.leveling[2]}</h1>
       </div>
       <Link
       
