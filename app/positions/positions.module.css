@@ -1,0 +1,153 @@
+.positionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5rem;
+    margin: 0;
+    min-height: 100vh;
+    margin-top: 10rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .positionsContent {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6rem;
+  }
+  
+  .positionsHeader {
+    display: flex;
+    justify-content: center; /* Centering horizontally */
+    align-items: center; /* Centering vertically if needed */
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .positionsHeader h2 {
+    font-size: 1.75rem;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    color: #f4f4f5;
+  }
+  
+  .positionsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .positionItem {
+    background-color: #18181b;
+    border: 1px solid #3f3f46;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: left;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .positionItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .positionItem h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #f4f4f5;
+  }
+  
+  .positionItem p {
+    font-size: 0.9rem;
+    color: #a1a1aa;
+  }
+
+
+.contactText {
+    font-size: 1rem;
+    color: #797981;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+.contactLink {
+    color: #059669;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+
+
+  
+  .backButton {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 1px solid #27272a;
+    color: #71717a;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  
+  .backButton:hover {
+    background-color: #27272a;
+    color: #f4f4f5;
+  }
+  
+  .backButton:focus {
+    outline: 2px solid white;
+  }
+  
+  .apiResponse {
+    font-size: 0.875rem;
+    margin-top: 2rem;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    border: 1px solid #064e3b;
+    border-radius: 0.5rem;
+    background-color: rgba(6, 78, 59, 0.1);
+    color: #059669;
+  }
+  
+  .loadingText {
+    font-size: 1rem;
+    color: #a1a1aa;
+    text-align: center;
+    margin: 2rem 0;
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .positionsContent {
+      width: 90%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .positionsContent {
+      width: 80%;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .positionsContent {
+      width: 70%;
+    }
+  }
