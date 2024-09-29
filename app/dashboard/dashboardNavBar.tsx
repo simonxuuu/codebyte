@@ -8,7 +8,8 @@ import {
   faChalkboard,
   faHome,
   faQuestionCircle,
-  faCircle
+  faCircle,
+  faCode
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -70,7 +71,14 @@ export default function Sidebar() {
         );
       })}
 
-      
+
+      <Link
+      style={{bottom:0,position:'fixed',marginBottom:'60px'}}
+        href={'/positions'}
+        className="sidebarComponent">
+        <FontAwesomeIcon icon={faCode} className="fa-xl"/>
+        <h1 className="sidebarText">Positions</h1>
+      </Link>
       <Link
       style={{bottom:0,position:'fixed',marginBottom:'25px'}}
         href={'/feedback'}

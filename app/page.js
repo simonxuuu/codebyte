@@ -186,11 +186,13 @@ export default function Home() {
                 </div>
         <div style={{maxWidth:'600px'}}>
         <h2 style={{maxWidth: '100%'}} className="mt-4 mb-0 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
-              Interview Preperation
+              Interview Preparation
             </h2>
            
             <h3 className="mt-4 xl:text-2xl lg:text-xl md:text-lg text-base font-light text-white/70">
-              Chat with our AI, Codey, for practice interviews, or even feedback on your code. <span  style={{fontSize:'0.9rem',opacity:0.7}}> *coming soon</span>
+              Chat with our AI, Codee, for practice interviews, or feedback on your code. <Link href="/waitlist">
+        Get your spot on our exclusive waitlist, there are limited spots remaining.
+      </Link>
             </h3>
         </div>
        
