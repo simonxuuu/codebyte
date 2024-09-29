@@ -1,0 +1,125 @@
+.feedbackContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  padding: 0.5rem;
+  margin: 0;
+  margin-top: 10rem;
+  height: 100vh;
+  padding-top: 6rem;
+}
+
+.feedbackContent {
+  flex: 0 0 auto;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+}
+
+@media (min-width: 768px) {
+  .feedbackContent {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .feedbackContent {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .feedbackContent {
+    width: 20%;
+  }
+}
+
+.feedbackHeader {
+  width: 100%;
+  text-align: center; /* Ensure the header text is centered */
+}
+
+.feedbackHeader h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  white-space: nowrap; /* Prevent words from stacking */
+}
+
+.feedbackForm {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background-color: #18181b;
+  border: 1px solid #3f3f46;
+  border-radius: 0.5rem;
+  color: #ffffff;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: 2px solid white;
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: #71717a;
+}
+
+.formTextarea {
+  resize: none;
+}
+
+.submitButton,
+.backButton {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.submitButton {
+  background-color: #f4f4f5;
+  border: 1px solid transparent;
+  color: #27272a;
+}
+
+.backButton {
+  margin-top: 0.5rem;
+  background-color: transparent;
+  border: 1px solid #27272a;
+  color: #71717a;
+  font-size: 0.875rem;
+}
+
+.submitButton:focus,
+.backButton:focus {
+  outline: 2px solid white;
+}
+
+.apiResponse {
+  font-size: 0.875rem;
+  margin-top: 2rem;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  border: 1px solid #064e3b;
+  border-radius: 0.5rem;
+  background-color: rgba(6, 78, 59, 0.1);
+  color: #059669;
+}
+
+.spacer {
+  flex: 1;
+}
