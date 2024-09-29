@@ -39,7 +39,7 @@ const WaitlistPage = () => {
     <div className={styles.waitlistContainer}>
       <div className={styles.waitlistContent}>
         <div className={styles.waitlistHeader}>
-          <h2>Join the AI Interview Prep Waitlist</h2>
+          <h2 className={styles.waitlistHeader}>Join the AI Interview Waitlist</h2>
         </div>
         <form className={styles.waitlistForm} onSubmit={handleSubmit}>
           <input

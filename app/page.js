@@ -53,48 +53,7 @@ const FAANG = [
   },
 ];
 
-const useFAANGAnimationTimer = () => {
-  const [timer, setTimer] = useState(0);
-  const requestRef = useRef<number>();
-  const previousTimeRef = useRef<number>();
-  const accumulatedTimeRef = useRef<number>(0);
- 
-  const animate = (time: number) => {
-    if (previousTimeRef.current !== undefined) {
-      const deltaTime = time - previousTimeRef.current;
-      accumulatedTimeRef.current += deltaTime;
 
-      // Only update if at least xx ms have passed
-      if (accumulatedTimeRef.current >= 1000) {
-        setTimer((prevTimer) => {
-          if (prevTimer >= FAANG.length - 1) {
-            return 0;
-          } else {
-            return prevTimer + 1;
-          }
-        });
-        accumulatedTimeRef.current = 0;
-      }
-    }
-    previousTimeRef.current = time;
-    requestRef.current = requestAnimationFrame(animate);
-  };
-
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
-    
-    
-   
-    
-    return () => {
-      if (requestRef.current) {
-        cancelAnimationFrame(requestRef.current);
-      }
-    };
-  }, []);
-
-  return Math.floor(timer);
-};
 
 export default function Home() {
   const router = useRouter();
@@ -127,34 +86,44 @@ export default function Home() {
         className="pb-px  h-[90vh]"
         
       >
-        <canvas id='gradient-canvas'className="h-full absolute   lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
+        <canvas id='gradient-canvas' className="h-full absolute lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center"></canvas>
         
-        </canvas>
-        <div style={{overflowY: 'visible'}}className="h-full relative   lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
-          
-
-          
-
-          <h1
-            style={{letterSpacing:'0.02em',color:'var(--white)'}}
-            className="mt-4 xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-medium"
+        <div style={{ overflowY: 'visible' }} className="h-full relative lg:px-[10vw] md:px-[5vw]  px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
+        <h1
+            className="mt-4 drop-shadow-md xl:text-7xl leading-5 lg:text-7xl md:text-6xl text-5xl font-medium "
           >
-            The fun way to learn
+            The fun way to learn to code,
             <br />
-            real-world coding!
+            or prepare for that interview.
           </h1>
 
-          <p style={{fontWeight:400,color:'var(--white)'}}className="my-4 xl:text-xl lg:text-lg md:text-base  ">
-            edCode takes you from zero to hero, no matter your starting point.
-          </p>
+  <p style={{ fontWeight: 300, color: 'var(--white)' }} className="my-4 mb-0 xl:text-xl lg:text-lg md:text-base">
+    edCode is for 
+    <strong style={{ fontWeight: '400' }} className="mx-1">
+       everyone,
+    </strong>
+    from beginners to experts. 
+  </p>
 
-          <Link href="/register">
+  <p style={{ fontWeight: 300, color: 'var(--white)' }} className="my-4 mt-0 xl:text-xl lg:text-lg md:text-base">
+    Learn to code, or prepare to land your dream job with our  <strong style={{ fontWeight: '400' }} className="underline mx-1 bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">AI interview prep.</strong>
+  </p>
+  <Link href="/register">
+    <button
+      style={{ fontWeight: 600, backgroundColor: 'var(--light)', color: 'var(--darkCharcoal)' }}
+      className="text-xl md:w-fit w-full mt-8 px-7 py-2 rounded-xl"
+    >
+      Get started
+    </button>
+  </Link>
+
+  <Link href="/waitlist">
             <button
             style={{fontWeight:600,backgroundColor:'var(--light)',color:'var(--darkCharcoal)'}}
               className="text-xl md:w-fit w-full mt-8 px-7 py-2 rounded-xl "
               
             >
-              Get started
+              AI Interview Prep
             </button>
           </Link>
 
@@ -324,89 +293,7 @@ export default function Home() {
   );
 }
 
-const SecureThatDiv = () => {
-  const faangTimer = useFAANGAnimationTimer();
 
-  return (
-    <div className="pr-px text-center bg-gradient-to-b from-body to-zinc-800">
-      <div className="xl:px-16 lg:px-12 md:px-8 px-4 bg-body py-4">
-        <h4 className="text-lg text-zinc-500">
-          For <span className="text-green-300">employees</span>
-        </h4>
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          <h2
-            className="mt-4 lg:text-4xl md:text-3xl text-2xl pb-2 text-zinc-500 mb-0 leading-none"
-            style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
-          >
-            Secure that
-          </h2>
-
-          <div className="md:flex hidden flex-wrap items-center justify-center gap-2">
-            <span
-              className="leading-none lg:text-4xl md:text-3xl text-2xl md:py-0 py-1 px-2 bg-zinc-800 rounded-lg text-zinc-200 flex items-center w-fit"
-              style={{
-                boxShadow: "inset 0px 0px 5px rgb(255, 255, 255, 0.3)",
-              }}
-            >
-              <Image
-                src={`/logos/${FAANG[faangTimer].img}`}
-                width={20}
-                height={20}
-                alt={FAANG[faangTimer].name}
-                className="mr-2"
-              />
-              {FAANG[faangTimer].name}
-            </span>
-
-            <span
-              className="lg:text-4xl md:text-3xl text-2xl text-zinc-500 mb-0 leading-none"
-              style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
-            >
-              job
-            </span>
-          </div>
-        </div>
-
-        <div className="-translate-y-[2px] md:hidden flex items-center justify-center flex-wrap gap-1.5">
-          <span
-            className="leading-none lg:text-4xl md:text-3xl text-2xl md:py-0 py-1 px-2 bg-zinc-800 rounded-lg text-zinc-200 flex items-center w-fit"
-            style={{
-              boxShadow: "inset 0px 0px 5px rgb(255, 255, 255, 0.3)",
-            }}
-          >
-            <Image
-              src={`/logos/${FAANG[faangTimer].img}`}
-              width={20}
-              height={20}
-              alt={FAANG[faangTimer].name}
-              className="mr-2"
-            />
-            {FAANG[faangTimer].name}
-          </span>
-
-          <span
-            className="lg:text-4xl md:text-3xl text-2xl text-zinc-500 mb-0 leading-none"
-            style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
-          >
-            job
-          </span>
-        </div>
-
-        <h2
-          className="lg:text-4xl md:text-3xl text-2xl pb-2 text-zinc-500 leading-none mb-0"
-          style={{ textShadow: "0px 0px 20px rgb(0, 0, 0, 0.4)" }}
-        >
-          <span
-            className="bg-gradient-to-l bg-clip-text text-transparent from-white via-green-300 to-teal-300"
-            style={{ textShadow: "0px 0px 15px rgb(255, 255, 255, 0.4)" }}
-          >
-            you&apos;ve always dreamed of
-          </span>
-        </h2>
-      </div>
-    </div>
-  );
-};
 
 const MicrophoneInputDiv = () => {
   return (
@@ -453,61 +340,4 @@ const DescribeSpacedRepetitionDiv = () => {
   );
 };
 
-const SpacedRepetitionCalendarDiv = () => {
-  return (
-    <>
-      <h2 className="text-2xl font-light text-zinc-500">
-        <span
-          className="bg-gradient-to-r bg-clip-text text-transparent from-white via-green-300 to-teal-300"
-          style={{ textShadow: "0px 0px 5px rgb(255, 255, 255, 0.5)" }}
-        >
-          edCode does all the planning for you
-        </span>
-      </h2>
-      <h3 className="mt-2 font-extralight text-zinc-500">
-        We manage the scheduling details, so you can focus on learning.
-      </h3>
-      <div className="text-sm text-zinc-500 flex flex-col space-y-3">
-        {calendar[7].map((week: any, i: number) => {
-          return (
-            <div className="flex" key={i}>
-              {week.map((day: any,i : number) => {
-                const daystr = day.toString();
-                
-                const final = day
-                  .toString()
-                  .replace("beforeMonth_", "")
-                  .replace("afterMonth_", "");
 
-                const disabled =
-                  daystr.includes("beforeMonth_") ||
-                  daystr.includes("afterMonth_");
-
-                const selected =
-                  daystr === "12" ||
-                  daystr === "13" ||
-                  daystr === "16" ||
-                  daystr === "23";
-
-                const dateIsBetweenTwoLearningDates =
-                  (day > 13 && day < 16) || (day > 16 && day < 23);
-
-                return (
-                  <button
-                    key={i}
-                    className={`text-sm flex-1 disabled:opacity-40 ${
-                      selected && "text-green-400"
-                    } ${dateIsBetweenTwoLearningDates && "text-zinc-300"}`}
-                    disabled={disabled}
-                  >
-                    {final}
-                  </button>
-                );
-              })}
-            </div>
-          );
-        })}
-      </div>
-    </>
-  );
-};
