@@ -61,7 +61,7 @@ export default function Page({ params }) {
             setGems(gems-1);
           }
           let progressSaved = response[3].split('/');
-          
+          setSelectedAnswer(null);
           setProgress((parseInt(progressSaved[0])/parseInt(progressSaved[1]))*100)
           setQuestionAnswered(true);
           console.log(progress);
