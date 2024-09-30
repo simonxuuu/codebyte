@@ -95,6 +95,20 @@ const AppProvider = ({ children }) => {
         return jsonOutput;
       });
   }
+  function notifyWebhook(name,email,feedback) {
+    if (!name || !email || !feedback) return {"message" : "Error! Fill in the form."};
+    return fetch(`${apiRoute}/notifyWebhook`, {
+      method: "POST",
+      body: JSON.stringify({name,email,feedback}),
+      headers: { "Content-type": "application/json" },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((jsonOutput) => {
+        return jsonOutput;
+      });
+  }
   function getCertificate() {
     if (!jwt) return "error";
     return fetch(`${apiRoute}/getCertificate`, {
@@ -336,7 +350,8 @@ const AppProvider = ({ children }) => {
          lessonOpen,setLessonOpen,
          leveling,
          getCertificate,
-         getLeaderboard,username
+         getLeaderboard,username,
+         notifyWebhook
         }}>
       {children}
     </AppContext.Provider>

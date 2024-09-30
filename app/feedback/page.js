@@ -11,19 +11,16 @@ export default function Feedback() {
 
   const sendFeedback = async (event) => {
     const formData = new FormData(event.target);
-
-    const response = await fetch(`${window.location.origin}/api/feedback`, {
-      method: "POST",
-      body: formData,
-    });
+    
+    const response = await appContext.notifyWebhook(formData.get('name'),formData.get('email'),formData.get('feedback'));
   
-    const responseText = await response.text(); // Get the raw response text
+    const responseText = await response.message; // Get the raw response text
     console.log('Raw response:', responseText);
   
     try {
-      const data = JSON.parse(responseText); // Parse the response text as JSON
-      console.log(data);
-      setApiResponse(data.res);
+      
+      console.log(responseText);
+      setApiResponse(responseText);
     } catch (error) {
       console.error('Error parsing JSON:', error);
       setApiResponse('Error parsing server response.');

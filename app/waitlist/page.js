@@ -17,17 +17,10 @@ const WaitlistPage = () => {
     }
     
     try {
-      const response = await fetch(`${window.location.origin}/api/waitlist`, {
-        method: "POST",
-        body: formData,
-      });
-      
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+      const response = await appContext.notifyWebhook(formData.get('name'),formData.get('email'),formData.get('feedback'));
 
-      const data = await response.json();
-      setApiResponse(data.message || "Thank you for joining our waitlist!");
+     
+      setApiResponse(response.message || "Thank you for joining our waitlist!");
       event.target.reset();
     } catch (error) {
       console.error('Error:', error);
@@ -57,7 +50,7 @@ const WaitlistPage = () => {
             className={styles.formInput}
           />
           <textarea
-            name="experience"
+            name="feedback"
             placeholder="Tell us about your interview preparation experience"
             className={styles.formTextarea}
           />
