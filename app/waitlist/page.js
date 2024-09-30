@@ -17,7 +17,7 @@ const WaitlistPage = () => {
     }
     
     try {
-      const response = await fetch("/api/waitlist", {
+      const response = await fetch(`${window.location.origin}/api/waitlist`, {
         method: "POST",
         body: formData,
       });

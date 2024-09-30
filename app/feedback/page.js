@@ -11,7 +11,8 @@ export default function Feedback() {
 
   const sendFeedback = async (event) => {
     const formData = new FormData(event.target);
-    const response = await fetch("/api/feedback", {
+
+    const response = await fetch(`${window.location.origin}/api/feedback`, {
       method: "POST",
       body: formData,
     });
