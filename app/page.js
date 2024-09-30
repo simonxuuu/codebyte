@@ -90,7 +90,7 @@ export default function Home() {
         
         <div style={{ overflowY: 'visible' }} className="h-full relative lg:px-[10vw] md:px-[5vw]  px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center">
         <h1
-            className="mt-4 drop-shadow-md xl:text-7xl leading-5 lg:text-7xl md:text-6xl text-5xl font-medium "
+            className="mt-4 drop-shadow-md xl:text-7xl leading-12 lg:text-7xl md:text-6xl text-5xl font-medium "
           >
             The fun way to learn to code,
             <br />
