@@ -43,7 +43,7 @@ const Dashboard = () => {
       <div className="flex lg:flex-row flex-col">
         <div className="md:p-8 p-4 ">
           
-          <div style={{width:'min(450px,90vw)',height:'180px',alignItems:'start',padding:'20px'}} className="p-6 py-8 rounded-xl bg-zinc-900 relative overflow-hidden">
+          <div style={{width:'min(450px,90vw)',height:'100%',alignItems:'start',padding:'20px'}} className="p-6 py-8 rounded-xl bg-zinc-900 relative overflow-hidden">
           <canvas id='gradient-canvas-dashboard'></canvas>
            
 

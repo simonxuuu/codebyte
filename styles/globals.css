@@ -110,6 +110,9 @@ html{
 .horizontalSection .showcaseImage{
   order: 1;
 }
+.gradientLandingTextHolder{
+  height: max(100vh, 700px);
+}
 #gradient-canvas-dashboard{
   --gradient-color-1: #1ff17e;
   --gradient-color-2: #10ffeb;
@@ -125,7 +128,7 @@ html{
   --gradient-color-3: #5add1d;
   --gradient-color-4: #ceec4a;
   filter:brightness(0.7);
-  margin:0;padding: 0;  width: 100vw; overflow-y: visible;  height: calc(100% + 35px);
+  margin:0;padding: 0;  width: 100vw; overflow-y: visible;  height: 100%;
 }
 ::-webkit-scrollbar {
   width: 7px;
@@ -565,6 +568,9 @@ a {
 }
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
+  .gradientLandingTextHolder{
+    height: 100vh;
+  }
   .micDemo{
     scale:2.5;
     height:50px;

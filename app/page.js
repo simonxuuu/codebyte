@@ -83,7 +83,7 @@ export default function Home() {
     <section>
       <div
       style={{marginBottom:'315px'}}
-        className="pb-px  h-[90vh]"
+        className="gradientLandingTextHolder pb-px relative"
         
       >
         <canvas id='gradient-canvas' className="h-full absolute lg:px-[10vw] md:px-[5vw] px-4 py-12 pb-24 pt-[200px] flex flex-col items-center justify-center text-center"></canvas>
