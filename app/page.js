@@ -92,7 +92,7 @@ export default function Home() {
         <h1
             className="mt-4 drop-shadow-md xl:text-7xl leading-12 lg:text-7xl md:text-6xl text-5xl font-medium "
           >
-            The fun way to learn to code,
+            Learn to code,
             <br />
             or prepare for that interview.
           </h1>
