@@ -17,21 +17,9 @@ import { Gradient } from "whatamesh";
 const Dashboard = () => {
   const router = useRouter();
   const appContext = useContext(AppContext);
-  const [courses, setCourses] = useState([]);
-  const [curGems, setCurGems] = useState(0);
-  const [lastCourse,setlastCourse] = useState("");
-  useEffect(() => {
-    appContext.getCoursesInfo().then((result) => {
-      if (appContext.jwt) {
-        appContext.getCourseProgressData().then((progressData) => {
-          setlastCourse(progressData.curCourse);
-          setCourses(result);
-
-          setCurGems(parseInt(progressData.gems));
-        });
-      }
-    });
-  }, [appContext.jwt]);
+  
+  
+  
   useEffect(()=>{const gradient = new Gradient();gradient.initGradient("#gradient-canvas-dashboard");},[])
   const dashboardPages = [
     {
@@ -55,22 +43,22 @@ const Dashboard = () => {
             
           </div>
           <h2 style={{maxWidth:'100%'}}className="my-6 text-2xl font-medium ">
-            {lastCourse != 'null' ? 'Continue Learning' : 'Recommended Course'}
+            {appContext.lastCourse != 'null' ? 'Continue Learning' : 'Recommended Course'}
           </h2>
           <div style={{marginBottom:'200px'}}className="flex flex-wrap gap-3">
-            {courses &&
-              courses.map((course,index) => { if(course[0] == lastCourse || (course[0] == 'pythonBasics') && lastCourse=='null'){ return (
+            {appContext.courses &&
+              appContext.courses.map((course,index) => { if(course[0] == appContext.lastCourse || (course[0] == 'pythonBasics') && appContext.lastCourse=='null'){ return (
                 <CourseComponent
                   appContext={appContext}
                   key={index}
                   index={index}
                   courseTitle={course[0]}
                   courseDescription={course[1]}
-                  noGems={curGems <= 0}
-                  isLocked={course[2] != true || curGems <= 0}
+                  noGems={appContext.curGems <= 0}
+                  isLocked={course[2] != true || appContext.curGems <= 0}
                   onClickGetStarted={() => {
                     
-                    if (course[2] == true && curGems > 0) {
+                    if (course[2] == true && appContext.curGems > 0) {
                       
                       document.body.style.setProperty('--transitionAnim', 'fadeInOut 1.1s ease-in-out');
 

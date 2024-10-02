@@ -24,15 +24,21 @@ const AppProvider = ({ children }) => {
   const [lessons,setlessons] = useState([]);
   const [leveling,setleveling] = useState([]);
   const [username,setUsername] = useState('');
+  const [courses, setCourses] = useState([]);
+  const [curGems, setCurGems] = useState(0);
+  const [lastCourse,setlastCourse] = useState("");
+  const [isAuthButton,setIsAuthButton] = useState(false);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(`Logged In with: ${user.email}`);
         user.getIdToken(true).then((jwt) => {
           setJwt(jwt);  
+          
         });
         setEmail(user.email);
         setLoggedIn(true);
+        
       } else {
         console.log("Not logged in.");
         setLoggedIn(false);
@@ -40,6 +46,20 @@ const AppProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
+  useEffect(()=>{
+    if(jwt){
+      getCoursesInfo().then((result) => {
+           
+        getCourseProgressData().then((progressData) => {
+          setCourses(result);
+
+          setCurGems(parseInt(progressData.gems));
+          setlastCourse(progressData.curCourse);
+        });
+      
+    });
+    }
+  },[jwt])
   function returnLevelingFromXp(xp){
      
     let initialXPNeeded = 5;
@@ -225,7 +245,22 @@ const AppProvider = ({ children }) => {
         return jsonOutput;
       });
   }
-
+  function changeUsername(username) {
+    if (!jwt) return "error";
+    
+    if(username.length <= 0 || !username || username == undefined) return "Enter new username to edit";
+    return fetch(`${apiRoute}/update-username`, {
+      method: "POST",
+      body: JSON.stringify({ jwt: jwt,newUsername:username}),
+      headers: { "Content-type": "application/json" },
+    })
+      .then((response) => {
+        return response.text();
+      })
+      .then((jsonOutput) => {
+        return jsonOutput;
+      });
+  }
   function purgeProgress() {
     if (!jwt) return "error";
     return fetch(`${apiRoute}/purge-progress`, {
@@ -243,12 +278,13 @@ const AppProvider = ({ children }) => {
   }
 
   function registerAccount(form) {
+    if(isAuthButton) return;
     if (!form) return "error";
     form.preventDefault();
     const email = form.target.email.value;
     const password = form.target.password.value;
     if (!email || !password) return "error";
-
+    setIsAuthButton(true);
     return createUserWithEmailAndPassword(auth, email, password)
       .then(async (result) => {
         let tempJWT = await result.user.getIdToken(true);
@@ -264,6 +300,7 @@ const AppProvider = ({ children }) => {
             return response.text();
           })
           .then((text) => {
+            setIsAuthButton(false);
             if (text == "Success") {
               return "Success!";
             } else if (text == "Server Error" || text == "UID not found") {
@@ -273,6 +310,7 @@ const AppProvider = ({ children }) => {
           });
       })
       .catch((error) => {
+        setIsAuthButton(false);
         if (
           error.message ==
           "Firebase: Password should be at least 6 characters (auth/weak-password)."
@@ -287,12 +325,13 @@ const AppProvider = ({ children }) => {
       });
   }
   function loginAccount(form) {
+    if(isAuthButton) return;
     if (!form) return "error";
     form.preventDefault();
     const email = form.target.email.value;
     const password = form.target.password.value;
     if (!email || !password) return "error";
-
+    setIsAuthButton(true);
     return signInWithEmailAndPassword(auth, email, password)
       .then(async (result) => {
         let tempJWT = await result.user.getIdToken(true);
@@ -312,6 +351,7 @@ const AppProvider = ({ children }) => {
             }
           })
           .then((text) => {
+            setIsAuthButton(false);
             if (text == "Server Error" || text == "UID not found") {
               return "Whoops! There has been an error.";
             } else {
@@ -320,6 +360,7 @@ const AppProvider = ({ children }) => {
           });
       })
       .catch((error) => {
+        setIsAuthButton(false);
         return "Whoops! There has been an error.";
       });
   }
@@ -351,7 +392,11 @@ const AppProvider = ({ children }) => {
          leveling,
          getCertificate,
          getLeaderboard,username,
-         notifyWebhook
+         notifyWebhook,
+         changeUsername,
+         courses,
+         curGems,
+         lastCourse,setUsername
         }}>
       {children}
     </AppContext.Provider>

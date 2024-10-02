@@ -99,15 +99,16 @@ export default function Home() {
 
   <p style={{ fontWeight: 300, color: 'var(--white)' }} className="my-4 mb-0 xl:text-xl lg:text-lg md:text-base">
     edCode is for 
-    <strong style={{ fontWeight: '400' }} className="mx-1">
-       everyone,
-    </strong>
+    
+      everyone,
+   
     from beginners to experts. 
   </p>
 
-  <p style={{ fontWeight: 300, color: 'var(--white)' }} className="my-4 mt-0 xl:text-xl lg:text-lg md:text-base">
-    Learn to code, or prepare to land your dream job with our  <strong style={{ fontWeight: '400' }} className="underline mx-1 bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">AI interview prep.</strong>
+  <p style={{ fontWeight: 300, color: 'var(--white)' }} className=" my-4 mt-0 xl:text-xl lg:text-lg md:text-base">
+    Learn to code, or prepare to land your dream job with our  <strong style={{ fontWeight: '450',}} >AI interview prep.</strong>
   </p>
+  <div style={{display:'flex',gap:15}}>
   <Link href="/register">
     <button
       style={{ fontWeight: 600, backgroundColor: 'var(--light)', color: 'var(--darkCharcoal)' }}
@@ -126,7 +127,7 @@ export default function Home() {
               AI Interview Prep
             </button>
           </Link>
-
+          </div>
           
 
           
@@ -162,10 +163,10 @@ export default function Home() {
 
       <div className="verticalSection">
         <h1>Self-paced courses</h1>
-        <h2 style={{color:'var(--grey)'}}>Learn at your own pace. Courses are designed to have <span style={{color:'var(--teal)'}}>natural progression</span>, so you won't feel overwhelmed.</h2>
+        <h2 style={{color:'var(--grey)'}}>Learn at your own pace. Courses are designed to have <span style={{color:'transparent',backgroundImage:'linear-gradient(to right,var(--teal),var(--tealGreen))',backgroundClip:'text',fontWeight:'600'}}>natural progression</span>, so you won't feel overwhelmed.</h2>
       </div>
 
-      <div id='landing1' className="horizontalSection">
+      <div id='landing1' className=" horizontalSection">
         <div style={{maxWidth:'600px'}}>
         <h2 style={{maxWidth: '100%'}} className="mt-4 mb-0 xl:text-5xl lg:text-4xl md:text-3xl text-2xl">
               Stay motivated with a dynamic leaderboard, friends, and more.
@@ -190,7 +191,7 @@ export default function Home() {
             </h2>
            
             <h3 className="mt-4 xl:text-2xl lg:text-xl md:text-lg text-base font-light text-white/70">
-              Chat with our AI, Codee, for practice interviews, or feedback on your code. <Link href="/waitlist">
+              Chat with our AI, Codey, for practice interviews, or feedback on your code. <Link href="/waitlist">
         Get your spot on our exclusive waitlist, there are limited spots remaining.
       </Link>
             </h3>
