@@ -3,7 +3,7 @@ import "./dashboard.css";
 import "../../styles/globals.css";
 import { useState, useEffect, useContext } from "react";
 import CourseComponent from "./courseComponent";
-import { useRouter } from "next/navigation";
+import { useRouter  } from "next/navigation";
 import { AppContext } from "../appContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -19,7 +19,7 @@ const Dashboard = () => {
   const appContext = useContext(AppContext);
   
   
-  
+ 
   useEffect(()=>{const gradient = new Gradient();gradient.initGradient("#gradient-canvas-dashboard");},[])
   const dashboardPages = [
     {
