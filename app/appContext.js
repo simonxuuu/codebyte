@@ -4,11 +4,11 @@ import { onAuthStateChanged } from "firebase/auth";
 import {
   auth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  signInWithEmailAndPassword, signInWithGoogle
 } from "./firebaseconfig";
 
 const AppContext = createContext();
-//w
+
 const AppProvider = ({ children }) => {
   const [loggedIn,setLoggedIn]= useState(false);
   const [email,setEmail] = useState('');
@@ -324,6 +324,7 @@ const AppProvider = ({ children }) => {
         return "Whoops! There has been an error.";
       });
   }
+ 
   function loginAccount(form) {
     if(isAuthButton) return;
     if (!form) return "error";
@@ -364,7 +365,40 @@ const AppProvider = ({ children }) => {
         return "Whoops! There has been an error.";
       });
   }
-
+  function loginAccountWithGoogle(){
+    if(isAuthButton) return;
+    setIsAuthButton(true);
+    return signInWithGoogle().then(async(res) =>{
+      if(res == "Error logging in with Google."){
+        return res;
+      }else{
+        let tempJWT = await res.getIdToken(true);
+        if (!jwt) setJwt(tempJWT);
+        return fetch(`${apiRoute}/get-account-data`, {
+          method: "POST",
+          body: JSON.stringify({ jwt: tempJWT }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.headers.get("Content-Type").includes("text/plain")) {
+              return response.text();
+            } else {
+              return response.json();
+            }
+          })
+          .then((text) => {
+            setIsAuthButton(false);
+            if (text == "Server Error" || text == "UID not found") {
+              return "Whoops! There has been an error.";
+            } else {
+              return "Success!";
+            }
+          });
+      }
+    });
+  }
   return (
     <AppContext.Provider value={
         { loggedIn,
@@ -396,7 +430,7 @@ const AppProvider = ({ children }) => {
          changeUsername,
          courses,
          curGems,
-         lastCourse,setUsername
+         lastCourse,setUsername,loginAccountWithGoogle
         }}>
       {children}
     </AppContext.Provider>

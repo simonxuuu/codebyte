@@ -144,6 +144,9 @@ html{
 .styledInput {
 
   background-color: var(--lightestCharcoal);
+  text-wrap: wrap;
+  max-width: 90% !important;
+  
   border:0.14em solid rgb(65, 65, 65); border-radius: 10px;
   outline:none; margin-bottom: 20px;
   padding:20px;
@@ -652,6 +655,9 @@ a {
 
 .userProfileName {
   font-size: 2rem;
+  text-wrap: wrap;
+  overflow-wrap: break-word;
+  max-width: 90%;
   color: white;
   margin-top: 1rem;
   width: fit-content;

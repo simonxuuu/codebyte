@@ -1,6 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import { getAnalytics ,isSupported} from "firebase/analytics";
-import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut  ,GoogleAuthProvider, signInWithPopup, getRedirectResult } from 'firebase/auth';
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -12,6 +12,7 @@ const firebaseConfig = {
     appId: "1:248116414729:web:3ed14926dcde4b65512bd8",
     measurementId: "G-NHBM2K1DG7"
 };
+
 let analytics;
 async function initializeAnalytics() {
     if (typeof window !== 'undefined' && await isSupported()) {
@@ -22,4 +23,18 @@ async function initializeAnalytics() {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 initializeAnalytics();
-export { auth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut };
+
+const provider = new GoogleAuthProvider();
+const signInWithGoogle = async() => {
+    try {
+        const result = await signInWithPopup(auth, provider);
+        return result.user;
+        // Handle the signed-in user info
+      } catch (error) {
+        return "Error logging in with Google."
+        console.error('Error during sign-in: ', error);
+      }
+};
+
+
+export { auth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,signInWithGoogle};
