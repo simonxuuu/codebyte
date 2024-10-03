@@ -635,7 +635,54 @@ h3 {
   font-weight: normal;
   filter: drop-shadow(-0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.356));
 }
+.dropdown {
+  position: relative; /* Position relative to parent */
+  display: inline-block; /* Display inline-block */
+  
+}
+.dropdownHolderCourses{
+  display: flex;
+  flex-direction: column;
+  gap:1em;
+}
+.dropbtn {
+  
+  background-color: var(--lightestCharcoal); /* Green background */
+  color: white; /* White text */
+  margin:0;
+  padding: 5px 14px; /* Padding */
+  font-weight: 500;
+  font-size: 14px; /* Font size */
+  border-radius: 0.7em;
+  border: 0.16em solid rgba(218, 218, 218, 0.2); /* Remove borders */
+  cursor: pointer; /* Pointer/hand icon */
+}
 
+.dropdown-content {
+  display: block; /* Show dropdown content */
+  position: absolute; /* Position the dropdown */
+  background-color: var(--lightestCharcoal); /* White background */
+  min-width: 160px; /* Minimum width */
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Add shadow */
+  z-index: 1; /* Sit on top */
+}
+
+.dropdown-content a {
+  color: var(--light); /* Black text */
+  padding: 12px 16px; /* Padding */
+  text-decoration: none; /* No underline */
+  display: block; /* Make it block element */
+}
+
+.dropdown-content div:hover {
+  background-color: rgb(44, 44, 44);  /* Gray background on hover */
+}
+.dropdown-content div:hover:last-child {
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
 .email-form {
   display: flex;
   gap: 1rem;
@@ -721,6 +768,11 @@ a {
 }
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
+  .dropdownHolderCourses{
+    
+    flex-direction: row;
+    gap:2em;
+  }
   .blogHolder{
       width:80%; 
    padding-top:0;
