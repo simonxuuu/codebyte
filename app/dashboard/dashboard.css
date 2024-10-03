@@ -199,6 +199,7 @@ padding: 0; color:var(--darkGrey); font-weight: 550;
 .question{
   font-size: max(30px,5vw);
 }
+
 .typedResponse{
   background-color: rgb(65, 65, 65);
   border:0; border-radius: 10px;

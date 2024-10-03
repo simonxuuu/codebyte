@@ -48,7 +48,7 @@ html {
 
 
   --white : rgb(230, 230, 230);
-  --grey: rgb(185, 185, 175);
+  --grey: rgb(185, 185, 180);
   --darkGrey: rgb(133, 133, 133);
   --charcoal: rgb(21, 21, 21);
   --lightCharcoal:rgb(25, 25, 25);
@@ -68,6 +68,35 @@ html{
  
   overflow-y: scroll;
 }
+.blogArticle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top:10em;
+  
+}
+.blogContent{
+  display: flex !important;
+  flex-direction: column;
+  align-items: center; gap:2em;
+}
+.blogContent img{
+  display: block; /* Ensures images are treated as block elements */
+  margin: 0 auto; /* Centers the image */
+  max-width: 80%; /* Set a max width for the image */
+  width:max-content; /* Maintain aspect ratio */
+}
+.blogContent img[src*='favicon.ico']{
+  display: block; /* Ensures images are treated as block elements */
+  margin: 0 auto; /* Centers the image */
+  max-width: 50%; /* Set a max width for the image */
+  width:max-content; /* Maintain aspect ratio */
+}
+.blogContent *{
+  align-self: center;
+  max-width: 60%;
+  }
 .footerInfoHolder{
   margin-top: 15px;
   margin-bottom: 15px;
@@ -114,10 +143,15 @@ html{
  }
 .styledInput {
 
-  background-color: rgb(65, 65, 65);
-  border:0; border-radius: 10px;
+  background-color: var(--lightestCharcoal);
+  border:0.14em solid rgb(65, 65, 65); border-radius: 10px;
   outline:none; margin-bottom: 20px;
-  padding-left:10px;
+  padding:20px;
+  padding-left:14px;
+}
+.styledInput::placeholder{
+  color:var(--grey);
+  font-weight: 700;
 }
 .micDemo{
   scale:1.5;
@@ -164,13 +198,75 @@ html{
 .gradientLandingTextHolder{
   height: max(100vh, 700px);
 }
+#blogPage{
+  position: relative;
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  align-items: center;
+  padding:0;
+  box-sizing: border-box;
+  margin: 0;
+  margin-bottom: -150px;
+}
+.blogBottomPart{
+  display:flex;justify-content:space-between;width:100%;
+          padding-right:1em; flex-direction: column;
+          align-items:start;gap:0;margin:0;
+}
+.blogHolder{
+  height: fit-content; position: relative; background-color: rgba(15, 15, 15, 0.5); width:100%;
+  backdrop-filter: blur(50px);
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  
+  padding:2em;
+  padding-top:10em;
+  padding-bottom: 20em;
+}
+.blogImg{
+  margin-top: 1em;
+  width:100%;
+}
+.blogPost{
+  background-color: var(--charcoal);
+  cursor: pointer;
+  border-radius: 2em;
+  width:95%;
+  position: relative;
+  padding:2em;
+  padding-right: 0.1em;
+  border : 0.25em solid var(--lightestCharcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left:1em;
+  transition: all 0.25s;
+  
+}
+.blogPost:hover{
+ scale:1.02;
+ transition: all 0.4s;
+  
+}
 #gradient-canvas-dashboard{
   --gradient-color-1: #1ff17e;
   --gradient-color-2: #10ffeb;
   --gradient-color-3: #25e72f;
   --gradient-color-4: #5628d4;
   border:0;
-  filter:brightness(0.6);position: absolute; width:100%; height:100%; left: 50%; top: 50%; translate: -50% -50%;
+  filter:brightness(0.6);position: absolute; width:100%; height:100%; left: 50%; top: 50%; translate: -50% -50%; 
+  
+}
+#gradient-canvas-blog{
+  --gradient-color-1: #ff09a1;
+  --gradient-color-2: #6c07f0;
+  --gradient-color-3: #3300eb;
+  --gradient-color-4: #3500af;
+  border:0;
+  filter:brightness(0.7);position: absolute; height:100%; 
   
 }
 #gradient-canvas{
@@ -444,7 +540,7 @@ nav a {
 }
 footer {
   width: 100%;
-
+  
   padding: 20px 0;
   margin-top: 10rem;
 }
@@ -619,6 +715,32 @@ a {
 }
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
+  .blogHolder{
+      width:80%; 
+   padding-top:0;
+      border-radius: 2em; border-bottom-left-radius: 0;  border-bottom-right-radius: 0;
+    border-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top:10em; 
+    padding:2em;
+    padding-bottom: 20em;
+  }.blogPost{    
+    width:fit-content;
+  }
+  .blogPost h2{    
+    padding-right: 1em;
+  }
+  .blogImg{
+    
+    width:400px;
+  }
+  .blogBottomPart{
+    display:flex;justify-content:space-between;width:100%;
+            padding-right:2em; flex-direction: row;
+            align-items:start;gap:0;margin:0;
+  }
   .gradientLandingTextHolder{
     height: 100vh;
   }

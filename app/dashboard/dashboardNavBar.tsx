@@ -9,6 +9,7 @@ import {
   faHome,
   faQuestionCircle,
   faCircle,
+  faCheck,
   faCode
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -72,23 +73,33 @@ export default function Sidebar() {
       })}
 
 
+      <div style={{bottom:0,position:'fixed',marginBottom:'25px',display:'flex',flexDirection:'column',gap:'19px'}}>
       <Link
-      style={{bottom:0,position:'fixed',marginBottom:'60px'}}
-        href={'/positions'}
-        className="sidebarComponent">
-        <FontAwesomeIcon icon={faCode} className="fa-xl"/>
-        <h1 className="sidebarText">Positions</h1>
-      </Link>
+      
+      href={'/blog'}
+      className="sidebarComponent">
+      <FontAwesomeIcon icon={faCheck} className="fa-xl" />
+      <h1 className="sidebarText" >Update Log</h1>
+    </Link>
       <Link
-      style={{bottom:0,position:'fixed',marginBottom:'25px'}}
+      
         href={'/feedback'}
         className="sidebarComponent">
         
         <FontAwesomeIcon icon={faQuestionCircle} className="fa-xl"/>
         <h1 className="sidebarText">Feedback</h1>
       </Link>
+      <Link
+     
+        href={'/positions'}
+        className="sidebarComponent">
+        <FontAwesomeIcon icon={faCode} className="fa-xl" style={{marginLeft:'-2px',marginRight:'-2px'}}/>
+        <h1 className="sidebarText" >Join our Team</h1>
+      </Link>
+      </div>
+  
       
-
+      
       
     
     </section>

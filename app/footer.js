@@ -51,11 +51,11 @@ const Footer = () => {
         <div className="footerButtonHolder">
           <h3 onClick={()=>{router.push('/')}}className="footerbtn">Homepage</h3>
           <h3 onClick={()=>{router.push('/waitlist')}}className="footerbtn">AI Interviews</h3>
-          <h3 onClick={()=>{router.push('/positions')}}className="footerbtn">Blog</h3>
+          <h3 onClick={()=>{router.push('/blog')}}className="footerbtn">Blog</h3>
           <h3 onClick={()=>{router.push('/positions')}}className="footerbtn">Jobs</h3>
           <h3 onClick={()=>{router.push('/feedback')}}className="footerbtn">Contact us</h3>
         </div>
-        <div style={{paddingRight:'15px',display:'flex',flexDirection:'column',gap:'1em',alignItems:'end'}}>
+        <div className='blogBottomPart' style={{paddingRight:'15px',display:'flex',flexDirection:'column',gap:'1em',alignItems:'end'}}>
           <a href="https://www.producthunt.com/posts/edcode?embed=true&utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-edcode" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=492881&theme=light&period=weekly&topic_id=204" alt="edCode - The&#0032;free&#0044;&#0032;fun&#0044;&#0032;and&#0032;effective&#0032;way&#0032;to&#0032;learn&#0032;how&#0032;to&#0032;code&#0046; | Product Hunt" style={{width: '250px',height: '54px'}} width="250" height="54" /></a>
           <a href="https://www.producthunt.com/products/edcode/reviews?utm_source=badge-product_review&utm_medium=badge&utm_souce=badge-edcode" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=609634&theme=dark" alt="edCode - The&#0032;free&#0044;&#0032;fun&#0044;&#0032;and&#0032;effective&#0032;way&#0032;to&#0032;learn&#0032;how&#0032;to&#0032;code&#0046; | Product Hunt" style={{width: '250px',height: '54px'}} width="250" height="54" /></a>
           <a href="https://theresanaiforthat.com/ai/edcode/?ref=featured&v=2652595" target="_blank" rel="nofollow"><img width="300" src="https://media.theresanaiforthat.com/featured-on-taaft.png?width=600"/></a>

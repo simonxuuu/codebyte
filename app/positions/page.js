@@ -19,10 +19,6 @@ const PositionsPage = () => {
         description: "We're looking for a skilled frontend developer with experience in React and Next.js to join our team."
       },
       {
-        title: "Backend Engineer",
-        description: "Seeking a backend engineer proficient in Node.js and experienced with RESTful API design and implementation."
-      },
-      {
         title: "Full Stack Developer",
         description: "Join our team as a full stack developer. Experience with React, Node.js, and database management required."
       },
@@ -31,8 +27,8 @@ const PositionsPage = () => {
         description: "We need a creative UI/UX designer to help create intuitive and visually appealing user interfaces for our products."
       },
       {
-        title: "DevOps Engineer",
-        description: "Looking for a DevOps engineer to streamline our deployment processes and manage our cloud infrastructure."
+        title: "Social Media Marketer",
+        description: "Looking for a skilled Social Media Marketer to improve SEO, increase web traffic, and grow our social media accounts."
       },
       {
         title: "Data Scientist",
