@@ -84,13 +84,16 @@ html{
 .blogContent img{
   display: block; /* Ensures images are treated as block elements */
   margin: 0 auto; /* Centers the image */
-  max-width: 80%; /* Set a max width for the image */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  margin-left: -0.5em;
+  max-width: 105%; /* Set a max width for the image */
   width:max-content; /* Maintain aspect ratio */
 }
 .blogContent img[src*='favicon.ico']{
   display: block; /* Ensures images are treated as block elements */
   margin: 0 auto; /* Centers the image */
-  max-width: 50%; /* Set a max width for the image */
+  max-width: 80%; /* Set a max width for the image */
   width:max-content; /* Maintain aspect ratio */
 }
 .blogContent *{
@@ -140,6 +143,9 @@ html{
   transform: translate(-50%,-84%);
   
   background-color: var(--darkGrey);
+ }
+ .seamlessInput{
+  background-color: transparent; outline:none;  resize: none; 
  }
 .styledInput {
 
@@ -669,6 +675,19 @@ h3 {
   z-index: 1; /* Sit on top */
 }
 
+.blogContent p {
+  margin:0;
+    margin-top:5px;
+    margin-bottom:5px;
+    line-height: 32px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color:var(--grey);
+    font-size:22px;
+    max-width: 55%;
+    text-align: left;
+    white-space: pre-wrap;
+}
 .dropdown-content a {
   color: var(--light); /* Black text */
   padding: 12px 16px; /* Padding */
@@ -721,7 +740,11 @@ a {
 }
 
 
-
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
 .statBubble {
   background-color: #333333;
   border-radius: 1rem;
@@ -765,9 +788,38 @@ a {
   .micDemo{
     scale:2;
   }
+  .blogContent img{
+    
+    max-width: 80%; 
+    
+  }
+  .blogContent img[src*='favicon.ico']{
+    max-width: 30%; 
+  }
+}
+@media only screen and (max-width: 800px){
+  
+  .blogContent p {
+   
+  
+      margin:0;
+
+      letter-spacing: 0.03em;
+      padding: 25px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size:17.5px;
+      max-width: 100%;
+      text-wrap: wrap;
+      overflow-wrap: break-word;
+      text-align: left;
+      
+    
+  }
 }
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
+  
   .dropdownHolderCourses{
     
     flex-direction: row;
@@ -884,12 +936,6 @@ a {
     padding-left: 40px;
     padding-right: 40px;
   }
-}
-
-@font-face {
-  font-family: "Somatic";
-  src: url("../fonts/Somatic.otf") format("opentype");
-  font-display: swap;
 }
 
 .no-scrollbar {

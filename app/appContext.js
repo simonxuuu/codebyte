@@ -16,7 +16,7 @@ const AppProvider = ({ children }) => {
   const [jwt,setJwt]=useState('');
   //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute ='https://codebyte-1b9af19e473e.herokuapp.com';
+  const apiRoute ='http://localhost:8080';
   const [currentCourseData,setCurrentCourseData] = useState({});
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
@@ -28,6 +28,7 @@ const AppProvider = ({ children }) => {
   const [curGems, setCurGems] = useState(0);
   const [lastCourse,setlastCourse] = useState("");
   const [isAuthButton,setIsAuthButton] = useState(false);
+  const [hasCustomCourses,setHasCustomCourses] = useState([]);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -46,20 +47,71 @@ const AppProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
+
+  function dashboardInit(){
+    if(!jwt) return;
+    getCoursesInfo().then((result) => {
+           
+      getCourseProgressData().then((progressData) => {
+        setCourses(result);
+
+        setCurGems(parseInt(progressData.gems));
+        setlastCourse(progressData.curCourse);
+      });
+    
+  });
+  }
+
   useEffect(()=>{
     if(jwt){
-      getCoursesInfo().then((result) => {
-           
-        getCourseProgressData().then((progressData) => {
-          setCourses(result);
-
-          setCurGems(parseInt(progressData.gems));
-          setlastCourse(progressData.curCourse);
-        });
-      
-    });
+      dashboardInit();
     }
   },[jwt])
+
+  function initializeCustomCourse(){
+    if (!jwt) return "error";
+    return fetch(`${apiRoute}/createCustomCourse`, {
+      method: "POST",
+      body: JSON.stringify({ jwt: jwt }),
+      headers: { "Content-type": "application/json" },
+    })
+      .then((response) => {
+        return response.text();
+      })
+      .then((jsonOutput) => {
+        //console.log(jsonOutput);
+        return jsonOutput;
+      });
+  }
+  function fetchCustomCourses(){
+    if (!jwt) return "error"; 
+    return fetch(`${apiRoute}/fetchCustomCourses`, {
+      method: "POST",
+      body: JSON.stringify({ jwt: jwt}),
+      headers: { "Content-type": "application/json" },
+    })
+      .then((jsonOutput) => {
+        return jsonOutput.json();
+      });
+  }
+  function updateCustomCourse(data){
+    if (!jwt) return "error";
+    console.log(data);
+    const originalKey = Object.keys(data)[0];
+    data = { [NormalToCamelCase(originalKey)]: data[originalKey] };
+    console.log(data);
+    return fetch(`${apiRoute}/updateCustomCourse`, {
+      method: "POST",
+      body: JSON.stringify({ jwt: jwt ,data:data}),
+      headers: { "Content-type": "application/json" },
+    })
+      .then((response) => {
+        return response.text();
+      })
+      .then((jsonOutput) => {
+        return jsonOutput;
+      });
+  }
   function returnLevelingFromXp(xp){
      
     let initialXPNeeded = 5;
@@ -82,6 +134,20 @@ const AppProvider = ({ children }) => {
     if (lessonProgress[0] == lessonProgress[1]) return true;
     return false;
   }
+  function NormalToCamelCase(normalString) {
+    normalString = decodeURIComponent(normalString);
+    const words = normalString.split(" ");
+
+    const camelCaseWords = words.map((word, index) => {
+        // Capitalize the first letter and keep the rest as lowercase
+        if (index === 0) {
+            return word.toLowerCase(); // Keep the first word in lowercase
+        }
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    });
+    
+    return camelCaseWords.join("");
+}
   function CamelCaseToNormal(camelCaseString) {
     let newString = [];
     for (let i = 0; i < camelCaseString.length; i++) {
@@ -164,6 +230,15 @@ const AppProvider = ({ children }) => {
         return response.json();
       })
       .then((jsonOutput) => {
+       
+        fetchCustomCourses().then(res =>{
+          if(res != 'Error' || res != "None"){
+            setHasCustomCourses(res);
+            
+            
+          }
+        })
+      
         returnLevelingFromXp(jsonOutput["_doc"].xp);
         setUsername(jsonOutput['_doc'].username);
         return jsonOutput["_doc"];
@@ -421,7 +496,7 @@ const AppProvider = ({ children }) => {
          purgeProgress ,
          registerAccount,
          loginAccount,
-         CamelCaseToNormal,
+         CamelCaseToNormal,NormalToCamelCase,
          lessonOpen,setLessonOpen,
          leveling,
          getCertificate,
@@ -430,7 +505,8 @@ const AppProvider = ({ children }) => {
          changeUsername,
          courses,
          curGems,
-         lastCourse,setUsername,loginAccountWithGoogle
+         lastCourse,setUsername,loginAccountWithGoogle,hasCustomCourses,initializeCustomCourse,updateCustomCourse,
+         dashboardInit
         }}>
       {children}
     </AppContext.Provider>

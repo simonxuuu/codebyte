@@ -40,7 +40,7 @@ const Courses = () => {
         <h2 className="my-6 text-2xl font-medium text-zinc-200">Courses</h2>
         <div className="dropdownHolderCourses">
         <Dropdown title="Language" options={languages} setFilters={setAppliedFilters} filters={appliedFilters}/>
-        <Dropdown title="Experience" options={experienceLevels} setFilters={setAppliedFilters} filters={appliedFilters}/>
+        <Dropdown title="Difficulty" options={experienceLevels} setFilters={setAppliedFilters} filters={appliedFilters}/>
         </div>
        
         <div
@@ -88,29 +88,8 @@ const Courses = () => {
                 courseTitle={course[0]}
                 courseDescription={course[1]}
                 noGems={curGems <= 0}
-                isLocked={course[2] != true || curGems <= 0}
-                onClickGetStarted={() => {
-                  if (course[2] == true && curGems > 0) {
-                    document.body.style.setProperty(
-                      "--transitionAnim",
-                      "fadeInOut 1.1s ease-in-out"
-                    );
-
-                    setTimeout(() => {
-                      appContext.setLessonOpen(true);
-
-                      appContext.setCurrentCourseName(course[0]);
-                      appContext.setCurrentCourseDesc(course[1]);
-                      router.push(`/dashboard/${course[0]}`);
-                    }, 455);
-                    setTimeout(() => {
-                      document.body.style.setProperty(
-                        "--transitionAnim",
-                        "none"
-                      );
-                    }, 1120);
-                  }
-                }}
+                type={course[2] != true ? "unavailable" : 'default'}
+               
               />
             ))}
         </div>
@@ -146,41 +125,19 @@ const Courses = () => {
             }}
           ></hr>
         </div>
+        
         <div style={{ marginBottom: "100px" }} className="flex flex-wrap gap-3">
-          {courses &&
-            courses.map((course, index) => (
-              <CourseComponent
+        {courses && <CourseComponent
                 appContext={appContext}
-                key={index}
-                index={index}
-                courseTitle={course[0]}
-                courseDescription={course[1]}
+                key={0}
+                index={0}
+                type={"custom"}
+                courseTitle={appContext.hasCustomCourses.length > 0 ? Object.keys(appContext.hasCustomCourses[0])[0] : 'Custom Course'}
+                courseDescription={appContext.hasCustomCourses.length > 0 ? appContext.hasCustomCourses[0][Object.keys(appContext.hasCustomCourses[0])[0]].courseDescription: "Share your custom course via add code, or submit for review and get it added to edCode Courses."}
                 noGems={curGems <= 0}
-                isLocked={course[2] != true || curGems <= 0}
-                onClickGetStarted={() => {
-                  if (course[2] == true && curGems > 0) {
-                    document.body.style.setProperty(
-                      "--transitionAnim",
-                      "fadeInOut 1.1s ease-in-out"
-                    );
-
-                    setTimeout(() => {
-                      appContext.setLessonOpen(true);
-
-                      appContext.setCurrentCourseName(course[0]);
-                      appContext.setCurrentCourseDesc(course[1]);
-                      router.push(`/dashboard/${course[0]}`);
-                    }, 455);
-                    setTimeout(() => {
-                      document.body.style.setProperty(
-                        "--transitionAnim",
-                        "none"
-                      );
-                    }, 1120);
-                  }
-                }}
-              />
-            ))}
+                isLocked={false}
+               
+              /> }
         </div>
       </div>
     </div>

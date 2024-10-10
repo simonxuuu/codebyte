@@ -20,7 +20,7 @@ const Dashboard = () => {
   
   
  
-  useEffect(()=>{const gradient = new Gradient();gradient.initGradient("#gradient-canvas-dashboard");},[])
+  useEffect(()=>{const gradient = new Gradient();gradient.initGradient("#gradient-canvas-dashboard"); appContext.dashboardInit();},[])
   const dashboardPages = [
     {
       name: "Courses",
@@ -56,28 +56,20 @@ const Dashboard = () => {
                   courseDescription={course[1]}
                   noGems={appContext.curGems <= 0}
                   isLocked={course[2] != true || appContext.curGems <= 0}
-                  onClickGetStarted={() => {
-                    
-                    if (course[2] == true && appContext.curGems > 0) {
-                      
-                      document.body.style.setProperty('--transitionAnim', 'fadeInOut 1.1s ease-in-out');
-
-                      setTimeout(()=>{
-                        appContext.setLessonOpen(true);
-                       
-                        
-                        appContext.setCurrentCourseName(course[0]);
-                        appContext.setCurrentCourseDesc(course[1]);
-                        router.push(`/dashboard/${course[0]}`);
-                        
-                        
-                      },455);
-                      setTimeout(()=>{document.body.style.setProperty('--transitionAnim', 'none');},1120)
-                    }
-                  }}
+                  
                 />
               )} })}
-              
+              {(appContext.hasCustomCourses.length > 0 &&  Object.keys(appContext.hasCustomCourses[0])[0] == appContext.lastCourse)&& <CourseComponent
+                appContext={appContext}
+                key={0}
+                index={0}
+                type={"custom"}
+                courseTitle={ Object.keys(appContext.hasCustomCourses[0])[0]}
+                courseDescription={appContext.hasCustomCourses[0][Object.keys(appContext.hasCustomCourses[0])[0]].courseDescription}
+                
+                
+               
+              /> }
           </div>
 
           

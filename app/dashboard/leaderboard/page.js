@@ -19,14 +19,11 @@ const Courses = () => {
       for(let i = 0; i<result.length;i++){
         temp[i] = result[i];
       }
-      console.log(temp);
       setData(temp);
     });
   }, []);
   return (
    
-      
-
       <div className="flex lg:flex-row flex-col">
         <div className="md:p-8 p-4 ">
           

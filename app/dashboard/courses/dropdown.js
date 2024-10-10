@@ -46,17 +46,20 @@ const Dropdown = ({title, options ,filters,setFilters}) => {
                                 display: 'flex',
                                 justifyContent: 'space-between',
                                 alignItems: 'center',
-                                padding: '1em'
+                                padding: '1em',
+                                cursor:'pointer'
                             }}
                         >
                             <a
-                                style={{ margin: 0, padding: 0, paddingRight: '1em' }}
+                            className='prevent-select'
+                                style={{ margin: 0, padding: 0, paddingRight: '1em', pointerEvents:'none',}}
                             >
                                 {option}
                             </a>
                             <FontAwesomeIcon
                                 icon={faCheck}
                                 style={{
+                                    pointerEvents:'none',
                                     color: 'var(--darkGrey)',
                                     display: filters.includes(option) ? '' : 'none'
                                 }}

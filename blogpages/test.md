@@ -20,17 +20,23 @@ We hope to keep this community growing, so if you'd like to see anything added, 
 
 That being said, let's get into what we added.
 
+
+# Blog Posts
+
 We made this blog, which will have weekly or biweekly updates on development, as well as helpful information. 
 
-
+# Usernames
 Custom usernames! Now you don't have to stick with the default randomly generated username. We also added more variety to the randomly generated usernames.
 ![Art](/ss5.png) 
 
+# Course Creator
 Course creator - Create custom courses in the edCode dashboard, share with others via an add code or submit it to us for review, and we will add it to the courses tab!
 
-new course - intro to c++
+# New course
 
+# Bug fixes
 
-What's next?
+# What's next?
+Friends, More courses, Challenges, Codey Preview
 
-Codey - AI Interview Helper
+# Patch Notes
