@@ -104,41 +104,9 @@ const Courses = () => {
             marginBottom: "0.8em",
           }}
         >
-          <h3
-            style={{
-              fontSize: "1em",
-              margin: 0,
-              padding: 0,
-              color: "var(--darkGrey)",
-              fontWeight: "500",
-              flexShrink:0,
-              paddingRight:'1em'
-            }}
-          >
-            Your Courses
-          </h3>
-          <hr
-            style={{
-              width: "82%",
-              border: "1px solid var(--darkGrey)",
-              opacity: "0.3",
-            }}
-          ></hr>
+          
         </div>
         
-        <div style={{ marginBottom: "100px" }} className="flex flex-wrap gap-3">
-        {courses && <CourseComponent
-                appContext={appContext}
-                key={0}
-                index={0}
-                type={"custom"}
-                courseTitle={appContext.hasCustomCourses.length > 0 ? Object.keys(appContext.hasCustomCourses[0])[0] : 'Custom Course'}
-                courseDescription={appContext.hasCustomCourses.length > 0 ? appContext.hasCustomCourses[0][Object.keys(appContext.hasCustomCourses[0])[0]].courseDescription: "Share your custom course via add code, or submit for review and get it added to edCode Courses."}
-                noGems={curGems <= 0}
-                isLocked={false}
-               
-              /> }
-        </div>
       </div>
     </div>
   );

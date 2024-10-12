@@ -17,7 +17,7 @@ const AppProvider = ({ children }) => {
   //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
   const apiRoute ='http://localhost:8080';
-  const [currentCourseData,setCurrentCourseData] = useState({});
+ 
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
   const [currentCourseDesc,setCurrentCourseDesc] = useState('');
@@ -28,7 +28,7 @@ const AppProvider = ({ children }) => {
   const [curGems, setCurGems] = useState(0);
   const [lastCourse,setlastCourse] = useState("");
   const [isAuthButton,setIsAuthButton] = useState(false);
-  const [hasCustomCourses,setHasCustomCourses] = useState([]);
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -67,51 +67,7 @@ const AppProvider = ({ children }) => {
       dashboardInit();
     }
   },[jwt])
-
-  function initializeCustomCourse(){
-    if (!jwt) return "error";
-    return fetch(`${apiRoute}/createCustomCourse`, {
-      method: "POST",
-      body: JSON.stringify({ jwt: jwt }),
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        return response.text();
-      })
-      .then((jsonOutput) => {
-        //console.log(jsonOutput);
-        return jsonOutput;
-      });
-  }
-  function fetchCustomCourses(){
-    if (!jwt) return "error"; 
-    return fetch(`${apiRoute}/fetchCustomCourses`, {
-      method: "POST",
-      body: JSON.stringify({ jwt: jwt}),
-      headers: { "Content-type": "application/json" },
-    })
-      .then((jsonOutput) => {
-        return jsonOutput.json();
-      });
-  }
-  function updateCustomCourse(data){
-    if (!jwt) return "error";
-    console.log(data);
-    const originalKey = Object.keys(data)[0];
-    data = { [NormalToCamelCase(originalKey)]: data[originalKey] };
-    console.log(data);
-    return fetch(`${apiRoute}/updateCustomCourse`, {
-      method: "POST",
-      body: JSON.stringify({ jwt: jwt ,data:data}),
-      headers: { "Content-type": "application/json" },
-    })
-      .then((response) => {
-        return response.text();
-      })
-      .then((jsonOutput) => {
-        return jsonOutput;
-      });
-  }
+  
   function returnLevelingFromXp(xp){
      
     let initialXPNeeded = 5;
@@ -129,11 +85,7 @@ const AppProvider = ({ children }) => {
     return null;
   }
 
-  function IsLessonCompleted(lessonProgress) {
-    lessonProgress = lessonProgress.split("/");
-    if (lessonProgress[0] == lessonProgress[1]) return true;
-    return false;
-  }
+  
   function NormalToCamelCase(normalString) {
     normalString = decodeURIComponent(normalString);
     const words = normalString.split(" ");
@@ -231,14 +183,7 @@ const AppProvider = ({ children }) => {
       })
       .then((jsonOutput) => {
        
-        fetchCustomCourses().then(res =>{
-          if(res != 'Error' || res != "None"){
-            setHasCustomCourses(res);
-            
-            
-          }
-        })
-      
+        
         returnLevelingFromXp(jsonOutput["_doc"].xp);
         setUsername(jsonOutput['_doc'].username);
         return jsonOutput["_doc"];
@@ -351,7 +296,7 @@ const AppProvider = ({ children }) => {
         return jsonOutput;
       });
   }
-
+  
   function registerAccount(form) {
     if(isAuthButton) return;
     if (!form) return "error";
@@ -483,7 +428,6 @@ const AppProvider = ({ children }) => {
          setEmail,
          jwt,
          apiRoute,
-         currentCourseData,
          getCoursesInfo,
          getLessonNames,
          currentCourseName,setCurrentCourseName,
@@ -505,8 +449,8 @@ const AppProvider = ({ children }) => {
          changeUsername,
          courses,
          curGems,
-         lastCourse,setUsername,loginAccountWithGoogle,hasCustomCourses,initializeCustomCourse,updateCustomCourse,
-         dashboardInit
+         lastCourse,setUsername,loginAccountWithGoogle,
+         dashboardInit,
         }}>
       {children}
     </AppContext.Provider>

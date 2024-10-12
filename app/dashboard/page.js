@@ -59,17 +59,7 @@ const Dashboard = () => {
                   
                 />
               )} })}
-              {(appContext.hasCustomCourses.length > 0 &&  Object.keys(appContext.hasCustomCourses[0])[0] == appContext.lastCourse)&& <CourseComponent
-                appContext={appContext}
-                key={0}
-                index={0}
-                type={"custom"}
-                courseTitle={ Object.keys(appContext.hasCustomCourses[0])[0]}
-                courseDescription={appContext.hasCustomCourses[0][Object.keys(appContext.hasCustomCourses[0])[0]].courseDescription}
-                
-                
-               
-              /> }
+              
           </div>
 
           

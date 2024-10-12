@@ -68,6 +68,18 @@ html{
  
   overflow-y: scroll;
 }
+.lessonConfigHolder{
+  background:var(--green) ;
+  width: 25em;
+  height:10em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap:5px;
+  
+  border-radius: 1rem;
+  padding:1rem;
+}
 .blogArticle{
   display: flex;
   flex-direction: column;

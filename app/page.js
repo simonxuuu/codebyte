@@ -97,7 +97,7 @@ export default function Home() {
             or prepare for that interview.
           </h1>
 
-  <p style={{ fontWeight: 300, color: 'var(--white)' }} className="my-4 mb-0 xl:text-xl lg:text-lg md:text-base">
+  <p style={{ fontWeight: 300, color: 'var(--white)',fontSize:'1.35em' }} className="my-4 mb-0 xl:text-xl lg:text-lg md:text-base">
     edCode is for 
     
       everyone,
@@ -105,7 +105,7 @@ export default function Home() {
     from beginners to experts. 
   </p>
 
-  <p style={{ fontWeight: 300, color: 'var(--white)' }} className=" my-4 mt-0 xl:text-xl lg:text-lg md:text-base">
+  <p style={{ fontWeight: 300, color: 'var(--white)',fontSize:'1.35em' }} className=" my-4 mt-0 xl:text-xl lg:text-lg md:text-base">
     Learn to code, or prepare to land your dream job with our  <strong style={{ fontWeight: '450',}} >AI interview prep.</strong>
   </p>
   <div style={{display:'flex',gap:15}}>
@@ -118,15 +118,7 @@ export default function Home() {
     </button>
   </Link>
 
-  <Link href="/waitlist">
-            <button
-            style={{fontWeight:600,backgroundColor:'var(--light)',color:'var(--darkCharcoal)'}}
-              className="text-xl md:w-fit w-full mt-8 px-7 py-2 rounded-xl "
-              
-            >
-              AI Interview Prep
-            </button>
-          </Link>
+ 
           </div>
           
 
