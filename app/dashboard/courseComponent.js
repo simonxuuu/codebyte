@@ -9,13 +9,14 @@ const CourseComponent = ({
   appContext,
   courseTitle,
   courseDescription,
-  index,
+  index,language,
   type
 }) => {
   
   const router = useRouter();
   const courseImages = {
-    "pythonBasics" : "/languages/python.png"
+    "Python" : "/languages/python.png",
+    "Javascript" : "/languages/js.png"
   }
   
   const onClickGetStarted= () => {
@@ -58,10 +59,10 @@ const CourseComponent = ({
         {type != "custom" ? (<div className="p-px bg-gradient-to-b from-zinc-700 to-zinc-800 rounded-lg w-fit">
             <div className="p-2 size-10 rounded-md bg-zinc-800">
                 <Image
-                  src={courseImages[courseTitle]}
-                  width={20}
-                  height={20}
-                  alt="python"
+                  src={courseImages[language]}
+                  width={25}
+                  height={25}
+                  alt={language}
                 />
               </div>
             </div> ) : (null)}

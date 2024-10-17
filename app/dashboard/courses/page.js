@@ -85,6 +85,7 @@ const Courses = () => {
                 appContext={appContext}
                 key={index}
                 index={index}
+                language={course[3]}
                 courseTitle={course[0]}
                 courseDescription={course[1]}
                 noGems={curGems <= 0}

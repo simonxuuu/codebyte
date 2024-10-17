@@ -52,6 +52,7 @@ const Dashboard = () => {
                   appContext={appContext}
                   key={index}
                   index={index}
+                  language={course[3]}
                   courseTitle={course[0]}
                   courseDescription={course[1]}
                   noGems={appContext.curGems <= 0}
