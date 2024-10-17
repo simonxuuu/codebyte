@@ -21,6 +21,7 @@ export default function Register() {
       }
     });
   };
+  // 1000 hours were spent on this project.
   const handleSubmitGoogle = (event) => {
     appContext.loginAccountWithGoogle(event).then((response) => {
       console.log(response);
