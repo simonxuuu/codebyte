@@ -16,7 +16,7 @@ const AppProvider = ({ children }) => {
   const [jwt,setJwt]=useState('');
   //https://codebyte-1b9af19e473e.herokuapp.com
   //http://localhost:8080
-  const apiRoute ='http://localhost:8080';
+  const apiRoute ='https://codebyte-1b9af19e473e.herokuapp.com';
  
   const [currentLessonName,setCurrentLessonName] = useState('');
   const [currentCourseName,setCurrentCourseName] = useState('');
@@ -68,6 +68,33 @@ const AppProvider = ({ children }) => {
     }
   },[jwt])
   
+  function codeyTest(){
+    fetch(`${apiRoute}/codeyTest`, {
+      method: "POST",
+      body: JSON.stringify({ testPrompt: "hello! codey here. I'm a big fan of JavaScript and Python. I will help you practice your interview skills. Let's get started. hello! codey here. I'm a big fan of JavaScript and Python. I will help you practice your interview skills. Let's get started. hello! codey here. I'm a big fan of JavaScript and Python. I will help you practice your interview skills. Let's get started. hello! codey here. I'm a big fan of JavaScript and Python. I will help you practice your interview skills. Let's get started." }),
+      headers: { "Content-type": "application/json" }
+    })
+      .then((response) => {
+        return response.blob();
+      })
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+
+// Create an audio element
+const audio = new Audio(url);
+
+// Play the audio
+audio.play().catch((error) => {
+    console.error('Error playing audio:', error);
+});
+
+// Optional: Set up an event listener to revoke the URL after the audio has finished playing
+audio.addEventListener('ended', () => {
+    window.URL.revokeObjectURL(url); // Release memory after playback
+});
+      });
+  }
+
   function returnLevelingFromXp(xp){
      
     let initialXPNeeded = 5;
@@ -450,7 +477,7 @@ const AppProvider = ({ children }) => {
          courses,
          curGems,
          lastCourse,setUsername,loginAccountWithGoogle,
-         dashboardInit,
+         dashboardInit,codeyTest
         }}>
       {children}
     </AppContext.Provider>

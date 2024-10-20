@@ -56,6 +56,10 @@ const FAANG = [
 
 
 export default function Home() {
+
+ 
+
+
   const router = useRouter();
   const [showWaitlist, setShowWaitlist] = useState(false);
   const appContext = useContext(AppContext);
@@ -96,7 +100,11 @@ export default function Home() {
             <br />
             or prepare for that interview.
           </h1>
+          <button className="button" onClick={(()=>{
+      //https://fuzzy-succotash-7v79664qr4rghpv56-8080.app.github.dev/
+     appContext.codeyTest();
 
+    })}>codey test</button>
   <p style={{ fontWeight: 300, color: 'var(--white)',fontSize:'1.35em' }} className="my-4 mb-0 xl:text-xl lg:text-lg md:text-base">
     edCode is for 
     
@@ -104,7 +112,7 @@ export default function Home() {
    
     from beginners to experts. 
   </p>
-
+   
   <p style={{ fontWeight: 300, color: 'var(--white)',fontSize:'1.35em' }} className=" my-4 mt-0 xl:text-xl lg:text-lg md:text-base">
     Learn to code, or prepare to land your dream job with our  <strong style={{ fontWeight: '450',}} >AI interview prep.</strong>
   </p>
