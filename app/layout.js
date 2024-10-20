@@ -29,6 +29,7 @@ export default function Layout({ children }) {
     <AppProvider>
       <html>
         <Head>
+        <link rel="canonical" href='https://edcodee.me/'/>
         <meta name="google-site-verification" content="v_gCot5YTnbaxbbvkpn8HXg6Du52rsakKuf0LLaC8DM" />
         </Head>
         <body>
