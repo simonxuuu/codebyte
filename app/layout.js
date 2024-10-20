@@ -18,6 +18,7 @@ export const metadata = {
   },
   image : "/socialmedia2.png",
   'google-site-verification' : "v_gCot5YTnbaxbbvkpn8HXg6Du52rsakKuf0LLaC8DM"
+  
 };
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -29,6 +30,7 @@ export default function Layout({ children }) {
     <AppProvider>
       <html>
         <Head>
+        <link rel="canonical" href='https://edcodee.me/'/>
         <meta name="google-site-verification" content="v_gCot5YTnbaxbbvkpn8HXg6Du52rsakKuf0LLaC8DM" />
         </Head>
         <body>
